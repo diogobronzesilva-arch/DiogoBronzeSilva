@@ -127,10 +127,6 @@ p { margin: 0 0 1.1em; }
   gap: 1.35rem;
 }
 
-@media (max-width: 26rem) {
-  .nav { gap: 0.9rem 1.1rem; }
-}
-
 .nav a {
   font-family: var(--sans);
   font-size: 0.75rem;
@@ -153,6 +149,34 @@ p { margin: 0 0 1.1em; }
   margin-right: 0.5rem;
   vertical-align: 0.18em;
   background: var(--bronze);
+}
+
+/* On phones, give the navigation its own row and distribute all five
+   destinations evenly. This avoids a single item dropping onto a second row. */
+@media (max-width: 46rem) {
+  .masthead__inner { align-items: stretch; }
+
+  .wordmark { width: 100%; }
+
+  .nav {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(5, max-content);
+    justify-content: space-between;
+    gap: 0;
+  }
+
+  .nav a {
+    font-size: clamp(0.59rem, 2.7vw, 0.7rem);
+    letter-spacing: 0.06em;
+    white-space: nowrap;
+  }
+
+  .nav a[aria-current="page"]::before {
+    width: 3px;
+    height: 3px;
+    margin-right: 0.25rem;
+  }
 }
 
 /* ---------- Prose links ---------- */
@@ -264,7 +288,9 @@ p { margin: 0 0 1.1em; }
 /* ---------- Page heads ---------- */
 
 .pagehead {
-  /* Keep the shell's horizontal gutter; this class only controls vertical rhythm. */
+  /* Keep an explicit horizontal gutter so later spacing changes cannot
+     accidentally place headings against the edge of a phone screen. */
+  padding-inline: var(--gutter);
   padding-top: clamp(2.5rem, 6vw, 5rem);
   padding-bottom: clamp(1.75rem, 4vw, 3rem);
 }
@@ -582,7 +608,8 @@ p { margin: 0 0 1.1em; }
 
 .notes-preview {
   border-top: 1px solid var(--rule);
-  /* Preserve .shell padding on the left and right, especially on mobile. */
+  /* Match the rest of the shell on mobile as well as on desktop. */
+  padding-inline: var(--gutter);
   padding-top: clamp(2rem, 5vw, 3rem);
 }
 
