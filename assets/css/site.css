@@ -241,12 +241,6 @@ p { margin: 0 0 1.1em; }
 
 .hero__welcome p:last-child { margin-bottom: 0; }
 
-.hero__welcome p:first-child {
-  font-size: 1.3125rem;
-  line-height: 1.55;
-  margin-bottom: 1.85rem;
-}
-
 /* ---------- Index of rooms (home) ---------- */
 
 .rooms {
@@ -512,7 +506,6 @@ p { margin: 0 0 1.1em; }
 
 .signup input[type="email"]::placeholder { color: var(--ink-faint); }
 .signup input[type="email"]:focus {
-  outline: none;
   border-bottom-color: var(--bronze);
 }
 
