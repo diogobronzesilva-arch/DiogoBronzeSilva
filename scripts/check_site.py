@@ -327,6 +327,8 @@ def check_html(report: Report) -> dict[Path, PageParser]:
                 report.error(f"Email input #{field_id or '<no id>'} should be required.", rel)
 
         for tag, attr, url in parser.references:
+            if rel == TEMPLATE and "SLUG-DA-NOTA" in url:
+                continue
             check_reference(rel, url, report, f"{tag} {attr}")
 
         for key in ("og:image",):
