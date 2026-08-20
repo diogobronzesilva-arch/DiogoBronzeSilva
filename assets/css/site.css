@@ -156,7 +156,10 @@ p { margin: 0 0 1.1em; }
 @media (max-width: 46rem) {
   .masthead__inner { align-items: stretch; }
 
-  .wordmark { width: 100%; }
+  .wordmark {
+    width: 100%;
+    font-size: 1.25rem;
+  }
 
   .nav a[href="/"] { display: none; }
 
@@ -169,7 +172,7 @@ p { margin: 0 0 1.1em; }
   }
 
   .nav a {
-    font-size: clamp(0.59rem, 2.7vw, 0.7rem);
+    font-size: 0.75rem;
     letter-spacing: 0.06em;
     white-space: nowrap;
   }
