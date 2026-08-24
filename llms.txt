@@ -8,7 +8,7 @@ The site is hand-written static HTML and CSS: no JavaScript, no analytics, no tr
 
 - [Work](https://diogobronzesilva.com/work/): Diogo's approach to B2B software sales, decision-making and AI-native sales workflows.
 - Core idea: Sales is conversation.
-- Core idea: Good sales helps people decide. It does not decide for them.
+- Core idea: Good salespeople help people decide. They don't decide for them.
 - Core idea: AI should remove the work around the conversation, not the conversation itself.
 
 ## Notes
@@ -19,13 +19,13 @@ The site is hand-written static HTML and CSS: no JavaScript, no analytics, no tr
 - [The Reign of Quantities](https://diogobronzesilva.com/notes/the-reign-of-quantities/): Quality asks for an artisan and time. Quantity asks for neither, which is exactly the trade modern production keeps making. Published 10 December 2021.
 - [Efficiency, the One Ring to rule them all](https://diogobronzesilva.com/notes/efficiency-the-one-ring/): Efficiency has no natural ceiling. Left to itself it stops serving us and starts being served. Published 22 November 2021.
 
-The Notes index also holds selected podcast and interview appearances under a Conversations section. These are treated as part of Diogo's intellectual and editorial work rather than as professional credentials. The RSS feed remains limited to published written notes.
+The Notes index also holds selected podcast and interview appearances under a Podcasts and Live Interviews section. These are treated as part of Diogo's intellectual and editorial work rather than as professional credentials. The RSS feed remains limited to published written notes.
 
 ## Pages
 
 - [Home](https://diogobronzesilva.com/): Personal front door to Work, Photography and Notes.
 - [Work](https://diogobronzesilva.com/work/): Sales, technology, decisions and the human part of the job.
-- [Notes index](https://diogobronzesilva.com/notes/): Essays and selected conversations.
+- [Notes index](https://diogobronzesilva.com/notes/): Essays, handwritten notes and selected podcast/live interview appearances.
 - [Contact](https://diogobronzesilva.com/contact/): Email address and links.
 - [RSS feed](https://diogobronzesilva.com/feed.xml): Published written notes in RSS 2.0.
 
