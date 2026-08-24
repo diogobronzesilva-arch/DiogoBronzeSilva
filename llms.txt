@@ -13,6 +13,10 @@ The site is hand-written static HTML and CSS: no JavaScript, no analytics, no tr
 
 ## Notes
 
+- [The ability to leave work](https://diogobronzesilva.com/notes/the-ability-to-leave-work/): Ambition becomes easier to live with when work is given a proper place, important enough to do well and limited enough to leave behind. Published 24 August 2026.
+- [Things parenthood teaches you about people](https://diogobronzesilva.com/notes/parenthood-teaches-you-about-people/): Parenthood teaches a few things that travel surprisingly well into working life: apologise properly, protect trust and do not punish curiosity for being inconvenient. Published 19 August 2026.
+- [What ten years can build](https://diogobronzesilva.com/notes/what-ten-years-can-build/): Most of what matters is built quietly, through ordinary days repeated long enough to become a life. Published 18 August 2026.
+- [Work educates](https://diogobronzesilva.com/notes/work-educates/): Some kinds of work teach things that explanation cannot: consequence, patience, responsibility and the satisfaction of doing something properly. Published 14 August 2026.
 - [Escassez de trabalhadores qualificados](https://diogobronzesilva.com/notes/escassez-de-trabalhadores-qualificados/): Em português. Porque falta mão de obra qualificada em Portugal: natalidade em quebra, um sistema de ensino desalinhado com a procura real, e uma cultura que tornou o risco de empreender menos atractivo. Publicado a 8 de Julho de 2022.
 - [Bitcoin | The Fairy Tale](https://diogobronzesilva.com/notes/bitcoin-the-fairy-tale/): Why no currency removes the imperfection built into human exchange, because the imperfection was never in the ledger. Published 20 June 2022.
 - [Panem et circenses](https://diogobronzesilva.com/notes/panem-et-circenses/): On the selectivity of online outrage, and why moral performance on social media rewards looking right over being right. Published 25 February 2022.
