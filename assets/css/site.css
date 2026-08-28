@@ -362,6 +362,9 @@ p { margin: 0 0 1.1em; }
 
 .entry:hover .entry__title { color: var(--bronze); }
 
+/* Work entries are editorial sections, not interactive links. */
+.work-page .entry:hover .entry__title { color: inherit; }
+
 .entry__dek {
   color: var(--ink-soft);
   font-size: 1rem;
