@@ -58,7 +58,7 @@ A experiência profissional serve para sustentar estas ideias, não para transfo
 3. Adicionar a entrada no topo da secção de notas recentes em `notes/index.html`.
 4. Adicionar a URL a `sitemap.xml`.
 5. Adicionar um `<item>` no topo de `feed.xml`.
-6. Quando existirem três notas recentes, trocar `Selected Notes` na Home por `Latest Notes` e mostrar as três mais recentes.
+6. Actualizar sempre `Latest Notes` na Home, mantendo apenas as três notas publicadas mais recentes, por ordem decrescente de data.
 
 O RSS contém apenas textos publicados. Participações em podcasts ou entrevistas não entram no feed.
 
