@@ -13,6 +13,7 @@ The site is hand-written static HTML and CSS: no JavaScript, no analytics, no tr
 
 ## Notes
 
+- [Deus e o Belo](https://diogobronzesilva.com/notes/deus-e-o-belo/): Em português. Se Deus é o próprio Ser, então a beleza não é um adorno religioso: é um sinal da ordem, da verdade e do bem que todas as coisas recebem d'Ele. Publicado a 31 de Agosto de 2026.
 - [The ability to leave work](https://diogobronzesilva.com/notes/the-ability-to-leave-work/): Ambition becomes easier to live with when work is given a proper place, important enough to do well and limited enough to leave behind. Published 24 August 2026.
 - [Things parenthood teaches you about people](https://diogobronzesilva.com/notes/parenthood-teaches-you-about-people/): Parenthood teaches a few things that travel surprisingly well into working life: apologise properly, protect trust and do not punish curiosity for being inconvenient. Published 19 August 2026.
 - [What ten years can build](https://diogobronzesilva.com/notes/what-ten-years-can-build/): Most of what matters is built quietly, through ordinary days repeated long enough to become a life. Published 18 August 2026.
