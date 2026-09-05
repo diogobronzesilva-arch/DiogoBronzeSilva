@@ -74,7 +74,7 @@ Os formulários apontam para Buttondown:
 
 `https://buttondown.com/api/emails/embed-subscribe/bronze_da_silva`
 
-O formulário aparece na Home, no índice de Notes e no fim de cada artigo. Usa validação HTML nativa e abre a confirmação num novo separador.
+O formulário aparece no índice de Notes e no fim de cada artigo. Usa validação HTML nativa e abre a confirmação num novo separador.
 
 ## SEO e partilha
 
