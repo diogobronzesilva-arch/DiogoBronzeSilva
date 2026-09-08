@@ -43,10 +43,15 @@ USER_AGENT = "Mozilla/5.0 (compatible; SiteAuditor/1.0; +https://diogobronzesilv
 
 
 def fetch(url: str, timeout: int = 10, follow_redirects: bool = True) -> tuple[int, dict[str, str], bytes, float]:
+    class NoRedirect(urllib.request.HTTPRedirectHandler):
+        def redirect_request(self, req, fp, code, msg, headers, newurl):
+            return None
+
     req = urllib.request.Request(url, headers={"User-Agent": USER_AGENT})
     start = time.perf_counter()
     try:
-        with urllib.request.urlopen(req, timeout=timeout) as resp:
+        opener = urllib.request.build_opener() if follow_redirects else urllib.request.build_opener(NoRedirect)
+        with opener.open(req, timeout=timeout) as resp:
             duration = time.perf_counter() - start
             headers = {k.title(): v for k, v in resp.headers.items()}
             return resp.status, headers, resp.read(), duration
@@ -116,6 +121,16 @@ def main() -> int:
     else:
         issues.append("Could not extract latest item title from live feed.xml")
         print("  [FAIL] Feed does not contain items")
+
+    # 6. Check canonical host redirection (www -> non-www)
+    print("\n6. Checking www canonical redirect:")
+    www_status, www_headers, _, www_elapsed = fetch("https://www.diogobronzesilva.com/", follow_redirects=False)
+    www_location = www_headers.get("Location", "")
+    if www_status == 301 and www_location.rstrip("/") == SITE_ORIGIN:
+        print(f"  [OK] https://www.diogobronzesilva.com/ redirects 301 -> {www_location} ({www_elapsed * 1000:.0f}ms)")
+    else:
+        issues.append(f"www redirect check failed: HTTP {www_status}, Location: {www_location}")
+        print(f"  [FAIL] Expected 301 redirect to {SITE_ORIGIN}/, got HTTP {www_status} (Location: {www_location})")
 
     print("\n" + "=" * 50)
     if not issues:
