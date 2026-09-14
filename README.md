@@ -20,6 +20,7 @@ sitemap.xml                        → /sitemap.xml
 robots.txt                         → /robots.txt
 llms.txt                           → /llms.txt
 assets/css/site.css                → folha de estilos única
+assets/fonts/                      → tipografia self-hosted (.woff2)
 assets/img/                        → fotografia, Open Graph e vinhetas
 scripts/check_site.py              → validação técnica do site
 .github/workflows/site-checks.yml  → CI para PRs e main
@@ -102,7 +103,7 @@ A estética deve continuar editorial, calma, clássica e com muito espaço negat
 
 Não há analytics nem tracking instalados.
 
-As fontes são actualmente carregadas através de Google Fonts. Se um dia se quiser eliminar esse pedido externo, fazer self-host dos `.woff2` e substituir os links por `@font-face` locais.
+As fontes (Newsreader e Instrument Sans) são self-hosted localmente em `/assets/fonts/` através de ficheiros `.woff2` e regras `@font-face` em `site.css`, eliminando pedidos externos a CDNs de terceiros.
 
 Buttondown só recebe dados de quem opta por subscrever a newsletter.
 
