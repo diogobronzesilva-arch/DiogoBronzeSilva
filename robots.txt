@@ -11,6 +11,7 @@ User-agent: Googlebot
 User-agent: Google-Extended
 User-agent: Googlebot-Image
 User-agent: Bingbot
+User-agent: msnbot
 User-agent: DuckDuckBot
 User-agent: Applebot
 User-agent: Applebot-Extended
@@ -23,6 +24,9 @@ User-agent: Claude-User
 User-agent: PerplexityBot
 User-agent: Perplexity-User
 User-agent: meta-externalagent
+User-agent: FacebookBot
+User-agent: cohere-ai
+User-agent: Diffbot
 User-agent: Amazonbot
 User-agent: Bytespider
 User-agent: CCBot

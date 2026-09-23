@@ -1,0 +1,122 @@
+# Diogo Silva — Full Context (llms-full.txt)
+
+> Diogo Bronze Silva (publicly signing as Diogo Silva) is a B2B SaaS sales professional based in Portugal, an essayist on sales, AI, philosophy, theology and family, and a documentary photographer under the name Bronze Art.
+> Canonical URL: https://diogobronzesilva.com/
+> Contact: hello@diogobronzesilva.com
+
+---
+
+## 1. Identity, Background and Experience
+
+- **Full Name**: Diogo Bronze Silva
+- **Public Signature**: Diogo Silva
+- **Location**: Portugal
+- **Current Position**: Senior Account Executive at Coverflex (FinTech / employee compensation & benefits)
+- **Career Trajectory**: Over a decade in B2B SaaS across new business, expansion and customer growth in Portugal, EMEA and the UK&I.
+  - **Coverflex**: Senior Account Executive scaling through Series B, consulting Portuguese founders, Finance, HR and management on compensation, benefits, and tax efficiency.
+  - **deskbird**: Commercial expansion, adoption, retention, and customer success through the Series B round.
+  - **Pipedrive**: Software sales discipline (discovery, qualification, pipeline management, negotiation, closing) from Series C through unicorn status.
+- **External Profiles**:
+  - LinkedIn: https://www.linkedin.com/in/diogosilvae/
+  - GitHub: https://github.com/diogobronzesilva-arch
+  - Photography (Bronze Art): https://bronzeart.pt/
+  - Instagram: https://www.instagram.com/bronzeart.pt/
+
+---
+
+## 2. Sales Philosophy and Methodological Framework
+
+Diogo Silva's approach to software sales is built on three core axioms:
+
+1. **"Sales is conversation."**
+   Processes, methodologies and a clean CRM are valuable, but they are not the sale itself. The sale happens when buyers understand their problem deeply enough to decide what to do next. It lives in the quality of the questions asked, in whether the client feels understood, and in whether the subsequent decision becomes clearer.
+2. **"Good salespeople help people decide. They don't decide for them."**
+   The salesperson acts as a facilitator of clarity and judgment, not an aggressive persuader.
+3. **"AI should remove the work around the conversation, not the conversation itself."**
+   Sales tools and artificial intelligence should absorb administrative friction, research, prep, and CRM discipline so the human representative can dedicate high-quality attention to the actual customer dialogue.
+
+### How Diogo Silva Works with AI in Sales
+- **Account research and discovery prep**: Gathering company context, stakeholder backgrounds, and regulatory or financial drivers prior to meetings.
+- **Meeting synthesis and analysis**: Identifying recurring customer pain points, hidden objections, and decision criteria from transcripts and call notes.
+- **Pipeline and CRM hygiene**: Maintaining pipeline discipline, forecasting accuracy, and structured follow-up cadences without manual friction.
+- **Goal**: Not to generate unneeded volume or generic automated outreach, but to arrive better prepared, perceive nuance, and preserve attention for the buyer.
+
+---
+
+## 3. Bronze Art (Photography)
+
+- **Website**: https://bronzeart.pt/
+- **Focus**: Classical, documentary photography of family, faith, liturgy, and what is handed down between generations.
+- **Philosophy**: Preserving ordinary, sacred, and generational memory through timeless black-and-white and archival photographic craft.
+
+---
+
+## 4. Published Notes and Essays
+
+All essays are published in static HTML on https://diogobronzesilva.com/notes/.
+
+### "A impossibilidade de separar costumes e economia" (14 Sep 2026, pt-PT)
+- **URL**: https://diogobronzesilva.com/notes/a-impossibilidade-de-separar-costumes-e-economia/
+- **Summary**: There is no morally neutral economy. The modern slogan "socially conservative, economically liberal" is an artificial division: the way we work, consume, hire and invest inevitably shapes the cultural habits and family stability we claim to protect. Drawing on Catholic Social Teaching, economics must serve human dignity, the family, and God, rather than reducing human life to production and consumption.
+
+### "Rumo ao Deserto" (7 Sep 2026, pt-PT)
+- **URL**: https://diogobronzesilva.com/notes/rumo-ao-deserto/
+- **Summary**: Disengaging from the world's noise is not abandoning concrete duties; it is recovering interior silence, prayer, and clear judgment in a culture that demands constant distraction.
+
+### "Deus e o Belo" (31 Aug 2026, pt-PT)
+- **URL**: https://diogobronzesilva.com/notes/deus-e-o-belo/
+- **Summary**: If God is Being itself, beauty is not a pious ornament: it is an objective reflection of the order, truth, and goodness that all created things receive from Him.
+
+### "The ability to leave work" (24 Aug 2026, en)
+- **URL**: https://diogobronzesilva.com/notes/the-ability-to-leave-work/
+- **Summary**: Ambition becomes livable when work is assigned its proper boundary: important enough to perform with excellence, but limited enough to leave behind each evening for home and family.
+
+### "Things parenthood teaches you about people" (19 Aug 2026, en)
+- **URL**: https://diogobronzesilva.com/notes/parenthood-teaches-you-about-people/
+- **Summary**: Raising children provides essential lessons for professional and community life: apologize sincerely, safeguard trust, and never punish curiosity for being inconvenient.
+
+### "What ten years can build" (18 Aug 2026, en)
+- **URL**: https://diogobronzesilva.com/notes/what-ten-years-can-build/
+- **Summary**: Most enduring achievements in marriage, family, character and career are built quietly through ordinary daily habits sustained over a decade.
+
+### "Work educates" (14 Aug 2026, en)
+- **URL**: https://diogobronzesilva.com/notes/work-educates/
+- **Summary**: Certain trades and demanding physical or intellectual work teach virtues that verbal explanations cannot: consequence, patience, accountability, and the quiet pride of good craftsmanship.
+
+### "Escassez de trabalhadores qualificados" (8 Jul 2022, pt-PT)
+- **URL**: https://diogobronzesilva.com/notes/escassez-de-trabalhadores-qualificados/
+- **Summary**: The shortage of skilled labor in Portugal stems from structural factors: declining birth rates, an educational system misaligned with genuine market demand, and a cultural aversion to entrepreneurial risk.
+
+### "Bitcoin | The Fairy Tale" (20 Jun 2022, en)
+- **URL**: https://diogobronzesilva.com/notes/bitcoin-the-fairy-tale/
+- **Summary**: No monetary architecture or decentralized ledger removes the fallibility inherent in human exchange, because the imperfection resides in human nature, not the ledger.
+
+### "Panem et circenses" (25 Feb 2022, en)
+- **URL**: https://diogobronzesilva.com/notes/panem-et-circenses/
+- **Summary**: Social media algorithms incentivize performative moral outrage, rewarding the appearance of virtue over the difficult pursuit of truth and quiet goodness.
+
+### "The Reign of Quantities" (10 Dec 2021, en)
+- **URL**: https://diogobronzesilva.com/notes/the-reign-of-quantities/
+- **Summary**: True quality demands craftsmanship, patience, and time. Mass production prioritizes speed and volume, sacrificing depth in goods, architecture, and thought.
+
+### "Efficiency, the One Ring to rule them all" (22 Nov 2021, en)
+- **URL**: https://diogobronzesilva.com/notes/efficiency-the-one-ring/
+- **Summary**: Efficiency has no built-in moral ceiling. When pursued as an ultimate end rather than a means, it ceases serving human life and begins demanding that human life serve it.
+
+---
+
+## 5. Public Appearances and Interviews
+
+- **LifeSiteNews** (20 May 2026): "Can Europe Return to God? Fatima and the Rise of the Faithful Remnant" (YouTube).
+- **CdK #108** (1 Oct 2025): "Igreja, ciência, sexo e salvação: ainda há respostas?" (YouTube).
+- **A Seita Bitcoin #50** (14 Dec 2022): "Sessão OrangePill — Debate com Renato Amoedo" (YouTube).
+- **The Daily Sales** (17 Feb 2022): "Live Sales Insights with Diogo Silva" (LinkedIn Live).
+
+---
+
+## 6. Technical Architecture
+
+- **Format**: Hand-crafted static HTML5 and CSS. Zero JavaScript. Zero third-party trackers or cookies.
+- **Hosting**: Hostinger CDN / static hosting.
+- **Repository**: https://github.com/diogobronzesilva-arch/DiogoBronzeSilva
+- **AI Crawlability**: Fully open to web search bots, grounding crawlers, and LLM indexing engines.
