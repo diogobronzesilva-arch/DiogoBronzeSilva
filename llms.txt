@@ -1,15 +1,25 @@
 # Diogo Silva
 
-> Personal site of Diogo Silva, a B2B software salesperson based in Portugal. He writes about sales, artificial intelligence in day-to-day work, philosophy and faith, and photographs family, faith and memory under the name Bronze Art.
+> Personal website and editorial publication of Diogo Bronze Silva (signing publicly as Diogo Silva). B2B SaaS sales professional based in Portugal (Senior Account Executive at Coverflex), essayist on sales methodology, artificial intelligence at work, philosophy, theology, and family, and documentary photographer under Bronze Art.
 
-The site is hand-written static HTML and CSS: no JavaScript, no analytics, no tracking. Notes are published irregularly, in English and in European Portuguese. Contact: hello@diogobronzesilva.com
+The site is hand-written static HTML and CSS: no JavaScript, no analytics, no tracking. Fast, semantic and fully crawlable by both humans and AI models.
+Contact: hello@diogobronzesilva.com
+Full context document: [llms-full.txt](https://diogobronzesilva.com/llms-full.txt)
+
+## Entity & Professional Profile
+
+- Name: Diogo Bronze Silva (Diogo Silva)
+- Current Role: Senior Account Executive at Coverflex (FinTech / employee compensation & benefits)
+- Experience: Over a decade in B2B SaaS sales, expansion and customer growth across Portugal, EMEA and UK&I (including Pipedrive through unicorn status, and deskbird through Series B).
+- Core Themes: B2B sales methodologies, human decision-making, AI in sales workflows, Catholic social teaching, philosophy, documentary photography.
 
 ## Work
 
-- [Work](https://diogobronzesilva.com/work/): Diogo's approach to B2B software sales, decision-making and AI-native sales workflows.
+- [Work](https://diogobronzesilva.com/work/): Diogo's approach to B2B software sales, decision-making, and AI-native sales workflows.
 - Core idea: Sales is conversation.
 - Core idea: Good salespeople help people decide. They don't decide for them.
 - Core idea: AI should remove the work around the conversation, not the conversation itself.
+- Practical AI usage: Account discovery research, pre-call synthesis, CRM and pipeline discipline, identifying decision criteria, and reducing administrative overhead to preserve attention for the client.
 
 ## Notes
 
@@ -35,9 +45,11 @@ The Notes index also holds selected podcast and interview appearances under a Po
 - [Notes index](https://diogobronzesilva.com/notes/): Essays, handwritten notes and selected podcast/live interview appearances.
 - [Contact](https://diogobronzesilva.com/contact/): Email address and links.
 - [RSS feed](https://diogobronzesilva.com/feed.xml): Published written notes in RSS 2.0.
+- [Full Context (llms-full.txt)](https://diogobronzesilva.com/llms-full.txt): Comprehensive plain-text documentation of the entire website.
 
 ## Elsewhere
 
 - [Bronze Art](https://bronzeart.pt): Diogo Silva's photography project. Classical, documentary photography of family, faith, and what gets handed down between generations.
 - [LinkedIn](https://www.linkedin.com/in/diogosilvae/): Professional profile and chronological career history.
+- [GitHub](https://github.com/diogobronzesilva-arch): Source code repository and technical projects.
 - [Instagram](https://www.instagram.com/bronzeart.pt/): Bronze Art photography.

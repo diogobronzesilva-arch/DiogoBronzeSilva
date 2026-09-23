@@ -65,7 +65,7 @@ O RSS contém apenas textos publicados. Participações em podcasts ou entrevist
 
 ## Podcasts and Live Interviews
 
-Participações seleccionadas em podcasts e entrevistas ao vivo sobre filosofia, teologia, cultura, vendas ou outros temas editoriais pertencem a **Notes**, numa secção `Podcasts and Live Interviews`, acima de `Handwritten Notes`.
+Participações seleccionadas em podcasts e entrevistas ao vivo sobre filosofia, teologia, cultura, vendas ou outros temas editoriais pertencem a **Notes**, numa secção `Podcasts and Live Interviews`, acima de `Earlier Notes`.
 
 Não criar uma página de podcasts separada enquanto existirem apenas algumas participações. Evitar embeds, usar links externos simples para manter o site leve e sem JavaScript.
 
