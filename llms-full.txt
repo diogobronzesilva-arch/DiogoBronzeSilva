@@ -55,6 +55,10 @@ Diogo Silva's approach to software sales is built on three core axioms:
 
 All essays are published in static HTML on https://diogobronzesilva.com/notes/.
 
+### "The work that holds the rest" (25 Sep 2026, en)
+- **URL**: https://diogobronzesilva.com/notes/the-work-that-holds-the-rest/
+- **Summary**: Modern convenience tempts us into an illusion of self-sufficiency. Originating in a conversation with his eldest son about what happens before bread reaches the family table, this note explores how both family peace and enterprise success rest entirely on an invisible foundation of manual and operational labour. True professional maturity and leadership require recognising that dignity belongs to all honest work, and that the highest form of respect is active awareness.
+
 ### "A impossibilidade de separar costumes e economia" (14 Sep 2026, pt-PT)
 - **URL**: https://diogobronzesilva.com/notes/a-impossibilidade-de-separar-costumes-e-economia/
 - **Summary**: There is no morally neutral economy. The modern slogan "socially conservative, economically liberal" is an artificial division: the way we work, consume, hire and invest inevitably shapes the cultural habits and family stability we claim to protect. Drawing on Catholic Social Teaching, economics must serve human dignity, the family, and God, rather than reducing human life to production and consumption.
