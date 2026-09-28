@@ -50,6 +50,8 @@ A auditoria pública confirmou as 17 rotas do sitemap, os cabeçalhos de seguran
 
 A PR [#40](https://github.com/diogobronzesilva-arch/DiogoBronzeSilva/pull/40) atualizou este registo e o README, passou o check obrigatório `Site checks` e foi integrada em 28 de setembro de 2026. Após o merge, o painel Cloudflare Pages confirmou como concluído o deployment de produção do commit `6eca4f1` (`main`). Esta é uma confirmação histórica desse deployment; o painel Pages mostra sempre a publicação mais recente.
 
+A PR [#41](https://github.com/diogobronzesilva-arch/DiogoBronzeSilva/pull/41) corrigiu este histórico, passou `Site checks` e foi integrada no mesmo dia. Cloudflare Pages confirmou como concluído o deployment de produção do commit `d13cb31` (`main`). Para qualquer commit posterior, confirma o deployment atual no painel Pages.
+
 ## DNS e segurança do domínio
 
 A zona Cloudflare usa configuração Full e os nameservers delegados na Hostinger são os da Cloudflare. O domínio continua ativo na Hostinger, com renovação automática e bloqueio de transferência ligados.
@@ -79,14 +81,12 @@ A estratégia editorial e as afirmações sobre crawlers foram revistas em [AEO_
 
 ## Branches e limpeza do repositório
 
-Em 28 de setembro de 2026, as branches associadas a pull requests integradas foram removidas. O inventário GitHub ficou com `main` e estas quatro branches não principais:
+Em 28 de setembro de 2026, as branches associadas a PRs integradas foram removidas. Também foram apagadas `preview` e `cleanup-home-css`: ambas estavam 0 commits à frente de `main`, pelo que não continham alterações exclusivas. A listagem GitHub ficou com `main` e estas duas branches não principais:
 
-- `cleanup-home-css` — não foi encontrada associação a uma PR integrada.
-- `fix/production-audit-2026-09-07` — não foi encontrada associação a uma PR integrada.
-- `post/a-impossibilidade-de-separar-costumes-e-economia` — PR [#30](https://github.com/diogobronzesilva-arch/DiogoBronzeSilva/pull/30) fechada sem merge.
-- `preview` — mantida porque não foi possível confirmar que é descartável.
+- `fix/production-audit-2026-09-07` — tem um commit exclusivo; não foi encontrada uma PR integrada. Mantida para revisão.
+- `post/a-impossibilidade-de-separar-costumes-e-economia` — tem um commit exclusivo; a PR [#30](https://github.com/diogobronzesilva-arch/DiogoBronzeSilva/pull/30) foi fechada sem merge. Mantida para revisão.
 
-Estas branches não participam no deployment, que publica exclusivamente `main`. Foram preservadas por prudência; revê o respetivo conteúdo antes de as apagar.
+Nenhuma destas duas branches participa no deployment, que publica exclusivamente `main`. Foram preservadas porque contêm trabalho que não está integrado; revê esse conteúdo antes de decidir se apagas ou recuperas alguma.
 
 ## Verificações de manutenção
 
