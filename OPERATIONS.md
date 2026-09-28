@@ -52,7 +52,7 @@ A auditoria pública anterior confirmou as 17 rotas do sitemap, cabeçalhos de s
 
 A zona Cloudflare usa configuração Full e os nameservers delegados na Hostinger são os da Cloudflare. O domínio continua ativo na Hostinger, com renovação automática e bloqueio de transferência ligados.
 
-**DNSSEC:** o registo DS foi adicionado na Hostinger e corresponde aos valores fornecidos pela Cloudflare. Na última verificação, Cloudflare ainda mostrava a ativação como pendente enquanto aguarda propagação/validação do DS. Considera o DNSSEC operacional apenas quando o painel Cloudflare mostrar o estado ativo; se continuar pendente depois de uma hora, verifica a publicação do DS no registador antes de alterar qualquer configuração.
+**DNSSEC:** o registo DS fornecido pela Cloudflare foi adicionado na Hostinger. Em 28 de setembro de 2026, o painel Cloudflare confirmou: “Success! diogobronzesilva.com is protected with DNSSEC.” A validação concluiu e o DNSSEC está ativo.
 
 Dois resíduos do alojamento e email antigos foram removidos apenas da zona `diogobronzesilva.com` no Cloudflare em 28 de setembro de 2026:
 
