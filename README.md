@@ -138,6 +138,6 @@ Para uma verificação manual da publicação já concluída, corre `python3 scr
 
 O email de entrada usa Cloudflare Email Routing, com catch-all e regras explícitas para `diogo@` e `hello@`, encaminhadas para a caixa pessoal Gmail. O catch-all cobre aliases futuros; Email Routing não fornece uma caixa postal.
 
-O domínio está verificado no Resend para envio. O Gmail está configurado para enviar como `diogo@diogobronzesilva.com` através do SMTP do Resend. Isto não transforma o Resend numa caixa postal. O encaminhamento de entrada foi testado; ainda falta confirmar uma entrega de saída com um envio real.
+O domínio está verificado no Resend para envio. O Gmail está configurado para enviar como `diogo@diogobronzesilva.com` através do SMTP do Resend. Isto não transforma o Resend numa caixa postal. O encaminhamento de entrada e o envio de saída foram testados. Em 28 de setembro de 2026, uma mensagem enviada como `diogo@diogobronzesilva.com` chegou à caixa pessoal Gmail e o remetente foi confirmado.
 
 Não guardes endereços de destino privados, credenciais SMTP nem chaves API neste repositório. O estado detalhado, as dependências e os pontos ainda por rever estão em [OPERATIONS.md](OPERATIONS.md).
