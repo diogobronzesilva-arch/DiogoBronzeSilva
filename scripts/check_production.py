@@ -1,15 +1,15 @@
 #!/usr/bin/env python3
-"""Weekly production consistency and health check for diogobronzesilva.com.
+"""Manual production consistency and health check for diogobronzesilva.com.
 
-Checks the live website served by Hostinger against the repository source:
-1. HTTP status and responsiveness of all public routes.
+Checks the Cloudflare Pages site against the checked-out repository source:
+1. HTTP status for public pages in the sitemap and core technical files.
 2. Production security headers.
 3. Cache-busting key consistency between production and source index.html.
 4. Parity between live feed.xml and repository feed.xml (title and link).
 5. Completeness of live sitemap.xml compared to repository.
-6. Canonical host redirection (www -> non-www).
+6. Canonical host redirection (www -> apex), including path and query.
 
-Uses only Python standard library.
+Run from main after deployment. Uses only Python standard library.
 """
 
 from __future__ import annotations
@@ -17,28 +17,24 @@ from __future__ import annotations
 import re
 import sys
 import time
+import xml.etree.ElementTree as ET
 import urllib.error
 import urllib.request
 from pathlib import Path
+from urllib.parse import urlsplit
 
 ROOT = Path(__file__).resolve().parents[1]
 SITE_ORIGIN = "https://diogobronzesilva.com"
-CORE_ROUTES = [
-    "/",
-    "/work/",
-    "/notes/",
-    "/contact/",
-    "/feed.xml",
-    "/sitemap.xml",
-    "/robots.txt",
-    "/llms.txt",
-]
+SITE_HOST = "diogobronzesilva.com"
+CORE_ROUTES = ["/feed.xml", "/sitemap.xml", "/robots.txt", "/llms.txt"]
 
 EXPECTED_HEADERS = [
     "Strict-Transport-Security",
     "X-Content-Type-Options",
     "Referrer-Policy",
     "X-Frame-Options",
+    "Permissions-Policy",
+    "Content-Security-Policy",
 ]
 
 USER_AGENT = "Mozilla/5.0 (compatible; SiteAuditor/1.0; +https://diogobronzesilva.com)"
@@ -66,20 +62,47 @@ def fetch(url: str, timeout: int = 10, follow_redirects: bool = True) -> tuple[i
         return 0, {}, str(e).encode(), duration
 
 
+def public_page_routes() -> list[str]:
+    """Return local canonical paths listed in sitemap.xml."""
+    sitemap_path = ROOT / "sitemap.xml"
+    sitemap = ET.parse(sitemap_path).getroot()
+    routes: set[str] = set()
+    for element in sitemap.iter():
+        if element.tag.rsplit("}", 1)[-1] != "loc" or not element.text:
+            continue
+        parsed = urlsplit(element.text.strip())
+        if parsed.scheme != "https" or parsed.netloc != SITE_HOST or parsed.query or parsed.fragment:
+            raise ValueError(f"Invalid canonical URL in sitemap.xml: {element.text.strip()}")
+        routes.add(parsed.path or "/")
+    if not routes:
+        raise ValueError("sitemap.xml contains no public page URLs")
+    return sorted(routes)
+
+
 def main() -> int:
     issues: list[str] = []
     print(f"Auditing live website at {SITE_ORIGIN} against repository {ROOT}...\n")
 
-    # 1. Check core routes
-    print("1. Checking core routes availability:")
-    for route in CORE_ROUTES:
+    # 1. Check every public page in the sitemap and the core technical files.
+    print("1. Checking all public pages and core technical files:")
+    try:
+        routes = sorted(set(public_page_routes()) | set(CORE_ROUTES))
+    except (OSError, ET.ParseError, ValueError) as exc:
+        issues.append(f"Could not derive production routes from sitemap.xml: {exc}")
+        routes = CORE_ROUTES
+
+    for route in routes:
         url = f"{SITE_ORIGIN}{route}"
         status, headers, body, elapsed = fetch(url)
         if status == 200:
-            print(f"  [OK] {route:<15} HTTP 200 ({elapsed * 1000:.0f}ms, {len(body):,} bytes)")
+            print(f"  [OK] {route:<52} HTTP 200 ({elapsed * 1000:.0f}ms, {len(body):,} bytes)")
         else:
-            issues.append(f"Route {route} returned status {status}")
-            print(f"  [FAIL] {route:<15} HTTP {status} ({elapsed * 1000:.0f}ms)")
+            detail = body.decode("utf-8", errors="replace").strip()
+            issue = f"Route {route} returned status {status}"
+            if detail:
+                issue += f": {detail[:180]}"
+            issues.append(issue)
+            print(f"  [FAIL] {route:<52} HTTP {status} ({elapsed * 1000:.0f}ms)")
 
     # 2. Check 404 page status
     print("\n2. Checking custom 404 handler:")
@@ -99,7 +122,8 @@ def main() -> int:
         if val:
             print(f"  [OK] {h}: {val}")
         else:
-            print(f"  [WARN] {h}: not set directly by origin or handled upstream by CDN")
+            issues.append(f"Missing production security header: {h}")
+            print(f"  [FAIL] {h}: missing")
 
     # 4. Check CSS cache version in production against repository index.html
     print("\n4. Checking live stylesheet cache version against repository:")
@@ -162,21 +186,31 @@ def main() -> int:
         live_urls = set(re.findall(r"<loc>([^<]+)</loc>", sitemap_text))
         local_urls = set(re.findall(r"<loc>([^<]+)</loc>", local_sitemap_text))
         missing_live = local_urls - live_urls
-        if missing_live:
-            issues.append(f"Production sitemap missing URLs present in repository: {missing_live}")
-            print(f"  [FAIL] Production sitemap missing {len(missing_live)} URL(s)")
+        extra_live = live_urls - local_urls
+        if missing_live or extra_live:
+            if missing_live:
+                issues.append(f"Production sitemap is missing repository URLs: {sorted(missing_live)}")
+            if extra_live:
+                issues.append(f"Production sitemap has URLs absent from the repository: {sorted(extra_live)}")
+            print(
+                f"  [FAIL] Sitemap differs from repository "
+                f"(missing {len(missing_live)}, extra {len(extra_live)} URL(s))"
+            )
         else:
-            print(f"  [OK] Production sitemap contains all {len(local_urls)} repository URLs")
+            print(f"  [OK] Production sitemap exactly matches all {len(local_urls)} repository URLs")
 
     # 7. Check canonical host redirection (www -> non-www)
-    print("\n7. Checking www canonical redirect:")
-    www_status, www_headers, _, www_elapsed = fetch("https://www.diogobronzesilva.com/", follow_redirects=False)
+    print("\n7. Checking www canonical redirect with path and query preserved:")
+    test_path_query = "/contact/?cf_migration_audit=1"
+    expected_location = SITE_ORIGIN + test_path_query
+    www_url = "https://www.diogobronzesilva.com" + test_path_query
+    www_status, www_headers, _, www_elapsed = fetch(www_url, follow_redirects=False)
     www_location = www_headers.get("Location", "")
-    if www_status == 301 and www_location.rstrip("/") == SITE_ORIGIN:
-        print(f"  [OK] https://www.diogobronzesilva.com/ redirects 301 -> {www_location} ({www_elapsed * 1000:.0f}ms)")
+    if www_status == 301 and www_location == expected_location:
+        print(f"  [OK] {www_url} redirects 301 -> {www_location} ({www_elapsed * 1000:.0f}ms)")
     else:
-        issues.append(f"www redirect check failed: HTTP {www_status}, Location: {www_location}")
-        print(f"  [FAIL] Expected 301 redirect to {SITE_ORIGIN}/, got HTTP {www_status} (Location: {www_location})")
+        issues.append(f"www redirect check failed: HTTP {www_status}, Location: {www_location}, expected: {expected_location}")
+        print(f"  [FAIL] Expected HTTP 301 to {expected_location}, got HTTP {www_status} (Location: {www_location})")
 
     print("\n" + "=" * 50)
     if not issues:
