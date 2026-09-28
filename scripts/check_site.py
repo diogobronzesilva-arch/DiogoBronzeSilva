@@ -192,7 +192,7 @@ def published_html_files() -> list[Path]:
     files: list[Path] = []
     for path in ROOT.rglob("*.html"):
         rel = relative(path)
-        if ".git" in rel.parts or rel in {TEMPLATE, NOT_FOUND}:
+        if any(part in {".git", "dist"} for part in rel.parts) or rel in {TEMPLATE, NOT_FOUND}:
             continue
         files.append(path)
     return sorted(files)
@@ -202,7 +202,7 @@ def all_html_files() -> list[Path]:
     return sorted(
         path
         for path in ROOT.rglob("*.html")
-        if ".git" not in relative(path).parts
+        if not any(part in {".git", "dist"} for part in relative(path).parts)
     )
 
 

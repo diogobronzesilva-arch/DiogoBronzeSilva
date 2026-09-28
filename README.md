@@ -1,6 +1,6 @@
 # Diogo Silva — diogobronzesilva.com
 
-Website pessoal de Diogo Silva. HTML e CSS estáticos, sem framework, sem build system e sem JavaScript.
+Website pessoal de Diogo Silva. HTML e CSS estáticos, sem framework nem JavaScript próprio. Um pequeno script Python prepara a publicação no Cloudflare Pages.
 
 Domínio: **diogobronzesilva.com**  
 Email público: **hello@diogobronzesilva.com**
@@ -23,6 +23,9 @@ assets/css/site.css                → folha de estilos única
 assets/fonts/                      → tipografia self-hosted (.woff2)
 assets/img/                        → fotografia, Open Graph e vinhetas
 scripts/check_site.py              → validação técnica do site
+scripts/build_pages.py             → empacotador Cloudflare Pages
+scripts/check_pages_output.py      → validação do artefacto publicado
+scripts/check_production.py        → auditoria manual do site público
 .github/workflows/site-checks.yml  → CI para PRs e main
 ```
 
@@ -109,38 +112,34 @@ Buttondown só recebe dados de quem opta por subscrever a newsletter.
 
 ## Engenharia e publicação
 
-O site é composto apenas por ficheiros estáticos. O conteúdo publicado no alojamento deve corresponder à raiz deste repositório.
+A raiz deste repositório é a fonte de verdade do site. O Cloudflare Pages publica os ficheiros preparados em `dist/`; não edites manualmente essa pasta.
 
 O fluxo normal é:
 
-`branch → pull request → Site checks → squash merge para main → deploy automático Hostinger`
+`branch → pull request → Site checks → squash merge para main → deploy automático no Cloudflare Pages`
 
-A branch `main` está protegida. Alterações devem ser feitas numa branch e submetidas por pull request. O check obrigatório `Site checks` valida links internos, assets, metadata, canonical/Open Graph, JSON-LD, sitemap, RSS, `llms.txt`, `robots.txt`, acessibilidade básica, placeholders do template e consistência da versão do CSS antes de permitir merge.
+A branch `main` está protegida. O check obrigatório `Site checks` valida o conteúdo, executa o empacotador usado na publicação e confirma que `dist/` contém apenas ficheiros públicos antes do merge.
 
-Depois do merge, a Hostinger faz deployment automático da `main`. Existe ainda um check semanal de produção para detectar divergências entre o repositório e o website público.
+### Cloudflare Pages
 
-### Preparação para Cloudflare Pages
-
-O site pode ser publicado no Cloudflare Pages com integração Git:
+O projeto Pages `diogobronzesilva` está ligado ao GitHub e usa:
 
 - Production branch: `main`.
-- Framework: None.
+- Framework preset: None.
 - Build command: `python3 scripts/build_pages.py`.
 - Build output directory: `dist`.
+- Domínios públicos: `diogobronzesilva.com` e `www.diogobronzesilva.com`.
 
-O build valida o site e copia apenas os ficheiros públicos. Não publica scripts,
-documentação, configuração Apache ou o molde editorial. `_headers` mantém os
-cabeçalhos de segurança existentes e permite revalidar os ficheiros no browser.
-O conteúdo e o design são os mesmos da publicação Hostinger.
+O domínio principal é o canónico. Uma Redirect Rule da zona redireciona `www` para o domínio principal, preservando caminho e query string; `_redirects` não implementa redirecionamentos entre domínios. O ficheiro `_headers` aplica os cabeçalhos de segurança e revalidação. O `.htaccess` mantém-se no repositório como recuperação para o alojamento anterior, mas não entra no artefacto Pages.
 
-Associar o domínio principal e `www` em Pages > Custom domains. Configurar o
-redirecionamento `www` para o domínio principal numa Redirect Rule da zona,
-preservando caminho e query string; `_redirects` não suporta origens por domínio.
+Para uma verificação manual da publicação já concluída, corre `python3 scripts/check_production.py` a partir de `main` depois do deploy. O script compara o site público com o código local; não o executes antes de uma alteração ainda não publicada.
 
-Durante a transição, manter a publicação Hostinger e `.htaccess` para recuperação.
-Os registos DNS de Titan e dos outros serviços devem ser copiados integralmente
-antes de mudar os nameservers. Não ativar Email Routing nem cancelar o alojamento:
-o plano Free Email da Titan depende do serviço atual. A migração do email é separada.
+### Email do domínio
 
-A ativação de produção deve ser confirmada no painel e com testes públicos;
-a presença destes ficheiros no repositório não significa que o domínio já migrou.
+O Cloudflare Email Routing recebe o correio do domínio e encaminha-o para o Gmail. Estão ativos o catch-all e as regras explícitas `diogo@` e `hello@`. O catch-all cobre futuros aliases. Email Routing encaminha mensagens, mas não fornece uma caixa postal própria.
+
+O Resend está configurado para envio autenticado pelo domínio. Não guardes credenciais SMTP nem chaves API no repositório. A regra de encaminhamento para o Gmail é independente do envio.
+
+Mantém o serviço de email Titan/Hostinger ativo até terminar a propagação dos nameservers antigos e confirmar a receção no Gmail; durante a transição, alguns emissores ainda podem consultar os servidores DNS antigos. Não canceles o alojamento antigo antes de concluir esta verificação.
+
+A Google anunciou que vai remover o envio “Send as” de endereços externos do Gmail a partir de janeiro de 2027. O encaminhamento de entrada continua independente; para envio duradouro, usa um cliente de email que aceite SMTP ou considera alojamento Google Workspace para o domínio.
