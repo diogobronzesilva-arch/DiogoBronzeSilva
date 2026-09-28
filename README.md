@@ -118,3 +118,29 @@ O fluxo normal é:
 A branch `main` está protegida. Alterações devem ser feitas numa branch e submetidas por pull request. O check obrigatório `Site checks` valida links internos, assets, metadata, canonical/Open Graph, JSON-LD, sitemap, RSS, `llms.txt`, `robots.txt`, acessibilidade básica, placeholders do template e consistência da versão do CSS antes de permitir merge.
 
 Depois do merge, a Hostinger faz deployment automático da `main`. Existe ainda um check semanal de produção para detectar divergências entre o repositório e o website público.
+
+### Preparação para Cloudflare Pages
+
+O site pode ser publicado no Cloudflare Pages com integração Git:
+
+- Production branch: `main`.
+- Framework: None.
+- Build command: `python3 scripts/build_pages.py`.
+- Build output directory: `dist`.
+
+O build valida o site e copia apenas os ficheiros públicos. Não publica scripts,
+documentação, configuração Apache ou o molde editorial. `_headers` mantém os
+cabeçalhos de segurança existentes e permite revalidar os ficheiros no browser.
+O conteúdo e o design são os mesmos da publicação Hostinger.
+
+Associar o domínio principal e `www` em Pages > Custom domains. Configurar o
+redirecionamento `www` para o domínio principal numa Redirect Rule da zona,
+preservando caminho e query string; `_redirects` não suporta origens por domínio.
+
+Durante a transição, manter a publicação Hostinger e `.htaccess` para recuperação.
+Os registos DNS de Titan e dos outros serviços devem ser copiados integralmente
+antes de mudar os nameservers. Não ativar Email Routing nem cancelar o alojamento:
+o plano Free Email da Titan depende do serviço atual. A migração do email é separada.
+
+A ativação de produção deve ser confirmada no painel e com testes públicos;
+a presença destes ficheiros no repositório não significa que o domínio já migrou.
