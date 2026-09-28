@@ -7,7 +7,7 @@ Email público: **hello@diogobronzesilva.com**
 
 ## Estado da infraestrutura — 28 de setembro de 2026
 
-O site está publicado no Cloudflare Pages, com DNS e DNSSEC no Cloudflare. O domínio continua registado na Hostinger, com renovação automática ativa; o plano partilhado permanece para outros projetos. A entrada de email encaminha pelo Cloudflare e a saída usa Resend via Gmail. O estado de produção, as quatro branches preservadas e o único acompanhamento pendente (DMARC em `p=none`) estão registados em [OPERATIONS.md](OPERATIONS.md).
+O site está publicado no Cloudflare Pages, com DNS e DNSSEC no Cloudflare. O domínio continua registado na Hostinger, com renovação automática ativa; o plano partilhado permanece para outros projetos. A entrada de email encaminha pelo Cloudflare e a saída usa Resend via Gmail. O estado de produção, as duas branches com alterações próprias e o único acompanhamento pendente (DMARC em `p=none`) estão registados em [OPERATIONS.md](OPERATIONS.md).
 
 ## Estrutura
 
