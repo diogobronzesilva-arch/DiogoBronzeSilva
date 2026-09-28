@@ -73,7 +73,7 @@ Os registos ativos de Pages, Cloudflare Email Routing e Resend foram mantidos. N
 
 A caixa postal continua a ser o Gmail pessoal. Cloudflare Email Routing encaminha mensagens e Resend envia mensagens autenticadas; nenhum dos dois é uma caixa postal. Não guardes endereços privados de destino, passwords, códigos, credenciais SMTP ou chaves API neste repositório.
 
-O registo DMARC observado está em modo de monitorização (`p=none`). Mantém essa política enquanto recolhes e avalias relatórios. Antes de passar para `quarantine` ou `reject`, confirma o alinhamento SPF/DKIM do Resend, do Buttondown caso envie mensagens com este domínio e de qualquer outro emissor legítimo.
+O registo DMARC está em modo de monitorização (`p=none`). Em 28 de setembro de 2026, a gestão de relatórios DMARC da Cloudflare foi ativada e o registo TXT `_dmarc` recebeu um destino agregado de relatórios gerido pela Cloudflare. A política `p=none` foi mantida; isto não bloqueia nem põe em quarentena mensagens. No momento da ativação, o painel ainda aguardava o primeiro relatório, que pode demorar até 24 horas a aparecer. Revisa os relatórios durante algumas semanas. Antes de passar para `quarantine` ou `reject`, confirma o alinhamento SPF/DKIM do Resend, do Buttondown caso envie mensagens com este domínio e de qualquer outro emissor legítimo.
 
 ## AEO, crawlers e descoberta
 
