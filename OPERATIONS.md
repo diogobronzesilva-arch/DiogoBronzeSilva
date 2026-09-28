@@ -4,84 +4,90 @@
 **Repositório:** [diogobronzesilva-arch/DiogoBronzeSilva](https://github.com/diogobronzesilva-arch/DiogoBronzeSilva)  
 **Produção:** [diogobronzesilva.com](https://diogobronzesilva.com/)
 
-Este ficheiro regista quem presta cada serviço, o que continua dependente da Hostinger e o que foi confirmado na migração. É um retrato operacional datado; confirma sempre os painéis dos fornecedores antes de alterar DNS ou serviços.
+Este registo descreve a configuração efetiva do website e separa o que foi confirmado do que ainda depende de propagação ou acompanhamento. Confirma os painéis dos fornecedores antes de alterações futuras.
 
-## Arquitetura atual
+## Arquitetura e responsabilidades
 
-| Parte | Serviço atual | Estado e responsabilidade |
+| Parte | Serviço | Estado |
 | --- | --- | --- |
-| Código do website | GitHub, branch `main` | Fonte de verdade. Alterações passam por pull request e pelo check obrigatório `Site checks`. |
-| Publicação web | Cloudflare Pages, projeto `diogobronzesilva` | Ligado ao GitHub; publicação automática de `main`. Build: `python3 scripts/build_pages.py`; saída: `dist`. |
-| DNS autoritativo | Cloudflare | A zona usa configuração Full. Os nomes raiz e `www` apontam para Cloudflare Pages. |
-| Registo e renovação do domínio | Hostinger | O domínio continua registado na Hostinger por decisão do proprietário. A renovação do domínio continua a depender dessa conta. |
-| Email de entrada | Cloudflare Email Routing | Catch-all e regras explícitas `diogo@` e `hello@` encaminham para a caixa Gmail pessoal. O catch-all permite receber em aliases futuros. |
-| Email de saída | Resend, usado pelo Gmail via SMTP | Domínio verificado no Resend; o Gmail está configurado para enviar como `diogo@diogobronzesilva.com`. O Resend envia; não é a caixa postal. |
-| Newsletter | Buttondown | Recebe dados apenas de quem subscreve através dos formulários do site. |
-| Fotografia | Bronze Art, `bronzeart.pt` | Website separado e fora do alojamento deste projeto. |
+| Código do website | GitHub, `main` | Fonte de verdade; alterações passam por pull request e pelo check `Site checks`. |
+| Publicação web | Cloudflare Pages, `diogobronzesilva` | Publicação automática de `main`; build `python3 scripts/build_pages.py`, saída `dist`. |
+| DNS autoritativo | Cloudflare | Setup Full; o domínio e `www` apontam para Pages. |
+| Registo e renovação | Hostinger | `diogobronzesilva.com` continua registado na Hostinger; renovação automática e bloqueio de transferência estão ativos. |
+| Email de entrada | Cloudflare Email Routing | Catch-all e regras para `diogo@` e `hello@` encaminham para a caixa pessoal Gmail. |
+| Email de saída | Resend via Gmail | Gmail envia como `diogo@diogobronzesilva.com` pelo SMTP do Resend; envio e receção foram testados. |
+| Newsletter | Buttondown | Só recebe dados de quem subscreve através dos formulários do site. |
+| Fotografia | Bronze Art, `bronzeart.pt` | Website separado deste projeto. |
 
-### O que significa “independente da Hostinger”
+### Independência da Hostinger
 
-A Hostinger já não serve o website em produção nem o DNS autoritativo ou o email ativo do domínio. O conteúdo publicado vem do GitHub e é servido pelo Cloudflare Pages. A dependência intencional que permanece é o registo/renovação de `diogobronzesilva.com` na Hostinger.
+A Hostinger já não serve o website, não é o DNS autoritativo e não fornece o email ativo do domínio. GitHub fornece o código, Cloudflare Pages serve o site, Cloudflare gere o DNS e encaminhamento de entrada, e Resend permite o envio autenticado. A dependência intencional que permanece na Hostinger é o registo e renovação de `diogobronzesilva.com`.
 
-O plano partilhado da Hostinger mantém outros sites, domínios e serviços. Este projeto não exige cancelar esse plano. A existência de uma cópia ou ficha antiga do website no painel da Hostinger não a torna fonte de produção.
+O plano partilhado da Hostinger mantém outros websites, domínios e serviços. Esta migração não requer cancelar o plano nem transferir o domínio. Não alteres contas, ficheiros ou DNS de outros projetos como parte da manutenção deste site.
 
-## Publicação e ficheiros
+## Publicação
 
-O Cloudflare Pages publica os ficheiros preparados em `dist/`; não edites essa pasta manualmente. O processo normal é:
+O fluxo normal é:
 
 ```text
 branch → pull request → Site checks → merge para main → publicação automática no Cloudflare Pages
 ```
 
-A configuração atual é:
+Configuração confirmada:
 
 - Branch de produção: `main`.
 - Comando de build: `python3 scripts/build_pages.py`.
 - Pasta de saída: `dist`.
 - Domínios ligados: `diogobronzesilva.com` e `www.diogobronzesilva.com`.
-- O domínio canónico é o domínio sem `www`; a Redirect Rule no Cloudflare preserva o caminho e os parâmetros.
+- O domínio sem `www` é canónico; uma Redirect Rule preserva caminho e parâmetros.
 - `_headers` aplica os cabeçalhos de segurança e a política de revalidação.
-- A página `404.html` é servida como erro personalizado pelo Pages.
-- Não há Wrangler, Cloudflare Workers, servidor de aplicação, base de dados ou segredo de build necessários para publicar este website estático.
+- `404.html` fornece a página de erro do Pages.
+- Não são necessários Wrangler, Workers, servidor de aplicação, base de dados ou segredos de build.
 
-O antigo `.htaccess` continha regras Apache para o 404, redirecionamento de `www` e cabeçalhos de segurança. Foi removido do repositório porque o Pages não o executa e essas funções estão cobertas pela configuração ativa no Cloudflare. O artefacto de publicação nunca incluía esse ficheiro.
+A PR [#38](https://github.com/diogobronzesilva-arch/DiogoBronzeSilva/pull/38) passou os checks e foi integrada em 28 de setembro de 2026. O painel Pages confirmou o deployment de produção do commit `5c1bff4` como concluído. A PR removeu `.htaccess`, configuração Apache sem efeito no artefacto Pages; as funções relevantes já estão cobertas pela regra de redirecionamento, `_headers` e `404.html`.
 
-## Email: entrada, saída e limites da verificação
+A auditoria pública anterior confirmou as 17 rotas do sitemap, cabeçalhos de segurança, o redirecionamento `www` preservando caminho e query, e o estado 404. A alteração mais recente foi documental e o deployment correspondente de `main` concluiu com sucesso.
 
-**Entrada:** o Cloudflare Email Routing recebe os MX do domínio. A regra catch-all e as regras explícitas `diogo@` e `hello@` estão ativas e encaminham para o Gmail. Um teste recebido de uma conta Gmail pessoal apareceu como encaminhado no registo de atividade do Cloudflare em 28 de setembro de 2026.
+## DNS e segurança do domínio
 
-**Saída:** o domínio aparece verificado no Resend e os registos DNS pedidos pelo Resend foram verificados. O Gmail está configurado para usar `smtp.resend.com` ao enviar como `diogo@diogobronzesilva.com`. Durante esta auditoria não foi enviado um email real de saída e o Resend não mostrava envios recentes. Por isso, a configuração está presente, mas a entrega de saída não fica aqui declarada como testada.
+A zona Cloudflare usa configuração Full e os nameservers delegados na Hostinger são os da Cloudflare. O domínio continua ativo na Hostinger, com renovação automática e bloqueio de transferência ligados.
 
-A caixa postal é o Gmail pessoal. Cloudflare Email Routing encaminha mensagens e o Resend trata do envio autenticado; nenhum dos dois substitui uma caixa postal. Endereços de destino privados, passwords, códigos de verificação, credenciais SMTP e chaves API não devem ser publicados neste repositório.
+**DNSSEC:** o registo DS foi adicionado na Hostinger e corresponde aos valores fornecidos pela Cloudflare. Na última verificação, Cloudflare ainda mostrava a ativação como pendente enquanto aguarda propagação/validação do DS. Considera o DNSSEC operacional apenas quando o painel Cloudflare mostrar o estado ativo; se continuar pendente depois de uma hora, verifica a publicação do DS no registador antes de alterar qualquer configuração.
 
-O registo DMARC observado estava em modo de monitorização (`p=none`). Rever relatórios e entregabilidade antes de considerar uma política mais restritiva.
+Dois resíduos do alojamento e email antigos foram removidos apenas da zona `diogobronzesilva.com` no Cloudflare em 28 de setembro de 2026:
 
-## Resíduos antigos observados no DNS
+- O registo A `ftp.diogobronzesilva.com`.
+- O registo DKIM `titan1._domainkey.diogobronzesilva.com` do Titan antigo.
 
-Na verificação de 28 de setembro de 2026, a zona Cloudflare ainda continha:
+Os registos ativos de Pages, Cloudflare Email Routing e Resend foram mantidos. Não foi alterado qualquer outro domínio.
 
-- `ftp.diogobronzesilva.com`, registo A DNS-only para um IP antigo de alojamento Hostinger.
-- `titan1._domainkey.diogobronzesilva.com`, seletor DKIM antigo do Titan/Hostinger.
+## Email
 
-Estes registos não participam no website Cloudflare Pages nem no fluxo ativo de email Cloudflare Routing + Resend. Continuam no painel DNS, fora do repositório. Esta alteração remove apenas a configuração Apache antiga do GitHub; não altera DNS. Antes de apagar os dois registos, confirma que não precisas de FTP ou do Titan para qualquer utilização deste domínio.
+**Entrada:** os MX do domínio são tratados pelo Cloudflare Email Routing. O catch-all e as regras explícitas `diogo@` e `hello@` encaminham para o Gmail. Um teste de entrada já aparecia como encaminhado no registo de atividade do Cloudflare.
 
-O domínio continua registado na Hostinger. Não remover registos de outros domínios nem cancelar o plano partilhado como parte da manutenção deste website.
+**Saída:** o domínio está verificado no Resend e o Gmail está configurado para usar o SMTP do Resend ao enviar como `diogo@diogobronzesilva.com`. Em 28 de setembro de 2026 foi enviada uma mensagem de teste deste alias para a caixa Gmail pessoal; a mensagem chegou e o cabeçalho recebido confirmou o remetente `diogo@diogobronzesilva.com`.
+
+A caixa postal continua a ser o Gmail pessoal. Cloudflare Email Routing encaminha mensagens e Resend envia mensagens autenticadas; nenhum dos dois é uma caixa postal. Não guardes endereços privados de destino, passwords, códigos, credenciais SMTP ou chaves API neste repositório.
+
+O registo DMARC observado está em modo de monitorização (`p=none`). Mantém essa política enquanto recolhes e avalias relatórios; uma política mais restritiva requer primeiro verificar que todos os emissores legítimos estão alinhados.
+
+## AEO, crawlers e descoberta
+
+A estratégia editorial e as afirmações sobre crawlers foram revistas em [AEO_GEO_STRATEGY.md](AEO_GEO_STRATEGY.md). As recomendações atuais não prometem posições nem citações por sistemas de IA. O ficheiro `llms.txt` é uma página de contexto legível, não uma garantia de indexação ou ranking.
 
 ## Verificações de manutenção
 
-Antes de propor uma alteração ao site, executar:
+Antes de uma alteração ao site:
 
 ```sh
 python3 scripts/build_pages.py
 python3 scripts/check_pages_output.py
 ```
 
-Depois de uma alteração chegar à produção, executar a auditoria pública:
+Depois de a alteração chegar à produção:
 
 ```sh
 python3 scripts/check_production.py
 ```
 
-O workflow `Site checks` executa build e verificação do artefacto em pull requests e em `main`. A auditoria de produção deve ser executada contra o código que já foi publicado; executá-la numa branch ainda não publicada causa diferenças esperadas.
-
-Na revisão desta migração, o domínio público e as rotas verificadas serviram a versão do Cloudflare Pages e o teste de entrada de email foi encaminhado. Para repetir a verificação completa de email, enviar uma mensagem de teste para confirmar a saída do Resend e verificar a chegada ao destinatário.
+A auditoria de produção compara o código local com o site público; executa-a a partir de `main` depois do deployment, não numa branch ainda não publicada.
