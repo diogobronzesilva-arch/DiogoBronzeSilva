@@ -48,6 +48,8 @@ A PR [#38](https://github.com/diogobronzesilva-arch/DiogoBronzeSilva/pull/38) pa
 
 A auditoria pública confirmou as 17 rotas do sitemap, os cabeçalhos de segurança, o redirecionamento `www` preservando caminho e query, e o estado 404. A PR [#39](https://github.com/diogobronzesilva-arch/DiogoBronzeSilva/pull/39) passou o check obrigatório `Site checks` e foi integrada em 28 de setembro de 2026. O painel Cloudflare Pages confirmou como concluído o deployment de produção do commit `fc1e56c` (`main`). A alteração desta PR é documental; não muda o artefacto público.
 
+A PR [#40](https://github.com/diogobronzesilva-arch/DiogoBronzeSilva/pull/40) atualizou este registo e o README, passou o check obrigatório `Site checks` e foi integrada em 28 de setembro de 2026. Após o merge, o painel Cloudflare Pages confirmou como concluído o deployment de produção do commit `6eca4f1` (`main`). Esta é uma confirmação histórica desse deployment; o painel Pages mostra sempre a publicação mais recente.
+
 ## DNS e segurança do domínio
 
 A zona Cloudflare usa configuração Full e os nameservers delegados na Hostinger são os da Cloudflare. O domínio continua ativo na Hostinger, com renovação automática e bloqueio de transferência ligados.
