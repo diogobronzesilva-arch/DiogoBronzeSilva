@@ -23,7 +23,7 @@ Este registo descreve a configuração efetiva do website e separa o que foi con
 
 A Hostinger já não serve o website, não é o DNS autoritativo e não fornece o email ativo do domínio. GitHub fornece o código, Cloudflare Pages serve o site, Cloudflare gere o DNS e encaminhamento de entrada, e Resend permite o envio autenticado. A dependência intencional que permanece na Hostinger é o registo e renovação de `diogobronzesilva.com`.
 
-O plano partilhado da Hostinger mantém outros websites, domínios e serviços. Esta migração não requer cancelar o plano nem transferir o domínio. Não alteres contas, ficheiros ou DNS de outros projetos como parte da manutenção deste site.
+O plano partilhado da Hostinger mantém outros websites, domínios e serviços. Esta migração não requer cancelar o plano nem transferir o domínio. No painel consultado em 28 de setembro de 2026, o domínio tinha validade até 19 de agosto de 2027, com renovação automática ativa e bloqueio de transferência ativo. Mantém apenas a renovação do domínio na Hostinger; não alteres contas, ficheiros ou DNS de outros projetos como parte da manutenção deste site.
 
 ## Publicação
 
@@ -46,7 +46,7 @@ Configuração confirmada:
 
 A PR [#38](https://github.com/diogobronzesilva-arch/DiogoBronzeSilva/pull/38) passou os checks e foi integrada em 28 de setembro de 2026. O painel Pages confirmou o deployment de produção do commit `5c1bff4` como concluído. A PR removeu `.htaccess`, configuração Apache sem efeito no artefacto Pages; as funções relevantes já estão cobertas pela regra de redirecionamento, `_headers` e `404.html`.
 
-A auditoria pública anterior confirmou as 17 rotas do sitemap, cabeçalhos de segurança, o redirecionamento `www` preservando caminho e query, e o estado 404. A alteração mais recente foi documental e o deployment correspondente de `main` concluiu com sucesso.
+A auditoria pública confirmou as 17 rotas do sitemap, os cabeçalhos de segurança, o redirecionamento `www` preservando caminho e query, e o estado 404. A PR [#39](https://github.com/diogobronzesilva-arch/DiogoBronzeSilva/pull/39) passou o check obrigatório `Site checks` e foi integrada em 28 de setembro de 2026. O painel Cloudflare Pages confirmou como concluído o deployment de produção do commit `fc1e56c` (`main`). A alteração desta PR é documental; não muda o artefacto público.
 
 ## DNS e segurança do domínio
 
@@ -63,17 +63,28 @@ Os registos ativos de Pages, Cloudflare Email Routing e Resend foram mantidos. N
 
 ## Email
 
-**Entrada:** os MX do domínio são tratados pelo Cloudflare Email Routing. O catch-all e as regras explícitas `diogo@` e `hello@` encaminham para o Gmail. Um teste de entrada já aparecia como encaminhado no registo de atividade do Cloudflare.
+**Entrada:** os MX do domínio são tratados pelo Cloudflare Email Routing. O catch-all e as regras explícitas `diogo@` e `hello@` encaminham para o Gmail. Em 28 de setembro de 2026, o painel de Email Routing mostrava 3 mensagens recebidas e 3 entregues/encaminhadas na janela dos últimos sete dias.
 
 **Saída:** o domínio está verificado no Resend e o Gmail está configurado para usar o SMTP do Resend ao enviar como `diogo@diogobronzesilva.com`. Em 28 de setembro de 2026 foi enviada uma mensagem de teste deste alias para a caixa Gmail pessoal; a mensagem chegou e o cabeçalho recebido confirmou o remetente `diogo@diogobronzesilva.com`.
 
 A caixa postal continua a ser o Gmail pessoal. Cloudflare Email Routing encaminha mensagens e Resend envia mensagens autenticadas; nenhum dos dois é uma caixa postal. Não guardes endereços privados de destino, passwords, códigos, credenciais SMTP ou chaves API neste repositório.
 
-O registo DMARC observado está em modo de monitorização (`p=none`). Mantém essa política enquanto recolhes e avalias relatórios; uma política mais restritiva requer primeiro verificar que todos os emissores legítimos estão alinhados.
+O registo DMARC observado está em modo de monitorização (`p=none`). Mantém essa política enquanto recolhes e avalias relatórios. Antes de passar para `quarantine` ou `reject`, confirma o alinhamento SPF/DKIM do Resend, do Buttondown caso envie mensagens com este domínio e de qualquer outro emissor legítimo.
 
 ## AEO, crawlers e descoberta
 
 A estratégia editorial e as afirmações sobre crawlers foram revistas em [AEO_GEO_STRATEGY.md](AEO_GEO_STRATEGY.md). As recomendações atuais não prometem posições nem citações por sistemas de IA. O ficheiro `llms.txt` é uma página de contexto legível, não uma garantia de indexação ou ranking.
+
+## Branches e limpeza do repositório
+
+Em 28 de setembro de 2026, as branches associadas a pull requests integradas foram removidas. O inventário GitHub ficou com `main` e estas quatro branches não principais:
+
+- `cleanup-home-css` — não foi encontrada associação a uma PR integrada.
+- `fix/production-audit-2026-09-07` — não foi encontrada associação a uma PR integrada.
+- `post/a-impossibilidade-de-separar-costumes-e-economia` — PR [#30](https://github.com/diogobronzesilva-arch/DiogoBronzeSilva/pull/30) fechada sem merge.
+- `preview` — mantida porque não foi possível confirmar que é descartável.
+
+Estas branches não participam no deployment, que publica exclusivamente `main`. Foram preservadas por prudência; revê o respetivo conteúdo antes de as apagar.
 
 ## Verificações de manutenção
 
