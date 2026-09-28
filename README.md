@@ -130,16 +130,14 @@ O projeto Pages `diogobronzesilva` está ligado ao GitHub e usa:
 - Build output directory: `dist`.
 - Domínios públicos: `diogobronzesilva.com` e `www.diogobronzesilva.com`.
 
-O domínio principal é o canónico. Uma Redirect Rule da zona redireciona `www` para o domínio principal, preservando caminho e query string; `_redirects` não implementa redirecionamentos entre domínios. O ficheiro `_headers` aplica os cabeçalhos de segurança e revalidação. O `.htaccess` mantém-se no repositório como recuperação para o alojamento anterior, mas não entra no artefacto Pages.
+O domínio principal é o canónico. Uma Redirect Rule da zona redireciona `www` para o domínio principal, preservando caminho e query string; `_redirects` não implementa redirecionamentos entre domínios. O ficheiro `_headers` aplica os cabeçalhos de segurança e revalidação. O antigo ficheiro Apache `.htaccess` foi removido: o artefacto Cloudflare Pages nunca o publicava e as funções necessárias já estão cobertas pela página `404.html`, pela regra de redirecionamento da zona e por `_headers`.
 
 Para uma verificação manual da publicação já concluída, corre `python3 scripts/check_production.py` a partir de `main` depois do deploy. O script compara o site público com o código local; não o executes antes de uma alteração ainda não publicada.
 
 ### Email do domínio
 
-O Cloudflare Email Routing recebe o correio do domínio e encaminha-o para o Gmail. Estão ativos o catch-all e as regras explícitas `diogo@` e `hello@`. O catch-all cobre futuros aliases. Email Routing encaminha mensagens, mas não fornece uma caixa postal própria.
+O email de entrada usa Cloudflare Email Routing, com catch-all e regras explícitas para `diogo@` e `hello@`, encaminhadas para a caixa pessoal Gmail. O catch-all cobre aliases futuros; Email Routing não fornece uma caixa postal.
 
-O Resend está configurado para envio autenticado pelo domínio. Não guardes credenciais SMTP nem chaves API no repositório. A regra de encaminhamento para o Gmail é independente do envio.
+O domínio está verificado no Resend para envio. O Gmail está configurado para enviar como `diogo@diogobronzesilva.com` através do SMTP do Resend. Isto não transforma o Resend numa caixa postal. O encaminhamento de entrada foi testado; ainda falta confirmar uma entrega de saída com um envio real.
 
-Mantém o serviço de email Titan/Hostinger ativo até terminar a propagação dos nameservers antigos e confirmar a receção no Gmail; durante a transição, alguns emissores ainda podem consultar os servidores DNS antigos. Não canceles o alojamento antigo antes de concluir esta verificação.
-
-A Google anunciou que vai remover o envio “Send as” de endereços externos do Gmail a partir de janeiro de 2027. O encaminhamento de entrada continua independente; para envio duradouro, usa um cliente de email que aceite SMTP ou considera alojamento Google Workspace para o domínio.
+Não guardes endereços de destino privados, credenciais SMTP nem chaves API neste repositório. O estado detalhado, as dependências e os pontos ainda por rever estão em [OPERATIONS.md](OPERATIONS.md).

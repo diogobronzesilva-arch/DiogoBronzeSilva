@@ -63,7 +63,7 @@ def main() -> int:
         return 1
 
     print(f"Pages output contains exactly {len(actual)} expected public files, byte-for-byte.")
-    print("Repository scripts, notes template, and Apache configuration are excluded.")
+    print("Repository documentation, scripts, GitHub workflow, and notes template are excluded.")
     return 0
 
 
