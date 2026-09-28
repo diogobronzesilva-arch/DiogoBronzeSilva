@@ -520,14 +520,65 @@ def check_text_files(report: Report) -> None:
     report.passed("llms.txt internal URLs and robots.txt sitemap declaration")
 
 
+def check_cloudflare_infrastructure(report: Report) -> None:
+    htaccess = ROOT / ".htaccess"
+    if htaccess.exists():
+        report.error("Legacy .htaccess file must be removed for Cloudflare Pages deployment.", Path(".htaccess"))
+
+    headers_path = ROOT / "_headers"
+    if not headers_path.exists():
+        report.error("Missing Cloudflare Pages _headers file.", Path("_headers"))
+    else:
+        try:
+            headers_content = headers_path.read_text(encoding="utf-8")
+        except OSError as exc:
+            report.error(f"Could not read _headers: {exc}", Path("_headers"))
+        else:
+            required_security_headers = [
+                "Strict-Transport-Security",
+                "X-Content-Type-Options: nosniff",
+                "X-Frame-Options: SAMEORIGIN",
+                "Referrer-Policy: strict-origin-when-cross-origin",
+                "Permissions-Policy",
+            ]
+            for header in required_security_headers:
+                if header not in headers_content:
+                    report.error(f"_headers is missing required security directive: {header}", Path("_headers"))
+
+            required_cache_paths = [
+                "/assets/fonts/*",
+                "/assets/img/*",
+                "/assets/css/*",
+            ]
+            for cache_path in required_cache_paths:
+                if cache_path not in headers_content:
+                    report.error(f"_headers is missing cache policy for: {cache_path}", Path("_headers"))
+
+    redirects_path = ROOT / "_redirects"
+    if not redirects_path.exists():
+        report.error("Missing Cloudflare Pages _redirects file.", Path("_redirects"))
+    else:
+        try:
+            redirects_content = redirects_path.read_text(encoding="utf-8")
+        except OSError as exc:
+            report.error(f"Could not read _redirects: {exc}", Path("_redirects"))
+        else:
+            if "https://www.diogobronzesilva.com/*" not in redirects_content:
+                report.error("_redirects is missing www canonical redirection rule.", Path("_redirects"))
+
+    report.passed("Cloudflare Pages infrastructure (_headers, _redirects and legacy cleanup)")
+
+
 def main() -> int:
     report = Report()
     check_html(report)
     check_sitemap(report)
     check_feed(report)
     check_text_files(report)
+    check_cloudflare_infrastructure(report)
     return report.finish()
 
 
 if __name__ == "__main__":
     sys.exit(main())
+

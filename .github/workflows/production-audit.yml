@@ -1,0 +1,32 @@
+name: Production audit
+
+on:
+  schedule:
+    # Corre semanalmente às segundas-feiras às 08:00 UTC
+    - cron: "0 8 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: production-audit
+  cancel-in-progress: true
+
+jobs:
+  audit:
+    name: Production health and parity audit
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v7
+
+      - name: Set up Python
+        uses: actions/setup-python@v7
+        with:
+          python-version: "3.13"
+
+      - name: Audit live production website
+        run: python scripts/check_production.py

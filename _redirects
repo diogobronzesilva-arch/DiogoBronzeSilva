@@ -1,0 +1,2 @@
+# Canonical domain redirection: www to non-www
+https://www.diogobronzesilva.com/* https://diogobronzesilva.com/:splat 301

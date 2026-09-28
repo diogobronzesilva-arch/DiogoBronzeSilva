@@ -1,0 +1,24 @@
+; Zone file for diogobronzesilva.com
+; Reflected state: Cloudflare DNS / Cloudflare Pages / Email Routing & Resend
+; Target Account ID: 2a14314eb1bbf274c7f48f9594bed0a1
+$ORIGIN diogobronzesilva.com.
+$TTL 3600
+
+; ==============================================================================
+; 1. REGISTOS DE EMAIL - CLOUDFLARE EMAIL ROUTING (RECEÇÃO)
+; ==============================================================================
+@                   IN    MX     13    route1.mx.cloudflare.net.
+@                   IN    MX     59    route2.mx.cloudflare.net.
+@                   IN    MX     87    route3.mx.cloudflare.net.
+@                   IN    TXT    "v=spf1 include:_spf.mx.cloudflare.net ~all"
+
+; ==============================================================================
+; 2. REGISTOS DE AUTENTICAÇÃO DE EMAIL - RESEND & DMARC (ENVIO)
+; ==============================================================================
+; Nota: O registo DKIM do Resend encontra-se ativo sob o seletor resend._domainkey
+_dmarc              IN    TXT    "v=DMARC1; p=none; sp=none; rua=mailto:hello@diogobronzesilva.com"
+
+; ==============================================================================
+; 3. REGISTOS DE VERIFICAÇÃO DE PROPRIEDADE
+; ==============================================================================
+@                   IN    TXT    "google-site-verification=RGhx4YnLJaqy8VNZ5cZoeXOrVy2o81IqDM2hWk4gLyo"

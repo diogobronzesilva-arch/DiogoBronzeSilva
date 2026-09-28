@@ -19,6 +19,8 @@ feed.xml                           → /feed.xml
 sitemap.xml                        → /sitemap.xml
 robots.txt                         → /robots.txt
 llms.txt                           → /llms.txt
+_headers                           → cabeçalhos de segurança e cache Edge Cloudflare
+_redirects                         → regras de redirecionamento Cloudflare Pages
 assets/css/site.css                → folha de estilos única
 assets/fonts/                      → tipografia self-hosted (.woff2)
 assets/img/                        → fotografia, Open Graph e vinhetas
@@ -109,12 +111,12 @@ Buttondown só recebe dados de quem opta por subscrever a newsletter.
 
 ## Engenharia e publicação
 
-O site é composto apenas por ficheiros estáticos. O conteúdo publicado no alojamento deve corresponder à raiz deste repositório.
+O site é composto apenas por ficheiros estáticos. O conteúdo publicado no alojamento corresponde diretamente à raiz deste repositório servida pelo Cloudflare Pages.
 
 O fluxo normal é:
 
-`branch → pull request → Site checks → squash merge para main → deploy automático Hostinger`
+`branch → pull request → Site checks → squash merge para main → deploy automático Cloudflare Pages`
 
-A branch `main` está protegida. Alterações devem ser feitas numa branch e submetidas por pull request. O check obrigatório `Site checks` valida links internos, assets, metadata, canonical/Open Graph, JSON-LD, sitemap, RSS, `llms.txt`, `robots.txt`, acessibilidade básica, placeholders do template e consistência da versão do CSS antes de permitir merge.
+A branch `main` está protegida. Alterações devem ser feitas numa branch e submetidas por pull request. O check obrigatório `Site checks` valida links internos, assets, metadata, canonical/Open Graph, JSON-LD, sitemap, RSS, `llms.txt`, `robots.txt`, acessibilidade básica, placeholders do template, consistência da versão do CSS e ficheiros de infraestrutura Cloudflare (`_headers` e `_redirects`) antes de permitir merge.
 
-Depois do merge, a Hostinger faz deployment automático da `main`. Existe ainda um check semanal de produção para detectar divergências entre o repositório e o website público.
+Depois do merge, o Cloudflare Pages compila e distribui instantaneamente a `main` por toda a rede global Anycast da Cloudflare com TLS 1.3, compressão Brotli e cache calibrada no Edge. Existe ainda um check semanal de produção (`scripts/check_production.py`) que audita a integridade do site público, tempos de resposta, cabeçalhos de segurança e a integridade de resolução dos registos DNS de email (Cloudflare Email Routing MX, SPF, DKIM do Resend e DMARC).

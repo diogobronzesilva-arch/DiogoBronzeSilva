@@ -14,7 +14,7 @@ Os modelos de linguagem (ChatGPT, Claude, Perplexity, Google AI Overviews, Micro
 2. **Fan-out Queries (Decomposição de Perguntas):**
    - Quando um utilizador faz uma pergunta ao LLM, o modelo quebra o prompt em **múltiplas sub-perguntas paralelas** (*fan-out queries*) e sintetiza a resposta cruzando os resultados mais confiáveis.
 3. **A Regra do Raw HTML:**
-   - A esmagadora maioria dos crawlers de IA (GPTBot, ClaudeBot, PerplexityBot, Google-Extended) **não executa JavaScript**. Eles leem apenas o HTML puro entregue pelo servidor. O site `diogobronzesilva.com` tem uma vantagem estrutural gigantesca por ser 100% HTML estático.
+   - A esmagadora maioria dos crawlers de IA (GPTBot, ClaudeBot, PerplexityBot, Google-Extended) **não executa JavaScript**. Eles leem apenas o HTML puro entregue pelo servidor. O site `diogobronzesilva.com` tem uma vantagem estrutural gigantesca por ser 100% HTML estático servido diretamente no Edge global da Cloudflare (com TTFB ultrabaixo, zero bloqueio de bots legítimos e compressão Brotli nativa).
 4. **O Peso das Fontes Confiáveis (Off-page > On-page):**
    - Mais de metade das citações de LLMs vêm de plataformas de autoridade e UGC (LinkedIn, YouTube, Reddit, Wikipedia, imprensa e plataformas especializadas). Ter presença cruzada nessas plataformas é o que faz o modelo validar a entidade.
 
