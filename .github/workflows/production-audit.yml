@@ -1,0 +1,33 @@
+name: Production audit
+
+on:
+  schedule:
+    - cron: "19 7 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: production-audit
+  cancel-in-progress: false
+
+jobs:
+  audit:
+    name: Audit production website and email DNS
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Check out main
+        uses: actions/checkout@v7
+        with:
+          ref: main
+
+      - name: Set up Python
+        uses: actions/setup-python@v7
+        with:
+          python-version: "3.13"
+
+      - name: Check production website and public email DNS
+        run: python3 scripts/check_production.py

@@ -52,6 +52,8 @@ A PR [#40](https://github.com/diogobronzesilva-arch/DiogoBronzeSilva/pull/40) at
 
 A PR [#41](https://github.com/diogobronzesilva-arch/DiogoBronzeSilva/pull/41) corrigiu este histórico, passou `Site checks` e foi integrada no mesmo dia. Cloudflare Pages confirmou como concluído o deployment de produção do commit `d13cb31` (`main`). Para qualquer commit posterior, confirma o deployment atual no painel Pages.
 
+O workflow `Production audit` executa semanalmente a partir da branch `main` e pode ser acionado manualmente. Valida as rotas públicas e a respetiva paridade com o código, os cabeçalhos, o RSS, o sitemap, o redirecionamento canónico, os links de email sem dependência de JavaScript e os registos DNS públicos usados pelo email. Este check é de leitura e não altera DNS nem envia mensagens.
+
 ## DNS e segurança do domínio
 
 A zona Cloudflare usa configuração Full e os nameservers delegados na Hostinger são os da Cloudflare. O domínio continua ativo na Hostinger, com renovação automática e bloqueio de transferência ligados.
@@ -74,6 +76,8 @@ Os registos ativos de Pages, Cloudflare Email Routing e Resend foram mantidos. N
 A caixa postal continua a ser o Gmail pessoal. Cloudflare Email Routing encaminha mensagens e Resend envia mensagens autenticadas; nenhum dos dois é uma caixa postal. Não guardes endereços privados de destino, passwords, códigos, credenciais SMTP ou chaves API neste repositório.
 
 O registo DMARC está em modo de monitorização (`p=none`). Em 28 de setembro de 2026, a gestão de relatórios DMARC da Cloudflare foi ativada e o registo TXT `_dmarc` recebeu um destino agregado de relatórios gerido pela Cloudflare. A política `p=none` foi mantida; isto não bloqueia nem põe em quarentena mensagens. No momento da ativação, o painel ainda aguardava o primeiro relatório, que pode demorar até 24 horas a aparecer. Revisa os relatórios durante algumas semanas. Antes de passar para `quarantine` ou `reject`, confirma o alinhamento SPF/DKIM do Resend, do Buttondown caso envie mensagens com este domínio e de qualquer outro emissor legítimo.
+
+Os links `mailto:` públicos de Work e Contact usam os comentários `email_off` da Cloudflare para manter o endereço clicável e evitar a injeção do script de descodificação. A exceção é apenas para o endereço público do site; a ofuscação global da zona não precisa de ser desativada.
 
 ## AEO, crawlers e descoberta
 
@@ -103,4 +107,4 @@ Depois de a alteração chegar à produção:
 python3 scripts/check_production.py
 ```
 
-A auditoria de produção compara o código local com o site público; executa-a a partir de `main` depois do deployment, não numa branch ainda não publicada.
+A auditoria de produção compara o código local com o site público; executa-a a partir de `main` depois do deployment, não numa branch ainda não publicada. O workflow semanal executa o mesmo check contra a versão atual de `main`.

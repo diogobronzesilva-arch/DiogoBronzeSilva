@@ -124,6 +124,8 @@ O fluxo normal é:
 
 A branch `main` está protegida. O check obrigatório `Site checks` valida o conteúdo, executa o empacotador usado na publicação e confirma que `dist/` contém apenas ficheiros públicos antes do merge.
 
+O workflow `Production audit` corre semanalmente e pode também ser iniciado manualmente. Compara o website publicado com `main` e verifica rotas, cabeçalhos, feed, sitemap, redirecionamento canónico, links de email sem JavaScript e os registos DNS públicos usados pelo Cloudflare Email Routing, Resend e DMARC.
+
 ### Cloudflare Pages
 
 O projeto Pages `diogobronzesilva` está ligado ao GitHub e usa:
@@ -143,5 +145,7 @@ Para uma verificação manual da publicação já concluída, corre `python3 scr
 O email de entrada usa Cloudflare Email Routing, com catch-all e regras explícitas para `diogo@` e `hello@`, encaminhadas para a caixa pessoal Gmail. O catch-all cobre aliases futuros; Email Routing não fornece uma caixa postal.
 
 O domínio está verificado no Resend para envio. O Gmail está configurado para enviar como `diogo@diogobronzesilva.com` através do SMTP do Resend. Isto não transforma o Resend numa caixa postal. O encaminhamento de entrada e o envio de saída foram testados. Em 28 de setembro de 2026, uma mensagem enviada como `diogo@diogobronzesilva.com` chegou à caixa pessoal Gmail e o remetente foi confirmado.
+
+Os links `mailto:` em Work e Contact estão envolvidos em comentários `email_off`. Esta exceção evita que a ofuscação de endereços da Cloudflare substitua os links e injete `email-decode.min.js`; a ofuscação global da Cloudflare mantém-se ativa para quaisquer outros endereços.
 
 Não guardes endereços de destino privados, credenciais SMTP nem chaves API neste repositório. O estado detalhado, as dependências e os pontos ainda por rever estão em [OPERATIONS.md](OPERATIONS.md).

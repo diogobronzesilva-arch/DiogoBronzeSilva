@@ -121,6 +121,6 @@ All essays are published in static HTML on https://diogobronzesilva.com/notes/.
 ## 6. Technical Architecture
 
 - **Format**: Hand-crafted static HTML5 and CSS. Zero JavaScript. Zero third-party trackers or cookies.
-- **Hosting**: Hostinger CDN / static hosting.
+- **Hosting**: Cloudflare Pages / Edge static hosting.
 - **Repository**: https://github.com/diogobronzesilva-arch/DiogoBronzeSilva
 - **AI Crawlability**: Fully open to web search bots, grounding crawlers, and LLM indexing engines.

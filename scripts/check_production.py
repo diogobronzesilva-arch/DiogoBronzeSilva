@@ -14,6 +14,7 @@ Run from main after deployment. Uses only Python standard library.
 
 from __future__ import annotations
 
+import json
 import re
 import sys
 import time
@@ -21,7 +22,7 @@ import xml.etree.ElementTree as ET
 import urllib.error
 import urllib.request
 from pathlib import Path
-from urllib.parse import urlsplit
+from urllib.parse import urlencode, urlsplit
 
 ROOT = Path(__file__).resolve().parents[1]
 SITE_ORIGIN = "https://diogobronzesilva.com"
@@ -77,6 +78,20 @@ def public_page_routes() -> list[str]:
     if not routes:
         raise ValueError("sitemap.xml contains no public page URLs")
     return sorted(routes)
+
+
+def query_dns(name: str, record_type: str) -> list[str]:
+    """Query public DNS through Cloudflare's DNS-over-HTTPS JSON endpoint."""
+    query = urlencode({"name": name, "type": record_type})
+    req = urllib.request.Request(
+        f"https://cloudflare-dns.com/dns-query?{query}",
+        headers={"Accept": "application/dns-json", "User-Agent": USER_AGENT},
+    )
+    with urllib.request.urlopen(req, timeout=10) as response:
+        result = json.loads(response.read().decode("utf-8"))
+    if result.get("Status") not in (0, 3):
+        raise RuntimeError(f"DNS-over-HTTPS returned status {result.get('Status')} for {name} {record_type}")
+    return [str(answer.get("data", "")).replace('"', "").strip() for answer in result.get("Answer", [])]
 
 
 def main() -> int:
@@ -212,9 +227,71 @@ def main() -> int:
         issues.append(f"www redirect check failed: HTTP {www_status}, Location: {www_location}, expected: {expected_location}")
         print(f"  [FAIL] Expected HTTP 301 to {expected_location}, got HTTP {www_status} (Location: {www_location})")
 
+    # 8. Check contact links survive Cloudflare's email-address obfuscation.
+    print("\n8. Checking public mailto links remain JavaScript-free:")
+    for route in ("/contact/", "/work/"):
+        status, _, body, _ = fetch(SITE_ORIGIN + route)
+        html = body.decode("utf-8", errors="replace")
+        if status == 200 and 'mailto:hello@diogobronzesilva.com' in html and "email-decode.min.js" not in html:
+            print(f"  [OK] {route} retains the mailto link without the Cloudflare decoding script")
+        else:
+            issues.append(f"{route} email link is obfuscated or missing (HTTP {status})")
+            print(f"  [FAIL] {route} mailto link is missing or Cloudflare email decoding is injected")
+
+    # 9. Check public DNS records used by Cloudflare Email Routing and Resend.
+    print("\n9. Checking email DNS records:")
+    try:
+        mx = query_dns(SITE_HOST, "MX")
+        mx_hosts = {record.split()[-1].rstrip(".") for record in mx if record.split()}
+        expected_mx = {"route1.mx.cloudflare.net", "route2.mx.cloudflare.net", "route3.mx.cloudflare.net"}
+        if expected_mx.issubset(mx_hosts):
+            print("  [OK] Cloudflare Email Routing MX records are published")
+        else:
+            issues.append(f"Cloudflare Email Routing MX records incomplete: {sorted(mx_hosts)}")
+            print(f"  [FAIL] Expected all three Cloudflare MX records; found {sorted(mx_hosts)}")
+
+        apex_txt = query_dns(SITE_HOST, "TXT")
+        if any("v=spf1" in record and "_spf.mx.cloudflare.net" in record for record in apex_txt):
+            print("  [OK] Apex SPF authorizes Cloudflare Email Routing")
+        else:
+            issues.append(f"Apex SPF is missing Cloudflare Email Routing: {apex_txt}")
+            print("  [FAIL] Apex SPF does not include Cloudflare Email Routing")
+
+        dkim = query_dns(f"resend._domainkey.{SITE_HOST}", "TXT")
+        if any(record.startswith("p=") for record in dkim):
+            print("  [OK] Resend DKIM public key is published")
+        else:
+            issues.append("Resend DKIM public key is missing")
+            print("  [FAIL] Resend DKIM public key is missing")
+
+        send_host = f"send.{SITE_HOST}"
+        send_cname = query_dns(send_host, "CNAME")
+        if any(record.rstrip(".") == "send.forge.rmta.net" for record in send_cname):
+            print("  [OK] Resend return-path CNAME is published")
+        else:
+            issues.append(f"Resend return-path CNAME is missing or incorrect: {send_cname}")
+            print(f"  [FAIL] Resend return-path CNAME is missing or incorrect: {send_cname}")
+
+        send_txt = query_dns(send_host, "TXT")
+        if any("v=spf1" in record and "ip4:" in record for record in send_txt):
+            print("  [OK] Resend return-path SPF is published")
+        else:
+            issues.append(f"Resend return-path SPF is missing: {send_txt}")
+            print(f"  [FAIL] Resend return-path SPF is missing: {send_txt}")
+
+        dmarc = query_dns(f"_dmarc.{SITE_HOST}", "TXT")
+        if any("v=DMARC1" in record and "p=none" in record for record in dmarc):
+            print("  [OK] DMARC remains in monitoring mode")
+        else:
+            issues.append(f"DMARC is missing or no longer in the documented monitoring policy: {dmarc}")
+            print("  [FAIL] DMARC is missing or differs from the documented monitoring policy")
+    except Exception as exc:
+        issues.append(f"Could not complete public email DNS checks: {exc}")
+        print(f"  [FAIL] DNS-over-HTTPS check failed: {exc}")
+
     print("\n" + "=" * 50)
     if not issues:
-        print("All production checks PASSED! Live website is healthy and in sync with repository.")
+        print("All production checks PASSED! Live website and email DNS are healthy and in sync.")
         return 0
     else:
         print(f"Found {len(issues)} issue(s):")
