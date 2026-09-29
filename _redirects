@@ -1,3 +1,0 @@
-# Cloudflare Pages Redirects
-# Note: Canonical domain redirection (www -> apex) is handled at Cloudflare Edge/Redirect Rules.
-# Do not duplicate apex/www domain-level redirects here to avoid routing loops or race conditions.

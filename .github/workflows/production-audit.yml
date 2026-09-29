@@ -2,8 +2,7 @@ name: Production audit
 
 on:
   schedule:
-    # Corre semanalmente às segundas-feiras às 08:00 UTC
-    - cron: "0 8 * * 1"
+    - cron: "19 7 * * 1"
   workflow_dispatch:
 
 permissions:
@@ -11,22 +10,24 @@ permissions:
 
 concurrency:
   group: production-audit
-  cancel-in-progress: true
+  cancel-in-progress: false
 
 jobs:
   audit:
-    name: Production health and parity audit
+    name: Audit production website and email DNS
     runs-on: ubuntu-latest
-    timeout-minutes: 5
+    timeout-minutes: 10
 
     steps:
-      - name: Check out repository
+      - name: Check out main
         uses: actions/checkout@v7
+        with:
+          ref: main
 
       - name: Set up Python
         uses: actions/setup-python@v7
         with:
           python-version: "3.13"
 
-      - name: Audit live production website
-        run: python scripts/check_production.py
+      - name: Check production website and public email DNS
+        run: python3 scripts/check_production.py

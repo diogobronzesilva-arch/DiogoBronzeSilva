@@ -28,5 +28,8 @@ jobs:
         with:
           python-version: "3.13"
 
-      - name: Validate static site
-        run: python scripts/check_site.py
+      - name: Validate site and build Cloudflare Pages artifact
+        run: python scripts/build_pages.py
+
+      - name: Verify Cloudflare Pages output
+        run: python scripts/check_pages_output.py

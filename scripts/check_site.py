@@ -192,7 +192,7 @@ def published_html_files() -> list[Path]:
     files: list[Path] = []
     for path in ROOT.rglob("*.html"):
         rel = relative(path)
-        if ".git" in rel.parts or rel in {TEMPLATE, NOT_FOUND}:
+        if any(part in {".git", "dist"} for part in rel.parts) or rel in {TEMPLATE, NOT_FOUND}:
             continue
         files.append(path)
     return sorted(files)
@@ -202,7 +202,7 @@ def all_html_files() -> list[Path]:
     return sorted(
         path
         for path in ROOT.rglob("*.html")
-        if ".git" not in relative(path).parts
+        if not any(part in {".git", "dist"} for part in relative(path).parts)
     )
 
 
@@ -521,7 +521,7 @@ def check_text_files(report: Report) -> None:
 
 
 def check_cloudflare_infrastructure(report: Report) -> None:
-    # .htaccess is preserved during migration as a rollback fallback for Hostinger until DNS propagation completes
+    # .htaccess is not published to Pages; retain the check only if a fallback copy remains in source.
     htaccess = ROOT / ".htaccess"
     if htaccess.exists():
         try:
@@ -551,19 +551,31 @@ def check_cloudflare_infrastructure(report: Report) -> None:
                 if header not in headers_content:
                     report.error(f"_headers is missing required security directive: {header}", Path("_headers"))
 
-            required_cache_paths = [
-                "/assets/fonts/*",
-                "/assets/img/*",
-                "/assets/css/*",
-            ]
-            for cache_path in required_cache_paths:
-                if cache_path not in headers_content:
-                    report.error(f"_headers is missing cache policy for: {cache_path}", Path("_headers"))
+            if not re.search(
+                r"Cache-Control:\s*public,\s*max-age=0,\s*must-revalidate",
+                headers_content,
+                re.IGNORECASE,
+            ):
+                report.error(
+                    "_headers must keep files revalidatable because asset filenames are not fingerprinted.",
+                    Path("_headers"),
+                )
 
-            # Safety check: non-versioned assets must not use immutable directive
-            for line in headers_content.splitlines():
-                if ("/assets/fonts/" in line or "/assets/img/" in line) and "immutable" in line:
-                    report.error(f"Non-versioned asset header should not use immutable cache directive: {line.strip()}", Path("_headers"))
+    mailto_pattern = re.compile(
+        r"<!--email_off-->\s*<a\b[^>]*href=\"mailto:hello@diogobronzesilva\.com\"[^>]*>.*?</a>\s*<!--/email_off-->",
+        re.DOTALL,
+    )
+    for page in (Path("contact/index.html"), Path("work/index.html")):
+        try:
+            content = (ROOT / page).read_text(encoding="utf-8")
+        except OSError as exc:
+            report.error(f"Could not read {page}: {exc}", page)
+        else:
+            if not mailto_pattern.search(content):
+                report.error(
+                    "Public mailto link must be wrapped in Cloudflare email_off markers to remain usable without JavaScript.",
+                    page,
+                )
 
     redirects_path = ROOT / "_redirects"
     if redirects_path.exists():
@@ -593,4 +605,3 @@ def main() -> int:
 
 if __name__ == "__main__":
     sys.exit(main())
-

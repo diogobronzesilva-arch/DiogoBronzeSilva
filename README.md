@@ -1,9 +1,13 @@
 # Diogo Silva — diogobronzesilva.com
 
-Website pessoal de Diogo Silva. HTML e CSS estáticos, sem framework, sem build system e sem JavaScript.
+Website pessoal de Diogo Silva. HTML e CSS estáticos, sem framework nem JavaScript próprio. Um pequeno script Python prepara a publicação no Cloudflare Pages.
 
 Domínio: **diogobronzesilva.com**  
 Email público: **hello@diogobronzesilva.com**
+
+## Estado da infraestrutura — 28 de setembro de 2026
+
+O site está publicado no Cloudflare Pages, com DNS e DNSSEC no Cloudflare. O domínio continua registado na Hostinger, com renovação automática ativa; o plano partilhado permanece para outros projetos. A entrada de email encaminha pelo Cloudflare e a saída usa Resend via Gmail. O estado de produção, as duas branches com alterações próprias e o DMARC em `p=none`, com relatórios a recolher no Cloudflare, estão registados em [OPERATIONS.md](OPERATIONS.md).
 
 ## Estrutura
 
@@ -19,16 +23,14 @@ feed.xml                           → /feed.xml
 sitemap.xml                        → /sitemap.xml
 robots.txt                         → /robots.txt
 llms.txt                           → /llms.txt
-.htaccess                          → salvaguarda Apache/Hostinger para contingência e fallback
-_headers                           → cabeçalhos de segurança e cache Edge Cloudflare
-_redirects                         → registo de encaminhamentos Cloudflare Pages
 assets/css/site.css                → folha de estilos única
 assets/fonts/                      → tipografia self-hosted (.woff2)
 assets/img/                        → fotografia, Open Graph e vinhetas
 scripts/check_site.py              → validação técnica do site
-scripts/check_production.py        → auditoria técnica ao vivo e DNS
+scripts/build_pages.py             → empacotador Cloudflare Pages
+scripts/check_pages_output.py      → validação do artefacto publicado
+scripts/check_production.py        → auditoria manual do site público
 .github/workflows/site-checks.yml  → CI para PRs e main
-.github/workflows/production-audit.yml → auditoria semanal agendada
 ```
 
 A raiz deste repositório é a fonte de verdade do site. Não deve existir uma pasta intermédia com uma cópia datada do website.
@@ -114,14 +116,36 @@ Buttondown só recebe dados de quem opta por subscrever a newsletter.
 
 ## Engenharia e publicação
 
-O site é composto apenas por ficheiros estáticos. O conteúdo publicado no alojamento corresponde diretamente à raiz deste repositório servida pelo Cloudflare Pages.
+A raiz deste repositório é a fonte de verdade do site. O Cloudflare Pages publica os ficheiros preparados em `dist/`; não edites manualmente essa pasta.
 
 O fluxo normal é:
 
-`branch → pull request → Site checks → squash merge para main → deploy automático Cloudflare Pages`
+`branch → pull request → Site checks → squash merge para main → deploy automático no Cloudflare Pages`
 
-A branch `main` está protegida. Alterações devem ser feitas numa branch e submetidas por pull request. O check obrigatório `Site checks` valida links internos, assets, metadata, canonical/Open Graph, JSON-LD, sitemap, RSS, `llms.txt`, `robots.txt`, acessibilidade básica, placeholders do template, consistência da versão do CSS e ficheiros de infraestrutura Cloudflare (`_headers` e `_redirects`) antes de permitir merge.
+A branch `main` está protegida. O check obrigatório `Site checks` valida o conteúdo, executa o empacotador usado na publicação e confirma que `dist/` contém apenas ficheiros públicos antes do merge.
 
-Depois do merge, o Cloudflare Pages compila e distribui instantaneamente a `main` por toda a rede global Anycast da Cloudflare com TLS 1.3, compressão Brotli e cache calibrada no Edge. Existe ainda um check semanal de produção (`scripts/check_production.py`) que audita a integridade do site público, tempos de resposta, cabeçalhos de segurança e a integridade de resolução dos registos DNS de email (Cloudflare Email Routing MX, SPF, DKIM do Resend e DMARC).
+O workflow `Production audit` corre semanalmente e pode também ser iniciado manualmente. Compara o website publicado com `main` e verifica rotas, cabeçalhos, feed, sitemap, redirecionamento canónico, links de email sem JavaScript e os registos DNS públicos usados pelo Cloudflare Email Routing, Resend e DMARC.
 
-Durante a janela de transição e propagação DNS, o ficheiro `.htaccess` é temporariamente preservado no repositório para assegurar a via de recuperação e contingência na Hostinger. A sua eliminação definitiva ocorrerá após a estabilização completa do tráfego e do correio eletrónico.
+### Cloudflare Pages
+
+O projeto Pages `diogobronzesilva` está ligado ao GitHub e usa:
+
+- Production branch: `main`.
+- Framework preset: None.
+- Build command: `python3 scripts/build_pages.py`.
+- Build output directory: `dist`.
+- Domínios públicos: `diogobronzesilva.com` e `www.diogobronzesilva.com`.
+
+O domínio principal é o canónico. Uma Redirect Rule da zona redireciona `www` para o domínio principal, preservando caminho e query string; `_redirects` não implementa redirecionamentos entre domínios. O ficheiro `_headers` aplica os cabeçalhos de segurança e revalidação. O antigo ficheiro Apache `.htaccess` foi removido: o artefacto Cloudflare Pages nunca o publicava e as funções necessárias já estão cobertas pela página `404.html`, pela regra de redirecionamento da zona e por `_headers`.
+
+Para uma verificação manual da publicação já concluída, corre `python3 scripts/check_production.py` a partir de `main` depois do deploy. O script compara o site público com o código local; não o executes antes de uma alteração ainda não publicada.
+
+### Email do domínio
+
+O email de entrada usa Cloudflare Email Routing, com catch-all e regras explícitas para `diogo@` e `hello@`, encaminhadas para a caixa pessoal Gmail. O catch-all cobre aliases futuros; Email Routing não fornece uma caixa postal.
+
+O domínio está verificado no Resend para envio. O Gmail está configurado para enviar como `diogo@diogobronzesilva.com` através do SMTP do Resend. Isto não transforma o Resend numa caixa postal. O encaminhamento de entrada e o envio de saída foram testados. Em 28 de setembro de 2026, uma mensagem enviada como `diogo@diogobronzesilva.com` chegou à caixa pessoal Gmail e o remetente foi confirmado.
+
+Os links `mailto:` em Work e Contact estão envolvidos em comentários `email_off`. Esta exceção evita que a ofuscação de endereços da Cloudflare substitua os links e injete `email-decode.min.js`; a ofuscação global da Cloudflare mantém-se ativa para quaisquer outros endereços.
+
+Não guardes endereços de destino privados, credenciais SMTP nem chaves API neste repositório. O estado detalhado, as dependências e os pontos ainda por rever estão em [OPERATIONS.md](OPERATIONS.md).

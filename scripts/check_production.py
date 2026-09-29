@@ -1,18 +1,15 @@
 #!/usr/bin/env python3
-"""Weekly production consistency, health and infrastructure audit for diogobronzesilva.com.
+"""Manual production consistency and health check for diogobronzesilva.com.
 
-Checks the live website served on Cloudflare Edge / origin against the repository source:
-1. HTTP status and responsiveness of all public routes.
-2. Custom 404 error handler.
-3. Production security headers (HSTS, nosniff, Referrer-Policy, SAMEORIGIN, Permissions-Policy).
-4. Edge CDN provider and asset caching headers (Cloudflare Edge, CSS, Fonts).
-5. Cache-busting key consistency between production and source index.html.
-6. Parity between live feed.xml and repository feed.xml (title and link).
-7. Completeness of live sitemap.xml compared to repository.
-8. Canonical host redirection (www -> non-www).
-9. Email DNS health and authentication (Cloudflare Email Routing MX, SPF, Resend DKIM and DMARC).
+Checks the Cloudflare Pages site against the checked-out repository source:
+1. HTTP status for public pages in the sitemap and core technical files.
+2. Production security headers.
+3. Cache-busting key consistency between production and source index.html.
+4. Parity between live feed.xml and repository feed.xml (title and link).
+5. Completeness of live sitemap.xml compared to repository.
+6. Canonical host redirection (www -> apex), including path and query.
 
-Uses only Python standard library.
+Run from main after deployment. Uses only Python standard library.
 """
 
 from __future__ import annotations
@@ -21,22 +18,16 @@ import json
 import re
 import sys
 import time
+import xml.etree.ElementTree as ET
 import urllib.error
 import urllib.request
 from pathlib import Path
+from urllib.parse import urlencode, urlsplit
 
 ROOT = Path(__file__).resolve().parents[1]
 SITE_ORIGIN = "https://diogobronzesilva.com"
-CORE_ROUTES = [
-    "/",
-    "/work/",
-    "/notes/",
-    "/contact/",
-    "/feed.xml",
-    "/sitemap.xml",
-    "/robots.txt",
-    "/llms.txt",
-]
+SITE_HOST = "diogobronzesilva.com"
+CORE_ROUTES = ["/feed.xml", "/sitemap.xml", "/robots.txt", "/llms.txt"]
 
 EXPECTED_HEADERS = [
     "Strict-Transport-Security",
@@ -44,9 +35,10 @@ EXPECTED_HEADERS = [
     "Referrer-Policy",
     "X-Frame-Options",
     "Permissions-Policy",
+    "Content-Security-Policy",
 ]
 
-USER_AGENT = "Mozilla/5.0 (compatible; SiteAuditor/2.0; +https://diogobronzesilva.com)"
+USER_AGENT = "Mozilla/5.0 (compatible; SiteAuditor/1.0; +https://diogobronzesilva.com)"
 
 
 def fetch(url: str, timeout: int = 10, follow_redirects: bool = True) -> tuple[int, dict[str, str], bytes, float]:
@@ -71,32 +63,61 @@ def fetch(url: str, timeout: int = 10, follow_redirects: bool = True) -> tuple[i
         return 0, {}, str(e).encode(), duration
 
 
+def public_page_routes() -> list[str]:
+    """Return local canonical paths listed in sitemap.xml."""
+    sitemap_path = ROOT / "sitemap.xml"
+    sitemap = ET.parse(sitemap_path).getroot()
+    routes: set[str] = set()
+    for element in sitemap.iter():
+        if element.tag.rsplit("}", 1)[-1] != "loc" or not element.text:
+            continue
+        parsed = urlsplit(element.text.strip())
+        if parsed.scheme != "https" or parsed.netloc != SITE_HOST or parsed.query or parsed.fragment:
+            raise ValueError(f"Invalid canonical URL in sitemap.xml: {element.text.strip()}")
+        routes.add(parsed.path or "/")
+    if not routes:
+        raise ValueError("sitemap.xml contains no public page URLs")
+    return sorted(routes)
+
+
 def query_dns(name: str, record_type: str) -> list[str]:
-    url = f"https://cloudflare-dns.com/dns-query?name={name}&type={record_type}"
-    req = urllib.request.Request(url, headers={"Accept": "application/dns-json", "User-Agent": USER_AGENT})
-    try:
-        with urllib.request.urlopen(req, timeout=10) as resp:
-            data = json.loads(resp.read().decode())
-            answers = data.get("Answer", [])
-            return [a.get("data", "").strip('"') for a in answers]
-    except Exception:
-        return []
+    """Query public DNS through Cloudflare's DNS-over-HTTPS JSON endpoint."""
+    query = urlencode({"name": name, "type": record_type})
+    req = urllib.request.Request(
+        f"https://cloudflare-dns.com/dns-query?{query}",
+        headers={"Accept": "application/dns-json", "User-Agent": USER_AGENT},
+    )
+    with urllib.request.urlopen(req, timeout=10) as response:
+        result = json.loads(response.read().decode("utf-8"))
+    if result.get("Status") not in (0, 3):
+        raise RuntimeError(f"DNS-over-HTTPS returned status {result.get('Status')} for {name} {record_type}")
+    return [str(answer.get("data", "")).replace('"', "").strip() for answer in result.get("Answer", [])]
 
 
 def main() -> int:
     issues: list[str] = []
     print(f"Auditing live website at {SITE_ORIGIN} against repository {ROOT}...\n")
 
-    # 1. Check core routes
-    print("1. Checking core routes availability:")
-    for route in CORE_ROUTES:
+    # 1. Check every public page in the sitemap and the core technical files.
+    print("1. Checking all public pages and core technical files:")
+    try:
+        routes = sorted(set(public_page_routes()) | set(CORE_ROUTES))
+    except (OSError, ET.ParseError, ValueError) as exc:
+        issues.append(f"Could not derive production routes from sitemap.xml: {exc}")
+        routes = CORE_ROUTES
+
+    for route in routes:
         url = f"{SITE_ORIGIN}{route}"
         status, headers, body, elapsed = fetch(url)
         if status == 200:
-            print(f"  [OK] {route:<15} HTTP 200 ({elapsed * 1000:.0f}ms, {len(body):,} bytes)")
+            print(f"  [OK] {route:<52} HTTP 200 ({elapsed * 1000:.0f}ms, {len(body):,} bytes)")
         else:
-            issues.append(f"Route {route} returned status {status}")
-            print(f"  [FAIL] {route:<15} HTTP {status} ({elapsed * 1000:.0f}ms)")
+            detail = body.decode("utf-8", errors="replace").strip()
+            issue = f"Route {route} returned status {status}"
+            if detail:
+                issue += f": {detail[:180]}"
+            issues.append(issue)
+            print(f"  [FAIL] {route:<52} HTTP {status} ({elapsed * 1000:.0f}ms)")
 
     # 2. Check 404 page status
     print("\n2. Checking custom 404 handler:")
@@ -116,30 +137,11 @@ def main() -> int:
         if val:
             print(f"  [OK] {h}: {val}")
         else:
-            issues.append(f"Missing required security header: {h}")
-            print(f"  [FAIL] {h}: not set directly by origin or edge CDN")
+            issues.append(f"Missing production security header: {h}")
+            print(f"  [FAIL] {h}: missing")
 
-    # 4. Check Edge CDN provider & asset cache policies
-    print("\n4. Checking Edge CDN and Cache Policies:")
-    server_header = root_headers.get("Server", "").lower()
-    cf_ray = root_headers.get("Cf-Ray")
-    cf_cache = root_headers.get("Cf-Cache-Status")
-    if "cloudflare" in server_header or cf_ray:
-        ray_info = f" (Ray: {cf_ray}, Cache: {cf_cache or 'DYNAMIC/HIT'})" if cf_ray else ""
-        print(f"  [OK] Edge Provider: Cloudflare{ray_info}")
-    else:
-        print(f"  [INFO] Edge Provider: {root_headers.get('Server', 'Unknown')} (Legacy or cutover pending)")
-
-    # Check font caching
-    font_status, font_headers, _, _ = fetch(f"{SITE_ORIGIN}/assets/fonts/newsreader-regular.woff2")
-    if font_status == 200:
-        cc_font = font_headers.get("Cache-Control", "")
-        print(f"  [OK] Font /assets/fonts/newsreader-regular.woff2 Cache-Control: {cc_font}")
-    else:
-        print(f"  [WARN] Could not verify font caching (HTTP {font_status})")
-
-    # 5. Check CSS cache version in production against repository index.html
-    print("\n5. Checking live stylesheet cache version against repository:")
+    # 4. Check CSS cache version in production against repository index.html
+    print("\n4. Checking live stylesheet cache version against repository:")
     css_match = re.search(r'href="(/assets/css/site\.css\?v=[^"]+)"', root_body.decode("utf-8", errors="ignore"))
     local_index_path = ROOT / "index.html"
     local_css_match = None
@@ -161,8 +163,8 @@ def main() -> int:
         issues.append("Could not locate site.css cache version in production homepage HTML")
         print("  [FAIL] Could not locate site.css link on homepage")
 
-    # 6. Check RSS feed validity and parity with repository
-    print("\n6. Checking live RSS feed against repository:")
+    # 5. Check RSS feed validity and parity with repository
+    print("\n5. Checking live RSS feed against repository:")
     _, _, feed_bytes, _ = fetch(f"{SITE_ORIGIN}/feed.xml")
     feed_text = feed_bytes.decode("utf-8", errors="ignore")
     latest_item_match = re.search(r"<item>\s*<title>([^<]+)</title>\s*<link>([^<]+)</link>", feed_text)
@@ -189,8 +191,8 @@ def main() -> int:
         issues.append("Could not extract latest item title/link from live feed.xml")
         print("  [FAIL] Live feed does not contain expected item structure")
 
-    # 7. Check sitemap parity with repository
-    print("\n7. Checking sitemap parity against repository:")
+    # 6. Check sitemap parity with repository
+    print("\n6. Checking sitemap parity against repository:")
     _, _, sitemap_bytes, _ = fetch(f"{SITE_ORIGIN}/sitemap.xml")
     sitemap_text = sitemap_bytes.decode("utf-8", errors="ignore")
     local_sitemap_path = ROOT / "sitemap.xml"
@@ -199,71 +201,97 @@ def main() -> int:
         live_urls = set(re.findall(r"<loc>([^<]+)</loc>", sitemap_text))
         local_urls = set(re.findall(r"<loc>([^<]+)</loc>", local_sitemap_text))
         missing_live = local_urls - live_urls
-        if missing_live:
-            issues.append(f"Production sitemap missing URLs present in repository: {missing_live}")
-            print(f"  [FAIL] Production sitemap missing {len(missing_live)} URL(s)")
+        extra_live = live_urls - local_urls
+        if missing_live or extra_live:
+            if missing_live:
+                issues.append(f"Production sitemap is missing repository URLs: {sorted(missing_live)}")
+            if extra_live:
+                issues.append(f"Production sitemap has URLs absent from the repository: {sorted(extra_live)}")
+            print(
+                f"  [FAIL] Sitemap differs from repository "
+                f"(missing {len(missing_live)}, extra {len(extra_live)} URL(s))"
+            )
         else:
-            print(f"  [OK] Production sitemap contains all {len(local_urls)} repository URLs")
+            print(f"  [OK] Production sitemap exactly matches all {len(local_urls)} repository URLs")
 
-    # 8. Check canonical host redirection (www -> non-www)
-    print("\n8. Checking www canonical redirect:")
-    www_status, www_headers, _, www_elapsed = fetch("https://www.diogobronzesilva.com/", follow_redirects=False)
+    # 7. Check canonical host redirection (www -> non-www)
+    print("\n7. Checking www canonical redirect with path and query preserved:")
+    test_path_query = "/contact/?cf_migration_audit=1"
+    expected_location = SITE_ORIGIN + test_path_query
+    www_url = "https://www.diogobronzesilva.com" + test_path_query
+    www_status, www_headers, _, www_elapsed = fetch(www_url, follow_redirects=False)
     www_location = www_headers.get("Location", "")
-    if www_status == 301 and www_location.rstrip("/") == SITE_ORIGIN:
-        print(f"  [OK] https://www.diogobronzesilva.com/ redirects 301 -> {www_location} ({www_elapsed * 1000:.0f}ms)")
+    if www_status == 301 and www_location == expected_location:
+        print(f"  [OK] {www_url} redirects 301 -> {www_location} ({www_elapsed * 1000:.0f}ms)")
     else:
-        issues.append(f"www redirect check failed: HTTP {www_status}, Location: {www_location}")
-        print(f"  [FAIL] Expected 301 redirect to {SITE_ORIGIN}/, got HTTP {www_status} (Location: {www_location})")
+        issues.append(f"www redirect check failed: HTTP {www_status}, Location: {www_location}, expected: {expected_location}")
+        print(f"  [FAIL] Expected HTTP 301 to {expected_location}, got HTTP {www_status} (Location: {www_location})")
 
-    # 9. Check Email DNS Health (Cloudflare Email Routing, SPF, Resend DKIM, DMARC)
-    print("\n9. Checking Email DNS Health & Authentication (Cloudflare Email Routing & Resend):")
-    mx_records = query_dns("diogobronzesilva.com", "MX")
-    has_cf_mx = any("mx.cloudflare.net" in r for r in mx_records)
-    if has_cf_mx:
-        print(f"  [OK] MX records resolving Cloudflare Email Routing: {', '.join(sorted(mx_records))}")
-    else:
-        issues.append(f"Cloudflare Email Routing MX records missing or misconfigured: {mx_records}")
-        print(f"  [FAIL] MX records missing or incomplete: {mx_records}")
+    # 8. Check contact links survive Cloudflare's email-address obfuscation.
+    print("\n8. Checking public mailto links remain JavaScript-free:")
+    for route in ("/contact/", "/work/"):
+        status, _, body, _ = fetch(SITE_ORIGIN + route)
+        html = body.decode("utf-8", errors="replace")
+        if status == 200 and 'mailto:hello@diogobronzesilva.com' in html and "email-decode.min.js" not in html:
+            print(f"  [OK] {route} retains the mailto link without the Cloudflare decoding script")
+        else:
+            issues.append(f"{route} email link is obfuscated or missing (HTTP {status})")
+            print(f"  [FAIL] {route} mailto link is missing or Cloudflare email decoding is injected")
 
-    txt_records = query_dns("diogobronzesilva.com", "TXT")
-    spf_records = [r for r in txt_records if "v=spf1" in r]
-    if any("_spf.mx.cloudflare.net" in r for r in spf_records):
-        print(f"  [OK] SPF record valid: {spf_records[0]}")
-    else:
-        issues.append(f"SPF record missing Cloudflare include: {spf_records}")
-        print(f"  [FAIL] SPF record invalid: {spf_records}")
+    # 9. Check public DNS records used by Cloudflare Email Routing and Resend.
+    print("\n9. Checking email DNS records:")
+    try:
+        mx = query_dns(SITE_HOST, "MX")
+        mx_hosts = {record.split()[-1].rstrip(".") for record in mx if record.split()}
+        expected_mx = {"route1.mx.cloudflare.net", "route2.mx.cloudflare.net", "route3.mx.cloudflare.net"}
+        if expected_mx.issubset(mx_hosts):
+            print("  [OK] Cloudflare Email Routing MX records are published")
+        else:
+            issues.append(f"Cloudflare Email Routing MX records incomplete: {sorted(mx_hosts)}")
+            print(f"  [FAIL] Expected all three Cloudflare MX records; found {sorted(mx_hosts)}")
 
-    dkim_hosts = [
-        "resend._domainkey.diogobronzesilva.com",
-        "resend._domainkey.send.diogobronzesilva.com",
-    ]
-    dkim_found = False
-    for host in dkim_hosts:
-        dkim_records = query_dns(host, "TXT")
-        if dkim_records and any("p=" in r for r in dkim_records):
-            print(f"  [OK] Resend DKIM record ({host}) valid and active")
-            dkim_found = True
-            break
-        cname_records = query_dns(host, "CNAME")
-        if cname_records:
-            print(f"  [OK] Resend DKIM record ({host} CNAME): {cname_records[0]}")
-            dkim_found = True
-            break
+        apex_txt = query_dns(SITE_HOST, "TXT")
+        if any("v=spf1" in record and "_spf.mx.cloudflare.net" in record for record in apex_txt):
+            print("  [OK] Apex SPF authorizes Cloudflare Email Routing")
+        else:
+            issues.append(f"Apex SPF is missing Cloudflare Email Routing: {apex_txt}")
+            print("  [FAIL] Apex SPF does not include Cloudflare Email Routing")
 
-    if not dkim_found:
-        issues.append("Resend DKIM record (resend._domainkey) missing or invalid on apex and send subdomain")
-        print("  [FAIL] Resend DKIM record invalid or not found")
+        dkim = query_dns(f"resend._domainkey.{SITE_HOST}", "TXT")
+        if any(record.startswith("p=") for record in dkim):
+            print("  [OK] Resend DKIM public key is published")
+        else:
+            issues.append("Resend DKIM public key is missing")
+            print("  [FAIL] Resend DKIM public key is missing")
 
-    dmarc_records = query_dns("_dmarc.diogobronzesilva.com", "TXT")
-    if any("v=DMARC1" in r for r in dmarc_records):
-        print(f"  [OK] DMARC record valid: {dmarc_records[0]}")
-    else:
-        issues.append(f"DMARC record missing or invalid: {dmarc_records}")
-        print(f"  [FAIL] DMARC record invalid: {dmarc_records}")
+        send_host = f"send.{SITE_HOST}"
+        send_cname = query_dns(send_host, "CNAME")
+        if any(record.rstrip(".") == "send.forge.rmta.net" for record in send_cname):
+            print("  [OK] Resend return-path CNAME is published")
+        else:
+            issues.append(f"Resend return-path CNAME is missing or incorrect: {send_cname}")
+            print(f"  [FAIL] Resend return-path CNAME is missing or incorrect: {send_cname}")
+
+        send_txt = query_dns(send_host, "TXT")
+        if any("v=spf1" in record and "ip4:" in record for record in send_txt):
+            print("  [OK] Resend return-path SPF is published")
+        else:
+            issues.append(f"Resend return-path SPF is missing: {send_txt}")
+            print(f"  [FAIL] Resend return-path SPF is missing: {send_txt}")
+
+        dmarc = query_dns(f"_dmarc.{SITE_HOST}", "TXT")
+        if any("v=DMARC1" in record and "p=none" in record for record in dmarc):
+            print("  [OK] DMARC remains in monitoring mode")
+        else:
+            issues.append(f"DMARC is missing or no longer in the documented monitoring policy: {dmarc}")
+            print("  [FAIL] DMARC is missing or differs from the documented monitoring policy")
+    except Exception as exc:
+        issues.append(f"Could not complete public email DNS checks: {exc}")
+        print(f"  [FAIL] DNS-over-HTTPS check failed: {exc}")
 
     print("\n" + "=" * 50)
     if not issues:
-        print("All production checks PASSED! Live website and email infrastructure are healthy and in sync.")
+        print("All production checks PASSED! Live website and email DNS are healthy and in sync.")
         return 0
     else:
         print(f"Found {len(issues)} issue(s):")
