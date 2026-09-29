@@ -19,13 +19,16 @@ feed.xml                           → /feed.xml
 sitemap.xml                        → /sitemap.xml
 robots.txt                         → /robots.txt
 llms.txt                           → /llms.txt
+.htaccess                          → salvaguarda Apache/Hostinger para contingência e fallback
 _headers                           → cabeçalhos de segurança e cache Edge Cloudflare
-_redirects                         → regras de redirecionamento Cloudflare Pages
+_redirects                         → registo de encaminhamentos Cloudflare Pages
 assets/css/site.css                → folha de estilos única
 assets/fonts/                      → tipografia self-hosted (.woff2)
 assets/img/                        → fotografia, Open Graph e vinhetas
 scripts/check_site.py              → validação técnica do site
+scripts/check_production.py        → auditoria técnica ao vivo e DNS
 .github/workflows/site-checks.yml  → CI para PRs e main
+.github/workflows/production-audit.yml → auditoria semanal agendada
 ```
 
 A raiz deste repositório é a fonte de verdade do site. Não deve existir uma pasta intermédia com uma cópia datada do website.
@@ -120,3 +123,5 @@ O fluxo normal é:
 A branch `main` está protegida. Alterações devem ser feitas numa branch e submetidas por pull request. O check obrigatório `Site checks` valida links internos, assets, metadata, canonical/Open Graph, JSON-LD, sitemap, RSS, `llms.txt`, `robots.txt`, acessibilidade básica, placeholders do template, consistência da versão do CSS e ficheiros de infraestrutura Cloudflare (`_headers` e `_redirects`) antes de permitir merge.
 
 Depois do merge, o Cloudflare Pages compila e distribui instantaneamente a `main` por toda a rede global Anycast da Cloudflare com TLS 1.3, compressão Brotli e cache calibrada no Edge. Existe ainda um check semanal de produção (`scripts/check_production.py`) que audita a integridade do site público, tempos de resposta, cabeçalhos de segurança e a integridade de resolução dos registos DNS de email (Cloudflare Email Routing MX, SPF, DKIM do Resend e DMARC).
+
+Durante a janela de transição e propagação DNS, o ficheiro `.htaccess` é temporariamente preservado no repositório para assegurar a via de recuperação e contingência na Hostinger. A sua eliminação definitiva ocorrerá após a estabilização completa do tráfego e do correio eletrónico.

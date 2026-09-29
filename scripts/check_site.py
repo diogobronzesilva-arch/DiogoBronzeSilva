@@ -521,9 +521,15 @@ def check_text_files(report: Report) -> None:
 
 
 def check_cloudflare_infrastructure(report: Report) -> None:
+    # .htaccess is preserved during migration as a rollback fallback for Hostinger until DNS propagation completes
     htaccess = ROOT / ".htaccess"
     if htaccess.exists():
-        report.error("Legacy .htaccess file must be removed for Cloudflare Pages deployment.", Path(".htaccess"))
+        try:
+            content = htaccess.read_text(encoding="utf-8")
+            if "RewriteEngine On" not in content:
+                report.error(".htaccess exists but appears corrupted or empty.", Path(".htaccess"))
+        except OSError as exc:
+            report.error(f"Could not read .htaccess: {exc}", Path(".htaccess"))
 
     headers_path = ROOT / "_headers"
     if not headers_path.exists():
@@ -554,19 +560,25 @@ def check_cloudflare_infrastructure(report: Report) -> None:
                 if cache_path not in headers_content:
                     report.error(f"_headers is missing cache policy for: {cache_path}", Path("_headers"))
 
+            # Safety check: non-versioned assets must not use immutable directive
+            for line in headers_content.splitlines():
+                if ("/assets/fonts/" in line or "/assets/img/" in line) and "immutable" in line:
+                    report.error(f"Non-versioned asset header should not use immutable cache directive: {line.strip()}", Path("_headers"))
+
     redirects_path = ROOT / "_redirects"
-    if not redirects_path.exists():
-        report.error("Missing Cloudflare Pages _redirects file.", Path("_redirects"))
-    else:
+    if redirects_path.exists():
         try:
             redirects_content = redirects_path.read_text(encoding="utf-8")
         except OSError as exc:
             report.error(f"Could not read _redirects: {exc}", Path("_redirects"))
         else:
-            if "https://www.diogobronzesilva.com/*" not in redirects_content:
-                report.error("_redirects is missing www canonical redirection rule.", Path("_redirects"))
+            # Domain-level redirects (e.g. www -> apex) must be handled by Cloudflare Edge/Rules, not Pages _redirects
+            for line in redirects_content.splitlines():
+                cleaned = line.strip()
+                if cleaned and not cleaned.startswith("#") and "www.diogobronzesilva.com" in cleaned:
+                    report.error("Canonical domain redirection (www) must be handled at Cloudflare Edge, not in Pages _redirects.", Path("_redirects"))
 
-    report.passed("Cloudflare Pages infrastructure (_headers, _redirects and legacy cleanup)")
+    report.passed("Cloudflare Pages infrastructure (_headers, _redirects and transition safeguards)")
 
 
 def main() -> int:

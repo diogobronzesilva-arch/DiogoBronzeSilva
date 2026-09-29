@@ -233,16 +233,26 @@ def main() -> int:
         issues.append(f"SPF record missing Cloudflare include: {spf_records}")
         print(f"  [FAIL] SPF record invalid: {spf_records}")
 
-    dkim_records = query_dns("resend._domainkey.diogobronzesilva.com", "TXT")
-    if dkim_records and any("p=" in r for r in dkim_records):
-        print("  [OK] Resend DKIM record (resend._domainkey) valid and active")
-    else:
-        cname_records = query_dns("resend._domainkey.diogobronzesilva.com", "CNAME")
+    dkim_hosts = [
+        "resend._domainkey.diogobronzesilva.com",
+        "resend._domainkey.send.diogobronzesilva.com",
+    ]
+    dkim_found = False
+    for host in dkim_hosts:
+        dkim_records = query_dns(host, "TXT")
+        if dkim_records and any("p=" in r for r in dkim_records):
+            print(f"  [OK] Resend DKIM record ({host}) valid and active")
+            dkim_found = True
+            break
+        cname_records = query_dns(host, "CNAME")
         if cname_records:
-            print(f"  [OK] Resend DKIM record (resend._domainkey CNAME): {cname_records[0]}")
-        else:
-            issues.append(f"Resend DKIM record (resend._domainkey) missing or invalid: {dkim_records}")
-            print(f"  [FAIL] Resend DKIM record invalid: {dkim_records}")
+            print(f"  [OK] Resend DKIM record ({host} CNAME): {cname_records[0]}")
+            dkim_found = True
+            break
+
+    if not dkim_found:
+        issues.append("Resend DKIM record (resend._domainkey) missing or invalid on apex and send subdomain")
+        print("  [FAIL] Resend DKIM record invalid or not found")
 
     dmarc_records = query_dns("_dmarc.diogobronzesilva.com", "TXT")
     if any("v=DMARC1" in r for r in dmarc_records):
