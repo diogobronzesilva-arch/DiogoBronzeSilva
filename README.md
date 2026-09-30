@@ -108,13 +108,11 @@ A estética deve continuar editorial, calma, clássica e com muito espaço negat
 
 ### Revisão estética — 30 de setembro de 2026
 
-A Home aproxima nome, boas-vindas e retrato numa composição de duas colunas em computador. Em telemóvel, a introdução surge antes do retrato, seguida da biografia. O destaque Photography apresenta uma fotografia documental já publicada na Bronze Art, guardada localmente para evitar pedidos adicionais ao site externo.
+A Home aproxima nome, boas-vindas e retrato numa composição equilibrada de duas colunas em computador, alinhada pela base. Em telemóvel, o texto de apresentação surge antes do retrato, mantendo a leitura contínua. As quatro salas (Work, Photography, Notes, Contact) preservam a estrutura tipográfica limpa e uniforme.
 
-- Fotografia: `assets/img/bronze-art-wedding.jpg`, de Diogo Silva / Bronze Art.
-- Origem: `https://bronzeart.pt/images/casamentos/casamento-04.jpg`.
 - A primeira nota recebe a classe `entry--featured` na Home e no índice Notes; ao publicar uma nova nota, mover esse destaque para a entrada mais recente.
-- Conversas externas têm uma indicação explícita para assistir; continuam sem embeds.
-- Datas, idiomas e rodapé usam tamanhos maiores; a navegação tem áreas de toque mais confortáveis.
+- Conversas externas têm uma indicação explícita para assistir (`Watch conversation ↗`); continuam sem embeds externos.
+- Datas, idiomas e rodapé usam tamanhos maiores; a navegação tem áreas de toque confortáveis (44px) em telemóvel.
 - A versão da folha de estilos é `20260930-1` em todos os HTML, incluindo o template.
 
 O conteúdo editorial, as rotas, o RSS e a configuração de publicação mantêm-se. A folha de estilos comum aplica os ajustes de legibilidade a Work, Contact, artigos e 404.
