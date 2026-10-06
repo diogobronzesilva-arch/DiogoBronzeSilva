@@ -1,6 +1,6 @@
 # Estado operacional e dependências
 
-**Verificado em:** 28 de setembro de 2026  
+**Verificado em:** 6 de outubro de 2026  
 **Repositório:** [diogobronzesilva-arch/DiogoBronzeSilva](https://github.com/diogobronzesilva-arch/DiogoBronzeSilva)  
 **Produção:** [diogobronzesilva.com](https://diogobronzesilva.com/)
 
@@ -50,7 +50,15 @@ A auditoria pública confirmou as 17 rotas do sitemap, os cabeçalhos de seguran
 
 A PR [#40](https://github.com/diogobronzesilva-arch/DiogoBronzeSilva/pull/40) atualizou este registo e o README, passou o check obrigatório `Site checks` e foi integrada em 28 de setembro de 2026. Após o merge, o painel Cloudflare Pages confirmou como concluído o deployment de produção do commit `6eca4f1` (`main`). Esta é uma confirmação histórica desse deployment; o painel Pages mostra sempre a publicação mais recente.
 
-A PR [#41](https://github.com/diogobronzesilva-arch/DiogoBronzeSilva/pull/41) corrigiu este histórico, passou `Site checks` e foi integrada no mesmo dia. Cloudflare Pages confirmou como concluído o deployment de produção do commit `d13cb31` (`main`). Para qualquer commit posterior, confirma o deployment atual no painel Pages.
+A PR [#41](https://github.com/diogobronzesilva-arch/DiogoBronzeSilva/pull/41) corrigiu este histórico, passou `Site checks` e foi integrada no mesmo dia. Cloudflare Pages confirmou como concluído o deployment de produção do commit `d13cb31` (`main`).
+
+A PR [#44](https://github.com/diogobronzesilva-arch/DiogoBronzeSilva/pull/44) protegeu os links `mailto:` com marcadores `<!--email_off-->`, adicionou o workflow semanal `production-audit.yml` aos domingos e alinhou a auditoria de produção.
+
+A PR [#47](https://github.com/diogobronzesilva-arch/DiogoBronzeSilva/pull/47) refinou a grelha editorial, introduziu o destaque visual de notas recentes (`entry--featured`), chamadas de ação para conversas gravadas (`entry__action`) e atualizou a versão de cache de estilos para `20260930-1`.
+
+A PR [#48](https://github.com/diogobronzesilva-arch/DiogoBronzeSilva/pull/48) removeu a imagem de Photography da página inicial, unificou o texto da hero (`hero__welcome`), otimizou a leitura LCP do retrato (`fetchpriority="high"`) e assegurou touch targets móveis de 44px.
+
+Em outubro de 2026, foi restaurada a cadeia bidirecional de avanço entre notas (`the-work-that-holds-the-rest` para `the-life-i-would-not-trade`), gerados cartões Open Graph dedicados para ambas as notas e automatizada a verificação de sequência de artigos em `scripts/check_site.py`.
 
 O workflow `Production audit` executa semanalmente a partir da branch `main` e pode ser acionado manualmente. Valida as rotas públicas e a respetiva paridade com o código, os cabeçalhos, o RSS, o sitemap, o redirecionamento canónico, os links de email sem dependência de JavaScript e os registos DNS públicos usados pelo email. Este check é de leitura e não altera DNS nem envia mensagens.
 

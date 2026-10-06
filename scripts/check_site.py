@@ -490,7 +490,43 @@ def check_feed(report: Report) -> None:
     for url in sorted(actual_links - note_articles):
         report.error(f"RSS contains a non-note or unpublished URL: {url}", Path("feed.xml"))
 
-    report.passed("feed.xml syntax and written-note policy")
+    for i, link in enumerate(links):
+        target = local_target(Path("feed.xml"), link)
+        if target is None or not (ROOT / target).exists():
+            continue
+        try:
+            page_html = (ROOT / target).read_text(encoding="utf-8")
+        except OSError as exc:
+            report.error(f"Could not read note HTML: {exc}", target)
+            continue
+
+        footer_match = re.search(r'<footer class="article__foot[^"]*">(.*?)</footer>', page_html, re.DOTALL)
+        if not footer_match:
+            report.error("Note article is missing an article__foot navigation footer.", target)
+            continue
+        footer_content = footer_match.group(1)
+
+        if i > 0:
+            newer_slug = links[i - 1].rstrip("/").split("/")[-1]
+            if f"/notes/{newer_slug}/" not in footer_content:
+                report.error(
+                    f"Note navigation footer missing link to newer article: /notes/{newer_slug}/",
+                    target,
+                )
+        elif "&larr;" in footer_content or "Mais recente" in footer_content or "Newer" in footer_content:
+            report.error("Most recent note should not have a link to a newer note.", target)
+
+        if i < len(links) - 1:
+            older_slug = links[i + 1].rstrip("/").split("/")[-1]
+            if f"/notes/{older_slug}/" not in footer_content:
+                report.error(
+                    f"Note navigation footer missing link to older article: /notes/{older_slug}/",
+                    target,
+                )
+        elif "&rarr;" in footer_content or "Mais antigo" in footer_content or "Older" in footer_content:
+            report.error("Oldest note should not have a link to an older note.", target)
+
+    report.passed("feed.xml syntax, written-note policy and bidirectional article navigation")
 
 
 def check_text_files(report: Report) -> None:
