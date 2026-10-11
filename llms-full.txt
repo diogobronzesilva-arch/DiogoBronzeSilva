@@ -55,6 +55,10 @@ Diogo Silva's approach to software sales is built on three core axioms:
 
 All essays are published in static HTML on https://diogobronzesilva.com/notes/.
 
+### "Saber ler a sala" (11 Oct 2026, pt-PT)
+- **URL**: https://diogobronzesilva.com/notes/saber-ler-a-sala/
+- **Summary**: Uma reflexão sobre carreira e liderança a partir de uma publicação de Diogo no LinkedIn sobre Cristiano Ronaldo. O texto desenvolve a importância de ouvir críticas, reconhecer mudanças de papel e comunicar de forma a preservar a confiança numa equipa.
+
 ### "The life I would not trade" (29 Sep 2026, en)
 - **URL**: https://diogobronzesilva.com/notes/the-life-i-would-not-trade/
 - **Summary**: Watching two versions of Jason Dessen live with different choices in Dark Matter prompts a reflection on career ambition and family life. The note considers the ordinary time shared with children, the bonds built through repeated presence, and the kind of personal and spiritual wealth professional success cannot replace.
