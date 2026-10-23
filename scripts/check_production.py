@@ -27,7 +27,7 @@ from urllib.parse import urlencode, urlsplit
 ROOT = Path(__file__).resolve().parents[1]
 SITE_ORIGIN = "https://diogobronzesilva.com"
 SITE_HOST = "diogobronzesilva.com"
-CORE_ROUTES = ["/feed.xml", "/sitemap.xml", "/robots.txt", "/llms.txt"]
+CORE_ROUTES = ["/feed.xml", "/sitemap.xml", "/robots.txt", "/llms.txt", "/llms-full.txt"]
 
 EXPECTED_HEADERS = [
     "Strict-Transport-Security",

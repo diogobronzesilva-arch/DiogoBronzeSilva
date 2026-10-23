@@ -5,32 +5,35 @@ Website pessoal de Diogo Silva. HTML e CSS estáticos, sem framework nem JavaScr
 Domínio: **diogobronzesilva.com**  
 Email público: **hello@diogobronzesilva.com**
 
-## Estado da infraestrutura — 28 de setembro de 2026
+## Estado da infraestrutura — 23 de outubro de 2026
 
-O site está publicado no Cloudflare Pages, com DNS e DNSSEC no Cloudflare. O domínio continua registado na Hostinger, com renovação automática ativa; o plano partilhado permanece para outros projetos. A entrada de email encaminha pelo Cloudflare e a saída usa Resend via Gmail. O estado de produção, as duas branches com alterações próprias e o DMARC em `p=none`, com relatórios a recolher no Cloudflare, estão registados em [OPERATIONS.md](OPERATIONS.md).
+O site está publicado no Cloudflare Pages, com DNS e DNSSEC no Cloudflare. O domínio continua registado na Hostinger, com renovação automática ativa; o plano partilhado permanece para outros projetos. A entrada de email encaminha pelo Cloudflare e a saída usa Resend via Gmail. O estado de produção e o DMARC em `p=none`, com relatórios a recolher no Cloudflare, estão registados em [OPERATIONS.md](OPERATIONS.md).
 
 ## Estrutura
 
 ```text
-index.html                         → /
-work/index.html                    → /work/
-notes/index.html                   → /notes/
-notes/<slug>/index.html            → /notes/<slug>/
-notes/_template.html               → molde para novas notas
-contact/index.html                 → /contact/
-404.html                           → página de erro
-feed.xml                           → /feed.xml
-sitemap.xml                        → /sitemap.xml
-robots.txt                         → /robots.txt
-llms.txt                           → /llms.txt
-assets/css/site.css                → folha de estilos única
-assets/fonts/                      → tipografia self-hosted (.woff2)
-assets/img/                        → fotografia, Open Graph e vinhetas
-scripts/check_site.py              → validação técnica do site
-scripts/build_pages.py             → empacotador Cloudflare Pages
-scripts/check_pages_output.py      → validação do artefacto publicado
-scripts/check_production.py        → auditoria manual do site público
-.github/workflows/site-checks.yml  → CI para PRs e main
+index.html                              → /
+work/index.html                         → /work/
+notes/index.html                        → /notes/
+notes/<slug>/index.html                 → /notes/<slug>/
+notes/_template.html                    → molde para novas notas
+contact/index.html                      → /contact/
+404.html                                → página de erro
+feed.xml                                → /feed.xml
+sitemap.xml                             → /sitemap.xml
+robots.txt                              → /robots.txt
+llms.txt                                → /llms.txt
+llms-full.txt                           → /llms-full.txt
+_headers                                → cabeçalhos de segurança e cache Cloudflare Pages
+assets/css/site.css                     → folha de estilos única
+assets/fonts/                           → tipografia self-hosted (.woff2)
+assets/img/                             → fotografia, Open Graph e vinhetas
+scripts/check_site.py                   → validação técnica do site
+scripts/build_pages.py                  → empacotador Cloudflare Pages
+scripts/check_pages_output.py           → validação do artefacto publicado
+scripts/check_production.py             → auditoria manual/agendada do site público
+.github/workflows/site-checks.yml       → CI para PRs e main
+.github/workflows/production-audit.yml  → auditoria semanal de produção e DNS
 ```
 
 A raiz deste repositório é a fonte de verdade do site. Não deve existir uma pasta intermédia com uma cópia datada do website.
@@ -113,7 +116,7 @@ A Home aproxima nome, boas-vindas e retrato numa composição equilibrada de dua
 - A primeira nota recebe a classe `entry--featured` na Home e no índice Notes; ao publicar uma nova nota, mover esse destaque para a entrada mais recente.
 - Conversas externas têm uma indicação explícita para assistir (`Watch conversation ↗`); continuam sem embeds externos.
 - Datas, idiomas e rodapé usam tamanhos maiores; a navegação tem áreas de toque confortáveis (44px) em telemóvel.
-- A versão da folha de estilos é `20260930-1` em todos os HTML, incluindo o template.
+- A versão da folha de estilos é `20261023-1` em todos os HTML, incluindo o template.
 
 O conteúdo editorial, as rotas, o RSS e a configuração de publicação mantêm-se. A folha de estilos comum aplica os ajustes de legibilidade a Work, Contact, artigos e 404.
 

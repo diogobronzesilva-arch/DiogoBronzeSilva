@@ -42,7 +42,9 @@ REQUIRED_OG_PROPERTIES = {
 }
 PLACEHOLDERS = (
     "TITLE OF THE NOTE",
+    "Title of the note",
     "ONE SENTENCE ABOUT THIS NOTE",
+    "One line that states the argument.",
     "SLUG-DA-NOTA",
 )
 
@@ -55,6 +57,8 @@ class PageParser(HTMLParser):
         self.in_title = False
         self.meta_names: dict[str, str] = {}
         self.meta_properties: dict[str, str] = {}
+        self.duplicate_meta_names: list[str] = []
+        self.duplicate_meta_properties: list[str] = []
         self.canonicals: list[str] = []
         self.references: list[tuple[str, str, str]] = []
         self.images: list[dict[str, str]] = []
@@ -85,9 +89,15 @@ class PageParser(HTMLParser):
         if tag == "meta":
             content = data.get("content", "").strip()
             if data.get("name"):
-                self.meta_names[data["name"].lower()] = content
+                meta_name = data["name"].lower()
+                if meta_name in self.meta_names:
+                    self.duplicate_meta_names.append(meta_name)
+                self.meta_names[meta_name] = content
             if data.get("property"):
-                self.meta_properties[data["property"].lower()] = content
+                meta_prop = data["property"].lower()
+                if meta_prop in self.meta_properties:
+                    self.duplicate_meta_properties.append(meta_prop)
+                self.meta_properties[meta_prop] = content
 
         if tag == "link" and data.get("href"):
             href = data["href"]
@@ -288,6 +298,10 @@ def check_html(report: Report) -> dict[Path, PageParser]:
             report.error("Missing non-empty <html lang>.", rel)
         if not parser.title:
             report.error("Missing or empty <title>.", rel)
+        for dup_name in parser.duplicate_meta_names:
+            report.error(f"Duplicate <meta name=\"{dup_name}\">.", rel)
+        for dup_prop in parser.duplicate_meta_properties:
+            report.error(f"Duplicate <meta property=\"{dup_prop}\">.", rel)
 
         seen_ids: set[str] = set()
         for element_id in parser.ids:
@@ -526,22 +540,77 @@ def check_feed(report: Report) -> None:
         elif "&rarr;" in footer_content or "Mais antigo" in footer_content or "Older" in footer_content:
             report.error("Oldest note should not have a link to an older note.", target)
 
-    report.passed("feed.xml syntax, written-note policy and bidirectional article navigation")
+    expected_paths = [urlsplit(link).path for link in links]
+
+    home_path = ROOT / "index.html"
+    if home_path.is_file() and expected_paths:
+        home_html = home_path.read_text(encoding="utf-8")
+        home_entries = re.findall(
+            r'<a\s+class="([^"]*\bentry\b[^"]*)"\s+href="(/notes/[^"]+)"',
+            home_html,
+        )
+        home_note_paths = [href for _, href in home_entries]
+        if home_note_paths != expected_paths[:3]:
+            report.error(
+                f"Home Latest Notes must match the 3 most recent RSS notes {expected_paths[:3]}, found {home_note_paths}",
+                Path("index.html"),
+            )
+        home_featured = [href for cls, href in home_entries if "entry--featured" in cls.split()]
+        if home_featured != expected_paths[:1]:
+            report.error(
+                f"Home must mark only the newest note ({expected_paths[0]}) as entry--featured.",
+                Path("index.html"),
+            )
+
+    notes_index_path = ROOT / "notes/index.html"
+    if notes_index_path.is_file() and expected_paths:
+        notes_html = notes_index_path.read_text(encoding="utf-8")
+        index_entries = re.findall(
+            r'<a\s+class="([^"]*\bentry\b[^"]*)"\s+href="(/notes/[^"]+)"',
+            notes_html,
+        )
+        index_note_paths = [href for _, href in index_entries]
+        if index_note_paths != expected_paths:
+            report.error(
+                "notes/index.html written notes order/completeness does not match feed.xml.",
+                Path("notes/index.html"),
+            )
+        index_featured = [href for cls, href in index_entries if "entry--featured" in cls.split()]
+        if index_featured != expected_paths[:1]:
+            report.error(
+                f"notes/index.html must mark only the newest note ({expected_paths[0]}) as entry--featured.",
+                Path("notes/index.html"),
+            )
+
+    report.passed("feed.xml syntax, written-note policy, Home/Notes index parity and bidirectional article navigation")
 
 
 def check_text_files(report: Report) -> None:
-    llms_path = ROOT / "llms.txt"
-    try:
-        llms = llms_path.read_text(encoding="utf-8")
-    except OSError as exc:
-        report.error(f"Could not read llms.txt: {exc}", Path("llms.txt"))
-    else:
-        urls = re.findall(r"https://diogobronzesilva\.com/[^\s\]\)>]*", llms)
+    note_articles = {
+        expected_url(relative(path))
+        for path in published_html_files()
+        if relative(path).parts[:1] == ("notes",) and relative(path) != Path("notes/index.html")
+    }
+
+    for doc_name in ("llms.txt", "llms-full.txt"):
+        doc_path = ROOT / doc_name
+        try:
+            content = doc_path.read_text(encoding="utf-8")
+        except OSError as exc:
+            report.error(f"Could not read {doc_name}: {exc}", Path(doc_name))
+            continue
+
+        urls = re.findall(r"https://diogobronzesilva\.com/[^\s\]\)>]*", content)
+        cleaned_urls: set[str] = set()
         for url in urls:
             cleaned = url.rstrip(".,;:")
-            target = local_target(Path("llms.txt"), cleaned)
+            cleaned_urls.add(cleaned)
+            target = local_target(Path(doc_name), cleaned)
             if target is None or not (ROOT / target).exists():
-                report.error(f"llms.txt points to a missing internal URL: {cleaned}", Path("llms.txt"))
+                report.error(f"{doc_name} points to a missing internal URL: {cleaned}", Path(doc_name))
+
+        for note_url in sorted(note_articles - cleaned_urls):
+            report.error(f"Published note missing from {doc_name}: {note_url}", Path(doc_name))
 
     robots_path = ROOT / "robots.txt"
     try:
@@ -553,19 +622,13 @@ def check_text_files(report: Report) -> None:
         if expected_line not in robots.splitlines():
             report.error(f"robots.txt must contain: {expected_line}", Path("robots.txt"))
 
-    report.passed("llms.txt internal URLs and robots.txt sitemap declaration")
+    report.passed("llms.txt, llms-full.txt internal URLs/note coverage and robots.txt sitemap declaration")
 
 
 def check_cloudflare_infrastructure(report: Report) -> None:
-    # .htaccess is not published to Pages; retain the check only if a fallback copy remains in source.
-    htaccess = ROOT / ".htaccess"
-    if htaccess.exists():
-        try:
-            content = htaccess.read_text(encoding="utf-8")
-            if "RewriteEngine On" not in content:
-                report.error(".htaccess exists but appears corrupted or empty.", Path(".htaccess"))
-        except OSError as exc:
-            report.error(f"Could not read .htaccess: {exc}", Path(".htaccess"))
+    for legacy_file in (".htaccess", "_redirects"):
+        if (ROOT / legacy_file).exists():
+            report.error(f"Legacy {legacy_file} file should not exist in the repository.", Path(legacy_file))
 
     headers_path = ROOT / "_headers"
     if not headers_path.exists():
@@ -593,7 +656,13 @@ def check_cloudflare_infrastructure(report: Report) -> None:
                 re.IGNORECASE,
             ):
                 report.error(
-                    "_headers must keep files revalidatable because asset filenames are not fingerprinted.",
+                    "_headers must keep HTML and unversioned files revalidatable.",
+                    Path("_headers"),
+                )
+
+            if "/assets/fonts/*" not in headers_content or "max-age=31536000" not in headers_content:
+                report.error(
+                    "_headers must include long-term cache policy for self-hosted /assets/fonts/*.",
                     Path("_headers"),
                 )
 
@@ -613,20 +682,7 @@ def check_cloudflare_infrastructure(report: Report) -> None:
                     page,
                 )
 
-    redirects_path = ROOT / "_redirects"
-    if redirects_path.exists():
-        try:
-            redirects_content = redirects_path.read_text(encoding="utf-8")
-        except OSError as exc:
-            report.error(f"Could not read _redirects: {exc}", Path("_redirects"))
-        else:
-            # Domain-level redirects (e.g. www -> apex) must be handled by Cloudflare Edge/Rules, not Pages _redirects
-            for line in redirects_content.splitlines():
-                cleaned = line.strip()
-                if cleaned and not cleaned.startswith("#") and "www.diogobronzesilva.com" in cleaned:
-                    report.error("Canonical domain redirection (www) must be handled at Cloudflare Edge, not in Pages _redirects.", Path("_redirects"))
-
-    report.passed("Cloudflare Pages infrastructure (_headers, _redirects and transition safeguards)")
+    report.passed("Cloudflare Pages infrastructure (_headers, font caching and mailto safeguards)")
 
 
 def main() -> int:
