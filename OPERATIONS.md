@@ -1,6 +1,6 @@
 # Estado operacional e dependências
 
-**Verificado em:** 6 de outubro de 2026  
+**Verificado em:** 23 de outubro de 2026  
 **Repositório:** [diogobronzesilva-arch/DiogoBronzeSilva](https://github.com/diogobronzesilva-arch/DiogoBronzeSilva)  
 **Produção:** [diogobronzesilva.com](https://diogobronzesilva.com/)
 
@@ -52,13 +52,17 @@ A PR [#40](https://github.com/diogobronzesilva-arch/DiogoBronzeSilva/pull/40) at
 
 A PR [#41](https://github.com/diogobronzesilva-arch/DiogoBronzeSilva/pull/41) corrigiu este histórico, passou `Site checks` e foi integrada no mesmo dia. Cloudflare Pages confirmou como concluído o deployment de produção do commit `d13cb31` (`main`).
 
-A PR [#44](https://github.com/diogobronzesilva-arch/DiogoBronzeSilva/pull/44) protegeu os links `mailto:` com marcadores `<!--email_off-->`, adicionou o workflow semanal `production-audit.yml` aos domingos e alinhou a auditoria de produção.
+A PR [#44](https://github.com/diogobronzesilva-arch/DiogoBronzeSilva/pull/44) protegeu os links `mailto:` com marcadores `<!--email_off-->`, adicionou o workflow semanal `production-audit.yml` às segundas-feiras (`19 7 * * 1`) e alinhou a auditoria de produção.
 
 A PR [#47](https://github.com/diogobronzesilva-arch/DiogoBronzeSilva/pull/47) refinou a grelha editorial, introduziu o destaque visual de notas recentes (`entry--featured`), chamadas de ação para conversas gravadas (`entry__action`) e atualizou a versão de cache de estilos para `20260930-1`.
 
 A PR [#48](https://github.com/diogobronzesilva-arch/DiogoBronzeSilva/pull/48) removeu a imagem de Photography da página inicial, unificou o texto da hero (`hero__welcome`), otimizou a leitura LCP do retrato (`fetchpriority="high"`) e assegurou touch targets móveis de 44px.
 
-Em outubro de 2026, foi restaurada a cadeia bidirecional de avanço entre notas (`the-work-that-holds-the-rest` para `the-life-i-would-not-trade`), gerados cartões Open Graph dedicados para ambas as notas e automatizada a verificação de sequência de artigos em `scripts/check_site.py`.
+Em outubro de 2026 (PR [#49](https://github.com/diogobronzesilva-arch/DiogoBronzeSilva/pull/49)), foi restaurada a cadeia bidirecional de avanço entre notas (`the-work-that-holds-the-rest` para `the-life-i-would-not-trade`), gerados cartões Open Graph dedicados para ambas as notas e automatizada a verificação de sequência de artigos em `scripts/check_site.py`.
+
+A PR [#50](https://github.com/diogobronzesilva-arch/DiogoBronzeSilva/pull/50) publicou a nota `saber-ler-a-sala` em 11 de outubro de 2026 com cartão Open Graph dedicado e atualizou os índices, feed, sitemap e ficheiros de contexto LLM.
+
+Em 23 de outubro de 2026, foi realizada uma revisão integral de frontend, acessibilidade bilingue (`pt-PT`/`en`), tipografia (`text-wrap: balance`/`pretty`), cache de fontes self-hosted em `_headers`, cobertura de `llms-full.txt` e paridade da Home/Notes em `scripts/check_site.py`, atualizando a versão da folha de estilos para `20261023-1`.
 
 O workflow `Production audit` executa semanalmente a partir da branch `main` e pode ser acionado manualmente. Valida as rotas públicas e a respetiva paridade com o código, os cabeçalhos, o RSS, o sitemap, o redirecionamento canónico, os links de email sem dependência de JavaScript e os registos DNS públicos usados pelo email. Este check é de leitura e não altera DNS nem envia mensagens.
 
@@ -93,12 +97,7 @@ A estratégia editorial e as afirmações sobre crawlers foram revistas em [AEO_
 
 ## Branches e limpeza do repositório
 
-Em 28 de setembro de 2026, as branches associadas a PRs integradas foram removidas. Também foram apagadas `preview` e `cleanup-home-css`: ambas estavam 0 commits à frente de `main`, pelo que não continham alterações exclusivas. A listagem GitHub ficou com `main` e estas duas branches não principais:
-
-- `fix/production-audit-2026-09-07` — tem um commit exclusivo; não foi encontrada uma PR integrada. Mantida para revisão.
-- `post/a-impossibilidade-de-separar-costumes-e-economia` — tem um commit exclusivo; a PR [#30](https://github.com/diogobronzesilva-arch/DiogoBronzeSilva/pull/30) foi fechada sem merge. Mantida para revisão.
-
-Nenhuma destas duas branches participa no deployment, que publica exclusivamente `main`. Foram preservadas porque contêm trabalho que não está integrado; revê esse conteúdo antes de decidir se apagas ou recuperas alguma.
+Em 23 de outubro de 2026, todas as branches locais e remotas já integradas ou obsoletas (`post/saber-ler-a-sala`, `publish/dark-matter-family-note`, `codex/dark-matter-metaphysics-2026-09-29`, `design/editorial-refresh-20260930`, `chore/cloudflare-pages-migration-sync`, `post/a-impossibilidade-de-separar-costumes-e-economia` e `fix/production-audit-2026-09-07`) foram revistas e limpas, mantendo `main` como única branch permanente no repositório.
 
 ## Verificações de manutenção
 
