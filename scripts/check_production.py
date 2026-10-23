@@ -163,7 +163,7 @@ def main() -> int:
         issues.append("Could not locate site.css cache version in production homepage HTML")
         print("  [FAIL] Could not locate site.css link on homepage")
 
-    font_route = "/assets/fonts/Newsreader-roman-latin.woff2"
+    font_route = "/assets/fonts/newsreader-regular.woff2"
     font_status, font_headers, _, _ = fetch(f"{SITE_ORIGIN}{font_route}")
     font_cache = font_headers.get("Cache-Control") or font_headers.get("cache-control") or ""
     if font_status == 200 and "immutable" in font_cache.lower() and "max-age=31536000" in font_cache.lower():

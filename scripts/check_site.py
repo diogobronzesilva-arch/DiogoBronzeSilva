@@ -669,6 +669,16 @@ def check_cloudflare_infrastructure(report: Report) -> None:
                         Path("_headers"),
                     )
 
+    css_path = ROOT / "assets/css/site.css"
+    if css_path.is_file():
+        css_text = css_path.read_text(encoding="utf-8")
+        font_urls = re.findall(r"url\(['\"](/assets/fonts/[^'\"]+)['\"]\)", css_text)
+        if not font_urls:
+            report.error("site.css does not declare any self-hosted /assets/fonts/ @font-face URLs.", Path("assets/css/site.css"))
+        for font_url in font_urls:
+            if not (ROOT / font_url.lstrip("/")).is_file():
+                report.error(f"Missing self-hosted font file referenced in site.css: {font_url}", Path("assets/css/site.css"))
+
     mailto_pattern = re.compile(
         r"<!--email_off-->\s*<a\b[^>]*href=\"mailto:hello@diogobronzesilva\.com\"[^>]*>.*?</a>\s*<!--/email_off-->",
         re.DOTALL,
