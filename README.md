@@ -116,7 +116,7 @@ A Home aproxima nome, boas-vindas e retrato numa composição equilibrada de dua
 - A primeira nota recebe a classe `entry--featured` na Home e no índice Notes; ao publicar uma nova nota, mover esse destaque para a entrada mais recente.
 - Conversas externas têm uma indicação explícita para assistir (`Watch conversation ↗`); continuam sem embeds externos.
 - Datas, idiomas e rodapé usam tamanhos maiores; a navegação tem áreas de toque confortáveis (44px) em telemóvel.
-- A versão da folha de estilos é `20261023-1` em todos os HTML, incluindo o template.
+- A versão da folha de estilos é `20261023-2` em todos os HTML, incluindo o template.
 
 O conteúdo editorial, as rotas, o RSS e a configuração de publicação mantêm-se. A folha de estilos comum aplica os ajustes de legibilidade a Work, Contact, artigos e 404.
 

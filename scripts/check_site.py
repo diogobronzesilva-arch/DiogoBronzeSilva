@@ -621,6 +621,8 @@ def check_text_files(report: Report) -> None:
         expected_line = f"Sitemap: {SITE_ORIGIN}/sitemap.xml"
         if expected_line not in robots.splitlines():
             report.error(f"robots.txt must contain: {expected_line}", Path("robots.txt"))
+        if "README.md" in robots:
+            report.error("robots.txt should not reference legacy /README.md Disallow rule.", Path("robots.txt"))
 
     report.passed("llms.txt, llms-full.txt internal URLs/note coverage and robots.txt sitemap declaration")
 
@@ -660,11 +662,12 @@ def check_cloudflare_infrastructure(report: Report) -> None:
                     Path("_headers"),
                 )
 
-            if "/assets/fonts/*" not in headers_content or "max-age=31536000" not in headers_content:
-                report.error(
-                    "_headers must include long-term cache policy for self-hosted /assets/fonts/*.",
-                    Path("_headers"),
-                )
+            for asset_rule in ("/assets/fonts/*", "/assets/css/*", "/assets/img/*"):
+                if asset_rule not in headers_content:
+                    report.error(
+                        f"_headers must include an explicit cache policy for {asset_rule}.",
+                        Path("_headers"),
+                    )
 
     mailto_pattern = re.compile(
         r"<!--email_off-->\s*<a\b[^>]*href=\"mailto:hello@diogobronzesilva\.com\"[^>]*>.*?</a>\s*<!--/email_off-->",
