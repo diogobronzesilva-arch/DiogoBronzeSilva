@@ -24,3 +24,7 @@ Pasta canónica: `/Users/diogosilva/Desktop/Antigravity/WebsitePessoal`. Atalho 
 ## Correções de CI autorizadas e aplicadas — 26/10/2026
 
 Diogo autorizou aplicar as correções e informar o AntiGravity. Ler `docs/DESENVOLVIMENTO-LOCAL-E-CI.md`: documentação tem uma verificação leve, código mantém testes completos, branches de trabalho deixam de duplicar CI e execuções antigas são canceladas. No VitaCare, a entrega nativa conjunta é acionada explicitamente. Sondas do Podcast/Bronze Art são diárias. Orçamento Actions permanece em 0 USD. A PR #54 do website pessoal foi integrada com autorização expressa para a publicação automática, que terminou com sucesso. As branches e alterações de aplicação em curso foram preservadas; integrar futuras alterações sem voltar aos gatilhos antigos.
+
+## GitHub Actions e trabalho local — decisão de 26/10/2026
+
+Diogo autorizou aplicar a redução de consumo e informar o AntiGravity. Seguir `docs/DESENVOLVIMENTO-LOCAL-E-CI.md`: testes locais durante o trabalho, sincronização por tarefa, classificação documental antes de trabalhos pesados, cancelamento de execuções substituídas e orçamento Actions de 0 USD. Não usar uma verificação documental como prova de aprovação de código ou entrega. Esta decisão atualiza a obrigação histórica de CI pesado em cada gravação documental; mantém as guardas de publicação e a entrega conjunta Android/Apple.
