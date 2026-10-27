@@ -1,10 +1,11 @@
 name: Site checks
 
 on:
-  pull_request:
-    branches: [main]
   push:
     branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
 
 permissions:
   contents: read
@@ -20,16 +21,49 @@ jobs:
     timeout-minutes: 5
 
     steps:
+      - name: Distinguish documentation from application changes
+        id: scope
+        uses: actions/github-script@ed597411d8f924073f98dfc5c65a23a2325f34cd # v8
+        with:
+          script: |
+            // Missing or incomplete comparisons always request full validation.
+            let full = true;
+            let reason = 'Explicit full validation or unavailable change comparison';
+            const event = context.eventName;
+            const base = event === 'pull_request' ? context.payload.pull_request?.base?.sha : context.payload.before;
+            const head = event === 'pull_request' ? context.payload.pull_request?.head?.sha : context.sha;
+            if (['push', 'pull_request'].includes(event) && /^[a-f0-9]{40}$/.test(base || '') && !/^0+$/.test(base) && /^[a-f0-9]{40}$/.test(head || '')) {
+              try {
+                const {data} = await github.rest.repos.compareCommitsWithBasehead({
+                  ...context.repo, basehead: `${base}...${head}`, per_page: 100, page: 1
+                });
+                if (Array.isArray(data.files) && data.files.length < 300 && data.files.every(file => typeof file?.filename === 'string' && file.filename.length > 0 && (file.status !== 'renamed' || (typeof file.previous_filename === 'string' && file.previous_filename.length > 0))) && ['ahead', 'identical'].includes(data.status)) {
+                  // Include both sides of renames: moving application code into docs must run tests.
+                  const paths = data.files.flatMap(file => [file.filename, file.previous_filename].filter(Boolean));
+                  const documentation = path => /^[^/]+\.md$/.test(path) || path.startsWith('docs/');
+                  full = !paths.every(documentation);
+                  reason = full ? 'Application, configuration or workflow changes' : 'Documentation and validation records only';
+                }
+              } catch (error) {
+                core.warning(`Full validation retained: ${error.message}`);
+              }
+            }
+            core.setOutput('full', String(full));
+            await core.summary.addHeading('Validation scope').addRaw(`${reason}. ${full ? 'Full checks requested.' : 'Heavy jobs are skipped; this is not a release approval.'}`).write();
       - name: Check out repository
+        if: steps.scope.outputs.full == 'true'
         uses: actions/checkout@v7
 
       - name: Set up Python
+        if: steps.scope.outputs.full == 'true'
         uses: actions/setup-python@v7
         with:
           python-version: "3.13"
 
       - name: Validate site and build Cloudflare Pages artifact
+        if: steps.scope.outputs.full == 'true'
         run: python scripts/build_pages.py
 
       - name: Verify Cloudflare Pages output
+        if: steps.scope.outputs.full == 'true'
         run: python scripts/check_pages_output.py

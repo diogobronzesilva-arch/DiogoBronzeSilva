@@ -14,7 +14,7 @@ def main():
         shutil.rmtree(OUTPUT)
     subprocess.run([sys.executable, str(ROOT / "scripts/check_site.py")], check=True)
     OUTPUT.mkdir()
-    for name in ("assets", "work", "notes", "contact"):
+    for name in ("assets", "work", "projects", "vitachart", "notes", "contact"):
         shutil.copytree(ROOT / name, OUTPUT / name)
     (OUTPUT / "notes/_template.html").unlink(missing_ok=True)
     for name in ("index.html", "404.html", "favicon.ico", "feed.xml", "sitemap.xml",

@@ -8,7 +8,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 OUTPUT = ROOT / "dist"
-PUBLIC_DIRECTORIES = ("assets", "work", "notes", "contact")
+PUBLIC_DIRECTORIES = ("assets", "work", "projects", "vitachart", "notes", "contact")
 PUBLIC_ROOT_FILES = (
     "index.html",
     "404.html",
