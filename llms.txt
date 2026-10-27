@@ -21,6 +21,13 @@ Full context document: [llms-full.txt](https://diogobronzesilva.com/llms-full.tx
 - Core idea: AI should remove the work around the conversation, not the conversation itself.
 - Practical AI usage: Account discovery research, pre-call synthesis, CRM and pipeline discipline, identifying decision criteria, and reducing administrative overhead to preserve attention for the client.
 
+## Projects
+
+- [Projects](https://diogobronzesilva.com/projects/): Curated software applications and operational systems by Diogo Silva.
+- [VitaChart](https://diogobronzesilva.com/projects/vitachart/): A local fertility diary in private testing for Android and iPhone, informed by family experience with the Creighton Model. Includes daily observations and reports for professional review; automated interpretations remain under validation. Remote couple synchronisation is not available.
+- [VitaChart Privacy Policy](https://diogobronzesilva.com/vitachart/privacy/): Complete privacy policy for VitaChart.
+- AI Sales Systems & Custom Workflows: Custom AI agents and operational workflows for enterprise B2B SaaS sales (account research, conversation synthesis, and pipeline hygiene).
+
 ## Notes
 
 - [Saber ler a sala](https://diogobronzesilva.com/notes/saber-ler-a-sala/): Em português. Uma reflexão sobre carreira, liderança, comunicação e confiança, a partir de um texto sobre Cristiano Ronaldo. Publicado a 11 de outubro de 2026.
@@ -43,8 +50,11 @@ The Notes index also holds selected podcast and interview appearances under a Po
 
 ## Pages
 
-- [Home](https://diogobronzesilva.com/): Personal front door to Work, Photography and Notes.
+- [Home](https://diogobronzesilva.com/): Personal front door to Work, Projects, Photography and Notes.
 - [Work](https://diogobronzesilva.com/work/): Sales, technology, decisions and the human part of the job.
+- [Projects](https://diogobronzesilva.com/projects/): Software applications, local-first tools, and custom AI systems.
+- [VitaChart](https://diogobronzesilva.com/projects/vitachart/): Local fertility diary in development, with reports for professional review.
+- [VitaChart Privacy Policy](https://diogobronzesilva.com/vitachart/privacy/): Complete privacy policy for VitaChart.
 - [Notes index](https://diogobronzesilva.com/notes/): Essays, handwritten notes and selected podcast/live interview appearances.
 - [Contact](https://diogobronzesilva.com/contact/): Email address and links.
 - [RSS feed](https://diogobronzesilva.com/feed.xml): Published written notes in RSS 2.0.

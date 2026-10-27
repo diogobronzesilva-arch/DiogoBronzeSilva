@@ -63,6 +63,8 @@ class PageParser(HTMLParser):
         self.references: list[tuple[str, str, str]] = []
         self.images: list[dict[str, str]] = []
         self.anchors: list[dict[str, str]] = []
+        self.navigation_links: list[str] = []
+        self._in_navigation = False
         self.inputs: list[dict[str, str]] = []
         self.labels_for: set[str] = set()
         self.ids: list[str] = []
@@ -113,8 +115,12 @@ class PageParser(HTMLParser):
             ):
                 self.rss_links.append(href)
 
+        if tag == "nav" and "nav" in data.get("class", "").split():
+            self._in_navigation = True
         if tag == "a":
             self.anchors.append(data)
+            if self._in_navigation:
+                self.navigation_links.append(data.get("href", ""))
             if data.get("href"):
                 self.references.append((tag, "href", data["href"]))
 
@@ -147,6 +153,8 @@ class PageParser(HTMLParser):
 
     def handle_endtag(self, tag: str) -> None:
         tag = tag.lower()
+        if tag == "nav":
+            self._in_navigation = False
         if tag == "title":
             self.in_title = False
         if tag == "script" and self._json_ld_buffer is not None:
@@ -293,6 +301,10 @@ def check_html(report: Report) -> dict[Path, PageParser]:
         if parser is None:
             continue
         parsed[rel] = parser
+
+        expected_navigation = ["/", "/work/", "/projects/", "https://bronzeart.pt", "/notes/", "/contact/"]
+        if parser.navigation_links != expected_navigation:
+            report.error("Global navigation must include Home, Work, Projects, Photography, Notes and Contact in order.", rel)
 
         if not parser.lang:
             report.error("Missing non-empty <html lang>.", rel)
@@ -586,11 +598,7 @@ def check_feed(report: Report) -> None:
 
 
 def check_text_files(report: Report) -> None:
-    note_articles = {
-        expected_url(relative(path))
-        for path in published_html_files()
-        if relative(path).parts[:1] == ("notes",) and relative(path) != Path("notes/index.html")
-    }
+    published_pages = {expected_url(relative(path)) for path in published_html_files()}
 
     for doc_name in ("llms.txt", "llms-full.txt"):
         doc_path = ROOT / doc_name
@@ -609,8 +617,8 @@ def check_text_files(report: Report) -> None:
             if target is None or not (ROOT / target).exists():
                 report.error(f"{doc_name} points to a missing internal URL: {cleaned}", Path(doc_name))
 
-        for note_url in sorted(note_articles - cleaned_urls):
-            report.error(f"Published note missing from {doc_name}: {note_url}", Path(doc_name))
+        for page_url in sorted(published_pages - cleaned_urls):
+            report.error(f"Published page missing from {doc_name}: {page_url}", Path(doc_name))
 
     robots_path = ROOT / "robots.txt"
     try:
@@ -624,7 +632,7 @@ def check_text_files(report: Report) -> None:
         if "README.md" in robots:
             report.error("robots.txt should not reference legacy /README.md Disallow rule.", Path("robots.txt"))
 
-    report.passed("llms.txt, llms-full.txt internal URLs/note coverage and robots.txt sitemap declaration")
+    report.passed("llms.txt, llms-full.txt internal URLs/published-page coverage and robots.txt sitemap declaration")
 
 
 def check_cloudflare_infrastructure(report: Report) -> None:

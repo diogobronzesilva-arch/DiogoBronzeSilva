@@ -43,7 +43,27 @@ Diogo Silva's approach to software sales is built on three core axioms:
 
 ---
 
-## 3. Bronze Art (Photography)
+## 3. Projects and Software Applications
+
+- **Overview Page**: https://diogobronzesilva.com/projects/
+
+### VitaChart
+- **Project URL**: https://diogobronzesilva.com/projects/vitachart/
+- **Privacy Policy**: https://diogobronzesilva.com/vitachart/privacy/
+- **Category**: Personal fertility diary (Android, iPhone and installable web version).
+- **Background**: Grew out of the family's use of the Creighton Model with a FertilityCare practitioner and NaProTechnology doctor, and the wish to keep daily observations and consultation questions together. This does not establish endorsement or clinical certification.
+- **Current scope**: Daily observations, a 12-card journal, local reminders, consultation notes, 35-day report pages, printing/PDF and JSON backup and restore.
+- **Storage and sharing**: No mandatory online account, advertising or third-party analytics. The journal is stored locally; exports are initiated by the user. JSON backups are not encrypted by the app. Remote couple synchronisation and encrypted pairing are future work, not current features.
+- **Status**: Private testing; store release is in preparation and there is no public download. Automated interpretations are still under validation and require professional review. Technical tests do not establish clinical accuracy.
+
+### AI Sales Systems & Custom Workflows
+- **Category**: Enterprise B2B SaaS Sales Operating System
+- **Philosophy**: Personal tools complement shared Sales Enablement and RevOps foundations, helping prepare for the account, people and decisions involved in a deal. Diogo reviews generated output and remains responsible for what he uses or sends.
+- **Components**: Account research, meeting synthesis, preparation and CRM follow-up.
+
+---
+
+## 4. Bronze Art (Photography)
 
 - **Website**: https://bronzeart.pt/
 - **Focus**: Classical, documentary photography of family, faith, liturgy, and what is handed down between generations.
@@ -51,7 +71,7 @@ Diogo Silva's approach to software sales is built on three core axioms:
 
 ---
 
-## 4. Published Notes and Essays
+## 5. Published Notes and Essays
 
 All essays are published in static HTML on https://diogobronzesilva.com/notes/.
 
@@ -117,7 +137,7 @@ All essays are published in static HTML on https://diogobronzesilva.com/notes/.
 
 ---
 
-## 5. Public Appearances and Interviews
+## 6. Public Appearances and Interviews
 
 - **LifeSiteNews** (20 May 2026): "Can Europe Return to God? Fatima and the Rise of the Faithful Remnant" (YouTube).
 - **CdK #108** (1 Oct 2025): "Igreja, ciência, sexo e salvação: ainda há respostas?" (YouTube).
@@ -126,7 +146,15 @@ All essays are published in static HTML on https://diogobronzesilva.com/notes/.
 
 ---
 
-## 6. Technical Architecture
+## 7. Technical Architecture
+
+Canonical section pages:
+- Home: https://diogobronzesilva.com/
+- Work: https://diogobronzesilva.com/work/
+- Projects: https://diogobronzesilva.com/projects/
+- Notes: https://diogobronzesilva.com/notes/
+- Contact: https://diogobronzesilva.com/contact/
+
 
 - **Format**: Hand-crafted static HTML5 and CSS. Zero JavaScript. Zero third-party trackers or cookies.
 - **Hosting**: Cloudflare Pages / Edge static hosting.
