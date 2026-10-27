@@ -45,7 +45,7 @@ A raiz deste repositório é a fonte de verdade do site. Não deve existir uma p
 
 A navegação principal é:
 
-**Home · Work · Projects · Photography ↗ · Notes · Contact**
+**Home · Work · Projects · Photography · Notes · Contact**
 
 - **Home** é a porta de entrada pessoal. Deve manter-se curta.
 - **Work** reúne experiência e pensamento sobre vendas, tecnologia, decisão e relações humanas.
