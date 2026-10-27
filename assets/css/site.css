@@ -495,6 +495,12 @@ p { margin: 0 0 1.1em; }
 .entry__next a { display: inline-flex; align-items: center; min-height: 2.75rem; }
 .entry[id] { scroll-margin-top: 1.5rem; }
 
+.project-faq { margin-bottom: 3rem; }
+.project-faq h2 { margin-top: 0; }
+.project-faq details { border-bottom: 1px solid var(--rule); padding: 0.85rem 0; }
+.project-faq summary { cursor: pointer; color: var(--ink); min-height: 2.75rem; }
+.project-faq details p { margin: 0.6rem 0 0; color: var(--ink-soft); }
+
 /* Article */
 
 .article { padding-bottom: clamp(2.5rem, 6vw, 4rem); }

@@ -1,6 +1,6 @@
 # Plano prático de conteúdo e descoberta
 
-**Revisão:** 28 de setembro de 2026
+**Revisão:** 27 de outubro de 2026
 
 Este documento propõe práticas para tornar o conteúdo claro, correto e fácil de encontrar. Não promete posições em motores de busca nem citações em respostas de IA. Retira a atribuição a um framework externo que não tinha uma fonte verificável, e substitui afirmações universais sobre crawlers e citações por informação documentada pelos próprios fornecedores.
 
@@ -72,3 +72,17 @@ As designações e usos podem mudar; confirma a documentação oficial antes de 
 - [ ] Foram atualizados o índice de Notes, Home, sitemap e RSS quando aplicável?
 - [ ] Foram revistos os ficheiros de contexto `llms.txt` e `llms-full.txt` quando necessário?
 - [ ] As verificações técnicas passaram antes de abrir a pull request?
+
+## Projects e perguntas frequentes — revisão de 27/10/2026
+
+Projects reúne VitaChart, Bronze Art Galleries, Cutline e workflows de IA para vendas. As páginas da galeria e do Cutline descrevem a origem e as funcionalidades verificadas, distinguem utilização de distribuição pública e não publicam ligações de clientes, fotografias privadas, instaladores ou código proprietário.
+
+As perguntas frequentes de Projects são conteúdo visível, com HTML nativo, sobre disponibilidade, processamento local, galerias privadas, âmbito do VitaChart e contacto. O seu propósito é responder ao leitor. A Google retirou os resultados especiais de FAQ a partir de 7 de maio de 2026 e removeu a documentação em junho. Não se acrescenta marcação FAQPage com uma promessa de destaque. Os dados estruturados de Work descrevem a própria página e a sua navegação, sem perguntas invisíveis.
+
+Os ficheiros llms.txt e llms-full.txt mantêm contexto factual para serviços que os consultem. A Google esclarece que os ignora para efeitos de visibilidade e ranking. Não há um esquema especial ou um comprimento de texto obrigatório para aparecer em respostas generativas. Mantêm-se as práticas de conteúdo útil, títulos específicos, ligações rastreáveis, URLs canónicas e experiência de leitura.
+
+Fontes oficiais consultadas:
+- [Google: atualizações da documentação, FAQ e llms.txt](https://developers.google.com/search/updates)
+- [Google: otimização para funcionalidades generativas](https://developers.google.com/search/docs/fundamentals/ai-optimization-guide)
+
+A validação local cobre títulos e descrições únicos, indexabilidade, uma H1 por página, fragmentos internos e a correspondência entre qualquer FAQ estruturado e o texto visível. As páginas novas e os cartões sociais são incluídos no artefacto e nos índices. Após publicar, confirmar o domínio e o sitemap. O Search Console permite acompanhar a indexação; uma validação técnica aprovada não demonstra que o Google já indexou uma página.

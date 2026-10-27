@@ -56,6 +56,19 @@ Diogo Silva's approach to software sales is built on three core axioms:
 - **Storage and sharing**: No mandatory online account, advertising or third-party analytics. The journal is stored locally; exports are initiated by the user. JSON backups are not encrypted by the app. Remote couple synchronisation and encrypted pairing are future work, not current features.
 - **Status**: Private testing; store release is in preparation and there is no public download. Automated interpretations are still under validation and require professional review. Technical tests do not establish clinical accuracy.
 
+### Bronze Art Galleries
+- **Project URL**: https://diogobronzesilva.com/projects/bronze-art-galleries/
+- **Purpose**: Software built around Diogo's photographic delivery workflow: browsing a finished story, downloading final JPEGs and making album selections.
+- **Workflow**: Ordinary JPEG folders, chapter-based presentation, resumable uploads, review before publishing, and separate actions for adding or replacing photographs.
+- **Access**: Used within Bronze Art. Client access has an expiry and is separate from the author's internal archive. Client links and photographs are not published on the personal site. A recipient can forward a delivery link.
+
+### Cutline
+- **Project URL**: https://diogobronzesilva.com/projects/cutline/
+- **Purpose**: A personal Mac application that prepares a first editorial selection of short clips from long videos for human review.
+- **Features**: Local Whisper transcription, up to ten suggested moments, face or subject framing, 9:16 video, 1080 × 1920 MP4 and separate editable SRT captions.
+- **Local processing**: Runs transcription and rendering on the Mac without a mandatory account, subscription or AI API key. Fetching a linked video and downloading the model initially need a connection.
+- **Platform and scope**: Apple silicon, macOS 13.5 or later. The original code is proprietary. No installer is distributed from the personal website. Use owned or authorised source material.
+
 ### AI Sales Systems & Custom Workflows
 - **Category**: Enterprise B2B SaaS Sales Operating System
 - **Philosophy**: Personal tools complement shared Sales Enablement and RevOps foundations, helping prepare for the account, people and decisions involved in a deal. Diogo reviews generated output and remains responsible for what he uses or sends.
@@ -159,4 +172,4 @@ Canonical section pages:
 - **Format**: Hand-crafted static HTML5 and CSS. Zero JavaScript. Zero third-party trackers or cookies.
 - **Hosting**: Cloudflare Pages / Edge static hosting.
 - **Repository**: https://github.com/diogobronzesilva-arch/DiogoBronzeSilva
-- **AI Crawlability**: Fully open to web search bots, grounding crawlers, and LLM indexing engines.
+- **Discovery**: Static public HTML, canonical URLs, sitemap, structured data and internal links. robots.txt permits crawlers; indexing and search inclusion are decisions made by each service. llms files are context documents, not ranking guarantees.

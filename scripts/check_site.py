@@ -55,6 +55,10 @@ class PageParser(HTMLParser):
         self.lang: str | None = None
         self.title_parts: list[str] = []
         self.in_title = False
+        self.h1_count = 0
+        self.body_text_parts: list[str] = []
+        self._in_body = False
+        self._ignore_body_text = False
         self.meta_names: dict[str, str] = {}
         self.meta_properties: dict[str, str] = {}
         self.duplicate_meta_names: list[str] = []
@@ -80,6 +84,12 @@ class PageParser(HTMLParser):
     def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
         tag = tag.lower()
         data = self._attrs(attrs)
+        if tag == "body":
+            self._in_body = True
+        if tag in {"script", "style"}:
+            self._ignore_body_text = True
+        if tag == "h1":
+            self.h1_count += 1
 
         if tag == "html" and self.lang is None:
             self.lang = data.get("lang", "").strip()
@@ -153,6 +163,10 @@ class PageParser(HTMLParser):
 
     def handle_endtag(self, tag: str) -> None:
         tag = tag.lower()
+        if tag == "body":
+            self._in_body = False
+        if tag in {"script", "style"}:
+            self._ignore_body_text = False
         if tag == "nav":
             self._in_navigation = False
         if tag == "title":
@@ -162,6 +176,8 @@ class PageParser(HTMLParser):
             self._json_ld_buffer = None
 
     def handle_data(self, data: str) -> None:
+        if self._in_body and not self._ignore_body_text:
+            self.body_text_parts.append(data)
         if self.in_title:
             self.title_parts.append(data)
         if self._json_ld_buffer is not None:
@@ -706,9 +722,70 @@ def check_cloudflare_infrastructure(report: Report) -> None:
     report.passed("Cloudflare Pages infrastructure (_headers, font caching and mailto safeguards)")
 
 
+
+def check_discovery(report: Report, parsed: dict[Path, PageParser]) -> None:
+    """Check search-facing consistency and crawlable in-page navigation."""
+    def normal(value: str) -> str:
+        return " ".join(value.split()).casefold()
+
+    titles: dict[str, Path] = {}
+    descriptions: dict[str, Path] = {}
+    for rel, parser in parsed.items():
+        if rel in {TEMPLATE, NOT_FOUND}:
+            continue
+        if parser.h1_count != 1:
+            report.error(f"Published page must have one H1, found {parser.h1_count}.", rel)
+        robots = parser.meta_names.get("robots", "").lower()
+        if "noindex" in robots or "none" in {x.strip() for x in robots.split(",")}:
+            report.error("Published page must remain indexable.", rel)
+        for value, seen, label in ((parser.title, titles, "title"), (parser.meta_names.get("description", ""), descriptions, "description")):
+            key = normal(value)
+            if key and key in seen:
+                report.error(f"Duplicate published {label}; also used by {seen[key]}.", rel)
+            elif key:
+                seen[key] = rel
+
+        locale = parser.meta_properties.get("og:locale", "")
+        if not locale or locale.split("_")[0] != (parser.lang or "").split("-")[0]:
+            report.error("Open Graph locale must match the page language.", rel)
+        visible = normal(" ".join(parser.body_text_parts))
+        for block in parser.json_ld_blocks:
+            try:
+                data = json.loads(block)
+            except json.JSONDecodeError:
+                continue  # check_html reports the syntax error.
+            for node in data.get("@graph", [data]):
+                if node.get("@type") == "FAQPage":
+                    for question in node.get("mainEntity", []):
+                        name = question.get("name", "")
+                        answer = question.get("acceptedAnswer", {}).get("text", "")
+                        if not name or not answer or normal(name) not in visible or normal(answer) not in visible:
+                            report.error("Structured FAQ questions and answers must match visible page content.", rel)
+
+    for rel, parser in parsed.items():
+        for anchor in parser.anchors:
+            raw = anchor.get("href", "")
+            split = urlsplit(raw)
+            if not split.fragment or split.scheme not in {"", "http", "https"}:
+                continue
+            if split.netloc and split.hostname != SITE_HOST:
+                continue
+            if rel == TEMPLATE and "SLUG-DA-NOTA" in raw:
+                continue
+            fragment = unquote(split.fragment.split(":~:text=", 1)[0])
+            if not fragment:
+                continue
+            target = rel if not split.path and not split.netloc else local_target(rel, raw)
+            target_parser = parsed.get(target) if target is not None else None
+            if target_parser is not None and fragment not in target_parser.ids:
+                report.error(f"Broken internal fragment: {raw}", rel)
+    report.passed("Unique search metadata, indexability, language, visible FAQ consistency and internal fragments")
+
+
 def main() -> int:
     report = Report()
-    check_html(report)
+    parsed = check_html(report)
+    check_discovery(report, parsed)
     check_sitemap(report)
     check_feed(report)
     check_text_files(report)
