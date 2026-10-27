@@ -16,6 +16,8 @@ index.html                              → /
 work/index.html                         → /work/
 projects/index.html                     → /projects/
 projects/vitachart/index.html           → /projects/vitachart/
+projects/bronze-art-galleries/index.html → /projects/bronze-art-galleries/
+projects/cutline/index.html             → /projects/cutline/
 vitachart/privacy/index.html            → /vitachart/privacy/
 notes/index.html                        → /notes/
 notes/<slug>/index.html                 → /notes/<slug>/
@@ -49,7 +51,7 @@ A navegação principal é:
 
 - **Home** é a porta de entrada pessoal. Deve manter-se curta.
 - **Work** reúne experiência e pensamento sobre vendas, tecnologia, decisão e relações humanas.
-- **Projects** apresenta o VitaChart e os workflows pessoais de IA para vendas, distinguindo funcionalidades atuais de trabalho futuro. A política do VitaChart mantém o URL `/vitachart/privacy/`.
+- **Projects** apresenta VitaChart, Bronze Art Galleries, Cutline e os workflows pessoais de IA para vendas, distinguindo funcionalidades atuais de trabalho futuro. A política do VitaChart mantém o URL `/vitachart/privacy/`.
 - **Photography** aponta directamente para `bronzeart.pt`.
 - **Notes** é a biblioteca de textos e, quando aplicável, participações seleccionadas em podcasts e entrevistas ao vivo sob `Podcasts and Live Interviews`.
 - **Contact** é deliberadamente simples: email, LinkedIn e Bronze Art.
