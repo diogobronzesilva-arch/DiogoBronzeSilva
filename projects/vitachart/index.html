@@ -37,33 +37,63 @@
   "@context": "https://schema.org",
   "@graph": [
     {
-      "@type": "SoftwareApplication",
-      "@id": "https://diogobronzesilva.com/projects/vitachart/#software",
-      "url": "https://diogobronzesilva.com/projects/vitachart/",
-      "name": "VitaChart",
-      "applicationCategory": "HealthApplication",
-      "operatingSystem": "Android, iOS, Web",
-      "creativeWorkStatus": "In development — private testing",
-      "description": "A local fertility diary in development, informed by family experience with the Creighton Model and NaProTechnology.",
-      "author": { "@id": "https://diogobronzesilva.com/#person" },
-      "inLanguage": "en"
-    },
-    {
       "@type": "WebPage",
       "@id": "https://diogobronzesilva.com/projects/vitachart/#webpage",
       "url": "https://diogobronzesilva.com/projects/vitachart/",
       "name": "VitaChart — A Private Fertility Diary | Diogo Silva",
       "description": "VitaChart is a local fertility diary by Diogo Silva, in private testing for Android and iPhone.",
-      "isPartOf": { "@id": "https://diogobronzesilva.com/#website" },
-      "about": { "@id": "https://diogobronzesilva.com/projects/vitachart/#software" },
-      "inLanguage": "en"
+      "inLanguage": "en",
+      "dateModified": "2026-10-27",
+      "isPartOf": {
+        "@id": "https://diogobronzesilva.com/#website"
+      },
+      "mainEntity": {
+        "@id": "https://diogobronzesilva.com/projects/vitachart/#software"
+      },
+      "primaryImageOfPage": "https://diogobronzesilva.com/assets/img/og/vitachart.jpg"
+    },
+    {
+      "@type": "SoftwareApplication",
+      "@id": "https://diogobronzesilva.com/projects/vitachart/#software",
+      "name": "VitaChart",
+      "url": "https://diogobronzesilva.com/projects/vitachart/",
+      "description": "A local fertility diary in development, informed by family experience with the Creighton Model and NaProTechnology.",
+      "applicationCategory": "HealthApplication",
+      "operatingSystem": "Android, iOS, Web",
+      "creativeWorkStatus": "In development — private testing",
+      "featureList": [
+        "Creighton Model daily observations",
+        "Local-only storage on the device",
+        "PDF chart generation for consultations",
+        "Local backup and export",
+        "No advertising or third-party tracking"
+      ],
+      "author": {
+        "@id": "https://diogobronzesilva.com/#person"
+      },
+      "image": "https://diogobronzesilva.com/assets/img/og/vitachart.jpg"
     },
     {
       "@type": "BreadcrumbList",
       "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://diogobronzesilva.com/" },
-        { "@type": "ListItem", "position": 2, "name": "Projects", "item": "https://diogobronzesilva.com/projects/" },
-        { "@type": "ListItem", "position": 3, "name": "VitaChart", "item": "https://diogobronzesilva.com/projects/vitachart/" }
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://diogobronzesilva.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Projects",
+          "item": "https://diogobronzesilva.com/projects/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "VitaChart",
+          "item": "https://diogobronzesilva.com/projects/vitachart/"
+        }
       ]
     }
   ]
