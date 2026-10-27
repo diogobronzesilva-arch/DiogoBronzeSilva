@@ -280,17 +280,17 @@ p { margin: 0 0 1.1em; }
 /* ---------- Home ---------- */
 
 .hero {
-  padding: clamp(2.5rem, 7vw, 6rem) 0 clamp(2.5rem, 6vw, 4.5rem);
+  padding: clamp(1.5rem, 4vw, 3rem) 0 clamp(2rem, 4vw, 3rem);
 }
 
 .hero__grid {
   display: grid;
-  row-gap: clamp(1.75rem, 4vw, 3rem);
+  row-gap: 1.25rem;
   column-gap: clamp(2rem, 5vw, 4.5rem);
 }
 
 .hero__name {
-  font-size: clamp(3.75rem, 9vw, 6.25rem);
+  font-size: clamp(3.25rem, 6.5vw, 5rem);
   line-height: 0.94;
   font-weight: 250;
 }
@@ -301,9 +301,9 @@ p { margin: 0 0 1.1em; }
 }
 
 .hero__welcome {
-  max-width: 30rem;
-  font-size: 1.125rem;
-  line-height: 1.7;
+  max-width: 36rem;
+  font-size: 1.0625rem;
+  line-height: 1.65;
   color: var(--ink);
 }
 
@@ -316,24 +316,33 @@ p { margin: 0 0 1.1em; }
   color: var(--ink);
 }
 
-/* Mobile order: name, welcome text, portrait. */
+/* Keep the mobile reading order and a smaller, centred portrait. */
 .portrait {
   margin: 0;
-  width: min(100%, 20rem);
+  width: min(100%, 12rem);
+  justify-self: center;
 }
 
-.portrait img {
-  width: 100%;
+.portrait picture { display: block; }
+.portrait img { width: 100%; }
+
+@media (min-width: 46rem) {
+  .hero__grid {
+    grid-template-columns: minmax(0, 1fr) 12rem;
+    align-items: start;
+  }
+  .hero__name    { grid-column: 1; grid-row: 1; }
+  .hero__welcome { grid-column: 1; grid-row: 2; }
+  .portrait {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+    align-self: end;
+    width: 100%;
+  }
 }
 
 @media (min-width: 62rem) {
-  .hero__grid {
-    grid-template-columns: 1fr 20rem;
-    align-items: end;
-  }
-  .hero__name    { grid-column: 1 / -1; }
-  .hero__welcome { grid-column: 1; grid-row: 2; }
-  .portrait      { grid-column: 2; grid-row: 2; width: 100%; }
+  .hero__grid { grid-template-columns: minmax(0, 1fr) 16rem; }
 }
 
 /* ---------- Index of rooms (home) ---------- */
@@ -481,6 +490,10 @@ p { margin: 0 0 1.1em; }
 }
 .project-page .entry__details li + li { margin-top: 0.6em; }
 .project-page .entry .standfirst { margin-top: 1rem; }
+
+.entry__next { margin: 1rem 0 0; font-size: 1rem; }
+.entry__next a { display: inline-flex; align-items: center; min-height: 2.75rem; }
+.entry[id] { scroll-margin-top: 1.5rem; }
 
 /* Article */
 
