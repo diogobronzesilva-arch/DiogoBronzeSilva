@@ -86,3 +86,13 @@ Fontes oficiais consultadas:
 - [Google: otimização para funcionalidades generativas](https://developers.google.com/search/docs/fundamentals/ai-optimization-guide)
 
 A validação local cobre títulos e descrições únicos, indexabilidade, uma H1 por página, fragmentos internos e a correspondência entre qualquer FAQ estruturado e o texto visível. As páginas novas e os cartões sociais são incluídos no artefacto e nos índices. Após publicar, confirmar o domínio e o sitemap. O Search Console permite acompanhar a indexação; uma validação técnica aprovada não demonstra que o Google já indexou uma página.
+
+
+## Revisão complementar — 28/10/2026
+
+O Search Console identificou três VideoObject inválidos em Notes por falta de thumbnailUrl, além de avisos de uploadDate e de reprodução. A página contém ligações para entrevistas externas, sem leitor de vídeo. A marcação passa a uma ItemList de CreativeWork, preservando títulos, descrições e URLs; as datas continuam no conteúdo visível, sem inventar horas de upload. Não se promete elegibilidade para resultados de vídeo.
+
+A validação recorre às [orientações oficiais de vídeo](https://developers.google.com/search/docs/appearance/structured-data/video) e às [regras gerais de dados estruturados](https://developers.google.com/search/docs/appearance/structured-data/sd-policies). O build executa testes de regressão para metadados, FAQ acessível, JSON-LD em objetos/listas/grafos, fragmentos internos e marcação de vídeo. Os testes usam apenas a biblioteca padrão do Python.
+
+
+As três páginas de software são histórias de projetos pessoais, sem ofertas públicas nem avaliações. Usam WebPage + CreativeWork + BreadcrumbList. A marcação SoftwareApplication anterior podia ser semanticamente descritiva, mas não cumpria os requisitos de preço e avaliação dos [resultados especiais de aplicações da Google](https://developers.google.com/search/docs/appearance/structured-data/software-app). Não se inventam ofertas, preços ou classificações para os preencher. A plataforma e as funcionalidades continuam nos textos e nas palavras-chave dos projetos.

@@ -10,6 +10,7 @@ OUTPUT = ROOT / "dist"
 
 
 def main():
+    subprocess.run([sys.executable, "-m", "unittest", "discover", "-s", str(ROOT / "scripts"), "-p", "test_site_seo.py"], check=True)
     if OUTPUT.exists():
         shutil.rmtree(OUTPUT)
     subprocess.run([sys.executable, str(ROOT / "scripts/check_site.py")], check=True)
