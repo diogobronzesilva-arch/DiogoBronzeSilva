@@ -7,6 +7,7 @@ Action stays small, deterministic and dependency-free.
 
 from __future__ import annotations
 
+from datetime import datetime
 import json
 import posixpath
 import re
@@ -56,9 +57,11 @@ class PageParser(HTMLParser):
         self.title_parts: list[str] = []
         self.in_title = False
         self.h1_count = 0
+        self.has_video_player = False
         self.body_text_parts: list[str] = []
         self._in_body = False
         self._ignore_body_text = False
+        self._hidden_elements: list[str] = []
         self.meta_names: dict[str, str] = {}
         self.meta_properties: dict[str, str] = {}
         self.duplicate_meta_names: list[str] = []
@@ -88,6 +91,15 @@ class PageParser(HTMLParser):
             self._in_body = True
         if tag in {"script", "style"}:
             self._ignore_body_text = True
+        # Closed details remain reader-accessible; hidden/template content does not.
+        void_tags = {"area", "base", "br", "col", "embed", "hr", "img", "input", "link", "meta", "param", "source", "track", "wbr"}
+        hidden_style = re.search(r"(?:^|;)\s*(?:display\s*:\s*none|visibility\s*:\s*hidden)\b", data.get("style", ""), re.I)
+        if self._in_body and tag not in void_tags and (
+            self._hidden_elements or "hidden" in data or hidden_style or tag == "template"
+        ):
+            self._hidden_elements.append(tag)
+        if tag == "video" or (tag == "iframe" and data.get("src")):
+            self.has_video_player = True
         if tag == "h1":
             self.h1_count += 1
 
@@ -163,6 +175,9 @@ class PageParser(HTMLParser):
 
     def handle_endtag(self, tag: str) -> None:
         tag = tag.lower()
+        if tag in self._hidden_elements:
+            last = len(self._hidden_elements) - 1 - self._hidden_elements[::-1].index(tag)
+            del self._hidden_elements[last:]
         if tag == "body":
             self._in_body = False
         if tag in {"script", "style"}:
@@ -176,7 +191,7 @@ class PageParser(HTMLParser):
             self._json_ld_buffer = None
 
     def handle_data(self, data: str) -> None:
-        if self._in_body and not self._ignore_body_text:
+        if self._in_body and not self._ignore_body_text and not self._hidden_elements:
             self.body_text_parts.append(data)
         if self.in_title:
             self.title_parts.append(data)
@@ -722,6 +737,28 @@ def check_cloudflare_infrastructure(report: Report) -> None:
     report.passed("Cloudflare Pages infrastructure (_headers, font caching and mailto safeguards)")
 
 
+def as_list(value: object) -> list:
+    return value if isinstance(value, list) else ([] if value is None else [value])
+
+
+def structured_nodes(value: object):
+    """Visit JSON-LD objects, including arrays, graphs and nested entities."""
+    if isinstance(value, dict):
+        yield value
+        for child in value.values():
+            yield from structured_nodes(child)
+    elif isinstance(value, list):
+        for child in value:
+            yield from structured_nodes(child)
+
+
+def readable_text(value: object) -> str:
+    if not isinstance(value, str):
+        return ""
+    parser = PageParser()
+    parser.feed("<body>" + value + "</body>")
+    return " ".join(" ".join(parser.body_text_parts).split()).casefold()
+
 
 def check_discovery(report: Report, parsed: dict[Path, PageParser]) -> None:
     """Check search-facing consistency and crawlable in-page navigation."""
@@ -754,13 +791,38 @@ def check_discovery(report: Report, parsed: dict[Path, PageParser]) -> None:
                 data = json.loads(block)
             except json.JSONDecodeError:
                 continue  # check_html reports the syntax error.
-            for node in data.get("@graph", [data]):
-                if node.get("@type") == "FAQPage":
-                    for question in node.get("mainEntity", []):
-                        name = question.get("name", "")
-                        answer = question.get("acceptedAnswer", {}).get("text", "")
-                        if not name or not answer or normal(name) not in visible or normal(answer) not in visible:
+            for node in structured_nodes(data):
+                types = as_list(node.get("@type"))
+                if "FAQPage" in types:
+                    questions = as_list(node.get("mainEntity"))
+                    if not questions:
+                        report.error("Structured FAQ must contain questions and answers.", rel)
+                    for question in questions:
+                        if not isinstance(question, dict):
+                            report.error("Structured FAQ question must be an object.", rel)
+                            continue
+                        name = readable_text(question.get("name"))
+                        answers = as_list(question.get("acceptedAnswer"))
+                        if not name or not answers or name not in visible:
                             report.error("Structured FAQ questions and answers must match visible page content.", rel)
+                        for answer in answers:
+                            value = readable_text(answer.get("text")) if isinstance(answer, dict) else ""
+                            if not value or value not in visible:
+                                report.error("Structured FAQ questions and answers must match visible page content.", rel)
+                if "VideoObject" in types:
+                    for field in ("name", "thumbnailUrl", "uploadDate"):
+                        if not node.get(field):
+                            report.error(f"VideoObject is missing required field {field}.", rel)
+                    upload_date = node.get("uploadDate")
+                    if upload_date:
+                        try:
+                            stamp = datetime.fromisoformat(upload_date.replace("Z", "+00:00"))
+                            if "T" not in upload_date or stamp.tzinfo is None:
+                                raise ValueError("Time and timezone required")
+                        except (ValueError, TypeError, AttributeError):
+                            report.error("VideoObject uploadDate must include a valid time and timezone.", rel)
+                    if not parser.has_video_player:
+                        report.error("VideoObject requires a playable video on the page; use CreativeWork for external interview links.", rel)
 
     for rel, parser in parsed.items():
         for anchor in parser.anchors:
@@ -779,7 +841,7 @@ def check_discovery(report: Report, parsed: dict[Path, PageParser]) -> None:
             target_parser = parsed.get(target) if target is not None else None
             if target_parser is not None and fragment not in target_parser.ids:
                 report.error(f"Broken internal fragment: {raw}", rel)
-    report.passed("Unique search metadata, indexability, language, visible FAQ consistency and internal fragments")
+    report.passed("Unique search metadata, indexability, language, visible FAQ consistency, video markup and internal fragments")
 
 
 def main() -> int:
