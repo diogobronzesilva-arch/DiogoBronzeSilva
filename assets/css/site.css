@@ -388,6 +388,48 @@ p { margin: 0 0 1.1em; }
 .room:hover .room__name { color: var(--bronze); }
 .room:hover .room__mark { color: var(--bronze); }
 
+/* ---------- At Home (home) ---------- */
+
+/* The people who live here, between the welcome and the rooms.
+   On wider screens the title sits in the same column as the room names. */
+.at-home {
+  border-top: 1px solid var(--rule);
+  padding-top: clamp(2rem, 5vw, 3rem);
+  padding-bottom: clamp(2.5rem, 6vw, 4rem);
+}
+
+@media (min-width: 46rem) {
+  .at-home {
+    display: grid;
+    grid-template-columns: 12rem minmax(0, 1fr);
+    column-gap: 2rem;
+    align-items: baseline;
+  }
+}
+
+.at-home__title {
+  font-size: 1.5rem;
+  line-height: 1.2;
+  font-weight: 250;
+  margin-bottom: 1.25rem;
+}
+
+.at-home__figure {
+  margin: 0 0 1.75rem;
+}
+
+.at-home__figure picture { display: block; }
+.at-home__figure img { width: 100%; height: auto; }
+
+.at-home__text {
+  max-width: 36rem;
+  font-size: 1.0625rem;
+  line-height: 1.65;
+}
+
+.at-home__text p { text-wrap: pretty; }
+.at-home__text p:last-child { margin-bottom: 0; }
+
 /* ---------- Page heads ---------- */
 
 .pagehead {

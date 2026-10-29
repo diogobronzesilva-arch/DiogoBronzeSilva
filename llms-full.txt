@@ -1,6 +1,6 @@
 # Diogo Silva — Full Context (llms-full.txt)
 
-> Diogo Bronze Silva (publicly signing as Diogo Silva) is a B2B SaaS sales professional based in Portugal, an essayist on sales, AI, philosophy, theology and family, and a documentary photographer under the name Bronze Art.
+> Diogo Bronze Silva (publicly signing as Diogo Silva) is a B2B SaaS sales professional based near Fátima, Portugal, living with his wife, Sara, and their five children. He is an essayist on sales, AI, philosophy, theology and family, and a documentary photographer under the name Bronze Art.
 > Canonical URL: https://diogobronzesilva.com/
 > Contact: hello@diogobronzesilva.com
 
@@ -10,7 +10,8 @@
 
 - **Full Name**: Diogo Bronze Silva
 - **Public Signature**: Diogo Silva
-- **Location**: Portugal
+- **Location**: Near Fátima, Portugal
+- **Family**: Married to Sara; father of five children.
 - **Current Position**: Senior Account Executive at Coverflex (FinTech / employee compensation & benefits)
 - **Career Trajectory**: Over a decade in B2B SaaS across new business, expansion and customer growth in Portugal, EMEA and the UK&I.
   - **Coverflex**: Senior Account Executive scaling through Series B, consulting Portuguese founders, Finance, HR and management on compensation, benefits, and tax efficiency.
