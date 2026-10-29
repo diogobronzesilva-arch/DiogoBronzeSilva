@@ -88,6 +88,10 @@ Diogo Silva's approach to software sales is built on three core axioms:
 
 All essays are published in static HTML on https://diogobronzesilva.com/notes/.
 
+### "The wisdom of a second breakfast" (29 Oct 2026, en)
+- **URL**: https://diogobronzesilva.com/notes/the-wisdom-of-a-second-breakfast/
+- **Summary**: A conversation about buttered toast and tea leads to Tolkien's hobbits, second breakfast, and the wisdom of recognising a good day while living it. The essay connects work and ambition with family, hospitality, nature, photography, gratitude and the attention ordinary life deserves.
+
 ### "Saber ler a sala" (11 Oct 2026, pt-PT)
 - **URL**: https://diogobronzesilva.com/notes/saber-ler-a-sala/
 - **Summary**: A reflection on career, leadership, communication, and trust sparked by a LinkedIn post about Cristiano Ronaldo. The essay examines the ability to hear sincere criticism, accept changing roles with humility, and communicate publicly in ways that protect rather than erode a team's shared trust.
