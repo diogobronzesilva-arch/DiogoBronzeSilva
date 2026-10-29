@@ -570,6 +570,15 @@ p { margin: 0 0 1.1em; }
 
 .device img { width: 100%; }
 
+/* Editorial figure within longform essays */
+.article__figure {
+  margin: clamp(2rem, 5vw, 3rem) 0;
+}
+
+.article__figure picture { display: block; }
+.article__figure img { width: 100%; height: auto; display: block; }
+.article__figure figcaption { margin-top: 0.65rem; }
+
 .entry__lang {
   display: block;
   margin-top: 0.35rem;
