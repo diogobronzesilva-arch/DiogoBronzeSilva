@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>VitaChart — Private Fertility Biomarker Journal &amp; Demonstration | Diogo Silva</title>
+<meta name="description" content="VitaChart is a private fertility biomarker journal compatible with the Creighton Model and NaProTechnology. Explore the interactive synthetic demo and comparative strengths.">
+<meta name="author" content="Diogo Silva">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="theme-color" content="#FBFAF7">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="icon" href="/assets/favicon-16.png" type="image/png" sizes="16x16">
+<link rel="icon" href="/assets/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+<link rel="alternate" type="application/rss+xml" title="Diogo Silva — Notes" href="/feed.xml">
+<meta property="og:title" content="VitaChart — Private Fertility Biomarker Journal &amp; Demonstration">
+<meta property="og:description" content="Explore VitaChart: a device-first fertility journal compatible with Creighton Model and NaProTechnology conventions, with interactive synthetic demo and comparative strengths.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_GB">
+<link rel="canonical" href="https://diogobronzesilva.com/vitachart/">
+<meta property="og:url" content="https://diogobronzesilva.com/vitachart/">
+<meta property="og:image" content="https://diogobronzesilva.com/assets/img/og/vitachart.jpg">
+<meta property="og:image:secure_url" content="https://diogobronzesilva.com/assets/img/og/vitachart.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="VitaChart — a private fertility biomarker diary built from family experience">
+<meta name="twitter:image" content="https://diogobronzesilva.com/assets/img/og/vitachart.jpg">
+<meta name="twitter:image:alt" content="VitaChart — a private fertility biomarker diary built from family experience">
+<meta property="og:site_name" content="Diogo Silva">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="VitaChart — Private Fertility Biomarker Journal &amp; Demonstration">
+<meta name="twitter:description" content="Explore VitaChart: a device-first fertility journal compatible with Creighton Model and NaProTechnology conventions, with interactive synthetic demo and comparative strengths.">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://diogobronzesilva.com/vitachart/#webpage",
+      "url": "https://diogobronzesilva.com/vitachart/",
+      "name": "VitaChart — Private Fertility Biomarker Journal & Demonstration | Diogo Silva",
+      "description": "VitaChart is a private fertility biomarker journal compatible with the Creighton Model and NaProTechnology. Explore the interactive synthetic demo and comparative strengths.",
+      "inLanguage": "en",
+      "dateModified": "2026-10-29",
+      "isPartOf": {
+        "@id": "https://diogobronzesilva.com/#website"
+      },
+      "primaryImageOfPage": "https://diogobronzesilva.com/assets/img/og/vitachart.jpg"
+    },
+    {
+      "@type": "SoftwareApplication",
+      "@id": "https://diogobronzesilva.com/vitachart/#software",
+      "name": "VitaChart",
+      "url": "https://diogobronzesilva.com/vitachart/",
+      "applicationCategory": "HealthApplication",
+      "operatingSystem": "Android, iOS, Web",
+      "description": "A private, device-only fertility biomarker diary and clinical consultation sheet generator compatible with Creighton Model and NaProTechnology conventions.",
+      "author": {
+        "@id": "https://diogobronzesilva.com/#person"
+      },
+      "image": "https://diogobronzesilva.com/assets/img/og/vitachart.jpg"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://diogobronzesilva.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "VitaChart",
+          "item": "https://diogobronzesilva.com/vitachart/"
+        }
+      ]
+    }
+  ]
+}
+</script>
+<link rel="stylesheet" href="/assets/css/site.css?v=20261029-3">
+<style>
+/* Embedded interactive demo styling matching site aesthetic */
+.demo-banner-box {
+  background: #EBF2ED;
+  border: 1px solid #CFE0D4;
+  border-radius: 4px;
+  padding: 0.85rem 1.25rem;
+  margin: 1.5rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.demo-banner-title {
+  font-weight: 600;
+  color: #2F593E;
+  font-size: 0.95rem;
+}
+.demo-container {
+  background: #FAF7F2;
+  border: 1px solid #E3DCCE;
+  border-radius: 6px;
+  padding: 1.5rem;
+  margin: 2rem 0;
+}
+.cycle-timeline-strip {
+  display: grid;
+  grid-template-columns: repeat(14, 1fr);
+  gap: 0.35rem;
+  margin: 1.25rem 0 0.5rem;
+}
+@media (max-width: 680px) {
+  .cycle-timeline-strip {
+    grid-template-columns: repeat(7, 1fr);
+  }
+}
+.day-btn {
+  background: #FFFFFF;
+  border: 1px solid #D9D2C5;
+  border-radius: 4px;
+  padding: 0.45rem 0.2rem;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  font-family: inherit;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.2rem;
+}
+.day-btn:hover {
+  border-color: #8C4A35;
+  background: #FDFBF7;
+}
+.day-btn.active {
+  border-color: #8C4A35;
+  background: #F4EAE6;
+  box-shadow: 0 0 0 1px #8C4A35;
+}
+.day-num {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #63584E;
+}
+.stamp-dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  display: inline-block;
+}
+.stamp-red { background: #C43D38; }
+.stamp-green { background: #3B7A57; }
+.stamp-white { background: #FAF9F5; border: 1.5px solid #63584E; }
+.stamp-peak { background: #FAF9F5; border: 2px solid #C43D38; position: relative; }
+.stamp-peak::after {
+  content: "★";
+  font-size: 9px;
+  color: #C43D38;
+  position: absolute;
+  top: -4px;
+  left: 2px;
+}
+.stamp-code-text {
+  font-size: 0.65rem;
+  color: #7A6F64;
+  white-space: nowrap;
+}
+.deck-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 0.75rem;
+  margin-top: 1.25rem;
+}
+.deck-card {
+  background: #FFFFFF;
+  border: 1px solid #E8E2D7;
+  border-radius: 4px;
+  padding: 0.75rem 1rem;
+}
+.deck-card-label {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #8C8073;
+  margin-bottom: 0.25rem;
+}
+.deck-card-val {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #2C2520;
+}
+.deck-card-sub {
+  font-size: 0.8rem;
+  color: #6E6256;
+  margin-top: 0.2rem;
+}
+.comp-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.75rem 0;
+  font-size: 0.9rem;
+}
+.comp-table th, .comp-table td {
+  padding: 0.75rem 0.9rem;
+  border-bottom: 1px solid #E5DFD3;
+  text-align: left;
+}
+.comp-table th {
+  background: #F4EFE6;
+  font-weight: 600;
+  color: #38302A;
+}
+.comp-table tr:hover td {
+  background: #FAF8F3;
+}
+.badge-pro {
+  display: inline-block;
+  background: #E8F0EA;
+  color: #2F593E;
+  padding: 0.15rem 0.45rem;
+  border-radius: 3px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+</style>
+</head>
+
+<body>
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<header class="masthead">
+  <div class="shell masthead__inner">
+    <a class="brand" href="/">Diogo Silva</a>
+    <nav class="nav" aria-label="Sections">
+      <a href="/">Home</a>
+      <a href="/work/">Work</a>
+      <a href="/projects/">Projects</a>
+      <a href="https://bronzeart.pt" target="_blank" rel="noopener">Photography</a>
+      <a href="/notes/">Notes</a>
+      <a href="/contact/">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main" tabindex="-1">
+  <article class="shell article work-page project-page">
+
+    <header class="article__head">
+      <p class="article__date label"><a class="link" href="/projects/">&larr; Projects</a> &middot; Mobile App &amp; Clinical Journal</p>
+      <h1 class="article__title">VitaChart — Private Fertility Biomarker Journal</h1>
+      <p class="standfirst">A private, device-first fertility diary designed for families, compatible with the Creighton Model and NaProTechnology conventions, with zero ongoing subscriptions.</p>
+    </header>
+
+    <div class="demo-banner-box" id="demoBanner">
+      <div>
+        <span class="demo-banner-title">Interactive Synthetic Demonstration</span>
+        <p class="label" style="margin: 0.2rem 0 0 0; color: #4F705B;">Explore daily biomarker tracking, the 12-card deck, and the 35-day clinical chart below.</p>
+      </div>
+      <a href="#demo" class="button" style="text-decoration: none; padding: 0.4rem 0.9rem; font-size: 0.85rem;">View Demo &darr;</a>
+    </div>
+
+    <div class="entries" aria-label="VitaChart overview and strengths">
+
+      <section class="entry">
+        <span class="entry__date">01</span>
+        <div>
+          <h2 class="entry__title">What VitaChart is about</h2>
+          <p class="entry__dek">For over twelve years, my wife and I have used the Creighton Model to chart her natural fertility cycles, working hand in hand with a certified FertilityCare practitioner and a NaProTechnology medical doctor. As a software architect and a father of five, I created VitaChart out of real family practice and personal conviction.</p>
+          <p class="entry__dek">Many couples find natural family planning methods powerful, empowering, and respectful of feminine physiology, but are frustrated by the software available today: recurring fees that feel exploitative, fragile cloud databases holding intimate health data, or generic period trackers that try to guess ovulation with blind statistical algorithms.</p>
+          <p class="entry__dek">VitaChart replaces that complexity with quiet elegance: a dignified 12-card daily logging grid, offline-first local storage, and instant generation of a standardized 35-day consultation sheet ready for medical review.</p>
+        </div>
+      </section>
+
+      <section class="entry">
+        <span class="entry__date">02</span>
+        <div>
+          <h2 class="entry__title">Key strengths &amp; pros compared to other models</h2>
+          <p class="entry__dek">When evaluating VitaChart alongside specialized fertility apps (such as the official FertilityCare App, Chart Neo, or Read Your Body) and commercial menstrual apps (like Flo or Clue), several clear architectural and economic advantages stand out:</p>
+
+          <div style="overflow-x: auto;">
+            <table class="comp-table" aria-label="Comparison between VitaChart, Specialized Apps, and Generic Trackers">
+              <thead>
+                <tr>
+                  <th scope="col">Dimension</th>
+                  <th scope="col">VitaChart</th>
+                  <th scope="col">Subscription Apps</th>
+                  <th scope="col">Generic Trackers</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">Pricing &amp; Model</th>
+                  <td><span class="badge-pro">&euro;1.99 / $1.99 One-time purchase</span><br><small>No ongoing fees; permanent ownership.</small></td>
+                  <td>$35 &ndash; $100+ / year<br><small>Ongoing annual subscriptions.</small></td>
+                  <td>Freemium / $40+/yr<br><small>Aggressive paywalls &amp; ads.</small></td>
+                </tr>
+                <tr>
+                  <th scope="row">Privacy &amp; Data Storage</th>
+                  <td><span class="badge-pro">100% Local on Device</span><br><small>No external cloud servers; zero leak risk.</small></td>
+                  <td>Cloud databases<br><small>Requires user account &amp; sync.</small></td>
+                  <td>Server-side tracking<br><small>Data monetisation &amp; third-party ad SDKs.</small></td>
+                </tr>
+                <tr>
+                  <th scope="row">Observational Fidelity</th>
+                  <td><span class="badge-pro">Creighton &amp; NaPro Aligned</span><br><small>12-card observation deck, mucus scores, stamps.</small></td>
+                  <td>Varies by app<br><small>Often complex or rigid entry flows.</small></td>
+                  <td>Algorithmic guessing<br><small>Overrides individual physiological markers.</small></td>
+                </tr>
+                <tr>
+                  <th scope="row">Medical Consultation PDF</th>
+                  <td><span class="badge-pro">Standardized 35-Day Sheet</span><br><small>Clinician-ready PDF export with doctor notes.</small></td>
+                  <td>Basic PDF or screenshots<br><small>Often cluttered or unformatted.</small></td>
+                  <td>None / Generic graphs<br><small>Unusable in NaPro medical appointments.</small></td>
+                </tr>
+                <tr>
+                  <th scope="row">Offline Autonomy</th>
+                  <td><span class="badge-pro">Fully Offline</span><br><small>Works seamlessly without internet access.</small></td>
+                  <td>Requires online login<br><small>Fails when offline or session expires.</small></td>
+                  <td>Requires connectivity<br><small>Constant telemetry calls.</small></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <p class="entry__dek"><strong>Summary of the advantage:</strong> Because VitaChart stores data directly on the user&rsquo;s phone without requiring server infrastructure, there are zero server maintenance bills to pass on to families. This allows a single, affordable purchase that respects family budgets while guaranteeing impenetrable privacy.</p>
+        </div>
+      </section>
+
+      <section class="entry" id="demo">
+        <span class="entry__date">03</span>
+        <div>
+          <h2 class="entry__title">Interactive synthetic demonstration</h2>
+          <p class="entry__dek">Below is an interactive preview of how VitaChart behaves in daily practice. This demonstration uses fictional synthetic data representing a textbook 28-day cycle with clear pre-peak, peak, and post-peak phases. Click any day on the timeline to inspect the daily biomarker cards.</p>
+
+          <div class="demo-container">
+            <div style="display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 0.5rem;">
+              <h3 style="margin: 0; font-size: 1.1rem; color: #38302A;">Cycle Timeline &middot; 28 Days</h3>
+              <span class="label" id="cycleStatusBadge" style="color: #6E6256;">Day 14 Selected &middot; Identified Peak Day</span>
+            </div>
+
+            <div class="cycle-timeline-strip" id="timelineStrip" role="tablist" aria-label="Cycle days">
+              <!-- Dynamically populated by JS below -->
+            </div>
+
+            <div style="margin: 1.25rem 0 0.5rem; display: flex; gap: 1rem; flex-wrap: wrap; font-size: 0.75rem; color: #6E6256;">
+              <span style="display: inline-flex; align-items: center; gap: 0.3rem;"><span class="stamp-dot stamp-red"></span> Menses (Red)</span>
+              <span style="display: inline-flex; align-items: center; gap: 0.3rem;"><span class="stamp-dot stamp-green"></span> Dry / Infertile (Green)</span>
+              <span style="display: inline-flex; align-items: center; gap: 0.3rem;"><span class="stamp-dot stamp-white"></span> Fertile Mucus (White)</span>
+              <span style="display: inline-flex; align-items: center; gap: 0.3rem;"><span class="stamp-dot stamp-peak"></span> Peak Day (&starf;)</span>
+            </div>
+
+            <div style="margin-top: 1.5rem; border-top: 1px solid #E5DFD3; padding-top: 1rem;">
+              <h4 id="selectedDayTitle" style="margin: 0 0 0.5rem; font-size: 1rem; color: #2C2520;">Day 14 Observations</h4>
+              <p id="selectedDaySummary" class="label" style="color: #7A6F64; margin-bottom: 1rem;">Clear, stretchy, lubricative cervical mucus (10KL) &middot; Peak day biomarker identified.</p>
+
+              <div class="deck-grid" id="deckGrid">
+                <!-- Dynamically populated -->
+              </div>
+            </div>
+
+            <div style="margin-top: 1.75rem; background: #FFFFFF; border: 1px solid #E3DCCE; border-radius: 4px; padding: 1rem 1.25rem;">
+              <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+                <div>
+                  <h4 style="margin: 0 0 0.2rem; font-size: 0.95rem; color: #2C2520;">Standardized 35-Day Clinical Consultation Sheet</h4>
+                  <p class="label" style="margin: 0; color: #6E6256;">Generated directly from the daily recorded observations, ready for medical appointments.</p>
+                </div>
+                <a class="button" href="/assets/docs/vitachart-sample-consultation-chart.pdf" target="_blank" rel="noopener" style="text-decoration: none; font-size: 0.85rem; padding: 0.45rem 1rem;">View Sample PDF &rarr;</a>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
+      <section class="entry">
+        <span class="entry__date">04</span>
+        <div>
+          <h2 class="entry__title">Closed beta testing &amp; practitioner feedback</h2>
+          <p class="entry__dek">VitaChart is currently in active private testing on Android (Google Play Closed Testing) and iPhone (TestFlight / local builds). Store release is scheduled following feedback from experienced practitioners and users.</p>
+          <ul class="entry__details">
+            <li><strong>Google Play Promo Codes:</strong> If you received an invitation promo code, you can redeem it directly in the Google Play Store under <em>Profile &rarr; Payments &amp; subscriptions &rarr; Redeem code</em>, or at <a class="link" href="https://play.google.com/redeem">play.google.com/redeem</a> to unlock VitaChart without charge.</li>
+            <li><strong>Institutional Independence:</strong> VitaChart is an independent observational diary designed to assist couples. It is not an official release of the Saint Paul VI Institute, FCCA, or AAFCP, and does not replace certified instruction in natural methods.</li>
+            <li><strong>Data Protection:</strong> Read the complete <a class="link" href="/vitachart/privacy/">VitaChart Privacy Policy</a> for full details on local device storage and export procedures.</li>
+            <li><strong>Get in Touch:</strong> For feedback, methodological questions, or practitioner suggestions, write directly to <a class="link" href="mailto:hello@diogobronzesilva.com">hello@diogobronzesilva.com</a>.</li>
+          </ul>
+        </div>
+      </section>
+
+    </div>
+
+    <div class="prose">
+      <hr>
+      <p>Questions or feedback? You can contact me directly at <!--email_off--><a class="link" href="mailto:hello@diogobronzesilva.com">hello@diogobronzesilva.com</a><!--/email_off--> or explore my other work at <a class="link" href="/projects/">projects</a>.</p>
+    </div>
+
+  </article>
+</main>
+
+<footer class="colophon">
+  <div class="shell colophon__inner label">
+    <span>Diogo Silva &middot; diogobronzesilva.com &middot; <a href="/feed.xml">RSS</a></span>
+    <span>Written by hand, between bedtimes.</span>
+  </div>
+</footer>
+
+<script>
+// Synthetic textbook 28-day cycle data
+const CYCLE_DAYS = [
+  { day: 1, stamp: "red", code: "H", desc: "Heavy flow", sensation: "Wet", mucus: "None (Menses)", stretch: "None", intimacy: false, peak: "—", postPeak: "—", status: "Menses Phase" },
+  { day: 2, stamp: "red", code: "H", desc: "Heavy flow", sensation: "Wet", mucus: "None (Menses)", stretch: "None", intimacy: false, peak: "—", postPeak: "—", status: "Menses Phase" },
+  { day: 3, stamp: "red", code: "M", desc: "Moderate flow", sensation: "Damp", mucus: "None (Menses)", stretch: "None", intimacy: false, peak: "—", postPeak: "—", status: "Menses Phase" },
+  { day: 4, stamp: "red", code: "L", desc: "Light flow", sensation: "Damp", mucus: "None (Menses)", stretch: "None", intimacy: false, peak: "—", postPeak: "—", status: "Menses Phase" },
+  { day: 5, stamp: "red", code: "VL", desc: "Very light / spotting", sensation: "Dry", mucus: "None (Menses)", stretch: "None", intimacy: false, peak: "—", postPeak: "—", status: "Menses Phase" },
+  { day: 6, stamp: "green", code: "2", desc: "Dry sensation", sensation: "Dry", mucus: "None", stretch: "None", intimacy: true, peak: "—", postPeak: "—", status: "Pre-Peak Infertile" },
+  { day: 7, stamp: "green", code: "2", desc: "Dry sensation", sensation: "Dry", mucus: "None", stretch: "None", intimacy: false, peak: "—", postPeak: "—", status: "Pre-Peak Infertile" },
+  { day: 8, stamp: "green", code: "2", desc: "Dry sensation", sensation: "Dry", mucus: "None", stretch: "None", intimacy: true, peak: "—", postPeak: "—", status: "Pre-Peak Infertile" },
+  { day: 9, stamp: "green", code: "2X1", desc: "Dry, single observation", sensation: "Dry", mucus: "None", stretch: "None", intimacy: false, peak: "—", postPeak: "—", status: "Pre-Peak Infertile" },
+  { day: 10, stamp: "white", code: "4", desc: "Damp, cloudy discharge", sensation: "Damp", mucus: "Thick, cloudy", stretch: "< 0.5 cm", intimacy: false, peak: "—", postPeak: "—", status: "Fertile Window" },
+  { day: 11, stamp: "white", code: "6C", desc: "Damp, cloudy mucus", sensation: "Damp", mucus: "Cloudy", stretch: "1.0 cm", intimacy: false, peak: "—", postPeak: "—", status: "Fertile Window" },
+  { day: 12, stamp: "white", code: "8CX1", desc: "Wet, stretchy mucus", sensation: "Wet", mucus: "Cloudy / clear", stretch: "2.0 cm", intimacy: false, peak: "—", postPeak: "—", status: "Fertile Window" },
+  { day: 13, stamp: "white", code: "10K", desc: "Lubricative, clear", sensation: "Lubricative", mucus: "Clear, transparent", stretch: "> 2.5 cm", intimacy: false, peak: "—", postPeak: "—", status: "Fertile Window (Pre-Peak)" },
+  { day: 14, stamp: "peak", code: "10KL", desc: "Peak Day — Clear, stretchy, lubricative", sensation: "Lubricative", mucus: "Clear, highly elastic", stretch: "> 5.0 cm", intimacy: false, peak: "Peak Day (P)", postPeak: "—", status: "Maximum Fertility &middot; Peak Day" },
+  { day: 15, stamp: "green", code: "2", desc: "Dry sensation — P+1", sensation: "Dry", mucus: "None", stretch: "None", intimacy: false, peak: "—", postPeak: "P + 1", status: "Post-Peak Count Day 1" },
+  { day: 16, stamp: "green", code: "2", desc: "Dry sensation — P+2", sensation: "Dry", mucus: "None", stretch: "None", intimacy: false, peak: "—", postPeak: "P + 2", status: "Post-Peak Count Day 2" },
+  { day: 17, stamp: "green", code: "2", desc: "Dry sensation — P+3", sensation: "Dry", mucus: "None", stretch: "None", intimacy: false, peak: "—", postPeak: "P + 3", status: "Post-Peak Count Day 3 (End of Fertile Phase)" },
+  { day: 18, stamp: "green", code: "2", desc: "Dry sensation", sensation: "Dry", mucus: "None", stretch: "None", intimacy: true, peak: "—", postPeak: "—", status: "Post-Peak Infertile Phase" },
+  { day: 19, stamp: "green", code: "2", desc: "Dry sensation", sensation: "Dry", mucus: "None", stretch: "None", intimacy: false, peak: "—", postPeak: "—", status: "Post-Peak Infertile Phase" },
+  { day: 20, stamp: "green", code: "2", desc: "Dry sensation", sensation: "Dry", mucus: "None", stretch: "None", intimacy: true, peak: "—", postPeak: "—", status: "Post-Peak Infertile Phase" },
+  { day: 21, stamp: "green", code: "2", desc: "Dry sensation", sensation: "Dry", mucus: "None", stretch: "None", intimacy: false, peak: "—", postPeak: "—", status: "Post-Peak Infertile Phase" },
+  { day: 22, stamp: "green", code: "2", desc: "Dry sensation", sensation: "Dry", mucus: "None", stretch: "None", intimacy: false, peak: "—", postPeak: "—", status: "Post-Peak Infertile Phase" },
+  { day: 23, stamp: "green", code: "2", desc: "Dry sensation", sensation: "Dry", mucus: "None", stretch: "None", intimacy: true, peak: "—", postPeak: "—", status: "Post-Peak Infertile Phase" },
+  { day: 24, stamp: "green", code: "2", desc: "Dry sensation", sensation: "Dry", mucus: "None", stretch: "None", intimacy: false, peak: "—", postPeak: "—", status: "Post-Peak Infertile Phase" },
+  { day: 25, stamp: "green", code: "2", desc: "Dry sensation", sensation: "Dry", mucus: "None", stretch: "None", intimacy: false, peak: "—", postPeak: "—", status: "Post-Peak Infertile Phase" },
+  { day: 26, stamp: "green", code: "2", desc: "Dry sensation", sensation: "Dry", mucus: "None", stretch: "None", intimacy: false, peak: "—", postPeak: "—", status: "Post-Peak Infertile Phase" },
+  { day: 27, stamp: "green", code: "2", desc: "Dry sensation", sensation: "Dry", mucus: "None", stretch: "None", intimacy: false, peak: "—", postPeak: "—", status: "Post-Peak Infertile Phase" },
+  { day: 28, stamp: "green", code: "2", desc: "Dry sensation (Cycle close)", sensation: "Dry", mucus: "None", stretch: "None", intimacy: false, peak: "—", postPeak: "—", status: "Post-Peak Infertile Phase" }
+];
+
+let selectedDayIdx = 13; // Day 14 (Peak Day) default
+
+function renderTimeline() {
+  const container = document.getElementById("timelineStrip");
+  container.innerHTML = "";
+  CYCLE_DAYS.forEach((item, idx) => {
+    const btn = document.createElement("button");
+    btn.type = "button";
+    btn.className = "day-btn" + (idx === selectedDayIdx ? " active" : "");
+    btn.setAttribute("role", "tab");
+    btn.setAttribute("aria-selected", idx === selectedDayIdx ? "true" : "false");
+    btn.setAttribute("aria-label", "Day " + item.day + ", " + item.code);
+    
+    let stampClass = "stamp-red";
+    if (item.stamp === "green") stampClass = "stamp-green";
+    else if (item.stamp === "white") stampClass = "stamp-white";
+    else if (item.stamp === "peak") stampClass = "stamp-peak";
+
+    btn.innerHTML = '<span class="day-num">' + item.day + '</span><span class="stamp-dot ' + stampClass + '"></span><span class="stamp-code-text">' + item.code + '</span>';
+    btn.onclick = () => selectDay(idx);
+    container.appendChild(btn);
+  });
+}
+
+function selectDay(idx) {
+  selectedDayIdx = idx;
+  const item = CYCLE_DAYS[idx];
+  renderTimeline();
+
+  document.getElementById("selectedDayTitle").innerText = "Day " + item.day + " Observations (" + item.code + ")";
+  document.getElementById("selectedDaySummary").innerHTML = item.desc + " &middot; Phase: <strong>" + item.status + "</strong>";
+  document.getElementById("cycleStatusBadge").innerText = "Day " + item.day + " &middot; " + item.status;
+
+  const deck = document.getElementById("deckGrid");
+  deck.innerHTML = `
+    <div class="deck-card">
+      <div class="deck-card-label">Flow / Bleeding</div>
+      <div class="deck-card-val">${item.code.startsWith("H") || item.code.startsWith("M") || item.code.startsWith("L") || item.code.startsWith("VL") ? item.desc : "None"}</div>
+      <div class="deck-card-sub">Recorded at end of day</div>
+    </div>
+    <div class="deck-card">
+      <div class="deck-card-label">Physical Sensation</div>
+      <div class="deck-card-val">${item.sensation}</div>
+      <div class="deck-card-sub">Perceived during wiping</div>
+    </div>
+    <div class="deck-card">
+      <div class="deck-card-label">Mucus Characteristics</div>
+      <div class="deck-card-val">${item.mucus}</div>
+      <div class="deck-card-sub">Stretch: ${item.stretch}</div>
+    </div>
+    <div class="deck-card">
+      <div class="deck-card-label">Peak Status</div>
+      <div class="deck-card-val">${item.peak !== "—" ? "★ " + item.peak : "—"}</div>
+      <div class="deck-card-sub">${item.peak !== "—" ? "Last day of fertile-type mucus" : "Non-peak observation"}</div>
+    </div>
+    <div class="deck-card">
+      <div class="deck-card-label">Post-Peak Count</div>
+      <div class="deck-card-val">${item.postPeak}</div>
+      <div class="deck-card-sub">${item.postPeak !== "—" ? "Luteal transition phase" : "—"}</div>
+    </div>
+    <div class="deck-card">
+      <div class="deck-card-label">Intimacy / Intercourse</div>
+      <div class="deck-card-val">${item.intimacy ? "Yes (I)" : "No"}</div>
+      <div class="deck-card-sub">Protected under local privacy</div>
+    </div>
+    <div class="deck-card">
+      <div class="deck-card-label">Creighton Biomarker Code</div>
+      <div class="deck-card-val">${item.code}</div>
+      <div class="deck-card-sub">Standard clinical convention</div>
+    </div>
+    <div class="deck-card">
+      <div class="deck-card-label">Storage &amp; Integrity</div>
+      <div class="deck-card-val">Stored locally on device</div>
+      <div class="deck-card-sub">Zero telemetry &middot; 100% offline</div>
+    </div>
+  `;
+}
+
+// Initialise
+renderTimeline();
+selectDay(13); // Default Day 14
+
+// Check if ?demo=1 or #demo is present in URL
+if (window.location.search.includes("demo=1") || window.location.hash === "#demo") {
+  const banner = document.getElementById("demoBanner");
+  if (banner) {
+    banner.style.boxShadow = "0 0 0 2px #3B7A57";
+  }
+}
+</script>
+
+</body>
+</html>
