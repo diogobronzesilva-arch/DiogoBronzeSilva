@@ -1,6 +1,6 @@
 # Diogo Silva
 
-> Personal website and editorial publication of Diogo Bronze Silva (signing publicly as Diogo Silva). B2B SaaS sales professional based in Portugal (Senior Account Executive at Coverflex), essayist on sales methodology, artificial intelligence at work, philosophy, theology, and family, and documentary photographer under Bronze Art.
+> Personal website and editorial publication of Diogo Bronze Silva (signing publicly as Diogo Silva). B2B SaaS sales professional based near Fátima, Portugal (Senior Account Executive at Coverflex), essayist on sales methodology, artificial intelligence at work, philosophy, theology, and family, and documentary photographer under Bronze Art. Lives with his wife, Sara, and their five children.
 
 The site is hand-written static HTML and CSS: no JavaScript, no analytics, no tracking. Fast, semantic and fully crawlable by both humans and AI models.
 Contact: hello@diogobronzesilva.com
