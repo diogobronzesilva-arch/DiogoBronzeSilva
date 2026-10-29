@@ -395,7 +395,7 @@ p { margin: 0 0 1.1em; }
 .at-home {
   border-top: 1px solid var(--rule);
   padding-top: clamp(2rem, 5vw, 3rem);
-  padding-bottom: clamp(2.5rem, 6vw, 4rem);
+  padding-bottom: clamp(2rem, 5vw, 3.5rem);
 }
 
 @media (min-width: 46rem) {
@@ -413,13 +413,6 @@ p { margin: 0 0 1.1em; }
   font-weight: 250;
   margin-bottom: 1.25rem;
 }
-
-.at-home__figure {
-  margin: 0 0 1.75rem;
-}
-
-.at-home__figure picture { display: block; }
-.at-home__figure img { width: 100%; height: auto; }
 
 .at-home__text {
   max-width: 36rem;
