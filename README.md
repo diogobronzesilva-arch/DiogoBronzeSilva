@@ -124,7 +124,7 @@ A Home aproxima nome, boas-vindas e retrato numa composição equilibrada de dua
 - A primeira nota recebe a classe `entry--featured` na Home e no índice Notes; ao publicar uma nova nota, mover esse destaque para a entrada mais recente.
 - Conversas externas têm uma indicação explícita para assistir (`Watch conversation ↗`); continuam sem embeds externos.
 - Datas, idiomas e rodapé usam tamanhos maiores; a navegação tem áreas de toque confortáveis (44px) em telemóvel.
-- A versão da folha de estilos é `20261030-1` em todos os HTML, incluindo o template.
+- A versão da folha de estilos é `20261030-2` em todos os HTML, incluindo o template.
 
 O conteúdo editorial, as rotas, o RSS e a configuração de publicação mantêm-se. A folha de estilos comum aplica os ajustes de legibilidade a Work, Contact, artigos e 404.
 
@@ -171,3 +171,7 @@ O domínio está verificado no Resend para envio. O Gmail está configurado para
 Os links `mailto:` em Work e Contact estão envolvidos em comentários `email_off`. Esta exceção evita que a ofuscação de endereços da Cloudflare substitua os links e injete `email-decode.min.js`; a ofuscação global da Cloudflare mantém-se ativa para quaisquer outros endereços.
 
 Não guardes endereços de destino privados, credenciais SMTP nem chaves API neste repositório. O estado detalhado, as dependências e os pontos ainda por rever estão em [OPERATIONS.md](OPERATIONS.md).
+
+### Demonstração enviada aos testers
+
+`/vitachart/?demo=1` mantém o endereço usado nos convites. A página abre com a demonstração de consulta, relatórios de 28 e 47 dias e feedback; não é uma versão editável da app. Os exemplos fictícios do gráfico são transcritos dos PDFs associados, com datas, códigos, temperaturas, ausência de observação e notas preservados. Não se calculam interpretações no website. Os relatórios existentes são em português e a página identifica a língua. Os códigos privados de acesso ficam apenas no email.

@@ -1,5 +1,8 @@
 """Regression cases for public metadata and misleading discovery markup."""
 import json
+import hashlib
+import re
+from datetime import date, timedelta
 from pathlib import Path
 import unittest
 
@@ -161,6 +164,55 @@ class PageShellTests(unittest.TestCase):
         self.assertEqual('', self.shell_errors(self.shell + script, 'vitachart/index.html'))
         for scripts in ('', script.replace(' defer', ''), script + '<script>run()</script>', script.replace('/assets/js/', 'https://example.org/assets/js/')):
             self.assertIn('only its deferred local script', self.shell_errors(self.shell + scripts, 'vitachart/index.html'))
+
+
+class VitaChartSampleTests(unittest.TestCase):
+    root = Path(__file__).resolve().parents[1]
+
+    @classmethod
+    def setUpClass(cls):
+        cls.html = (cls.root / 'vitachart/index.html').read_text(encoding='utf-8')
+        cls.samples = json.loads(re.search(r'<script type="application/json" id="vitachart-samples">(.*?)</script>', cls.html, re.S).group(1))
+
+    def test_samples_identify_the_matching_pdf_exports(self):
+        self.assertEqual({'28', '47'}, set(self.samples))
+        for sample in self.samples.values():
+            pdf = self.root / sample['pdf'].lstrip('/')
+            self.assertEqual(sample['pdfSha256'], hashlib.sha256(pdf.read_bytes()).hexdigest())
+            self.assertTrue((self.root / sample['preview'].lstrip('/')).is_file())
+            self.assertEqual(1 if sample['length'] == 28 else 2, sample['pages'])
+
+    def test_actual_lengths_dates_and_report_annotations(self):
+        for sample in self.samples.values():
+            days = sample['days']
+            self.assertEqual(sample['length'], len(days))
+            start = date.fromisoformat(sample['start'])
+            for i, day in enumerate(days):
+                self.assertEqual(i + 1, day['day'])
+                self.assertEqual((start + timedelta(days=i)).isoformat(), day['date'])
+            self.assertEqual(sample['end'], days[-1]['date'])
+            self.assertEqual('P', days[14]['marker'])
+            self.assertEqual(['1', '2', '3'], [d['marker'] for d in days[15:18]])
+
+    def test_unobserved_day_is_not_converted_to_no_mucus(self):
+        for sample in self.samples.values():
+            days = sample['days']
+            self.assertEqual(sample['recorded'], sum(d['observed'] for d in days))
+            missing = days[7]
+            self.assertFalse(missing['observed'])
+            self.assertEqual('', missing['code'])
+            self.assertEqual('unknown', missing['stamp'])
+            self.assertTrue(missing['temperature'])
+            self.assertEqual('0 AD', days[6]['code'])
+            self.assertTrue(days[9]['question'])
+            self.assertTrue(days[17]['medication'])
+
+    def test_chart_and_reports_survive_without_the_script(self):
+        self.assertEqual(28, len(re.findall(r'class="demo-day" disabled data-day=', self.html)))
+        self.assertIn('Day 15 &middot; 15 Aug 2026', self.html)
+        self.assertIn('/assets/docs/vitachart-sample-47-days.pdf', self.html)
+        self.assertIn('/assets/docs/vitachart-sample-consultation-chart.pdf', self.html)
+        self.assertIn('For invited testers', self.html)
 
 
 if __name__ == '__main__':

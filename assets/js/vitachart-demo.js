@@ -1,404 +1,130 @@
-/* Fictional display data only. No calculations, storage or network requests. */
+/* Read-only fictional records transcribed from the linked PDF exports.
+   No clinical calculations, persistence or network calls. */
 (() => {
   "use strict";
-  const days = [
-  {
-    "day": 1,
-    "stamp": "red",
-    "code": "H",
-    "desc": "Heavy flow",
-    "sensation": "Wet",
-    "mucus": "None (Menses)",
-    "stretch": "None",
-    "intimacy": false,
-    "peak": "Not marked in this example",
-    "postPeak": "Not recorded"
-  },
-  {
-    "day": 2,
-    "stamp": "red",
-    "code": "H",
-    "desc": "Heavy flow",
-    "sensation": "Wet",
-    "mucus": "None (Menses)",
-    "stretch": "None",
-    "intimacy": false,
-    "peak": "Not marked in this example",
-    "postPeak": "Not recorded"
-  },
-  {
-    "day": 3,
-    "stamp": "red",
-    "code": "M",
-    "desc": "Moderate flow",
-    "sensation": "Damp",
-    "mucus": "None (Menses)",
-    "stretch": "None",
-    "intimacy": false,
-    "peak": "Not marked in this example",
-    "postPeak": "Not recorded"
-  },
-  {
-    "day": 4,
-    "stamp": "red",
-    "code": "L",
-    "desc": "Light flow",
-    "sensation": "Damp",
-    "mucus": "None (Menses)",
-    "stretch": "None",
-    "intimacy": false,
-    "peak": "Not marked in this example",
-    "postPeak": "Not recorded"
-  },
-  {
-    "day": 5,
-    "stamp": "red",
-    "code": "VL",
-    "desc": "Very light / spotting",
-    "sensation": "Dry",
-    "mucus": "None (Menses)",
-    "stretch": "None",
-    "intimacy": false,
-    "peak": "Not marked in this example",
-    "postPeak": "Not recorded"
-  },
-  {
-    "day": 6,
-    "stamp": "green",
-    "code": "2",
-    "desc": "Dry sensation",
-    "sensation": "Dry",
-    "mucus": "None",
-    "stretch": "None",
-    "intimacy": true,
-    "peak": "Not marked in this example",
-    "postPeak": "Not recorded"
-  },
-  {
-    "day": 7,
-    "stamp": "green",
-    "code": "2",
-    "desc": "Dry sensation",
-    "sensation": "Dry",
-    "mucus": "None",
-    "stretch": "None",
-    "intimacy": false,
-    "peak": "Not marked in this example",
-    "postPeak": "Not recorded"
-  },
-  {
-    "day": 8,
-    "stamp": "green",
-    "code": "2",
-    "desc": "Dry sensation",
-    "sensation": "Dry",
-    "mucus": "None",
-    "stretch": "None",
-    "intimacy": true,
-    "peak": "Not marked in this example",
-    "postPeak": "Not recorded"
-  },
-  {
-    "day": 9,
-    "stamp": "green",
-    "code": "2X1",
-    "desc": "Dry, single observation",
-    "sensation": "Dry",
-    "mucus": "None",
-    "stretch": "None",
-    "intimacy": false,
-    "peak": "Not marked in this example",
-    "postPeak": "Not recorded"
-  },
-  {
-    "day": 10,
-    "stamp": "white",
-    "code": "4",
-    "desc": "Damp, cloudy discharge",
-    "sensation": "Damp",
-    "mucus": "Thick, cloudy",
-    "stretch": "< 0.5 cm",
-    "intimacy": false,
-    "peak": "Not marked in this example",
-    "postPeak": "Not recorded"
-  },
-  {
-    "day": 11,
-    "stamp": "white",
-    "code": "6C",
-    "desc": "Damp, cloudy mucus",
-    "sensation": "Damp",
-    "mucus": "Cloudy",
-    "stretch": "1.0 cm",
-    "intimacy": false,
-    "peak": "Not marked in this example",
-    "postPeak": "Not recorded"
-  },
-  {
-    "day": 12,
-    "stamp": "white",
-    "code": "8CX1",
-    "desc": "Wet, stretchy mucus",
-    "sensation": "Wet",
-    "mucus": "Cloudy / clear",
-    "stretch": "2.0 cm",
-    "intimacy": false,
-    "peak": "Not marked in this example",
-    "postPeak": "Not recorded"
-  },
-  {
-    "day": 13,
-    "stamp": "white",
-    "code": "10K",
-    "desc": "Lubricative, clear",
-    "sensation": "Lubricative",
-    "mucus": "Clear, transparent",
-    "stretch": "> 2.5 cm",
-    "intimacy": false,
-    "peak": "Not marked in this example",
-    "postPeak": "Not recorded"
-  },
-  {
-    "day": 14,
-    "stamp": "peak",
-    "code": "10KL",
-    "desc": "Clear, stretchy, lubricative",
-    "sensation": "Lubricative",
-    "mucus": "Clear, highly elastic",
-    "stretch": "> 5.0 cm",
-    "intimacy": false,
-    "peak": "P (example annotation)",
-    "postPeak": "Not recorded"
-  },
-  {
-    "day": 15,
-    "stamp": "green",
-    "code": "2",
-    "desc": "Dry sensation · Example P+1",
-    "sensation": "Dry",
-    "mucus": "None",
-    "stretch": "None",
-    "intimacy": false,
-    "peak": "Not marked in this example",
-    "postPeak": "P + 1"
-  },
-  {
-    "day": 16,
-    "stamp": "green",
-    "code": "2",
-    "desc": "Dry sensation · Example P+2",
-    "sensation": "Dry",
-    "mucus": "None",
-    "stretch": "None",
-    "intimacy": false,
-    "peak": "Not marked in this example",
-    "postPeak": "P + 2"
-  },
-  {
-    "day": 17,
-    "stamp": "green",
-    "code": "2",
-    "desc": "Dry sensation · Example P+3",
-    "sensation": "Dry",
-    "mucus": "None",
-    "stretch": "None",
-    "intimacy": false,
-    "peak": "Not marked in this example",
-    "postPeak": "P + 3"
-  },
-  {
-    "day": 18,
-    "stamp": "green",
-    "code": "2",
-    "desc": "Dry sensation",
-    "sensation": "Dry",
-    "mucus": "None",
-    "stretch": "None",
-    "intimacy": true,
-    "peak": "Not marked in this example",
-    "postPeak": "Not recorded"
-  },
-  {
-    "day": 19,
-    "stamp": "green",
-    "code": "2",
-    "desc": "Dry sensation",
-    "sensation": "Dry",
-    "mucus": "None",
-    "stretch": "None",
-    "intimacy": false,
-    "peak": "Not marked in this example",
-    "postPeak": "Not recorded"
-  },
-  {
-    "day": 20,
-    "stamp": "green",
-    "code": "2",
-    "desc": "Dry sensation",
-    "sensation": "Dry",
-    "mucus": "None",
-    "stretch": "None",
-    "intimacy": true,
-    "peak": "Not marked in this example",
-    "postPeak": "Not recorded"
-  },
-  {
-    "day": 21,
-    "stamp": "green",
-    "code": "2",
-    "desc": "Dry sensation",
-    "sensation": "Dry",
-    "mucus": "None",
-    "stretch": "None",
-    "intimacy": false,
-    "peak": "Not marked in this example",
-    "postPeak": "Not recorded"
-  },
-  {
-    "day": 22,
-    "stamp": "green",
-    "code": "2",
-    "desc": "Dry sensation",
-    "sensation": "Dry",
-    "mucus": "None",
-    "stretch": "None",
-    "intimacy": false,
-    "peak": "Not marked in this example",
-    "postPeak": "Not recorded"
-  },
-  {
-    "day": 23,
-    "stamp": "green",
-    "code": "2",
-    "desc": "Dry sensation",
-    "sensation": "Dry",
-    "mucus": "None",
-    "stretch": "None",
-    "intimacy": true,
-    "peak": "Not marked in this example",
-    "postPeak": "Not recorded"
-  },
-  {
-    "day": 24,
-    "stamp": "green",
-    "code": "2",
-    "desc": "Dry sensation",
-    "sensation": "Dry",
-    "mucus": "None",
-    "stretch": "None",
-    "intimacy": false,
-    "peak": "Not marked in this example",
-    "postPeak": "Not recorded"
-  },
-  {
-    "day": 25,
-    "stamp": "green",
-    "code": "2",
-    "desc": "Dry sensation",
-    "sensation": "Dry",
-    "mucus": "None",
-    "stretch": "None",
-    "intimacy": false,
-    "peak": "Not marked in this example",
-    "postPeak": "Not recorded"
-  },
-  {
-    "day": 26,
-    "stamp": "green",
-    "code": "2",
-    "desc": "Dry sensation",
-    "sensation": "Dry",
-    "mucus": "None",
-    "stretch": "None",
-    "intimacy": false,
-    "peak": "Not marked in this example",
-    "postPeak": "Not recorded"
-  },
-  {
-    "day": 27,
-    "stamp": "green",
-    "code": "2",
-    "desc": "Dry sensation",
-    "sensation": "Dry",
-    "mucus": "None",
-    "stretch": "None",
-    "intimacy": false,
-    "peak": "Not marked in this example",
-    "postPeak": "Not recorded"
-  },
-  {
-    "day": 28,
-    "stamp": "green",
-    "code": "2",
-    "desc": "Dry sensation",
-    "sensation": "Dry",
-    "mucus": "None",
-    "stretch": "None",
-    "intimacy": false,
-    "peak": "Not marked in this example",
-    "postPeak": "Not recorded"
-  }
-];
+  const source = document.getElementById("vitachart-samples");
   const timeline = document.getElementById("timelineStrip");
+  if (!source || !timeline) return;
+  const samples = JSON.parse(source.textContent);
+  let current = samples["28"];
+  let selected = 14;
+  let buttons = [];
   const title = document.getElementById("selectedDayTitle");
   const summary = document.getElementById("selectedDaySummary");
-  if (!timeline || !title || !summary) return;
+  const previous = document.getElementById("previous-day");
+  const next = document.getElementById("next-day");
+  const formatDate = iso => new Intl.DateTimeFormat("en-GB", {day:"numeric", month:"short", year:"numeric", timeZone:"UTC"}).format(new Date(iso + "T12:00:00Z"));
 
-  const buttons = [];
-  function selectDay(index, moveFocus = false) {
-    const day = days[index];
+  function selectDay(index, focusDay = false, revealRecord = false) {
+    selected = Math.max(0, Math.min(index, current.days.length - 1));
+    const day = current.days[selected];
     buttons.forEach((button, i) => {
-      button.setAttribute("aria-pressed", String(i === index));
-      button.tabIndex = i === index ? 0 : -1;
+      button.setAttribute("aria-pressed", String(i === selected));
+      button.tabIndex = i === selected ? 0 : -1;
     });
-    title.textContent = `Day ${day.day} observations (${day.code})`;
     const values = {
-      ...day,
-      bleeding: day.stamp === "red" ? day.desc : "None",
-      intimacy: day.intimacy ? "Yes (I)" : "No"
+      code: day.code || "No sign observation",
+      temperature: day.temperature + " °C",
+      observed: day.observed ? "Recorded" : "Not recorded; temperature only",
+      marker: day.marker ? (day.marker === "P" ? "P (for review)" : "P + " + day.marker + " (example)") : "None in this example",
+      question: day.question || "None in this example",
+      medication: day.medication || "None in this example",
+      note: day.note || "None in this example"
     };
-    document.querySelectorAll("[data-field]").forEach(field => {
+    document.querySelectorAll("#deckGrid [data-field]").forEach(field => {
       field.textContent = values[field.dataset.field];
     });
-    summary.textContent = `Fictional day ${day.day}: ${day.desc}. Code ${day.code}.` +
-      (day.day === 14 ? " P is an example annotation." : "");
-    if (moveFocus) buttons[index].focus();
+    title.textContent = "Day " + day.day + " · " + formatDate(day.date);
+    summary.textContent = "Fictional day " + day.day + ": " + values.code + ", " + values.temperature + "." +
+      (day.marker ? " Report annotation: " + values.marker + "." : "") +
+      (day.question ? " Includes a question for consultation." : "") +
+      (day.medication ? " Includes a medication note." : "");
+    previous.disabled = selected === 0;
+    next.disabled = selected === current.days.length - 1;
+    if (focusDay) buttons[selected].focus();
+    if (revealRecord) {
+      document.querySelector(".demo-observations").scrollIntoView({behavior: "instant", block: "start"});
+      title.focus({preventScroll: true});
+    }
   }
 
-  days.forEach((day, index) => {
+  function createDay(day, index) {
     const button = document.createElement("button");
     button.type = "button";
     button.className = "demo-day";
-    button.setAttribute("aria-label", `Day ${day.day}, example code ${day.code}`);
+    button.dataset.day = day.day;
     button.setAttribute("aria-controls", "deckGrid");
+    button.setAttribute("aria-label", `Day ${day.day}, ${formatDate(day.date)}, ${day.code || "no sign observation"}`);
     const number = document.createElement("span");
+    number.className = "demo-day-number";
     number.textContent = day.day;
+    const date = document.createElement("small");
+    date.textContent = day.shortDate;
+    number.append(date);
     const stamp = document.createElement("span");
-    stamp.className = `demo-stamp demo-stamp--${day.stamp}`;
+    stamp.className = "demo-stamp demo-stamp--" + day.stamp;
     stamp.setAttribute("aria-hidden", "true");
-    stamp.textContent = day.stamp === "peak" ? "P" : "";
+    stamp.textContent = day.marker || (day.question ? "?" : "");
     const code = document.createElement("span");
     code.className = "demo-code";
-    code.textContent = day.code;
-    button.append(number, stamp, code);
-    button.addEventListener("click", () => selectDay(index));
+    code.textContent = day.code || "Not recorded";
+    const temperature = document.createElement("span");
+    temperature.className = "demo-temperature";
+    temperature.textContent = day.temperature + " °C";
+    button.append(number, stamp, code, temperature);
+    button.addEventListener("click", () => selectDay(index, false, true));
     button.addEventListener("keydown", event => {
       const columns = getComputedStyle(timeline).gridTemplateColumns.split(" ").length;
       const targets = {
-        ArrowRight: (index + 1) % days.length,
-        ArrowLeft: (index - 1 + days.length) % days.length,
-        ArrowDown: Math.min(index + columns, days.length - 1),
+        ArrowRight: Math.min(index + 1, current.days.length - 1),
+        ArrowLeft: Math.max(index - 1, 0),
+        ArrowDown: Math.min(index + columns, current.days.length - 1),
         ArrowUp: Math.max(index - columns, 0),
         Home: 0,
-        End: days.length - 1
+        End: current.days.length - 1
       };
       if (!(event.key in targets)) return;
       event.preventDefault();
       selectDay(targets[event.key], true);
     });
-    buttons.push(button);
-    timeline.append(button);
-  });
-  selectDay(13);
-  timeline.hidden = false;
+    return button;
+  }
+
+  function selectCycle(length) {
+    current = samples[String(length)];
+    const fragment = document.createDocumentFragment();
+    buttons = current.days.map((day, index) => {
+      const button = createDay(day, index);
+      fragment.append(button);
+      return button;
+    });
+    timeline.replaceChildren(fragment);
+    document.querySelectorAll("[data-cycle]").forEach(button => {
+      button.setAttribute("aria-pressed", String(button.dataset.cycle === String(length)));
+    });
+    document.getElementById("cycle-dates").textContent = formatDate(current.start) + " – " + formatDate(current.end);
+    document.getElementById("cycle-length").textContent = current.length + " days";
+    document.getElementById("cycle-recorded").textContent = current.recorded + " of " + current.length;
+    document.getElementById("report-preview-link").href = current.pdf;
+    const preview = document.getElementById("report-preview");
+    preview.src = current.preview;
+    preview.alt = `VitaChart sample report in Portuguese: ${current.length} fictional days, page 1 of ${current.pages}.`;
+    document.getElementById("report-caption").textContent = `${current.length}-day example · Page 1 of ${current.pages} · Report in Portuguese · Select the preview to open the PDF.`;
+    selectDay(Math.min(selected, current.days.length - 1));
+  }
+
+  document.querySelectorAll("[data-cycle]").forEach(button => button.addEventListener("click", () => selectCycle(button.dataset.cycle)));
+  document.querySelectorAll("[data-select-day]").forEach(button => button.addEventListener("click", () => selectDay(Number(button.dataset.selectDay) - 1, false, true)));
+  previous.addEventListener("click", () => selectDay(selected - 1));
+  next.addEventListener("click", () => selectDay(selected + 1));
+  selectCycle(28);
+  document.querySelectorAll(".demo-cycle-picker, .demo-highlights, .demo-day-controls").forEach(element => { element.hidden = false; });
+  if (new URLSearchParams(window.location.search).get("demo") === "1" && !window.location.hash) {
+    const showDemo = () => requestAnimationFrame(() => {
+      document.getElementById("demo-title").focus({preventScroll: true});
+      document.getElementById("demo").scrollIntoView({behavior: "instant", block: "start"});
+    });
+    if (document.readyState === "complete") showDemo();
+    else window.addEventListener("load", showDemo, {once: true});
+  }
 })();

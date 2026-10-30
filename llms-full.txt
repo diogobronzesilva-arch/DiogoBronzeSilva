@@ -50,7 +50,7 @@ Diogo Silva's approach to software sales is built on three core axioms:
 
 ### VitaChart
 - **Project URL**: https://diogobronzesilva.com/projects/vitachart/
-- **Fictional journal demonstration**: https://diogobronzesilva.com/vitachart/ (preset observations, no fertility calculation or prediction; the app remains in private testing).
+- **Fictional journal demonstration**: https://diogobronzesilva.com/vitachart/ (matching 28- and 47-day fictional journals and Portuguese PDF exports; no fertility calculation or prediction; invited testing is free).
 - **Privacy Policy**: https://diogobronzesilva.com/vitachart/privacy/
 - **Category**: Personal fertility diary (Android, iPhone and installable web version).
 - **Background**: Grew out of the family's use of the Creighton Model with a FertilityCare practitioner and NaProTechnology doctor, and the wish to keep daily observations and consultation questions together. This does not establish endorsement or clinical certification.
