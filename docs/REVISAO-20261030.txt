@@ -1,0 +1,89 @@
+REVISÃO E CONSOLIDAÇÃO DO WEBSITE PESSOAL — 30/10/2026
+
+Âmbito: analisar o novo rumo e melhorar localmente a estrutura e a execução.
+Branch: codex/consolidar-website-20261030.
+Base: main, 3acbdde4b42793659b2652c10734e003299c1b56 (29/10/2026).
+Pasta partilhada: /Users/diogosilva/Desktop/Antigravity/WebsitePessoal.
+Não houve push, pull request, merge, deploy ou alteração de serviços.
+
+AVALIAÇÃO DO NOVO RUMO
+
+A Home apresenta a pessoa, família e fé; Work desenvolve a abordagem às
+vendas; Projects dá espaço próprio às ferramentas; Photography continua
+na Bronze Art; Notes mantém a dimensão editorial. Esta separação faz
+sentido e foi preservada, tal como o retrato, At Home, ensaios e identidade
+visual. Os commits são feitos sob a mesma conta; o histórico, por si só,
+não permite atribuir cada alteração ao Gemini ou ao Antigravity.
+
+O alojamento atual é Cloudflare Pages. A referência à Hostinger no contexto
+antigo é histórica: o domínio continua registado na Hostinger. Nenhuma
+mudança de alojamento, DNS ou email foi feita nesta tarefa.
+
+PROBLEMAS OBSERVADOS E CORREÇÕES LOCAIS
+
+1. A demonstração /vitachart/ tinha classes de cabeçalho e skip link sem
+   estilos correspondentes, um contacto sem proteção contra a ofuscação
+   da Cloudflare e uma apresentação diferente do resto do website.
+   Agora usa o cabeçalho e a folha de estilos comuns.
+
+2. Cada escolha de dia reconstruía os botões, perdendo o foco. A marcação
+   anunciava tabs sem implementar o respetivo comportamento. Agora há
+   botões com estado selecionado, um único ponto de entrada por Tab,
+   setas, Home/End, foco preservado e anúncio da observação selecionada.
+   O dia de exemplo e o PDF permanecem acessíveis sem o script.
+
+3. O texto afirmava risco de fuga zero e privacidade impenetrável, e
+   comparava preços e capacidades de concorrentes sem fontes. Foi
+   substituído por descrições do funcionamento atual, incluindo os
+   limites dos backups e a sincronização ainda futura. O valor anunciado
+   de 1,99 EUR/USD não foi confirmado numa loja nesta tarefa; o preço
+   do produto não foi alterado, e a página deixa a informação de lançamento
+   e preço por confirmar. Não foram acrescentadas comparações de mercado.
+
+4. A demonstração usava rótulos de fertilidade como conclusões de um
+   calendário fictício. Mantém as observações predefinidas e as anotações
+   de exemplo, sem calcular ou prever fertilidade. A página distingue
+   explicitamente a demonstração da aplicação em teste privado.
+
+5. A história do VitaChart não ligava à nova demonstração. Agora há
+   ligações entre história, demonstração, política e lista de projetos.
+   Projects tem também um índice de atalhos para os quatro projetos.
+
+6. A documentação continuava a afirmar ausência total de JavaScript.
+   README e llms explicam a exceção restrita à demonstração. Os metadados
+   da demonstração descrevem um CreativeWork sobre o projeto existente,
+   evitando criar uma segunda identidade SoftwareApplication.
+
+7. As verificações passam a cobrir a estrutura comum, os contactos e a
+   limitação do JavaScript à demonstração, com seis testes de regressão.
+   A versão CSS foi atualizada em todos os HTML, incluindo o template.
+   O sitemap foi atualizado nas páginas alteradas e a data de modificação
+   do artigo The life I would not trade foi corrigida para 29/10/2026,
+   quando a ilustração foi adicionada.
+
+VALIDAÇÃO
+
+- Antes das alterações: auditoria pública aprovada nas 26 páginas do
+  sitemap e nos ficheiros técnicos; RSS, sitemap, versão CSS, 404,
+  redirecionamento www, cabeçalhos e registos DNS de email aprovados.
+  Esta auditoria verifica esses sinais de paridade, não igualdade integral
+  de todos os bytes ou o funcionamento interno da app VitaChart.
+- 27 testes locais aprovados (21 existentes e 6 novos).
+- check_site.py aprovado: HTML, metadados, referências, navegação,
+  JSON-LD, FAQ, sitemap, RSS, llms e configuração Pages.
+- build_pages.py e check_pages_output.py aprovados: 84 ficheiros públicos,
+  exatamente iguais às fontes, sem documentação ou scripts de manutenção.
+- Sintaxe do JavaScript validada com Node.
+- Browser: 28 seleções de dia aprovadas, com foco e estado coerentes;
+  setas, Home/End e passagem entre primeiro e último dias aprovadas;
+  nenhum erro ou aviso de consola na demonstração.
+- Browser: Home, Projects, história do VitaChart, demonstração, Notes e
+  Work verificadas a 320, 390, 768 e 1280 px, sem transbordo horizontal.
+- Apresentação observada em computador e telemóvel; atalho Cutline validado.
+- PDF existente inspecionado: identifica dados fictícios. Não foi alterado.
+
+ESTADO DE ENTREGA
+
+Melhorias guardadas localmente na branch indicada. Main e o website público
+mantêm a versão anterior até haver pedido expresso de publicação. Integrar
+em main desencadeia publicação automática no Cloudflare Pages.

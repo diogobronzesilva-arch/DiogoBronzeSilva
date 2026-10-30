@@ -50,7 +50,7 @@ Diogo Silva's approach to software sales is built on three core axioms:
 
 ### VitaChart
 - **Project URL**: https://diogobronzesilva.com/projects/vitachart/
-- **Interactive Demo & Overview**: https://diogobronzesilva.com/vitachart/
+- **Fictional journal demonstration**: https://diogobronzesilva.com/vitachart/ (matching 28- and 47-day fictional journals and Portuguese PDF exports; no fertility calculation or prediction; invited testing is free).
 - **Privacy Policy**: https://diogobronzesilva.com/vitachart/privacy/
 - **Category**: Personal fertility diary (Android, iPhone and installable web version).
 - **Background**: Grew out of the family's use of the Creighton Model with a FertilityCare practitioner and NaProTechnology doctor, and the wish to keep daily observations and consultation questions together. This does not establish endorsement or clinical certification.
@@ -175,7 +175,7 @@ Canonical section pages:
 - Contact: https://diogobronzesilva.com/contact/
 
 
-- **Format**: Hand-crafted static HTML5 and CSS. Zero JavaScript. Zero third-party trackers or cookies.
+- **Format**: Hand-crafted static HTML5 and CSS. A small local JavaScript file is limited to the fictional VitaChart demonstration, with a readable static example as fallback. No analytics or tracking. The demo has no data entry, persistence or network calls.
 - **Hosting**: Cloudflare Pages / Edge static hosting.
 - **Repository**: https://github.com/diogobronzesilva-arch/DiogoBronzeSilva
 - **Discovery**: Static public HTML, canonical URLs, sitemap, structured data and internal links. robots.txt permits crawlers; indexing and search inclusion are decisions made by each service. llms files are context documents, not ranking guarantees.

@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>VitaChart — Private Fertility Biomarker Journal &amp; Demonstration | Diogo Silva</title>
-<meta name="description" content="VitaChart is a private fertility biomarker journal compatible with the Creighton Model and NaProTechnology. Explore the interactive synthetic demo and comparative strengths.">
+<title>VitaChart — Chart Demo &amp; Practitioner Preview | Diogo Silva</title>
+<meta name="description" content="Explore fictional 28- and 47-day VitaChart journals, inspect daily records and view the matching consultation PDFs. A preview for invited testers and practitioners.">
 <meta name="author" content="Diogo Silva">
 <meta name="robots" content="index, follow, max-image-preview:large">
 <meta name="theme-color" content="#FBFAF7">
@@ -14,8 +14,8 @@
 <link rel="icon" href="/assets/favicon-32.png" type="image/png" sizes="32x32">
 <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
 <link rel="alternate" type="application/rss+xml" title="Diogo Silva — Notes" href="/feed.xml">
-<meta property="og:title" content="VitaChart — Private Fertility Biomarker Journal &amp; Demonstration">
-<meta property="og:description" content="Explore VitaChart: a device-first fertility journal compatible with Creighton Model and NaProTechnology conventions, with interactive synthetic demo and comparative strengths.">
+<meta property="og:title" content="VitaChart — Chart Demo &amp; Practitioner Preview | Diogo Silva">
+<meta property="og:description" content="Explore fictional 28- and 47-day VitaChart journals, inspect daily records and view the matching consultation PDFs. A preview for invited testers and practitioners.">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="en_GB">
 <link rel="canonical" href="https://diogobronzesilva.com/vitachart/">
@@ -30,8 +30,8 @@
 <meta name="twitter:image:alt" content="VitaChart — a private fertility biomarker diary built from family experience">
 <meta property="og:site_name" content="Diogo Silva">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="VitaChart — Private Fertility Biomarker Journal &amp; Demonstration">
-<meta name="twitter:description" content="Explore VitaChart: a device-first fertility journal compatible with Creighton Model and NaProTechnology conventions, with interactive synthetic demo and comparative strengths.">
+<meta name="twitter:title" content="VitaChart — Chart Demo &amp; Practitioner Preview | Diogo Silva">
+<meta name="twitter:description" content="Explore fictional 28- and 47-day VitaChart journals, inspect daily records and view the matching consultation PDFs. A preview for invited testers and practitioners.">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -40,27 +40,30 @@
       "@type": "WebPage",
       "@id": "https://diogobronzesilva.com/vitachart/#webpage",
       "url": "https://diogobronzesilva.com/vitachart/",
-      "name": "VitaChart — Private Fertility Biomarker Journal & Demonstration | Diogo Silva",
-      "description": "VitaChart is a private fertility biomarker journal compatible with the Creighton Model and NaProTechnology. Explore the interactive synthetic demo and comparative strengths.",
+      "name": "VitaChart — Chart Demo & Practitioner Preview | Diogo Silva",
+      "description": "Explore fictional 28- and 47-day VitaChart journals, inspect daily records and view the matching consultation PDFs. A preview for invited testers and practitioners.",
       "inLanguage": "en",
-      "dateModified": "2026-10-29",
+      "dateModified": "2026-10-30",
       "isPartOf": {
         "@id": "https://diogobronzesilva.com/#website"
       },
-      "primaryImageOfPage": "https://diogobronzesilva.com/assets/img/og/vitachart.jpg"
+      "primaryImageOfPage": "https://diogobronzesilva.com/assets/img/og/vitachart.jpg",
+      "mainEntity": {
+        "@id": "https://diogobronzesilva.com/vitachart/#demonstration"
+      }
     },
     {
-      "@type": "SoftwareApplication",
-      "@id": "https://diogobronzesilva.com/vitachart/#software",
-      "name": "VitaChart",
-      "url": "https://diogobronzesilva.com/vitachart/",
-      "applicationCategory": "HealthApplication",
-      "operatingSystem": "Android, iOS, Web",
-      "description": "A private, device-only fertility biomarker diary and clinical consultation sheet generator compatible with Creighton Model and NaProTechnology conventions.",
+      "@type": "CreativeWork",
+      "@id": "https://diogobronzesilva.com/vitachart/#demonstration",
+      "name": "VitaChart fictional journal demonstration",
+      "url": "https://diogobronzesilva.com/vitachart/#demo",
+      "description": "A read-only demonstration of 28- and 47-day fictional journals and their matching consultation reports. It does not calculate or predict fertility.",
+      "about": {
+        "@id": "https://diogobronzesilva.com/projects/vitachart/#software"
+      },
       "author": {
         "@id": "https://diogobronzesilva.com/#person"
-      },
-      "image": "https://diogobronzesilva.com/assets/img/og/vitachart.jpg"
+      }
     },
     {
       "@type": "BreadcrumbList",
@@ -74,7 +77,19 @@
         {
           "@type": "ListItem",
           "position": 2,
+          "name": "Projects",
+          "item": "https://diogobronzesilva.com/projects/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
           "name": "VitaChart",
+          "item": "https://diogobronzesilva.com/projects/vitachart/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "name": "Demonstration",
           "item": "https://diogobronzesilva.com/vitachart/"
         }
       ]
@@ -82,164 +97,22 @@
   ]
 }
 </script>
-<link rel="stylesheet" href="/assets/css/site.css?v=20261029-3">
-<style>
-/* Embedded interactive demo styling matching site aesthetic */
-.demo-banner-box {
-  background: #EBF2ED;
-  border: 1px solid #CFE0D4;
-  border-radius: 4px;
-  padding: 0.85rem 1.25rem;
-  margin: 1.5rem 0;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-}
-.demo-banner-title {
-  font-weight: 600;
-  color: #2F593E;
-  font-size: 0.95rem;
-}
-.demo-container {
-  background: #FAF7F2;
-  border: 1px solid #E3DCCE;
-  border-radius: 6px;
-  padding: 1.5rem;
-  margin: 2rem 0;
-}
-.cycle-timeline-strip {
-  display: grid;
-  grid-template-columns: repeat(14, 1fr);
-  gap: 0.35rem;
-  margin: 1.25rem 0 0.5rem;
-}
-@media (max-width: 680px) {
-  .cycle-timeline-strip {
-    grid-template-columns: repeat(7, 1fr);
-  }
-}
-.day-btn {
-  background: #FFFFFF;
-  border: 1px solid #D9D2C5;
-  border-radius: 4px;
-  padding: 0.45rem 0.2rem;
-  text-align: center;
-  cursor: pointer;
-  transition: all 0.15s ease;
-  font-family: inherit;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.2rem;
-}
-.day-btn:hover {
-  border-color: #8C4A35;
-  background: #FDFBF7;
-}
-.day-btn.active {
-  border-color: #8C4A35;
-  background: #F4EAE6;
-  box-shadow: 0 0 0 1px #8C4A35;
-}
-.day-num {
-  font-size: 0.75rem;
-  font-weight: 600;
-  color: #63584E;
-}
-.stamp-dot {
-  width: 14px;
-  height: 14px;
-  border-radius: 50%;
-  display: inline-block;
-}
-.stamp-red { background: #C43D38; }
-.stamp-green { background: #3B7A57; }
-.stamp-white { background: #FAF9F5; border: 1.5px solid #63584E; }
-.stamp-peak { background: #FAF9F5; border: 2px solid #C43D38; position: relative; }
-.stamp-peak::after {
-  content: "★";
-  font-size: 9px;
-  color: #C43D38;
-  position: absolute;
-  top: -4px;
-  left: 2px;
-}
-.stamp-code-text {
-  font-size: 0.65rem;
-  color: #7A6F64;
-  white-space: nowrap;
-}
-.deck-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-  gap: 0.75rem;
-  margin-top: 1.25rem;
-}
-.deck-card {
-  background: #FFFFFF;
-  border: 1px solid #E8E2D7;
-  border-radius: 4px;
-  padding: 0.75rem 1rem;
-}
-.deck-card-label {
-  font-size: 0.7rem;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: #8C8073;
-  margin-bottom: 0.25rem;
-}
-.deck-card-val {
-  font-size: 0.95rem;
-  font-weight: 600;
-  color: #2C2520;
-}
-.deck-card-sub {
-  font-size: 0.8rem;
-  color: #6E6256;
-  margin-top: 0.2rem;
-}
-.comp-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin: 1.75rem 0;
-  font-size: 0.9rem;
-}
-.comp-table th, .comp-table td {
-  padding: 0.75rem 0.9rem;
-  border-bottom: 1px solid #E5DFD3;
-  text-align: left;
-}
-.comp-table th {
-  background: #F4EFE6;
-  font-weight: 600;
-  color: #38302A;
-}
-.comp-table tr:hover td {
-  background: #FAF8F3;
-}
-.badge-pro {
-  display: inline-block;
-  background: #E8F0EA;
-  color: #2F593E;
-  padding: 0.15rem 0.45rem;
-  border-radius: 3px;
-  font-size: 0.75rem;
-  font-weight: 600;
-}
-</style>
+<link rel="stylesheet" href="/assets/css/site.css?v=20261030-2">
+<script src="/assets/js/vitachart-demo.js?v=20261030-2" defer></script>
 </head>
-
 <body>
-<a class="skip-link" href="#main">Skip to main content</a>
+
+
+
+<a class="skip" href="#main">Skip to content</a>
 
 <header class="masthead">
   <div class="shell masthead__inner">
-    <a class="brand" href="/">Diogo Silva</a>
+    <a class="wordmark" href="/">Diogo Silva</a>
     <nav class="nav" aria-label="Sections">
       <a href="/">Home</a>
       <a href="/work/">Work</a>
-      <a href="/projects/">Projects</a>
+      <a href="/projects/" aria-current="location">Projects</a>
       <a href="https://bronzeart.pt" target="_blank" rel="noopener">Photography</a>
       <a href="/notes/">Notes</a>
       <a href="/contact/">Contact</a>
@@ -248,159 +121,269 @@
 </header>
 
 <main id="main" tabindex="-1">
-  <article class="shell article work-page project-page">
-
-    <header class="article__head">
-      <p class="article__date label"><a class="link" href="/projects/">&larr; Projects</a> &middot; Mobile App &amp; Clinical Journal</p>
-      <h1 class="article__title">VitaChart — Private Fertility Biomarker Journal</h1>
-      <p class="standfirst">A private, device-first fertility diary designed for families, compatible with the Creighton Model and NaProTechnology conventions, with zero ongoing subscriptions.</p>
+  <article class="shell article project-page demo-page">
+    <header class="article__head demo-page__head">
+      <p class="article__date label"><a class="link" href="/projects/vitachart/">VitaChart</a> &middot; Practitioner preview</p>
+      <h1 class="article__title">A diary to review together.</h1>
+      <p class="standfirst">Explore daily observations, see the cycle as a whole and open the report for a consultation. These examples use fictional records.</p>
+      <nav aria-label="VitaChart preview sections">
+        <ul class="project-index demo-page__links">
+          <li><a class="link" href="#demo">Explore the chart &darr;</a></li>
+          <li><a class="link" href="#reports">View sample reports</a></li>
+          <li><a class="link" href="#testing">For invited testers</a></li>
+        </ul>
+      </nav>
     </header>
 
-    <div class="demo-banner-box" id="demoBanner">
-      <div>
-        <span class="demo-banner-title">Interactive Synthetic Demonstration</span>
-        <p class="label" style="margin: 0.2rem 0 0 0; color: #4F705B;">Explore daily biomarker tracking, the 12-card deck, and the 35-day clinical chart below.</p>
+    <section class="demo-section" id="demo" aria-labelledby="demo-title">
+      <div class="demo-section__head">
+        <div><p class="label">01 &middot; Daily records</p><h2 id="demo-title" tabindex="-1">Explore a VitaChart cycle.</h2></div>
+        <p class="demo-status">Read-only preview &middot; Fictional data</p>
       </div>
-      <a href="#demo" class="button" style="text-decoration: none; padding: 0.4rem 0.9rem; font-size: 0.85rem;">View Demo &darr;</a>
-    </div>
+      <p class="demo-introduction">Choose a day to review its record. Each sample matches the downloadable report below.</p>
 
-    <div class="entries" aria-label="VitaChart overview and strengths">
-
-      <section class="entry">
-        <span class="entry__date">01</span>
-        <div>
-          <h2 class="entry__title">What VitaChart is about</h2>
-          <p class="entry__dek">For over twelve years, my wife and I have used the Creighton Model to chart her natural fertility cycles, working hand in hand with a certified FertilityCare practitioner and a NaProTechnology medical doctor. As a software architect and a father of five, I created VitaChart out of real family practice and personal conviction.</p>
-          <p class="entry__dek">Many couples find natural family planning methods powerful, empowering, and respectful of feminine physiology, but are frustrated by the software available today: recurring fees that feel exploitative, fragile cloud databases holding intimate health data, or generic period trackers that try to guess ovulation with blind statistical algorithms.</p>
-          <p class="entry__dek">VitaChart replaces that complexity with quiet elegance: a dignified 12-card daily logging grid, offline-first local storage, and instant generation of a standardized 35-day consultation sheet ready for medical review.</p>
+      <div class="demo-cycle-picker" role="group" aria-label="Choose a sample cycle" hidden>
+        <button type="button" data-cycle="28" aria-pressed="true" aria-controls="sample-cycle">28-day example</button>
+        <button type="button" data-cycle="47" aria-pressed="false" aria-controls="sample-cycle">47-day example</button>
+      </div>
+      <div id="sample-cycle">
+        <dl class="demo-cycle-summary">
+          <div><dt>Cycle dates</dt><dd id="cycle-dates">01 Aug – 28 Aug 2026</dd></div>
+          <div><dt>Actual cycle length</dt><dd id="cycle-length">28 days</dd></div>
+          <div><dt>Days with sign observations</dt><dd id="cycle-recorded">27 of 28</dd></div>
+        </dl>
+        <p class="demo-help" id="demo-help">Choose a day, or use the arrow keys within the chart. Day 8 shows a temperature entry without a sign observation.</p>
+        <div class="demo-days" id="timelineStrip" tabindex="-1" role="group" aria-label="Choose an example day" aria-describedby="demo-help">
+<button type="button" class="demo-day" disabled data-day="1" aria-label="Day 1, 01 Aug, M" aria-pressed="false" aria-controls="deckGrid" tabindex="-1">
+              <span class="demo-day-number">1<small>01 Aug</small></span>
+              <span class="demo-stamp demo-stamp--red" aria-hidden="true"></span>
+              <span class="demo-code">M</span><span class="demo-temperature">36.25 °C</span>
+            </button>
+<button type="button" class="demo-day" disabled data-day="2" aria-label="Day 2, 02 Aug, M" aria-pressed="false" aria-controls="deckGrid" tabindex="-1">
+              <span class="demo-day-number">2<small>02 Aug</small></span>
+              <span class="demo-stamp demo-stamp--red" aria-hidden="true"></span>
+              <span class="demo-code">M</span><span class="demo-temperature">36.25 °C</span>
+            </button>
+<button type="button" class="demo-day" disabled data-day="3" aria-label="Day 3, 03 Aug, M" aria-pressed="false" aria-controls="deckGrid" tabindex="-1">
+              <span class="demo-day-number">3<small>03 Aug</small></span>
+              <span class="demo-stamp demo-stamp--red" aria-hidden="true"></span>
+              <span class="demo-code">M</span><span class="demo-temperature">36.25 °C</span>
+            </button>
+<button type="button" class="demo-day" disabled data-day="4" aria-label="Day 4, 04 Aug, M" aria-pressed="false" aria-controls="deckGrid" tabindex="-1">
+              <span class="demo-day-number">4<small>04 Aug</small></span>
+              <span class="demo-stamp demo-stamp--red" aria-hidden="true"></span>
+              <span class="demo-code">M</span><span class="demo-temperature">36.25 °C</span>
+            </button>
+<button type="button" class="demo-day" disabled data-day="5" aria-label="Day 5, 05 Aug, 0 AD" aria-pressed="false" aria-controls="deckGrid" tabindex="-1">
+              <span class="demo-day-number">5<small>05 Aug</small></span>
+              <span class="demo-stamp demo-stamp--green" aria-hidden="true"></span>
+              <span class="demo-code">0 AD</span><span class="demo-temperature">36.25 °C</span>
+            </button>
+<button type="button" class="demo-day" disabled data-day="6" aria-label="Day 6, 06 Aug, 0 AD" aria-pressed="false" aria-controls="deckGrid" tabindex="-1">
+              <span class="demo-day-number">6<small>06 Aug</small></span>
+              <span class="demo-stamp demo-stamp--green" aria-hidden="true"></span>
+              <span class="demo-code">0 AD</span><span class="demo-temperature">36.25 °C</span>
+            </button>
+<button type="button" class="demo-day" disabled data-day="7" aria-label="Day 7, 07 Aug, 0 AD" aria-pressed="false" aria-controls="deckGrid" tabindex="-1">
+              <span class="demo-day-number">7<small>07 Aug</small></span>
+              <span class="demo-stamp demo-stamp--green" aria-hidden="true"></span>
+              <span class="demo-code">0 AD</span><span class="demo-temperature">36.25 °C</span>
+            </button>
+<button type="button" class="demo-day" disabled data-day="8" aria-label="Day 8, 08 Aug, no sign observation" aria-pressed="false" aria-controls="deckGrid" tabindex="-1">
+              <span class="demo-day-number">8<small>08 Aug</small></span>
+              <span class="demo-stamp demo-stamp--unknown" aria-hidden="true"></span>
+              <span class="demo-code">Not recorded</span><span class="demo-temperature">36.25 °C</span>
+            </button>
+<button type="button" class="demo-day" disabled data-day="9" aria-label="Day 9, 09 Aug, 0 AD" aria-pressed="false" aria-controls="deckGrid" tabindex="-1">
+              <span class="demo-day-number">9<small>09 Aug</small></span>
+              <span class="demo-stamp demo-stamp--green" aria-hidden="true"></span>
+              <span class="demo-code">0 AD</span><span class="demo-temperature">36.25 °C</span>
+            </button>
+<button type="button" class="demo-day" disabled data-day="10" aria-label="Day 10, 10 Aug, 0 AD" aria-pressed="false" aria-controls="deckGrid" tabindex="-1">
+              <span class="demo-day-number">10<small>10 Aug</small></span>
+              <span class="demo-stamp demo-stamp--green" aria-hidden="true">?</span>
+              <span class="demo-code">0 AD</span><span class="demo-temperature">36.25 °C</span>
+            </button>
+<button type="button" class="demo-day" disabled data-day="11" aria-label="Day 11, 11 Aug, 0 AD" aria-pressed="false" aria-controls="deckGrid" tabindex="-1">
+              <span class="demo-day-number">11<small>11 Aug</small></span>
+              <span class="demo-stamp demo-stamp--green" aria-hidden="true"></span>
+              <span class="demo-code">0 AD</span><span class="demo-temperature">36.25 °C</span>
+            </button>
+<button type="button" class="demo-day" disabled data-day="12" aria-label="Day 12, 12 Aug, 10KL AD" aria-pressed="false" aria-controls="deckGrid" tabindex="-1">
+              <span class="demo-day-number">12<small>12 Aug</small></span>
+              <span class="demo-stamp demo-stamp--white" aria-hidden="true"></span>
+              <span class="demo-code">10KL AD</span><span class="demo-temperature">36.25 °C</span>
+            </button>
+<button type="button" class="demo-day" disabled data-day="13" aria-label="Day 13, 13 Aug, 10KL AD" aria-pressed="false" aria-controls="deckGrid" tabindex="-1">
+              <span class="demo-day-number">13<small>13 Aug</small></span>
+              <span class="demo-stamp demo-stamp--white" aria-hidden="true"></span>
+              <span class="demo-code">10KL AD</span><span class="demo-temperature">36.25 °C</span>
+            </button>
+<button type="button" class="demo-day" disabled data-day="14" aria-label="Day 14, 14 Aug, 10KL AD" aria-pressed="false" aria-controls="deckGrid" tabindex="-1">
+              <span class="demo-day-number">14<small>14 Aug</small></span>
+              <span class="demo-stamp demo-stamp--white" aria-hidden="true"></span>
+              <span class="demo-code">10KL AD</span><span class="demo-temperature">36.25 °C</span>
+            </button>
+<button type="button" class="demo-day" disabled data-day="15" aria-label="Day 15, 15 Aug, 10KL AD" aria-pressed="true" aria-controls="deckGrid" tabindex="0">
+              <span class="demo-day-number">15<small>15 Aug</small></span>
+              <span class="demo-stamp demo-stamp--white" aria-hidden="true">P</span>
+              <span class="demo-code">10KL AD</span><span class="demo-temperature">36.25 °C</span>
+            </button>
+<button type="button" class="demo-day" disabled data-day="16" aria-label="Day 16, 16 Aug, 0 AD" aria-pressed="false" aria-controls="deckGrid" tabindex="-1">
+              <span class="demo-day-number">16<small>16 Aug</small></span>
+              <span class="demo-stamp demo-stamp--green" aria-hidden="true">1</span>
+              <span class="demo-code">0 AD</span><span class="demo-temperature">36.65 °C</span>
+            </button>
+<button type="button" class="demo-day" disabled data-day="17" aria-label="Day 17, 17 Aug, 0 AD" aria-pressed="false" aria-controls="deckGrid" tabindex="-1">
+              <span class="demo-day-number">17<small>17 Aug</small></span>
+              <span class="demo-stamp demo-stamp--green" aria-hidden="true">2</span>
+              <span class="demo-code">0 AD</span><span class="demo-temperature">36.65 °C</span>
+            </button>
+<button type="button" class="demo-day" disabled data-day="18" aria-label="Day 18, 18 Aug, 0 AD" aria-pressed="false" aria-controls="deckGrid" tabindex="-1">
+              <span class="demo-day-number">18<small>18 Aug</small></span>
+              <span class="demo-stamp demo-stamp--green" aria-hidden="true">3</span>
+              <span class="demo-code">0 AD</span><span class="demo-temperature">36.65 °C</span>
+            </button>
+<button type="button" class="demo-day" disabled data-day="19" aria-label="Day 19, 19 Aug, 0 AD" aria-pressed="false" aria-controls="deckGrid" tabindex="-1">
+              <span class="demo-day-number">19<small>19 Aug</small></span>
+              <span class="demo-stamp demo-stamp--green" aria-hidden="true"></span>
+              <span class="demo-code">0 AD</span><span class="demo-temperature">36.65 °C</span>
+            </button>
+<button type="button" class="demo-day" disabled data-day="20" aria-label="Day 20, 20 Aug, 0 AD" aria-pressed="false" aria-controls="deckGrid" tabindex="-1">
+              <span class="demo-day-number">20<small>20 Aug</small></span>
+              <span class="demo-stamp demo-stamp--green" aria-hidden="true"></span>
+              <span class="demo-code">0 AD</span><span class="demo-temperature">36.65 °C</span>
+            </button>
+<button type="button" class="demo-day" disabled data-day="21" aria-label="Day 21, 21 Aug, 0 AD" aria-pressed="false" aria-controls="deckGrid" tabindex="-1">
+              <span class="demo-day-number">21<small>21 Aug</small></span>
+              <span class="demo-stamp demo-stamp--green" aria-hidden="true"></span>
+              <span class="demo-code">0 AD</span><span class="demo-temperature">36.65 °C</span>
+            </button>
+<button type="button" class="demo-day" disabled data-day="22" aria-label="Day 22, 22 Aug, 0 AD" aria-pressed="false" aria-controls="deckGrid" tabindex="-1">
+              <span class="demo-day-number">22<small>22 Aug</small></span>
+              <span class="demo-stamp demo-stamp--green" aria-hidden="true"></span>
+              <span class="demo-code">0 AD</span><span class="demo-temperature">36.65 °C</span>
+            </button>
+<button type="button" class="demo-day" disabled data-day="23" aria-label="Day 23, 23 Aug, 0 AD" aria-pressed="false" aria-controls="deckGrid" tabindex="-1">
+              <span class="demo-day-number">23<small>23 Aug</small></span>
+              <span class="demo-stamp demo-stamp--green" aria-hidden="true"></span>
+              <span class="demo-code">0 AD</span><span class="demo-temperature">36.65 °C</span>
+            </button>
+<button type="button" class="demo-day" disabled data-day="24" aria-label="Day 24, 24 Aug, 0 AD" aria-pressed="false" aria-controls="deckGrid" tabindex="-1">
+              <span class="demo-day-number">24<small>24 Aug</small></span>
+              <span class="demo-stamp demo-stamp--green" aria-hidden="true"></span>
+              <span class="demo-code">0 AD</span><span class="demo-temperature">36.65 °C</span>
+            </button>
+<button type="button" class="demo-day" disabled data-day="25" aria-label="Day 25, 25 Aug, 0 AD" aria-pressed="false" aria-controls="deckGrid" tabindex="-1">
+              <span class="demo-day-number">25<small>25 Aug</small></span>
+              <span class="demo-stamp demo-stamp--green" aria-hidden="true"></span>
+              <span class="demo-code">0 AD</span><span class="demo-temperature">36.65 °C</span>
+            </button>
+<button type="button" class="demo-day" disabled data-day="26" aria-label="Day 26, 26 Aug, 0 AD" aria-pressed="false" aria-controls="deckGrid" tabindex="-1">
+              <span class="demo-day-number">26<small>26 Aug</small></span>
+              <span class="demo-stamp demo-stamp--green" aria-hidden="true"></span>
+              <span class="demo-code">0 AD</span><span class="demo-temperature">36.65 °C</span>
+            </button>
+<button type="button" class="demo-day" disabled data-day="27" aria-label="Day 27, 27 Aug, 0 AD" aria-pressed="false" aria-controls="deckGrid" tabindex="-1">
+              <span class="demo-day-number">27<small>27 Aug</small></span>
+              <span class="demo-stamp demo-stamp--green" aria-hidden="true"></span>
+              <span class="demo-code">0 AD</span><span class="demo-temperature">36.65 °C</span>
+            </button>
+<button type="button" class="demo-day" disabled data-day="28" aria-label="Day 28, 28 Aug, 0 AD" aria-pressed="false" aria-controls="deckGrid" tabindex="-1">
+              <span class="demo-day-number">28<small>28 Aug</small></span>
+              <span class="demo-stamp demo-stamp--green" aria-hidden="true"></span>
+              <span class="demo-code">0 AD</span><span class="demo-temperature">36.65 °C</span>
+            </button>
         </div>
-      </section>
+        <div class="demo-legend" aria-label="Chart legend">
+          <span><i class="demo-stamp demo-stamp--red" aria-hidden="true"></i>Bleeding</span>
+          <span><i class="demo-stamp demo-stamp--green" aria-hidden="true"></i>No mucus recorded</span>
+          <span><i class="demo-stamp demo-stamp--white" aria-hidden="true"></i>Mucus recorded</span>
+          <span><i class="demo-stamp demo-stamp--unknown" aria-hidden="true"></i>No sign observation</span>
+          <span>P / 1, 2, 3: example annotations</span>
+        </div>
+        <div class="demo-highlights" role="group" aria-label="Records worth exploring" hidden>
+          <span>Look closer:</span>
+          <button type="button" data-select-day="8">Day 8: no sign observation</button>
+          <button type="button" data-select-day="10">Day 10: a question</button>
+          <button type="button" data-select-day="18">Day 18: a medication note</button>
+        </div>
 
-      <section class="entry">
-        <span class="entry__date">02</span>
-        <div>
-          <h2 class="entry__title">Key strengths &amp; pros compared to other models</h2>
-          <p class="entry__dek">When evaluating VitaChart alongside specialized fertility apps (such as the official FertilityCare App, Chart Neo, or Read Your Body) and commercial menstrual apps (like Flo or Clue), several clear architectural and economic advantages stand out:</p>
-
-          <div style="overflow-x: auto;">
-            <table class="comp-table" aria-label="Comparison between VitaChart, Specialized Apps, and Generic Trackers">
-              <thead>
-                <tr>
-                  <th scope="col">Dimension</th>
-                  <th scope="col">VitaChart</th>
-                  <th scope="col">Subscription Apps</th>
-                  <th scope="col">Generic Trackers</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <th scope="row">Pricing &amp; Model</th>
-                  <td><span class="badge-pro">&euro;1.99 / $1.99 One-time purchase</span><br><small>No ongoing fees; permanent ownership.</small></td>
-                  <td>$35 &ndash; $100+ / year<br><small>Ongoing annual subscriptions.</small></td>
-                  <td>Freemium / $40+/yr<br><small>Aggressive paywalls &amp; ads.</small></td>
-                </tr>
-                <tr>
-                  <th scope="row">Privacy &amp; Data Storage</th>
-                  <td><span class="badge-pro">100% Local on Device</span><br><small>No external cloud servers; zero leak risk.</small></td>
-                  <td>Cloud databases<br><small>Requires user account &amp; sync.</small></td>
-                  <td>Server-side tracking<br><small>Data monetisation &amp; third-party ad SDKs.</small></td>
-                </tr>
-                <tr>
-                  <th scope="row">Observational Fidelity</th>
-                  <td><span class="badge-pro">Creighton &amp; NaPro Aligned</span><br><small>12-card observation deck, mucus scores, stamps.</small></td>
-                  <td>Varies by app<br><small>Often complex or rigid entry flows.</small></td>
-                  <td>Algorithmic guessing<br><small>Overrides individual physiological markers.</small></td>
-                </tr>
-                <tr>
-                  <th scope="row">Medical Consultation PDF</th>
-                  <td><span class="badge-pro">Standardized 35-Day Sheet</span><br><small>Clinician-ready PDF export with doctor notes.</small></td>
-                  <td>Basic PDF or screenshots<br><small>Often cluttered or unformatted.</small></td>
-                  <td>None / Generic graphs<br><small>Unusable in NaPro medical appointments.</small></td>
-                </tr>
-                <tr>
-                  <th scope="row">Offline Autonomy</th>
-                  <td><span class="badge-pro">Fully Offline</span><br><small>Works seamlessly without internet access.</small></td>
-                  <td>Requires online login<br><small>Fails when offline or session expires.</small></td>
-                  <td>Requires connectivity<br><small>Constant telemetry calls.</small></td>
-                </tr>
-              </tbody>
-            </table>
+        <section class="demo-observations" aria-labelledby="selectedDayTitle">
+          <div class="demo-record-heading">
+            <div><p class="label">Selected record</p><h3 id="selectedDayTitle" tabindex="-1">Day 15 &middot; 15 Aug 2026</h3></div>
+            <div class="demo-day-controls" role="group" aria-label="Move between days" hidden>
+              <button type="button" id="previous-day" aria-label="Previous day">&larr;</button>
+              <button type="button" id="next-day" aria-label="Next day">&rarr;</button>
+            </div>
           </div>
+          <p id="selectedDaySummary" role="status" aria-live="polite" aria-atomic="true">Fictional day 15: code 10KL AD, 36.25 °C. P is an annotation from the sample report, for review.</p>
+          <dl class="demo-fields" id="deckGrid">
+            <div><dt>Recorded code</dt><dd data-field="code">10KL AD</dd></div>
+            <div><dt>Temperature</dt><dd data-field="temperature">36.25 °C</dd></div>
+            <div><dt>Sign observation</dt><dd data-field="observed">Recorded</dd></div>
+            <div><dt>Report annotation</dt><dd data-field="marker">P (for review)</dd></div>
+            <div><dt>Question for consultation</dt><dd data-field="question">None in this example</dd></div>
+            <div><dt>Medication note</dt><dd data-field="medication">None in this example</dd></div>
+            <div><dt>Other notes</dt><dd data-field="note">None in this example</dd></div>
+          </dl>
+          <p class="demo-record-back"><a class="link" href="#timelineStrip">Back to the chart &uarr;</a></p>
+        </section>
+        <noscript><p class="demo-note">The full 28-day chart and sample reports are available without JavaScript. Enable it to switch cycles and inspect individual records.</p></noscript>
+      </div>
+      <p class="demo-note">Annotations are copied from the fictional report. This page does not calculate or predict fertility, accept personal entries or save a journal. Automated interpretations in the app remain under validation.</p>
+    </section>
 
-          <p class="entry__dek"><strong>Summary of the advantage:</strong> Because VitaChart stores data directly on the user&rsquo;s phone without requiring server infrastructure, there are zero server maintenance bills to pass on to families. This allows a single, affordable purchase that respects family budgets while guaranteeing impenetrable privacy.</p>
-        </div>
-      </section>
+    <section class="demo-section" id="reports" aria-labelledby="report-title">
+      <div class="demo-section__head">
+        <div><p class="label">02 &middot; Consultation report</p><h2 id="report-title">See the record on paper.</h2></div>
+      </div>
+      <p class="demo-introduction">These are existing exports from VitaChart with fictional names and records. The sample reports are in Portuguese. The 47-day example continues onto a second sheet, rather than ending at day 35.</p>
+      <ul class="project-index demo-report-links">
+        <li><a class="link" href="/assets/docs/vitachart-sample-consultation-chart.pdf" target="_blank" rel="noopener">28-day report &middot; 1 page &nearr;</a></li>
+        <li><a class="link" href="/assets/docs/vitachart-sample-47-days.pdf" target="_blank" rel="noopener">47-day report &middot; 2 pages &nearr;</a></li>
+      </ul>
+      <figure class="demo-report-preview">
+        <a id="report-preview-link" href="/assets/docs/vitachart-sample-consultation-chart.pdf" target="_blank" rel="noopener">
+          <img id="report-preview" src="/assets/img/vitachart-report-28.webp" alt="VitaChart sample report in Portuguese: 28 fictional days, observation stamps, temperatures and notes for consultation." width="1432" height="1012" loading="lazy">
+        </a>
+        <figcaption id="report-caption">28-day example &middot; Full report in Portuguese &middot; Select the preview to open the PDF.</figcaption>
+      </figure>
+      <details class="demo-report-continuation">
+        <summary>See how the 47-day report continues after day 35</summary>
+        <img src="/assets/img/vitachart-report-47-page-2.webp" alt="Second sheet of the 47-day fictional report, showing days 36 through 47." width="1432" height="1012" loading="lazy">
+      </details>
+    </section>
 
-      <section class="entry" id="demo">
-        <span class="entry__date">03</span>
-        <div>
-          <h2 class="entry__title">Interactive synthetic demonstration</h2>
-          <p class="entry__dek">Below is an interactive preview of how VitaChart behaves in daily practice. This demonstration uses fictional synthetic data representing a textbook 28-day cycle with clear pre-peak, peak, and post-peak phases. Click any day on the timeline to inspect the daily biomarker cards.</p>
+    <section class="demo-section" id="testing" aria-labelledby="testing-title">
+      <div class="demo-section__head">
+        <div><p class="label">03 &middot; Invitation</p><h2 id="testing-title">Your experience would help.</h2></div>
+      </div>
+      <div class="prose">
+        <p>I am inviting a small group of practitioners and testers to try VitaChart free of charge and tell me whether the daily record and consultation report are clear and useful. This web preview is read-only; the invited app test includes entering and editing records.</p>
+        <p>If you received a Google Play code, use the code in your invitation at <a class="link" href="https://play.google.com/redeem" target="_blank" rel="noopener">Google Play &nearr;</a>. Installation access is arranged through the invitation; this page does not provide a public download. If you need iPhone access, reply to your invitation to confirm the current testing options.</p>
+        <h3>What I would like to hear</h3>
+        <ul>
+          <li>Is it clear how to record a day and distinguish a note from an observation of signs?</li>
+          <li>Can you read the chart easily, including missing observations and longer cycles?</li>
+          <li>Would the report help in a consultation? What is missing or difficult to read?</li>
+          <li>Which terms would you change? English, Spanish and French wording is open for professional review.</li>
+        </ul>
+        <p>Reply to the invitation, or <!--email_off--><a class="link" href="mailto:diogo@diogobronzesilva.com?subject=VitaChart%20beta%20feedback">send feedback to Diogo</a><!--/email_off-->. Fictional examples are enough to explain a problem.</p>
+      </div>
+    </section>
 
-          <div class="demo-container">
-            <div style="display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 0.5rem;">
-              <h3 style="margin: 0; font-size: 1.1rem; color: #38302A;">Cycle Timeline &middot; 28 Days</h3>
-              <span class="label" id="cycleStatusBadge" style="color: #6E6256;">Day 14 Selected &middot; Identified Peak Day</span>
-            </div>
-
-            <div class="cycle-timeline-strip" id="timelineStrip" role="tablist" aria-label="Cycle days">
-              <!-- Dynamically populated by JS below -->
-            </div>
-
-            <div style="margin: 1.25rem 0 0.5rem; display: flex; gap: 1rem; flex-wrap: wrap; font-size: 0.75rem; color: #6E6256;">
-              <span style="display: inline-flex; align-items: center; gap: 0.3rem;"><span class="stamp-dot stamp-red"></span> Menses (Red)</span>
-              <span style="display: inline-flex; align-items: center; gap: 0.3rem;"><span class="stamp-dot stamp-green"></span> Dry / Infertile (Green)</span>
-              <span style="display: inline-flex; align-items: center; gap: 0.3rem;"><span class="stamp-dot stamp-white"></span> Fertile Mucus (White)</span>
-              <span style="display: inline-flex; align-items: center; gap: 0.3rem;"><span class="stamp-dot stamp-peak"></span> Peak Day (&starf;)</span>
-            </div>
-
-            <div style="margin-top: 1.5rem; border-top: 1px solid #E5DFD3; padding-top: 1rem;">
-              <h4 id="selectedDayTitle" style="margin: 0 0 0.5rem; font-size: 1rem; color: #2C2520;">Day 14 Observations</h4>
-              <p id="selectedDaySummary" class="label" style="color: #7A6F64; margin-bottom: 1rem;">Clear, stretchy, lubricative cervical mucus (10KL) &middot; Peak day biomarker identified.</p>
-
-              <div class="deck-grid" id="deckGrid">
-                <!-- Dynamically populated -->
-              </div>
-            </div>
-
-            <div style="margin-top: 1.75rem; background: #FFFFFF; border: 1px solid #E3DCCE; border-radius: 4px; padding: 1rem 1.25rem;">
-              <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
-                <div>
-                  <h4 style="margin: 0 0 0.2rem; font-size: 0.95rem; color: #2C2520;">Standardized 35-Day Clinical Consultation Sheet</h4>
-                  <p class="label" style="margin: 0; color: #6E6256;">Generated directly from the daily recorded observations, ready for medical appointments.</p>
-                </div>
-                <a class="button" href="/assets/docs/vitachart-sample-consultation-chart.pdf" target="_blank" rel="noopener" style="text-decoration: none; font-size: 0.85rem; padding: 0.45rem 1rem;">View Sample PDF &rarr;</a>
-              </div>
-            </div>
-
-          </div>
-
-        </div>
-      </section>
-
-      <section class="entry">
-        <span class="entry__date">04</span>
-        <div>
-          <h2 class="entry__title">Closed beta testing &amp; practitioner feedback</h2>
-          <p class="entry__dek">VitaChart is currently in active private testing on Android (Google Play Closed Testing) and iPhone (TestFlight / local builds). Store release is scheduled following feedback from experienced practitioners and users.</p>
-          <ul class="entry__details">
-            <li><strong>Google Play Promo Codes:</strong> If you received an invitation promo code, you can redeem it directly in the Google Play Store under <em>Profile &rarr; Payments &amp; subscriptions &rarr; Redeem code</em>, or at <a class="link" href="https://play.google.com/redeem">play.google.com/redeem</a> to unlock VitaChart without charge.</li>
-            <li><strong>Institutional Independence:</strong> VitaChart is an independent observational diary designed to assist couples. It is not an official release of the Saint Paul VI Institute, FCCA, or AAFCP, and does not replace certified instruction in natural methods.</li>
-            <li><strong>Data Protection:</strong> Read the complete <a class="link" href="/vitachart/privacy/">VitaChart Privacy Policy</a> for full details on local device storage and export procedures.</li>
-            <li><strong>Get in Touch:</strong> For feedback, methodological questions, or practitioner suggestions, write directly to <a class="link" href="mailto:hello@diogobronzesilva.com">hello@diogobronzesilva.com</a>.</li>
-          </ul>
-        </div>
-      </section>
-
-    </div>
-
-    <div class="prose">
-      <hr>
-      <p>Questions or feedback? You can contact me directly at <!--email_off--><a class="link" href="mailto:hello@diogobronzesilva.com">hello@diogobronzesilva.com</a><!--/email_off--> or explore my other work at <a class="link" href="/projects/">projects</a>.</p>
-    </div>
-
+    <section class="demo-section demo-about" aria-labelledby="about-title">
+      <h2 id="about-title">About this independent project</h2>
+      <div class="prose">
+        <p>VitaChart grew out of our family’s use of the Creighton Model with a FertilityCare practitioner and a NaProTechnology doctor. It keeps daily records on the device, without a mandatory online account. I am building VitaChart around a one-time purchase, without monthly or annual subscriptions. Invited testing is free.</p>
+        <p>VitaChart is in private testing. It is an independent diary, with no institutional endorsement or clinical certification. It does not diagnose conditions or replace instruction and professional guidance.</p>
+        <p><a class="link" href="/projects/vitachart/">Read the project story</a> &middot; <a class="link" href="/vitachart/privacy/">Privacy policy (Portuguese)</a></p>
+      </div>
+    </section>
   </article>
 </main>
+<script type="application/json" id="vitachart-samples">{"28":{"length":28,"start":"2026-08-01","end":"2026-08-28","recorded":27,"pdf":"/assets/docs/vitachart-sample-consultation-chart.pdf","pdfSha256":"c3435335d7a50b31ff19b7171013ae6a4d5c22d203eb080404cf8cea04416f27","preview":"/assets/img/vitachart-report-28.webp","pages":1,"days":[{"day":1,"date":"2026-08-01","shortDate":"01 Aug","code":"M","temperature":"36.25","observed":true,"stamp":"red","marker":"","question":"","medication":"","note":""},{"day":2,"date":"2026-08-02","shortDate":"02 Aug","code":"M","temperature":"36.25","observed":true,"stamp":"red","marker":"","question":"","medication":"","note":""},{"day":3,"date":"2026-08-03","shortDate":"03 Aug","code":"M","temperature":"36.25","observed":true,"stamp":"red","marker":"","question":"","medication":"","note":""},{"day":4,"date":"2026-08-04","shortDate":"04 Aug","code":"M","temperature":"36.25","observed":true,"stamp":"red","marker":"","question":"","medication":"","note":""},{"day":5,"date":"2026-08-05","shortDate":"05 Aug","code":"0 AD","temperature":"36.25","observed":true,"stamp":"green","marker":"","question":"","medication":"","note":""},{"day":6,"date":"2026-08-06","shortDate":"06 Aug","code":"0 AD","temperature":"36.25","observed":true,"stamp":"green","marker":"","question":"","medication":"","note":""},{"day":7,"date":"2026-08-07","shortDate":"07 Aug","code":"0 AD","temperature":"36.25","observed":true,"stamp":"green","marker":"","question":"","medication":"","note":""},{"day":8,"date":"2026-08-08","shortDate":"08 Aug","code":"","temperature":"36.25","observed":false,"stamp":"unknown","marker":"","question":"","medication":"","note":"Temperature recorded; no sign observation in this example."},{"day":9,"date":"2026-08-09","shortDate":"09 Aug","code":"0 AD","temperature":"36.25","observed":true,"stamp":"green","marker":"","question":"","medication":"","note":""},{"day":10,"date":"2026-08-10","shortDate":"10 Aug","code":"0 AD","temperature":"36.25","observed":true,"stamp":"green","marker":"","question":"Fictional question to review at the consultation.","medication":"","note":""},{"day":11,"date":"2026-08-11","shortDate":"11 Aug","code":"0 AD","temperature":"36.25","observed":true,"stamp":"green","marker":"","question":"","medication":"","note":""},{"day":12,"date":"2026-08-12","shortDate":"12 Aug","code":"10KL AD","temperature":"36.25","observed":true,"stamp":"white","marker":"","question":"","medication":"","note":""},{"day":13,"date":"2026-08-13","shortDate":"13 Aug","code":"10KL AD","temperature":"36.25","observed":true,"stamp":"white","marker":"","question":"","medication":"","note":""},{"day":14,"date":"2026-08-14","shortDate":"14 Aug","code":"10KL AD","temperature":"36.25","observed":true,"stamp":"white","marker":"","question":"","medication":"","note":""},{"day":15,"date":"2026-08-15","shortDate":"15 Aug","code":"10KL AD","temperature":"36.25","observed":true,"stamp":"white","marker":"P","question":"","medication":"","note":""},{"day":16,"date":"2026-08-16","shortDate":"16 Aug","code":"0 AD","temperature":"36.65","observed":true,"stamp":"green","marker":"1","question":"","medication":"","note":""},{"day":17,"date":"2026-08-17","shortDate":"17 Aug","code":"0 AD","temperature":"36.65","observed":true,"stamp":"green","marker":"2","question":"","medication":"","note":""},{"day":18,"date":"2026-08-18","shortDate":"18 Aug","code":"0 AD","temperature":"36.65","observed":true,"stamp":"green","marker":"3","question":"","medication":"Fictional medication note.","note":""},{"day":19,"date":"2026-08-19","shortDate":"19 Aug","code":"0 AD","temperature":"36.65","observed":true,"stamp":"green","marker":"","question":"","medication":"","note":""},{"day":20,"date":"2026-08-20","shortDate":"20 Aug","code":"0 AD","temperature":"36.65","observed":true,"stamp":"green","marker":"","question":"","medication":"","note":""},{"day":21,"date":"2026-08-21","shortDate":"21 Aug","code":"0 AD","temperature":"36.65","observed":true,"stamp":"green","marker":"","question":"","medication":"","note":""},{"day":22,"date":"2026-08-22","shortDate":"22 Aug","code":"0 AD","temperature":"36.65","observed":true,"stamp":"green","marker":"","question":"","medication":"","note":""},{"day":23,"date":"2026-08-23","shortDate":"23 Aug","code":"0 AD","temperature":"36.65","observed":true,"stamp":"green","marker":"","question":"","medication":"","note":""},{"day":24,"date":"2026-08-24","shortDate":"24 Aug","code":"0 AD","temperature":"36.65","observed":true,"stamp":"green","marker":"","question":"","medication":"","note":""},{"day":25,"date":"2026-08-25","shortDate":"25 Aug","code":"0 AD","temperature":"36.65","observed":true,"stamp":"green","marker":"","question":"","medication":"","note":""},{"day":26,"date":"2026-08-26","shortDate":"26 Aug","code":"0 AD","temperature":"36.65","observed":true,"stamp":"green","marker":"","question":"","medication":"","note":""},{"day":27,"date":"2026-08-27","shortDate":"27 Aug","code":"0 AD","temperature":"36.65","observed":true,"stamp":"green","marker":"","question":"","medication":"","note":""},{"day":28,"date":"2026-08-28","shortDate":"28 Aug","code":"0 AD","temperature":"36.65","observed":true,"stamp":"green","marker":"","question":"","medication":"","note":""}]},"47":{"length":47,"start":"2026-08-29","end":"2026-10-14","recorded":46,"pdf":"/assets/docs/vitachart-sample-47-days.pdf","pdfSha256":"1a0937b6ded11f40362c8adf93464e49592726c071b4eccc52f88c2c3cc968e3","preview":"/assets/img/vitachart-report-47.webp","pages":2,"days":[{"day":1,"date":"2026-08-29","shortDate":"29 Aug","code":"M","temperature":"36.25","observed":true,"stamp":"red","marker":"","question":"","medication":"","note":""},{"day":2,"date":"2026-08-30","shortDate":"30 Aug","code":"M","temperature":"36.25","observed":true,"stamp":"red","marker":"","question":"","medication":"","note":""},{"day":3,"date":"2026-08-31","shortDate":"31 Aug","code":"M","temperature":"36.25","observed":true,"stamp":"red","marker":"","question":"","medication":"","note":""},{"day":4,"date":"2026-09-01","shortDate":"01 Sep","code":"M","temperature":"36.25","observed":true,"stamp":"red","marker":"","question":"","medication":"","note":""},{"day":5,"date":"2026-09-02","shortDate":"02 Sep","code":"0 AD","temperature":"36.25","observed":true,"stamp":"green","marker":"","question":"","medication":"","note":""},{"day":6,"date":"2026-09-03","shortDate":"03 Sep","code":"0 AD","temperature":"36.25","observed":true,"stamp":"green","marker":"","question":"","medication":"","note":""},{"day":7,"date":"2026-09-04","shortDate":"04 Sep","code":"0 AD","temperature":"36.25","observed":true,"stamp":"green","marker":"","question":"","medication":"","note":""},{"day":8,"date":"2026-09-05","shortDate":"05 Sep","code":"","temperature":"36.25","observed":false,"stamp":"unknown","marker":"","question":"","medication":"","note":"Temperature recorded; no sign observation in this example."},{"day":9,"date":"2026-09-06","shortDate":"06 Sep","code":"0 AD","temperature":"36.25","observed":true,"stamp":"green","marker":"","question":"","medication":"","note":""},{"day":10,"date":"2026-09-07","shortDate":"07 Sep","code":"0 AD","temperature":"36.25","observed":true,"stamp":"green","marker":"","question":"Fictional question to review at the consultation.","medication":"","note":""},{"day":11,"date":"2026-09-08","shortDate":"08 Sep","code":"0 AD","temperature":"36.25","observed":true,"stamp":"green","marker":"","question":"","medication":"","note":""},{"day":12,"date":"2026-09-09","shortDate":"09 Sep","code":"10KL AD","temperature":"36.25","observed":true,"stamp":"white","marker":"","question":"","medication":"","note":""},{"day":13,"date":"2026-09-10","shortDate":"10 Sep","code":"10KL AD","temperature":"36.25","observed":true,"stamp":"white","marker":"","question":"","medication":"","note":""},{"day":14,"date":"2026-09-11","shortDate":"11 Sep","code":"10KL AD","temperature":"36.25","observed":true,"stamp":"white","marker":"","question":"","medication":"","note":""},{"day":15,"date":"2026-09-12","shortDate":"12 Sep","code":"10KL AD","temperature":"36.25","observed":true,"stamp":"white","marker":"P","question":"","medication":"","note":""},{"day":16,"date":"2026-09-13","shortDate":"13 Sep","code":"0 AD","temperature":"36.65","observed":true,"stamp":"green","marker":"1","question":"","medication":"","note":""},{"day":17,"date":"2026-09-14","shortDate":"14 Sep","code":"0 AD","temperature":"36.65","observed":true,"stamp":"green","marker":"2","question":"","medication":"","note":""},{"day":18,"date":"2026-09-15","shortDate":"15 Sep","code":"0 AD","temperature":"36.65","observed":true,"stamp":"green","marker":"3","question":"","medication":"Fictional medication note.","note":""},{"day":19,"date":"2026-09-16","shortDate":"16 Sep","code":"0 AD","temperature":"36.65","observed":true,"stamp":"green","marker":"","question":"","medication":"","note":""},{"day":20,"date":"2026-09-17","shortDate":"17 Sep","code":"0 AD","temperature":"36.65","observed":true,"stamp":"green","marker":"","question":"","medication":"","note":""},{"day":21,"date":"2026-09-18","shortDate":"18 Sep","code":"0 AD","temperature":"36.65","observed":true,"stamp":"green","marker":"","question":"","medication":"","note":""},{"day":22,"date":"2026-09-19","shortDate":"19 Sep","code":"0 AD","temperature":"36.65","observed":true,"stamp":"green","marker":"","question":"","medication":"","note":""},{"day":23,"date":"2026-09-20","shortDate":"20 Sep","code":"0 AD","temperature":"36.65","observed":true,"stamp":"green","marker":"","question":"","medication":"","note":""},{"day":24,"date":"2026-09-21","shortDate":"21 Sep","code":"0 AD","temperature":"36.65","observed":true,"stamp":"green","marker":"","question":"","medication":"","note":""},{"day":25,"date":"2026-09-22","shortDate":"22 Sep","code":"0 AD","temperature":"36.65","observed":true,"stamp":"green","marker":"","question":"","medication":"","note":""},{"day":26,"date":"2026-09-23","shortDate":"23 Sep","code":"0 AD","temperature":"36.65","observed":true,"stamp":"green","marker":"","question":"","medication":"","note":""},{"day":27,"date":"2026-09-24","shortDate":"24 Sep","code":"0 AD","temperature":"36.65","observed":true,"stamp":"green","marker":"","question":"","medication":"","note":""},{"day":28,"date":"2026-09-25","shortDate":"25 Sep","code":"0 AD","temperature":"36.65","observed":true,"stamp":"green","marker":"","question":"","medication":"","note":""},{"day":29,"date":"2026-09-26","shortDate":"26 Sep","code":"0 AD","temperature":"36.65","observed":true,"stamp":"green","marker":"","question":"","medication":"","note":""},{"day":30,"date":"2026-09-27","shortDate":"27 Sep","code":"0 AD","temperature":"36.65","observed":true,"stamp":"green","marker":"","question":"","medication":"","note":""},{"day":31,"date":"2026-09-28","shortDate":"28 Sep","code":"0 AD","temperature":"36.65","observed":true,"stamp":"green","marker":"","question":"","medication":"","note":""},{"day":32,"date":"2026-09-29","shortDate":"29 Sep","code":"0 AD","temperature":"36.65","observed":true,"stamp":"green","marker":"","question":"","medication":"","note":""},{"day":33,"date":"2026-09-30","shortDate":"30 Sep","code":"0 AD","temperature":"36.65","observed":true,"stamp":"green","marker":"","question":"","medication":"","note":""},{"day":34,"date":"2026-10-01","shortDate":"01 Oct","code":"0 AD","temperature":"36.65","observed":true,"stamp":"green","marker":"","question":"","medication":"","note":""},{"day":35,"date":"2026-10-02","shortDate":"02 Oct","code":"0 AD","temperature":"36.65","observed":true,"stamp":"green","marker":"","question":"","medication":"","note":""},{"day":36,"date":"2026-10-03","shortDate":"03 Oct","code":"0 AD","temperature":"36.65","observed":true,"stamp":"green","marker":"","question":"","medication":"","note":""},{"day":37,"date":"2026-10-04","shortDate":"04 Oct","code":"0 AD","temperature":"36.65","observed":true,"stamp":"green","marker":"","question":"","medication":"","note":""},{"day":38,"date":"2026-10-05","shortDate":"05 Oct","code":"0 AD","temperature":"36.65","observed":true,"stamp":"green","marker":"","question":"","medication":"","note":""},{"day":39,"date":"2026-10-06","shortDate":"06 Oct","code":"0 AD","temperature":"36.65","observed":true,"stamp":"green","marker":"","question":"","medication":"","note":""},{"day":40,"date":"2026-10-07","shortDate":"07 Oct","code":"0 AD","temperature":"36.65","observed":true,"stamp":"green","marker":"","question":"","medication":"","note":""},{"day":41,"date":"2026-10-08","shortDate":"08 Oct","code":"0 AD","temperature":"36.65","observed":true,"stamp":"green","marker":"","question":"","medication":"","note":""},{"day":42,"date":"2026-10-09","shortDate":"09 Oct","code":"0 AD","temperature":"36.65","observed":true,"stamp":"green","marker":"","question":"","medication":"","note":""},{"day":43,"date":"2026-10-10","shortDate":"10 Oct","code":"0 AD","temperature":"36.65","observed":true,"stamp":"green","marker":"","question":"","medication":"","note":""},{"day":44,"date":"2026-10-11","shortDate":"11 Oct","code":"0 AD","temperature":"36.65","observed":true,"stamp":"green","marker":"","question":"","medication":"","note":""},{"day":45,"date":"2026-10-12","shortDate":"12 Oct","code":"0 AD","temperature":"36.65","observed":true,"stamp":"green","marker":"","question":"","medication":"","note":""},{"day":46,"date":"2026-10-13","shortDate":"13 Oct","code":"0 AD","temperature":"36.65","observed":true,"stamp":"green","marker":"","question":"","medication":"","note":""},{"day":47,"date":"2026-10-14","shortDate":"14 Oct","code":"0 AD","temperature":"36.65","observed":true,"stamp":"green","marker":"","question":"","medication":"","note":""}]}}</script>
 
 <footer class="colophon">
   <div class="shell colophon__inner label">
@@ -408,130 +391,6 @@
     <span>Written by hand, between bedtimes.</span>
   </div>
 </footer>
-
-<script>
-// Synthetic textbook 28-day cycle data
-const CYCLE_DAYS = [
-  { day: 1, stamp: "red", code: "H", desc: "Heavy flow", sensation: "Wet", mucus: "None (Menses)", stretch: "None", intimacy: false, peak: "—", postPeak: "—", status: "Menses Phase" },
-  { day: 2, stamp: "red", code: "H", desc: "Heavy flow", sensation: "Wet", mucus: "None (Menses)", stretch: "None", intimacy: false, peak: "—", postPeak: "—", status: "Menses Phase" },
-  { day: 3, stamp: "red", code: "M", desc: "Moderate flow", sensation: "Damp", mucus: "None (Menses)", stretch: "None", intimacy: false, peak: "—", postPeak: "—", status: "Menses Phase" },
-  { day: 4, stamp: "red", code: "L", desc: "Light flow", sensation: "Damp", mucus: "None (Menses)", stretch: "None", intimacy: false, peak: "—", postPeak: "—", status: "Menses Phase" },
-  { day: 5, stamp: "red", code: "VL", desc: "Very light / spotting", sensation: "Dry", mucus: "None (Menses)", stretch: "None", intimacy: false, peak: "—", postPeak: "—", status: "Menses Phase" },
-  { day: 6, stamp: "green", code: "2", desc: "Dry sensation", sensation: "Dry", mucus: "None", stretch: "None", intimacy: true, peak: "—", postPeak: "—", status: "Pre-Peak Infertile" },
-  { day: 7, stamp: "green", code: "2", desc: "Dry sensation", sensation: "Dry", mucus: "None", stretch: "None", intimacy: false, peak: "—", postPeak: "—", status: "Pre-Peak Infertile" },
-  { day: 8, stamp: "green", code: "2", desc: "Dry sensation", sensation: "Dry", mucus: "None", stretch: "None", intimacy: true, peak: "—", postPeak: "—", status: "Pre-Peak Infertile" },
-  { day: 9, stamp: "green", code: "2X1", desc: "Dry, single observation", sensation: "Dry", mucus: "None", stretch: "None", intimacy: false, peak: "—", postPeak: "—", status: "Pre-Peak Infertile" },
-  { day: 10, stamp: "white", code: "4", desc: "Damp, cloudy discharge", sensation: "Damp", mucus: "Thick, cloudy", stretch: "< 0.5 cm", intimacy: false, peak: "—", postPeak: "—", status: "Fertile Window" },
-  { day: 11, stamp: "white", code: "6C", desc: "Damp, cloudy mucus", sensation: "Damp", mucus: "Cloudy", stretch: "1.0 cm", intimacy: false, peak: "—", postPeak: "—", status: "Fertile Window" },
-  { day: 12, stamp: "white", code: "8CX1", desc: "Wet, stretchy mucus", sensation: "Wet", mucus: "Cloudy / clear", stretch: "2.0 cm", intimacy: false, peak: "—", postPeak: "—", status: "Fertile Window" },
-  { day: 13, stamp: "white", code: "10K", desc: "Lubricative, clear", sensation: "Lubricative", mucus: "Clear, transparent", stretch: "> 2.5 cm", intimacy: false, peak: "—", postPeak: "—", status: "Fertile Window (Pre-Peak)" },
-  { day: 14, stamp: "peak", code: "10KL", desc: "Peak Day — Clear, stretchy, lubricative", sensation: "Lubricative", mucus: "Clear, highly elastic", stretch: "> 5.0 cm", intimacy: false, peak: "Peak Day (P)", postPeak: "—", status: "Maximum Fertility &middot; Peak Day" },
-  { day: 15, stamp: "green", code: "2", desc: "Dry sensation — P+1", sensation: "Dry", mucus: "None", stretch: "None", intimacy: false, peak: "—", postPeak: "P + 1", status: "Post-Peak Count Day 1" },
-  { day: 16, stamp: "green", code: "2", desc: "Dry sensation — P+2", sensation: "Dry", mucus: "None", stretch: "None", intimacy: false, peak: "—", postPeak: "P + 2", status: "Post-Peak Count Day 2" },
-  { day: 17, stamp: "green", code: "2", desc: "Dry sensation — P+3", sensation: "Dry", mucus: "None", stretch: "None", intimacy: false, peak: "—", postPeak: "P + 3", status: "Post-Peak Count Day 3 (End of Fertile Phase)" },
-  { day: 18, stamp: "green", code: "2", desc: "Dry sensation", sensation: "Dry", mucus: "None", stretch: "None", intimacy: true, peak: "—", postPeak: "—", status: "Post-Peak Infertile Phase" },
-  { day: 19, stamp: "green", code: "2", desc: "Dry sensation", sensation: "Dry", mucus: "None", stretch: "None", intimacy: false, peak: "—", postPeak: "—", status: "Post-Peak Infertile Phase" },
-  { day: 20, stamp: "green", code: "2", desc: "Dry sensation", sensation: "Dry", mucus: "None", stretch: "None", intimacy: true, peak: "—", postPeak: "—", status: "Post-Peak Infertile Phase" },
-  { day: 21, stamp: "green", code: "2", desc: "Dry sensation", sensation: "Dry", mucus: "None", stretch: "None", intimacy: false, peak: "—", postPeak: "—", status: "Post-Peak Infertile Phase" },
-  { day: 22, stamp: "green", code: "2", desc: "Dry sensation", sensation: "Dry", mucus: "None", stretch: "None", intimacy: false, peak: "—", postPeak: "—", status: "Post-Peak Infertile Phase" },
-  { day: 23, stamp: "green", code: "2", desc: "Dry sensation", sensation: "Dry", mucus: "None", stretch: "None", intimacy: true, peak: "—", postPeak: "—", status: "Post-Peak Infertile Phase" },
-  { day: 24, stamp: "green", code: "2", desc: "Dry sensation", sensation: "Dry", mucus: "None", stretch: "None", intimacy: false, peak: "—", postPeak: "—", status: "Post-Peak Infertile Phase" },
-  { day: 25, stamp: "green", code: "2", desc: "Dry sensation", sensation: "Dry", mucus: "None", stretch: "None", intimacy: false, peak: "—", postPeak: "—", status: "Post-Peak Infertile Phase" },
-  { day: 26, stamp: "green", code: "2", desc: "Dry sensation", sensation: "Dry", mucus: "None", stretch: "None", intimacy: false, peak: "—", postPeak: "—", status: "Post-Peak Infertile Phase" },
-  { day: 27, stamp: "green", code: "2", desc: "Dry sensation", sensation: "Dry", mucus: "None", stretch: "None", intimacy: false, peak: "—", postPeak: "—", status: "Post-Peak Infertile Phase" },
-  { day: 28, stamp: "green", code: "2", desc: "Dry sensation (Cycle close)", sensation: "Dry", mucus: "None", stretch: "None", intimacy: false, peak: "—", postPeak: "—", status: "Post-Peak Infertile Phase" }
-];
-
-let selectedDayIdx = 13; // Day 14 (Peak Day) default
-
-function renderTimeline() {
-  const container = document.getElementById("timelineStrip");
-  container.innerHTML = "";
-  CYCLE_DAYS.forEach((item, idx) => {
-    const btn = document.createElement("button");
-    btn.type = "button";
-    btn.className = "day-btn" + (idx === selectedDayIdx ? " active" : "");
-    btn.setAttribute("role", "tab");
-    btn.setAttribute("aria-selected", idx === selectedDayIdx ? "true" : "false");
-    btn.setAttribute("aria-label", "Day " + item.day + ", " + item.code);
-    
-    let stampClass = "stamp-red";
-    if (item.stamp === "green") stampClass = "stamp-green";
-    else if (item.stamp === "white") stampClass = "stamp-white";
-    else if (item.stamp === "peak") stampClass = "stamp-peak";
-
-    btn.innerHTML = '<span class="day-num">' + item.day + '</span><span class="stamp-dot ' + stampClass + '"></span><span class="stamp-code-text">' + item.code + '</span>';
-    btn.onclick = () => selectDay(idx);
-    container.appendChild(btn);
-  });
-}
-
-function selectDay(idx) {
-  selectedDayIdx = idx;
-  const item = CYCLE_DAYS[idx];
-  renderTimeline();
-
-  document.getElementById("selectedDayTitle").innerText = "Day " + item.day + " Observations (" + item.code + ")";
-  document.getElementById("selectedDaySummary").innerHTML = item.desc + " &middot; Phase: <strong>" + item.status + "</strong>";
-  document.getElementById("cycleStatusBadge").innerText = "Day " + item.day + " &middot; " + item.status;
-
-  const deck = document.getElementById("deckGrid");
-  deck.innerHTML = `
-    <div class="deck-card">
-      <div class="deck-card-label">Flow / Bleeding</div>
-      <div class="deck-card-val">${item.code.startsWith("H") || item.code.startsWith("M") || item.code.startsWith("L") || item.code.startsWith("VL") ? item.desc : "None"}</div>
-      <div class="deck-card-sub">Recorded at end of day</div>
-    </div>
-    <div class="deck-card">
-      <div class="deck-card-label">Physical Sensation</div>
-      <div class="deck-card-val">${item.sensation}</div>
-      <div class="deck-card-sub">Perceived during wiping</div>
-    </div>
-    <div class="deck-card">
-      <div class="deck-card-label">Mucus Characteristics</div>
-      <div class="deck-card-val">${item.mucus}</div>
-      <div class="deck-card-sub">Stretch: ${item.stretch}</div>
-    </div>
-    <div class="deck-card">
-      <div class="deck-card-label">Peak Status</div>
-      <div class="deck-card-val">${item.peak !== "—" ? "★ " + item.peak : "—"}</div>
-      <div class="deck-card-sub">${item.peak !== "—" ? "Last day of fertile-type mucus" : "Non-peak observation"}</div>
-    </div>
-    <div class="deck-card">
-      <div class="deck-card-label">Post-Peak Count</div>
-      <div class="deck-card-val">${item.postPeak}</div>
-      <div class="deck-card-sub">${item.postPeak !== "—" ? "Luteal transition phase" : "—"}</div>
-    </div>
-    <div class="deck-card">
-      <div class="deck-card-label">Intimacy / Intercourse</div>
-      <div class="deck-card-val">${item.intimacy ? "Yes (I)" : "No"}</div>
-      <div class="deck-card-sub">Protected under local privacy</div>
-    </div>
-    <div class="deck-card">
-      <div class="deck-card-label">Creighton Biomarker Code</div>
-      <div class="deck-card-val">${item.code}</div>
-      <div class="deck-card-sub">Standard clinical convention</div>
-    </div>
-    <div class="deck-card">
-      <div class="deck-card-label">Storage &amp; Integrity</div>
-      <div class="deck-card-val">Stored locally on device</div>
-      <div class="deck-card-sub">Zero telemetry &middot; 100% offline</div>
-    </div>
-  `;
-}
-
-// Initialise
-renderTimeline();
-selectDay(13); // Default Day 14
-
-// Check if ?demo=1 or #demo is present in URL
-if (window.location.search.includes("demo=1") || window.location.hash === "#demo") {
-  const banner = document.getElementById("demoBanner");
-  if (banner) {
-    banner.style.boxShadow = "0 0 0 2px #3B7A57";
-  }
-}
-</script>
 
 </body>
 </html>

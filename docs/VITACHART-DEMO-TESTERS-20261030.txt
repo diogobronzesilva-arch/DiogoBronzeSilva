@@ -1,0 +1,94 @@
+VITACHART — PÁGINA DOS PRIMEIROS TESTERS — 30/10/2026
+
+Pedido: rever especialmente os charts e a página enviada nos convites de
+29 de outubro: https://diogobronzesilva.com/vitachart/?demo=1.
+
+Estado inicial: main remoto em 3acbdde, igual à base da revisão anterior.
+Esta revisão acrescenta-se ao commit local 0b6af43, na mesma branch
+codex/consolidar-website-20261030. Não houve push, publicação, envio de
+mensagens, utilização de códigos de teste ou alterações na app VitaChart.
+
+CONTEXTO E DECISÕES
+
+O convite consultado pede opinião profissional sobre o registo diário e
+a clareza do PDF. A página publicada colocava esses elementos depois de
+texto promocional e comparações. O exemplo interativo não correspondia ao
+PDF, incluindo a posição de P, os códigos e as temperaturas.
+
+Esta revisão substitui os dados e a apresentação da demonstração preparados
+na primeira revisão. O objetivo é uma pré-visualização de consulta para
+practitioners/testers, mantendo a edição de registos no teste da app.
+Não se apresenta esta página como a aplicação completa.
+
+ALTERAÇÕES
+
+- O endereço ?demo=1 abre diretamente na secção do gráfico, com foco no
+  título. /vitachart/ conserva a introdução; fragmentos explícitos como
+  #reports e #testing têm prioridade sobre a abertura automática.
+- Dois exemplos: 28 e 47 dias, com datas, códigos e temperaturas dos PDFs
+  existentes exportados pela app. Os exemplos não representam previsões
+  de duração nem ciclos considerados típicos.
+- O dia 8 não tem observação de sinais, embora tenha temperatura. É
+  apresentado de forma distinta de um dia com o código 0 AD.
+- P e as três anotações seguintes são copiados do relatório fictício,
+  sem executar cálculos clínicos na página.
+- Dúvida de consulta no dia 10 e nota de medicação no dia 18, coerentes
+  com os relatórios. Não há dados pessoais reais.
+- Escolher um dia abre o seu detalhe, com foco no título e ligação de
+  regresso ao gráfico. As setas navegam na grelha; Home/End chegam ao
+  primeiro/último dia. A seleção não ultrapassa os limites do ciclo.
+- Trocar de ciclo atualiza o gráfico, datas, duração, contagem de
+  observações e pré-visualização do PDF correspondente.
+- PDF de 28 dias já publicado preservado. PDF de 47 dias copiado sem
+  alterações do exemplo sintético da app. Pré-visualizações WebP geradas
+  a partir dos próprios PDFs; a segunda folha pode ser aberta na página.
+- PDFs atualmente em português, explicitamente identificados. Não foram
+  criadas traduções ou alegações de terminologia clinicamente validada.
+- Percurso de convidados e perguntas de feedback sobre registo, gráfico,
+  relatório e terminologia. O contacto permite escrever uma resposta;
+  nenhuma mensagem foi enviada. Códigos de acesso continuam só no email.
+- Preservada a intenção comercial de compra única sem mensalidades,
+  confirmada na documentação atual da app; não se anuncia preço ativo
+  ou disponibilidade geral nas lojas.
+- README e llms atualizados; CSS/JS com versão 20261030-2. Nas restantes
+  páginas, a única mudança desta revisão é a versão da folha de estilos.
+
+FONTES E LIMITES
+
+Foram consultados a página pública, main pelo GitHub, o convite enviado em
+29/10 e o código/documentação atual do VitaChart, apenas para leitura.
+Os PDFs de origem identificam nomes e dados fictícios. Nenhuma base de
+registos, armazenamento de navegador ou aparelho foi consultado.
+
+Relatório público de 28 dias (1 folha):
+SHA-256 c3435335d7a50b31ff19b7171013ae6a4d5c22d203eb080404cf8cea04416f27
+
+Relatório sintético de 47 dias (2 folhas):
+SHA-256 1a0937b6ded11f40362c8adf93464e49592726c071b4eccc52f88c2c3cc968e3
+
+A página mostra uma transcrição dos campos desses exemplos; não substitui
+validação clínica, terminológica ou o teste da experiência de edição na app.
+
+VALIDAÇÃO
+
+- 31 testes aprovados (27 anteriores e 4 novos para correspondência
+  gráfico/PDF, datas/duração, dias sem observação e apresentação estática).
+- check_site.py aprovado; build e check_pages_output.py aprovados:
+  exatamente 88 ficheiros públicos, iguais às fontes.
+- JavaScript validado com Node; nenhum erro/aviso de consola observado.
+- 75 seleções de dia testadas no browser, com dados, foco e detalhe visível.
+- Troca dos ciclos e associação ao respetivo relatório verificadas.
+- Dias sem observação, dúvida e medicação verificados individualmente.
+- Teclado: setas, Home/End e limites; regresso do detalhe ao gráfico.
+- Ambos os ciclos verificados a 320, 390, 768 e 1280 px, sem transbordo
+  horizontal e com largura dos botões superior a 44 px.
+- Entrada direta ?demo=1, entrada normal, fragmento #reports, carregamento
+  da pré-visualização e expansão da segunda folha verificados no browser.
+- Sem JavaScript: gráfico completo de 28 dias, detalhe inicial e ambos os
+  PDFs permanecem presentes no HTML. Os botões estáticos ficam desativados.
+
+ENTREGA
+
+Guardado localmente. A página pública e os links já enviados continuam a
+servir a versão anterior até haver pedido expresso de publicação. Integrar
+em main publica automaticamente no Cloudflare Pages.
