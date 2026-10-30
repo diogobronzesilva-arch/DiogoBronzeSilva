@@ -70,6 +70,9 @@ class PageParser(HTMLParser):
         self.references: list[tuple[str, str, str]] = []
         self.images: list[dict[str, str]] = []
         self.anchors: list[dict[str, str]] = []
+        self.executable_scripts: list[dict[str, str]] = []
+        self.unprotected_mailtos: list[str] = []
+        self._email_off = False
         self.navigation_links: list[str] = []
         self._in_navigation = False
         self.inputs: list[dict[str, str]] = []
@@ -139,8 +142,12 @@ class PageParser(HTMLParser):
 
         if tag == "nav" and "nav" in data.get("class", "").split():
             self._in_navigation = True
+        if tag == "script" and data.get("type", "").lower() not in {"application/ld+json", "application/json"}:
+            self.executable_scripts.append(data)
         if tag == "a":
             self.anchors.append(data)
+            if data.get("href", "").lower().startswith("mailto:") and not self._email_off:
+                self.unprotected_mailtos.append(data["href"])
             if self._in_navigation:
                 self.navigation_links.append(data.get("href", ""))
             if data.get("href"):
@@ -189,6 +196,12 @@ class PageParser(HTMLParser):
         if tag == "script" and self._json_ld_buffer is not None:
             self.json_ld_blocks.append("".join(self._json_ld_buffer).strip())
             self._json_ld_buffer = None
+
+    def handle_comment(self, data: str) -> None:
+        if data.strip() == "email_off":
+            self._email_off = True
+        elif data.strip() == "/email_off":
+            self._email_off = False
 
     def handle_data(self, data: str) -> None:
         if self._in_body and not self._ignore_body_text and not self._hidden_elements:
@@ -322,6 +335,25 @@ def check_reference(page_rel: Path, raw_url: str, report: Report, label: str) ->
         report.error(f"Broken internal {label}: {raw_url}", page_rel)
 
 
+def check_page_shell(report: Report, rel: Path, parser: PageParser) -> None:
+    """Keep the shared shell usable and isolate the demonstration script."""
+    if not any(a.get("href") == "#main" and "skip" in a.get("class", "").split() for a in parser.anchors):
+        report.error("Missing styled skip link to #main.", rel)
+    if not any(a.get("href") == "/" and "wordmark" in a.get("class", "").split() for a in parser.anchors):
+        report.error("Missing shared wordmark link to Home.", rel)
+    for href in parser.unprotected_mailtos:
+        report.error(f"Unprotected mailto link: {href}; use Cloudflare email_off markers.", rel)
+
+    scripts = parser.executable_scripts
+    if rel == Path("vitachart/index.html"):
+        expected = "/assets/js/vitachart-demo.js"
+        source = urlsplit(scripts[0].get("src", "")) if scripts else None
+        if len(scripts) != 1 or source is None or source.scheme or source.netloc or source.path != expected or "defer" not in scripts[0]:
+            report.error("VitaChart demonstration must load only its deferred local script.", rel)
+    elif scripts:
+        report.error("Executable JavaScript is limited to the VitaChart demonstration.", rel)
+
+
 def check_html(report: Report) -> dict[Path, PageParser]:
     parsed: dict[Path, PageParser] = {}
     stylesheet_versions: dict[Path, str] = {}
@@ -332,6 +364,7 @@ def check_html(report: Report) -> dict[Path, PageParser]:
         if parser is None:
             continue
         parsed[rel] = parser
+        check_page_shell(report, rel, parser)
 
         expected_navigation = ["/", "/work/", "/projects/", "https://bronzeart.pt", "/notes/", "/contact/"]
         if parser.navigation_links != expected_navigation:

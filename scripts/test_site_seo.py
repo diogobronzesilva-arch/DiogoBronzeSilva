@@ -3,7 +3,7 @@ import json
 from pathlib import Path
 import unittest
 
-from check_site import PageParser, Report, check_discovery
+from check_site import PageParser, Report, check_discovery, check_page_shell
 
 
 def page(body='<h1>Example</h1>', *, title='Example', description='A specific page.', robots='index, follow', lang='en', locale='en_GB', schema=None):
@@ -123,6 +123,44 @@ class FragmentTests(unittest.TestCase):
 
     def test_external_fragments_and_text_directives_are_not_ids(self):
         self.assertEqual('', errors({Path('index.html'): page('<h1>Example</h1><a href="https://example.org/#missing">External</a><a href="#:~:text=Example">Text</a>')}))
+
+
+class PageShellTests(unittest.TestCase):
+    shell = '<a class="skip" href="#main">Skip</a><a class="wordmark" href="/">Home</a><main id="main"></main>'
+
+    def shell_errors(self, content, path='index.html'):
+        parser = PageParser()
+        parser.feed(content)
+        report = Report()
+        check_page_shell(report, Path(path), parser)
+        return '\n'.join(message for _, message in report.errors)
+
+    def test_shared_shell(self):
+        self.assertEqual('', self.shell_errors(self.shell))
+
+    def test_undefined_skip_and_wordmark_classes(self):
+        found = self.shell_errors(self.shell.replace('class="skip"', 'class="skip-link"').replace('class="wordmark"', 'class="brand"'))
+        self.assertIn('styled skip link', found)
+        self.assertIn('shared wordmark', found)
+
+    def test_every_mailto_needs_protection(self):
+        link = '<a href="mailto:hello@diogobronzesilva.com">Email</a>'
+        self.assertIn('Unprotected mailto', self.shell_errors(self.shell + link))
+        self.assertEqual('', self.shell_errors(self.shell + '<!--email_off-->' + link + '<!--/email_off-->'))
+        self.assertIn('Unprotected mailto', self.shell_errors(self.shell + '<!--email_off-->' + link + '<!--/email_off-->' + link))
+
+    def test_inline_or_remote_scripts_rejected(self):
+        for script in ('<script>run()</script>', '<script src="https://example.org/tracker.js"></script>'):
+            self.assertIn('limited to', self.shell_errors(self.shell + script))
+
+    def test_metadata_scripts_allowed(self):
+        self.assertEqual('', self.shell_errors(self.shell + '<script type="application/ld+json">{}</script>'))
+
+    def test_demo_requires_its_deferred_local_script(self):
+        script = '<script src="/assets/js/vitachart-demo.js?v=1" defer></script>'
+        self.assertEqual('', self.shell_errors(self.shell + script, 'vitachart/index.html'))
+        for scripts in ('', script.replace(' defer', ''), script + '<script>run()</script>', script.replace('/assets/js/', 'https://example.org/assets/js/')):
+            self.assertIn('only its deferred local script', self.shell_errors(self.shell + scripts, 'vitachart/index.html'))
 
 
 if __name__ == '__main__':

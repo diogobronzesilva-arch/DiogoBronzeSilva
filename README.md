@@ -1,6 +1,6 @@
 # Diogo Silva — diogobronzesilva.com
 
-Website pessoal de Diogo Silva. HTML e CSS estáticos, sem framework nem JavaScript próprio. Um pequeno script Python prepara a publicação no Cloudflare Pages.
+Website pessoal de Diogo Silva. HTML e CSS estáticos, sem framework. A demonstração fictícia do VitaChart usa um pequeno ficheiro JavaScript local; o resto do site mantém-se sem JavaScript executável. Um pequeno script Python prepara a publicação no Cloudflare Pages.
 
 Domínio: **diogobronzesilva.com**  
 Email público: **hello@diogobronzesilva.com**
@@ -18,6 +18,7 @@ projects/index.html                     → /projects/
 projects/vitachart/index.html           → /projects/vitachart/
 projects/bronze-art-galleries/index.html → /projects/bronze-art-galleries/
 projects/cutline/index.html             → /projects/cutline/
+vitachart/index.html                    → /vitachart/ (demonstração fictícia)
 vitachart/privacy/index.html            → /vitachart/privacy/
 notes/index.html                        → /notes/
 notes/<slug>/index.html                 → /notes/<slug>/
@@ -31,6 +32,7 @@ llms.txt                                → /llms.txt
 llms-full.txt                           → /llms-full.txt
 _headers                                → cabeçalhos de segurança e cache Cloudflare Pages
 assets/css/site.css                     → folha de estilos única
+assets/js/vitachart-demo.js              → seletor de dias fictícios (sem armazenamento/rede)
 assets/fonts/                           → tipografia self-hosted (.woff2)
 assets/img/                             → fotografia, Open Graph e vinhetas
 scripts/check_site.py                   → validação técnica do site
@@ -117,18 +119,18 @@ A estética deve continuar editorial, calma, clássica e com muito espaço negat
 
 ### Revisão estética — 30 de setembro de 2026
 
-A Home aproxima nome, boas-vindas e retrato numa composição equilibrada de duas colunas em computador, alinhada pela base. Em telemóvel, o texto de apresentação surge antes do retrato, mantendo a leitura contínua. As quatro salas (Work, Photography, Notes, Contact) preservam a estrutura tipográfica limpa e uniforme.
+A Home aproxima nome, boas-vindas e retrato numa composição equilibrada de duas colunas em computador, alinhada pela base. Em telemóvel, o texto de apresentação surge antes do retrato, mantendo a leitura contínua. As quatro salas (Work, Projects, Photography, Notes) preservam a estrutura tipográfica limpa e uniforme.
 
 - A primeira nota recebe a classe `entry--featured` na Home e no índice Notes; ao publicar uma nova nota, mover esse destaque para a entrada mais recente.
 - Conversas externas têm uma indicação explícita para assistir (`Watch conversation ↗`); continuam sem embeds externos.
 - Datas, idiomas e rodapé usam tamanhos maiores; a navegação tem áreas de toque confortáveis (44px) em telemóvel.
-- A versão da folha de estilos é `20261023-2` em todos os HTML, incluindo o template.
+- A versão da folha de estilos é `20261030-1` em todos os HTML, incluindo o template.
 
 O conteúdo editorial, as rotas, o RSS e a configuração de publicação mantêm-se. A folha de estilos comum aplica os ajustes de legibilidade a Work, Contact, artigos e 404.
 
 ## Privacidade e dependências
 
-Não há analytics nem tracking instalados.
+Não há analytics nem tracking instalados. A demonstração do VitaChart é uma exceção localizada ao JavaScript: usa apenas dados fictícios predefinidos, sem chamadas de rede nem armazenamento de entradas. A observação de exemplo e o PDF continuam acessíveis sem o script. A história do projeto fica em `/projects/vitachart/`, a demonstração em `/vitachart/` e a política em `/vitachart/privacy/`.
 
 As fontes (Newsreader e Instrument Sans) são self-hosted localmente em `/assets/fonts/` através de ficheiros `.woff2` e regras `@font-face` em `site.css`, eliminando pedidos externos a CDNs de terceiros.
 

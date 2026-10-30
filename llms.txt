@@ -2,7 +2,7 @@
 
 > Personal website and editorial publication of Diogo Bronze Silva (signing publicly as Diogo Silva). B2B SaaS sales professional based near Fátima, Portugal (Senior Account Executive at Coverflex), essayist on sales methodology, artificial intelligence at work, philosophy, theology, and family, and documentary photographer under Bronze Art. Lives with his wife, Sara, and their five children.
 
-The site is hand-written static HTML and CSS: no JavaScript, no analytics, no tracking. Fast, semantic and fully crawlable by both humans and AI models.
+The site uses hand-written static HTML and CSS, with no analytics or tracking. Only the VitaChart demonstration uses a small local JavaScript file to browse fictional data; its example remains readable without JavaScript.
 Contact: hello@diogobronzesilva.com
 Full context document: [llms-full.txt](https://diogobronzesilva.com/llms-full.txt)
 
@@ -25,7 +25,7 @@ Full context document: [llms-full.txt](https://diogobronzesilva.com/llms-full.tx
 
 - [Projects](https://diogobronzesilva.com/projects/): Photo delivery software, local video tools, a fertility diary and AI sales workflows by Diogo Silva.
 - [VitaChart](https://diogobronzesilva.com/projects/vitachart/): A local fertility diary in private testing for Android and iPhone, informed by family experience with the Creighton Model. Includes daily observations and reports for professional review; automated interpretations remain under validation. Remote couple synchronisation is not available.
-- [VitaChart Demo & Overview](https://diogobronzesilva.com/vitachart/): Interactive synthetic demonstration, 12-card observation deck, and comparative strengths.
+- [VitaChart Demo & Overview](https://diogobronzesilva.com/vitachart/): A simplified interactive example with fictional observations and a sample report. It does not calculate or predict fertility; the app remains in private testing.
 - [VitaChart Privacy Policy](https://diogobronzesilva.com/vitachart/privacy/): Complete privacy policy for VitaChart.
 - [Bronze Art Galleries](https://diogobronzesilva.com/projects/bronze-art-galleries/): Photo delivery software built for Bronze Art, with chapter-based galleries, final JPEG downloads, album selections and resumable folder uploads. Client links and photographs are not published on this site.
 - [Cutline](https://diogobronzesilva.com/projects/cutline/): A personal Mac app for local transcription, vertical video clips and separate editable captions. Apple silicon, macOS 13.5 or later. Linked-video and initial model downloads need a connection; processing runs on the Mac. No installer is distributed here.
@@ -58,7 +58,7 @@ The Notes index also holds selected podcast and interview appearances under a Po
 - [Work](https://diogobronzesilva.com/work/): Sales, technology, decisions and the human part of the job.
 - [Projects](https://diogobronzesilva.com/projects/): Bronze Art Galleries, Cutline, VitaChart and AI sales workflows, with visible questions about availability and scope.
 - [VitaChart](https://diogobronzesilva.com/projects/vitachart/): Local fertility diary in development, with reports for professional review.
-- [VitaChart Demo & Overview](https://diogobronzesilva.com/vitachart/): Interactive synthetic demonstration, 12-card observation deck, and comparative strengths.
+- [VitaChart Demo & Overview](https://diogobronzesilva.com/vitachart/): A simplified interactive example with fictional observations and a sample report. It does not calculate or predict fertility; the app remains in private testing.
 - [VitaChart Privacy Policy](https://diogobronzesilva.com/vitachart/privacy/): Complete privacy policy for VitaChart.
 - [Notes index](https://diogobronzesilva.com/notes/): Essays, handwritten notes and selected podcast/live interview appearances.
 - [Contact](https://diogobronzesilva.com/contact/): Email address and links.
