@@ -98,7 +98,7 @@
 }
 </script>
 <link rel="stylesheet" href="/assets/css/site.css?v=20261101-1">
-<script src="/assets/js/vitachart-demo.js?v=20261101-live" defer></script>
+<script src="/assets/js/vitachart-demo.js?v=20261101-2" defer></script>
 </head>
 <body>
 
@@ -138,90 +138,112 @@
 
     <section class="demo-section" id="demo" aria-labelledby="demo-title">
       <div class="demo-section__head">
-        <div><p class="label">01 &middot; Experiência na Aplicação Móvel</p><h2 id="demo-title" tabindex="-1">A aplicação móvel real ao vivo.</h2></div>
-        <p class="demo-status">Aplicação real interativa &middot; 3 ciclos clínicos &middot; Multi-idioma</p>
+        <div>
+          <p class="label">01 &middot; Experiência na Aplicação Móvel</p>
+          <h2 id="demo-title" tabindex="-1">A aplicação móvel real ao vivo.</h2>
+        </div>
+        <div class="demo-version-chip-group">
+          <span class="demo-version-badge"><span class="demo-version-dot"></span>VitaChart v1.2.8 &middot; Compilação 32</span>
+          <span class="demo-status">3 ciclos clínicos fictícios &middot; Dados sintéticos locais</span>
+        </div>
       </div>
-      <p class="demo-introduction">Experimenta a aplicação móvel real do VitaChart diretamente no simulador interativo abaixo ou abre-a em ecrã inteiro no teu telemóvel. Podes explorar 3 ciclos fictícios completos, registar observações tocando nos cartões, abrir as Bottom Sheets de muco, verificar a folha com selos coloridos (P / &times;) e gerar o relatório clínico PDF oficial para consulta médica.</p>
+      <p class="demo-introduction">Experimenta a versão móvel 1.2.8 do VitaChart diretamente no simulador interativo abaixo ou abre-a em ecrã inteiro no teu telemóvel. Podes explorar 3 ciclos fictícios completos, registar observações tocando nos cartões, abrir a Bottom Sheet de inspeção de muco, verificar a folha com selos coloridos (P / &times;) e gerar o relatório clínico PDF oficial para consulta médica.</p>
 
       <div class="demo-showcase-grid">
         <div class="demo-mockup-wrapper">
           <div class="phone-mockup">
             <iframe id="vitachart-live-demo" src="/vitachart/app/?demo=1&amp;lang=pt&amp;tab=today" title="VitaChart Interactive Mobile Demo" loading="lazy"></iframe>
           </div>
-          <a href="/vitachart/app/?demo=1" target="_blank" rel="noopener" class="demo-phone-fullscreen-btn">Abrir Demonstração em Ecrã Inteiro no Telemóvel &nearr;</a>
         </div>
 
         <div class="demo-controls-card">
-          <div class="demo-lang-box">
-            <p class="demo-controls-heading">Idioma da Demonstração</p>
-            <div class="demo-lang-row" role="group" aria-label="Seletor de idioma da demonstração">
-              <button type="button" class="demo-lang-btn" data-lang="pt" aria-pressed="true">Português</button>
-              <button type="button" class="demo-lang-btn" data-lang="en" aria-pressed="false">English</button>
-              <button type="button" class="demo-lang-btn" data-lang="es" aria-pressed="false">Español</button>
-              <button type="button" class="demo-lang-btn" data-lang="fr" aria-pressed="false">Français</button>
+          <div class="demo-controls-top">
+            <div class="demo-lang-box">
+              <span class="demo-controls-heading">Idioma da Demonstração</span>
+              <div class="demo-lang-row" role="group" aria-label="Seletor de idioma da demonstração">
+                <button type="button" class="demo-lang-btn" data-lang="pt" aria-pressed="true">Português</button>
+                <button type="button" class="demo-lang-btn" data-lang="en" aria-pressed="false">English</button>
+                <button type="button" class="demo-lang-btn" data-lang="es" aria-pressed="false">Español</button>
+                <button type="button" class="demo-lang-btn" data-lang="fr" aria-pressed="false">Français</button>
+              </div>
+            </div>
+            <div class="demo-active-version-info">
+              <span class="demo-version-badge"><span class="demo-version-dot"></span>Versão 1.2.8</span>
             </div>
           </div>
 
           <div class="demo-tours-box">
-            <p class="demo-controls-heading">Visitas Guiadas com 1 Clique</p>
+            <div class="demo-tours-header">
+              <span class="demo-controls-heading">Visitas Guiadas com 1 Clique</span>
+              <span class="demo-tours-sub">Toca para abrir diretamente cada funcionalidade no simulador</span>
+            </div>
             <div class="demo-tours-list" role="group" aria-label="Visitas guiadas pela aplicação">
               <button type="button" class="demo-tour-item" data-tour-tab="today" aria-pressed="true">
                 <div class="demo-tour-item-header">
-                  <span class="demo-tour-title">1. Ecrã Hoje &amp; Anel do Ciclo</span>
+                  <span class="demo-tour-step">1</span>
+                  <span class="demo-tour-title">Ecrã Hoje &amp; Anel</span>
                   <span class="demo-tour-badge">Painel diário</span>
                 </div>
-                <p class="demo-tour-desc">Visão diária do ciclo, fase atual, estado dos biomarcadores observados e atalhos rápidos.</p>
+                <p class="demo-tour-desc">Visão diária do ciclo, biomarcadores observados e atalhos rápidos.</p>
               </button>
 
               <button type="button" class="demo-tour-item" data-tour-tab="dayLog" aria-pressed="false">
                 <div class="demo-tour-item-header">
-                  <span class="demo-tour-title">2. Grelha Tátil de 12 Cartões de Registo</span>
+                  <span class="demo-tour-step">2</span>
+                  <span class="demo-tour-title">12 Cartões Táteis</span>
                   <span class="demo-tour-badge">Ergonomia</span>
                 </div>
-                <p class="demo-tour-desc">Entrada rápida e tátil de biomarcadores: hemorragia, sensação ao caminhar e ao limpar.</p>
+                <p class="demo-tour-desc">Entrada tátil imediata: hemorragia, sensação vulvar e temperatura.</p>
               </button>
 
               <button type="button" class="demo-tour-item" data-tour-tab="dayLog" data-tour-sheet="inspection" aria-pressed="false">
                 <div class="demo-tour-item-header">
-                  <span class="demo-tour-title">3. Inspeção de Muco e Elasticidade</span>
-                  <span class="demo-tour-badge">Códigos Creighton</span>
+                  <span class="demo-tour-step">3</span>
+                  <span class="demo-tour-title">Inspeção de Muco</span>
+                  <span class="demo-tour-badge">Creighton</span>
                 </div>
-                <p class="demo-tour-desc">Bottom Sheet de inspeção com comprimentos de elasticidade (2, 4, 6, 8, 10, 10DL, 10SL, 10WL) e modificadores.</p>
+                <p class="demo-tour-desc">Bottom Sheet com elasticidade (2 a 10WL) e modificadores (C, K, P...).</p>
               </button>
 
               <button type="button" class="demo-tour-item" data-tour-tab="chart" aria-pressed="false">
                 <div class="demo-tour-item-header">
-                  <span class="demo-tour-title">4. Folha do Ciclo Completa (Selos P / &times; e BBT)</span>
+                  <span class="demo-tour-step">4</span>
+                  <span class="demo-tour-title">Folha com Selos</span>
                   <span class="demo-tour-badge">Gráfico Clínico</span>
                 </div>
-                <p class="demo-tour-desc">Visão clínica panorâmica, selos de fertilidade coloridos, identificação do Dia de Pico e contagem 1-2-3.</p>
+                <p class="demo-tour-desc">Selos de fertilidade coloridos, Dia de Pico (P/&times;) e curva BBT.</p>
               </button>
 
               <button type="button" class="demo-tour-item" data-tour-report="1" aria-pressed="false">
                 <div class="demo-tour-item-header">
-                  <span class="demo-tour-title">5. Gerador de Relatório Clínico PDF</span>
-                  <span class="demo-tour-badge">Exportação A4</span>
+                  <span class="demo-tour-step">5</span>
+                  <span class="demo-tour-title">Relatório PDF A4</span>
+                  <span class="demo-tour-badge">Exportação</span>
                 </div>
-                <p class="demo-tour-desc">Abertura imediata do modal de geração do relatório médico pronto para consulta ou impressão.</p>
+                <p class="demo-tour-desc">Pré-visualização e geração de relatório médico oficial para consulta.</p>
               </button>
 
               <button type="button" class="demo-tour-item" data-tour-tab="settings" aria-pressed="false">
                 <div class="demo-tour-item-header">
-                  <span class="demo-tour-title">6. Alternar Método (Creighton vs. Billings)</span>
+                  <span class="demo-tour-step">6</span>
+                  <span class="demo-tour-title">Métodos &amp; Línguas</span>
                   <span class="demo-tour-badge">Definições</span>
                 </div>
-                <p class="demo-tour-desc">Alternância de metodologia de notação, personalização de idiomas e cópias locais cifradas.</p>
+                <p class="demo-tour-desc">Alternância Creighton/Billings, 4 idiomas e cópias locais cifradas.</p>
               </button>
             </div>
           </div>
 
-          <a href="/vitachart/app/?demo=1" target="_blank" rel="noopener" class="demo-cta-btn">
-            Abrir Demonstração em Ecrã Inteiro no Telemóvel &nearr;
-          </a>
+          <div class="demo-controls-footer">
+            <a href="/vitachart/app/?demo=1" target="_blank" rel="noopener" class="demo-cta-btn">
+              <span class="demo-cta-label">Abrir Demonstração em Ecrã Inteiro &nearr;</span>
+              <span class="demo-cta-sub">Experiência interativa recomendada para telemóveis e tablets</span>
+            </a>
 
-          <p class="demo-privacy-notice">
-            <strong>Privacidade estrita e isolamento:</strong> O modo de demonstração opera numa base de dados fictícia local isolada (IndexedDB). Nenhum dado pessoal é gravado ou transferido para servidores externos.
-          </p>
+            <p class="demo-privacy-notice">
+              <strong>Privacidade e dados locais:</strong> A demonstração opera em modo isolado com dados sintéticos locais (IndexedDB). Nenhum dado pessoal é transmitido.
+            </p>
+          </div>
         </div>
       </div>
 
@@ -230,9 +252,9 @@
           <div>
             <p class="label">Inside the App</p>
             <h3 id="gallery-title">Ecrãs Principais da Aplicação Móvel</h3>
-            <p class="demo-introduction">Explora as capturas de ecrã reais obtidas a partir de um dispositivo móvel com o VitaChart. Ao alternares o idioma da demonstração acima, as imagens adaptam-se imediatamente para o respetivo idioma (Português, Inglês, Espanhol ou Francês).</p>
+            <p class="demo-introduction">Capturas reais obtidas diretamente na versão móvel 1.2.8 do VitaChart. Ao alternares o idioma da demonstração acima, as imagens adaptam-se imediatamente (Português, Inglês, Espanhol ou Francês).</p>
           </div>
-          <div class="gallery-nav-btns" aria-label="Controlos da galeria">
+          <div class="gallery-nav-btns" aria-label="Navegar na galeria">
             <button type="button" class="gallery-nav-btn" id="gallery-prev" aria-label="Ecrã anterior">&larr;</button>
             <button type="button" class="gallery-nav-btn" id="gallery-next" aria-label="Próximo ecrã">&rarr;</button>
           </div>
