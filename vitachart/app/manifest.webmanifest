@@ -1,0 +1,33 @@
+{
+  "name": "VitaChart • Fertilidade Natural & NaPro",
+  "short_name": "VitaChart",
+  "description": "Diário de fertilidade natural e saúde feminina para acompanhamento FertilityCare e NaProTechnology.",
+  "start_url": "/",
+  "id": "/",
+  "scope": "/",
+  "lang": "pt-PT",
+  "display": "standalone",
+  "background_color": "#FAF7F2",
+  "theme_color": "#FAF7F2",
+  "orientation": "any",
+  "icons": [
+    {
+      "src": "/icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}
