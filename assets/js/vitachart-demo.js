@@ -22,12 +22,12 @@
     if (day.code === "M") return "Bleeding · Moderate menstrual flow";
     if (day.code === "10KL AD") {
       return day.marker === "P"
-        ? "Slippery · Clear, stretchy strings (✕ Apex Day)"
+        ? "Slippery · Clear, stretchy strings (✕ Peak Day)"
         : "Slippery · Clear, stretchy strings (change from BIP)";
     }
     if (day.code === "0 AD") {
       return day.marker
-        ? `Dry · Basic Infertile Pattern (post-Apex Day ${day.marker})`
+        ? `Dry · Basic Infertile Pattern (post-Peak Day ${day.marker})`
         : "Dry · Basic Infertile Pattern (Dry BIP)";
     }
     return day.code;
@@ -53,11 +53,11 @@
     if (!day.marker) return "None in this example";
     if (day.marker === "P") {
       return currentStyle === "BILLINGS"
-        ? "✕ · Apex Day (Billings / BOM style, for review)"
+        ? "✕ · Peak Day (Billings / BOM style, for review)"
         : "P · Peak Day (Creighton / NaPro style, for review)";
     }
     return currentStyle === "BILLINGS"
-      ? `✕ + ${day.marker} · Post-Apex Day ${day.marker} of 3 (with BBT shift)`
+      ? `✕ + ${day.marker} · Post-Peak Day ${day.marker} of 3 (with BBT shift)`
       : `P + ${day.marker} · Post-Peak Day ${day.marker} of 3 (with BBT shift)`;
   }
 
@@ -159,7 +159,7 @@
     });
     if (notationLabel) {
       notationLabel.textContent = currentStyle === "BILLINGS"
-        ? "Vulvar Sensation (Apex ✕)"
+        ? "Vulvar Sensation (Peak ✕)"
         : "Standardized Code (Peak P)";
     }
     renderTimeline();
