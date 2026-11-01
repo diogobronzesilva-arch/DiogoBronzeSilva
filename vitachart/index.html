@@ -41,9 +41,9 @@
       "@id": "https://diogobronzesilva.com/vitachart/#webpage",
       "url": "https://diogobronzesilva.com/vitachart/",
       "name": "VitaChart — Chart Demo & Practitioner Preview | Diogo Silva",
-      "description": "Explore fictional 28- and 47-day VitaChart journals, inspect daily records and view the matching consultation PDFs. A preview for invited testers and practitioners.",
+      "description": "Explore fictional 28- and 47-day VitaChart journals across Standardized Code (Creighton / NaPro style, Peak P) and Vulvar Sensation (Billings / BOM style, Peak ✕) notations, inspect daily records and view consultation PDFs.",
       "inLanguage": "en",
-      "dateModified": "2026-10-30",
+      "dateModified": "2026-11-01",
       "isPartOf": {
         "@id": "https://diogobronzesilva.com/#website"
       },
@@ -57,7 +57,7 @@
       "@id": "https://diogobronzesilva.com/vitachart/#demonstration",
       "name": "VitaChart fictional journal demonstration",
       "url": "https://diogobronzesilva.com/vitachart/#demo",
-      "description": "A read-only demonstration of 28- and 47-day fictional journals and their matching consultation reports. It does not calculate or predict fertility.",
+      "description": "A read-only demonstration of 28- and 47-day fictional journals in Standardized Code (Creighton / NaPro style) and Vulvar Sensation (Billings / BOM style) notations, with matching consultation reports. It does not calculate or predict fertility.",
       "about": {
         "@id": "https://diogobronzesilva.com/projects/vitachart/#software"
       },
@@ -97,8 +97,8 @@
   ]
 }
 </script>
-<link rel="stylesheet" href="/assets/css/site.css?v=20261030-2">
-<script src="/assets/js/vitachart-demo.js?v=20261030-2" defer></script>
+<link rel="stylesheet" href="/assets/css/site.css?v=20261101-1">
+<script src="/assets/js/vitachart-demo.js?v=20261101-1" defer></script>
 </head>
 <body>
 
@@ -123,9 +123,9 @@
 <main id="main" tabindex="-1">
   <article class="shell article project-page demo-page">
     <header class="article__head demo-page__head">
-      <p class="article__date label"><a class="link" href="/projects/vitachart/">VitaChart</a> &middot; Practitioner preview</p>
+      <p class="article__date label"><a class="link" href="/projects/vitachart/">VitaChart</a> &middot; Practitioner preview &middot; v1.2.3</p>
       <h1 class="article__title">A diary to review together.</h1>
-      <p class="standfirst">Explore daily observations, see the cycle as a whole and open the report for a consultation. These examples use fictional records.</p>
+      <p class="standfirst">Explore daily observations in both Standardized Code (Creighton / NaPro style, Peak <strong>P</strong>) and Vulvar Sensation (Billings / BOM style, Peak <strong>&times;</strong>), see the cycle as a whole and open the report for a consultation. These examples use fictional records.</p>
       <nav aria-label="VitaChart preview sections">
         <ul class="project-index demo-page__links">
           <li><a class="link" href="#demo">Explore the chart &darr;</a></li>
@@ -138,21 +138,28 @@
     <section class="demo-section" id="demo" aria-labelledby="demo-title">
       <div class="demo-section__head">
         <div><p class="label">01 &middot; Daily records</p><h2 id="demo-title" tabindex="-1">Explore a VitaChart cycle.</h2></div>
-        <p class="demo-status">Read-only preview &middot; Fictional data</p>
+        <p class="demo-status">Read-only preview &middot; Fictional data &middot; 2 notations</p>
       </div>
-      <p class="demo-introduction">Choose a day to review its record. Each sample matches the downloadable report below.</p>
+      <p class="demo-introduction">Choose a day to review its record, or switch between Standardized Code (Creighton / NaPro style) and Vulvar Sensation &amp; Peak (Billings / BOM style). Each sample matches the downloadable report below.</p>
 
-      <div class="demo-cycle-picker" role="group" aria-label="Choose a sample cycle" hidden>
-        <button type="button" data-cycle="28" aria-pressed="true" aria-controls="sample-cycle">28-day example</button>
-        <button type="button" data-cycle="47" aria-pressed="false" aria-controls="sample-cycle">47-day example</button>
+      <div class="demo-toolbar">
+        <div class="demo-cycle-picker" role="group" aria-label="Choose a sample cycle" hidden>
+          <button type="button" data-cycle="28" aria-pressed="true" aria-controls="sample-cycle">28-day example</button>
+          <button type="button" data-cycle="47" aria-pressed="false" aria-controls="sample-cycle">47-day example</button>
+        </div>
+        <div class="demo-style-picker" role="group" aria-label="Choose charting notation style" hidden>
+          <button type="button" data-style="CREIGHTON" aria-pressed="true" aria-controls="sample-cycle">Standardized Code (Creighton / NaPro &middot; P)</button>
+          <button type="button" data-style="BILLINGS" aria-pressed="false" aria-controls="sample-cycle">Vulvar Sensation (Billings / BOM &middot; &times;)</button>
+        </div>
       </div>
       <div id="sample-cycle">
         <dl class="demo-cycle-summary">
           <div><dt>Cycle dates</dt><dd id="cycle-dates">01 Aug – 28 Aug 2026</dd></div>
           <div><dt>Actual cycle length</dt><dd id="cycle-length">28 days</dd></div>
           <div><dt>Days with sign observations</dt><dd id="cycle-recorded">27 of 28</dd></div>
+          <div><dt>Active notation</dt><dd id="cycle-notation">Standardized Code (Peak P)</dd></div>
         </dl>
-        <p class="demo-help" id="demo-help">Choose a day, or use the arrow keys within the chart. Day 8 shows a temperature entry without a sign observation.</p>
+        <p class="demo-help" id="demo-help">Choose a day, or use the arrow keys within the chart. Day 8 shows a temperature entry without a sign observation. Days 16–18 show a 3-over-6 basal temperature shift (+0.40 °C) alongside the post-Peak / post-Apex count (1, 2, 3).</p>
         <div class="demo-days" id="timelineStrip" tabindex="-1" role="group" aria-label="Choose an example day" aria-describedby="demo-help">
 <button type="button" class="demo-day" disabled data-day="1" aria-label="Day 1, 01 Aug, M" aria-pressed="false" aria-controls="deckGrid" tabindex="-1">
               <span class="demo-day-number">1<small>01 Aug</small></span>
@@ -297,16 +304,17 @@
         </div>
         <div class="demo-legend" aria-label="Chart legend">
           <span><i class="demo-stamp demo-stamp--red" aria-hidden="true"></i>Bleeding</span>
-          <span><i class="demo-stamp demo-stamp--green" aria-hidden="true"></i>No mucus recorded</span>
-          <span><i class="demo-stamp demo-stamp--white" aria-hidden="true"></i>Mucus recorded</span>
+          <span><i class="demo-stamp demo-stamp--green" aria-hidden="true"></i>Dry / Basic Infertile Pattern (BIP)</span>
+          <span><i class="demo-stamp demo-stamp--white" aria-hidden="true"></i>Fertile / Mucus recorded</span>
           <span><i class="demo-stamp demo-stamp--unknown" aria-hidden="true"></i>No sign observation</span>
-          <span>P / 1, 2, 3: example annotations</span>
+          <span id="demo-legend-peak">P (Creighton) or &times; (Billings) / 1, 2, 3: Peak &amp; post-Peak annotations</span>
         </div>
         <div class="demo-highlights" role="group" aria-label="Records worth exploring" hidden>
           <span>Look closer:</span>
           <button type="button" data-select-day="8">Day 8: no sign observation</button>
           <button type="button" data-select-day="10">Day 10: a question</button>
-          <button type="button" data-select-day="18">Day 18: a medication note</button>
+          <button type="button" data-select-day="15">Day 15: Peak Day (P / &times;)</button>
+          <button type="button" data-select-day="18">Day 18: 3rd post-Peak &amp; medication</button>
         </div>
 
         <section class="demo-observations" aria-labelledby="selectedDayTitle">
@@ -319,26 +327,27 @@
           </div>
           <p id="selectedDaySummary" role="status" aria-live="polite" aria-atomic="true">Fictional day 15: code 10KL AD, 36.25 °C. P is an annotation from the sample report, for review.</p>
           <dl class="demo-fields" id="deckGrid">
-            <div><dt>Recorded code</dt><dd data-field="code">10KL AD</dd></div>
+            <div><dt id="field-code-label">Recorded code / sensation</dt><dd data-field="code">10KL AD</dd></div>
+            <div><dt>Billings / BOM notation</dt><dd data-field="billings">Slippery · Clear, stretchy strings (&times;)</dd></div>
             <div><dt>Temperature</dt><dd data-field="temperature">36.25 °C</dd></div>
             <div><dt>Sign observation</dt><dd data-field="observed">Recorded</dd></div>
-            <div><dt>Report annotation</dt><dd data-field="marker">P (for review)</dd></div>
+            <div><dt>Report annotation</dt><dd data-field="marker">P · Peak Day (for review)</dd></div>
             <div><dt>Question for consultation</dt><dd data-field="question">None in this example</dd></div>
             <div><dt>Medication note</dt><dd data-field="medication">None in this example</dd></div>
             <div><dt>Other notes</dt><dd data-field="note">None in this example</dd></div>
           </dl>
           <p class="demo-record-back"><a class="link" href="#timelineStrip">Back to the chart &uarr;</a></p>
         </section>
-        <noscript><p class="demo-note">The full 28-day chart and sample reports are available without JavaScript. Enable it to switch cycles and inspect individual records.</p></noscript>
+        <noscript><p class="demo-note">The full 28-day chart and sample reports are available without JavaScript. Enable it to switch cycles, toggle between Standardized Code (P) and Vulvar Sensation (&times;) notations, and inspect individual records.</p></noscript>
       </div>
       <p class="demo-note">Annotations are copied from the fictional report. This page does not calculate or predict fertility, accept personal entries or save a journal. Automated interpretations in the app remain under validation.</p>
     </section>
 
     <section class="demo-section" id="reports" aria-labelledby="report-title">
       <div class="demo-section__head">
-        <div><p class="label">02 &middot; Consultation report</p><h2 id="report-title">See the record on paper.</h2></div>
+        <div><p class="label">02 &middot; Consultation report &amp; exports</p><h2 id="report-title">See the record on paper.</h2></div>
       </div>
-      <p class="demo-introduction">These are existing exports from VitaChart with fictional names and records. The sample reports are in Portuguese. The 47-day example continues onto a second sheet, rather than ending at day 35.</p>
+      <p class="demo-introduction">These are existing A4 Landscape PDF exports from VitaChart with fictional names and records. In the app, reports adapt automatically to the selected method (displaying Peak Day <strong>P</strong> for Creighton / NaPro style or Apex Day <strong>&times;</strong> for Billings / BOM style) and can be exported alongside full CSV / Excel spreadsheets and local JSON backups. The sample PDFs below are in Portuguese, and the 47-day example continues onto a second sheet rather than ending at day 35.</p>
       <ul class="project-index demo-report-links">
         <li><a class="link" href="/assets/docs/vitachart-sample-consultation-chart.pdf" target="_blank" rel="noopener">28-day report &middot; 1 page &nearr;</a></li>
         <li><a class="link" href="/assets/docs/vitachart-sample-47-days.pdf" target="_blank" rel="noopener">47-day report &middot; 2 pages &nearr;</a></li>
@@ -360,14 +369,14 @@
         <div><p class="label">03 &middot; Invitation</p><h2 id="testing-title">Your experience would help.</h2></div>
       </div>
       <div class="prose">
-        <p>I am inviting a small group of practitioners and testers to try VitaChart free of charge and tell me whether the daily record and consultation report are clear and useful. This web preview is read-only; the invited app test includes entering and editing records.</p>
+        <p>I am inviting a small group of practitioners, instructors and testers to try VitaChart free of charge and tell me whether the daily record and consultation report are clear and useful. The app now supports 4 languages (English, Portuguese, Spanish and French, with automatic device language detection and English fallback) and lets users switch between Standardized Code (Creighton / NaPro style, Peak <strong>P</strong>) and Vulvar Sensation &amp; Peak (Billings / BOM style, Apex <strong>&times;</strong> and Basic Infertile Pattern) without losing recorded data. This web preview is read-only; the invited app test includes entering and editing records.</p>
         <p>If you received a Google Play code, use the code in your invitation at <a class="link" href="https://play.google.com/redeem" target="_blank" rel="noopener">Google Play &nearr;</a>. Installation access is arranged through the invitation; this page does not provide a public download. If you need iPhone access, reply to your invitation to confirm the current testing options.</p>
         <h3>What I would like to hear</h3>
         <ul>
-          <li>Is it clear how to record a day and distinguish a note from an observation of signs?</li>
-          <li>Can you read the chart easily, including missing observations and longer cycles?</li>
-          <li>Would the report help in a consultation? What is missing or difficult to read?</li>
-          <li>Which terms would you change? English, Spanish and French wording is open for professional review.</li>
+          <li>Is it clear how to record a day in either Standardized Code (Creighton / NaPro style) or Vulvar Sensation (Billings / BOM style), and distinguish a note from an observation of signs?</li>
+          <li>Can you read the chart easily, including Peak Day (<strong>P</strong>) vs. Apex Day (<strong>&times;</strong>), missing observations, 3-over-6 temperature shifts and longer cycles?</li>
+          <li>Would the A4 Landscape PDF report and CSV / Excel export help in a consultation? What is missing or difficult to read?</li>
+          <li>Which terms would you change? English, Portuguese, Spanish and French wording is open for professional review.</li>
         </ul>
         <p>Reply to the invitation, or <!--email_off--><a class="link" href="mailto:diogo@diogobronzesilva.com?subject=VitaChart%20beta%20feedback">send feedback to Diogo</a><!--/email_off-->. Fictional examples are enough to explain a problem.</p>
       </div>
@@ -376,8 +385,8 @@
     <section class="demo-section demo-about" aria-labelledby="about-title">
       <h2 id="about-title">About this independent project</h2>
       <div class="prose">
-        <p>VitaChart grew out of our family’s use of the Creighton Model with a FertilityCare practitioner and a NaProTechnology doctor. It keeps daily records on the device, without a mandatory online account. I am building VitaChart around a one-time purchase, without monthly or annual subscriptions. Invited testing is free.</p>
-        <p>VitaChart is in private testing. It is an independent diary, with no institutional endorsement or clinical certification. It does not diagnose conditions or replace instruction and professional guidance.</p>
+        <p>VitaChart grew out of our family’s fertility charting experience with a FertilityCare practitioner and a NaProTechnology doctor, and has expanded to support both Standardized Code charting (Creighton / NaPro style) and Vulvar Sensation &amp; Peak charting (Billings / BOM style). It keeps daily records 100% locally on the device, without a mandatory online account, advertising or third-party tracking. I am building VitaChart around a one-time purchase, without monthly or annual subscriptions. Invited testing is free.</p>
+        <p>VitaChart is an independent fertility charting application and is not affiliated with, endorsed by, or certified by the Saint Paul VI Institute, FertilityCare Centers of America, or WOOMB International. References to Creighton Model, NaProTechnology, and Billings Ovulation Method are used strictly for descriptive compatibility of user-recorded notations. It does not diagnose conditions or replace instruction and professional guidance.</p>
         <p><a class="link" href="/projects/vitachart/">Read the project story</a> &middot; <a class="link" href="/vitachart/privacy/">Privacy policy (Portuguese)</a></p>
       </div>
     </section>

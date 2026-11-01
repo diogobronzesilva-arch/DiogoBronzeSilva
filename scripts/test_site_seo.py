@@ -213,6 +213,9 @@ class VitaChartSampleTests(unittest.TestCase):
         self.assertIn('/assets/docs/vitachart-sample-47-days.pdf', self.html)
         self.assertIn('/assets/docs/vitachart-sample-consultation-chart.pdf', self.html)
         self.assertIn('For invited testers', self.html)
+        self.assertIn('data-style="CREIGHTON"', self.html)
+        self.assertIn('data-style="BILLINGS"', self.html)
+        self.assertIn('WOOMB International', self.html)
 
 
 if __name__ == '__main__':

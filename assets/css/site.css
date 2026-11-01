@@ -875,12 +875,13 @@ p { margin: 0 0 1.1em; }
 .demo-section__head .label { margin-bottom: 0.5rem; }
 .demo-introduction { max-width: 42rem; color: var(--ink-soft); font-size: 1.0625rem; }
 .demo-status { margin: 0; font-family: var(--sans); font-size: 0.8125rem; color: var(--bronze); }
-.demo-cycle-picker:not([hidden]) { display: flex; flex-wrap: wrap; gap: 0.65rem; margin-block: 1.5rem; }
-.demo-cycle-picker button, .demo-day-controls button {
+.demo-toolbar { display: flex; flex-wrap: wrap; gap: 0.75rem 1.5rem; margin-block: 1.5rem; }
+.demo-cycle-picker:not([hidden]), .demo-style-picker:not([hidden]) { display: flex; flex-wrap: wrap; gap: 0.65rem; }
+.demo-cycle-picker button, .demo-style-picker button, .demo-day-controls button {
   background: transparent; border: 1px solid var(--rule); color: var(--ink);
   font: 0.875rem var(--sans); min-height: 2.75rem; padding: 0.6rem 1rem; cursor: pointer;
 }
-.demo-cycle-picker [aria-pressed="true"] { background: var(--ink); border-color: var(--ink); color: var(--paper); }
+.demo-cycle-picker [aria-pressed="true"], .demo-style-picker [aria-pressed="true"] { background: var(--ink); border-color: var(--ink); color: var(--paper); }
 .demo-cycle-summary { display: flex; flex-wrap: wrap; gap: 1.25rem 3rem; margin: 0 0 1rem; }
 .demo-cycle-summary dt, .demo-fields dt { font: 0.8125rem var(--sans); color: var(--ink-soft); }
 .demo-cycle-summary dd { margin: 0.4rem 0 0; font-size: 1.125rem; }
@@ -952,7 +953,9 @@ p { margin: 0 0 1.1em; }
   .article__foot,
   .notes-preview,
   .project-index,
+  .demo-toolbar,
   .demo-cycle-picker:not([hidden]),
+  .demo-style-picker:not([hidden]),
   .demo-highlights:not([hidden]),
   .demo-day-controls:not([hidden]),
   .demo-help {
