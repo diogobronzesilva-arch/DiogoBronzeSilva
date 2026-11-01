@@ -250,11 +250,15 @@ def relative(path: Path) -> Path:
     return path.relative_to(ROOT)
 
 
+def is_app_file(rel: Path) -> bool:
+    return len(rel.parts) >= 2 and rel.parts[0] == "vitachart" and rel.parts[1] == "app"
+
+
 def published_html_files() -> list[Path]:
     files: list[Path] = []
     for path in ROOT.rglob("*.html"):
         rel = relative(path)
-        if any(part in {".git", "dist"} for part in rel.parts) or rel in {TEMPLATE, NOT_FOUND}:
+        if any(part in {".git", "dist"} for part in rel.parts) or rel in {TEMPLATE, NOT_FOUND} or is_app_file(rel):
             continue
         files.append(path)
     return sorted(files)
@@ -265,6 +269,7 @@ def all_html_files() -> list[Path]:
         path
         for path in ROOT.rglob("*.html")
         if not any(part in {".git", "dist"} for part in relative(path).parts)
+        and not is_app_file(relative(path))
     )
 
 

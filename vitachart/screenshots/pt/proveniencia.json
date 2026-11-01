@@ -1,0 +1,28 @@
+{
+  "version": "1.2.4",
+  "build": 28,
+  "platform": "Codex in-app browser responsive web preview",
+  "nativeDeviceCapture": false,
+  "language": "pt",
+  "syntheticData": true,
+  "dimensions": [
+    360,
+    800
+  ],
+  "viewportCss": [
+    360,
+    800
+  ],
+  "deviceScaleFactor": 1,
+  "sourceCommit": "444465fa170c2214ff601c3e611fb2546c6bcb78",
+  "sources": {
+    "01-onboarding-profile.jpg": "onboarding=1",
+    "02-today-dashboard.jpg": "tab=today",
+    "03-observation-grid.jpg": "tab=dayLog",
+    "04-mucus-inspection.jpg": "tab=dayLog&sheet=inspection",
+    "05-cycle-chart.jpg": "tab=chart",
+    "06-clinical-report.jpg": "report=1",
+    "07-settings-language.jpg": "tab=settings",
+    "08-billings-record.jpg": "tab=dayLog&method=BILLINGS"
+  }
+}

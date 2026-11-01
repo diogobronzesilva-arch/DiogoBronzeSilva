@@ -1,10 +1,137 @@
-/* Read-only fictional records transcribed from the linked PDF exports.
-   No clinical calculations, persistence or network calls. */
+/* VitaChart Interactive Live Demonstration & Practitioner Preview.
+   Loads the real VitaChart web application in an interactive mobile frame,
+   supports 1-click guided tours, multilingual preview, and real app screenshot gallery. */
 (() => {
   "use strict";
+
+  // Check URL parameters for ?demo=1
+  const searchParams = new URLSearchParams(window.location.search);
+  const isDemoParam = searchParams.get("demo") === "1";
+  const isMobile = window.innerWidth <= 768 || /Android|iPhone|iPad|iPod|webOS|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+
+  // Requirement 1: If someone accesses ?demo=1 on a phone, immediately open/focus the real app
+  if (isDemoParam && isMobile && !window.location.hash) {
+    window.location.replace("/vitachart/app/?demo=1");
+    return;
+  }
+
+  // Active language state for the demo
+  let currentLang = "pt";
+  let activeTab = "today";
+  let activeSheet = null;
+  let activeReport = false;
+
+  const iframe = document.getElementById("vitachart-live-demo");
+  const langButtons = document.querySelectorAll(".demo-lang-btn");
+  const tourButtons = document.querySelectorAll(".demo-tour-item");
+  const carousel = document.querySelector(".gallery-carousel");
+  const prevBtn = document.getElementById("gallery-prev");
+  const nextBtn = document.getElementById("gallery-next");
+  const fullscreenLinks = document.querySelectorAll(".demo-phone-fullscreen-btn, .demo-cta-btn");
+
+  function buildIframeUrl() {
+    const url = new URL("/vitachart/app/", window.location.origin);
+    url.searchParams.set("demo", "1");
+    url.searchParams.set("lang", currentLang);
+    if (activeTab) url.searchParams.set("tab", activeTab);
+    if (activeSheet) url.searchParams.set("sheet", activeSheet);
+    if (activeReport) url.searchParams.set("report", "1");
+    return url.toString();
+  }
+
+  function updateIframe() {
+    if (!iframe) return;
+    const newUrl = buildIframeUrl();
+    if (iframe.src !== newUrl) {
+      iframe.src = newUrl;
+    }
+    // Also dispatch message for instant reactivity if already loaded
+    try {
+      iframe.contentWindow?.postMessage({
+        type: "VITACHART_NAVIGATE",
+        lang: currentLang,
+        tab: activeTab,
+        sheet: activeSheet,
+        report: activeReport
+      }, window.location.origin);
+    } catch {
+      // Cross-origin fallback handled by iframe.src
+    }
+  }
+
+  function updateFullscreenLinks() {
+    fullscreenLinks.forEach(link => {
+      const url = new URL("/vitachart/app/", window.location.origin);
+      url.searchParams.set("demo", "1");
+      url.searchParams.set("lang", currentLang);
+      if (activeTab && activeTab !== "today") url.searchParams.set("tab", activeTab);
+      link.href = url.toString();
+    });
+  }
+
+  function updateCarouselScreenshots() {
+    document.querySelectorAll(".gallery-card img").forEach(img => {
+      const file = img.dataset.file;
+      if (file) {
+        img.src = `/vitachart/screenshots/${currentLang}/${file}`;
+      }
+    });
+  }
+
+  function setLanguage(lang) {
+    if (!["pt", "en", "es", "fr"].includes(lang)) return;
+    currentLang = lang;
+    langButtons.forEach(btn => {
+      btn.setAttribute("aria-pressed", String(btn.dataset.lang === lang));
+    });
+    updateIframe();
+    updateFullscreenLinks();
+    updateCarouselScreenshots();
+  }
+
+  langButtons.forEach(btn => {
+    btn.addEventListener("click", () => setLanguage(btn.dataset.lang));
+  });
+
+  tourButtons.forEach(btn => {
+    btn.addEventListener("click", () => {
+      tourButtons.forEach(b => b.setAttribute("aria-pressed", "false"));
+      btn.setAttribute("aria-pressed", "true");
+      activeTab = btn.dataset.tourTab || "today";
+      activeSheet = btn.dataset.tourSheet || null;
+      activeReport = btn.dataset.tourReport === "1";
+      updateIframe();
+      updateFullscreenLinks();
+    });
+  });
+
+  if (carousel && prevBtn && nextBtn) {
+    prevBtn.addEventListener("click", () => {
+      carousel.scrollBy({ left: -300, behavior: "smooth" });
+    });
+    nextBtn.addEventListener("click", () => {
+      carousel.scrollBy({ left: 300, behavior: "smooth" });
+    });
+  }
+
+  // Smooth scroll and focus on desktop when ?demo=1 is visited
+  if (isDemoParam && !isMobile) {
+    const showDemo = () => requestAnimationFrame(() => {
+      const title = document.getElementById("demo-title");
+      const demo = document.getElementById("demo");
+      if (title) title.focus({ preventScroll: true });
+      if (demo) demo.scrollIntoView({ behavior: "smooth", block: "start" });
+      if (iframe) iframe.focus();
+    });
+    if (document.readyState === "complete") showDemo();
+    else window.addEventListener("load", showDemo, { once: true });
+  }
+
+  /* ---------- Preserved Static Cycle Fallback for Accessible Inspection ---------- */
   const source = document.getElementById("vitachart-samples");
   const timeline = document.getElementById("timelineStrip");
   if (!source || !timeline) return;
+
   const samples = JSON.parse(source.textContent);
   let current = samples["28"];
   let currentStyle = "CREIGHTON";
@@ -84,18 +211,18 @@
     document.querySelectorAll("#deckGrid [data-field]").forEach(field => {
       field.textContent = values[field.dataset.field];
     });
-    title.textContent = "Day " + day.day + " · " + formatDate(day.date);
-    summary.textContent = "Fictional day " + day.day + " (" + (currentStyle === "BILLINGS" ? "Billings / BOM style" : "Creighton / NaPro style") + "): " +
+    if (title) title.textContent = "Day " + day.day + " · " + formatDate(day.date);
+    if (summary) summary.textContent = "Fictional day " + day.day + " (" + (currentStyle === "BILLINGS" ? "Billings / BOM style" : "Creighton / NaPro style") + "): " +
       (day.observed ? (currentStyle === "BILLINGS" ? billingsText : day.code) : "No sign observation") + ", " + day.temperature + " °C." +
       (day.marker ? " Report annotation: " + values.marker + "." : "") +
       (day.question ? " Includes a question for consultation." : "") +
       (day.medication ? " Includes a medication note." : "");
-    previous.disabled = selected === 0;
-    next.disabled = selected === current.days.length - 1;
-    if (focusDay) buttons[selected].focus();
+    if (previous) previous.disabled = selected === 0;
+    if (next) next.disabled = selected === current.days.length - 1;
+    if (focusDay && buttons[selected]) buttons[selected].focus();
     if (revealRecord) {
-      document.querySelector(".demo-observations").scrollIntoView({behavior: "instant", block: "start"});
-      title.focus({preventScroll: true});
+      document.querySelector(".demo-observations")?.scrollIntoView({behavior: "instant", block: "start"});
+      title?.focus({preventScroll: true});
     }
   }
 
@@ -172,30 +299,29 @@
     document.querySelectorAll("[data-cycle]").forEach(button => {
       button.setAttribute("aria-pressed", String(button.dataset.cycle === String(length)));
     });
-    document.getElementById("cycle-dates").textContent = formatDate(current.start) + " – " + formatDate(current.end);
-    document.getElementById("cycle-length").textContent = current.length + " days";
-    document.getElementById("cycle-recorded").textContent = current.recorded + " of " + current.length;
-    document.getElementById("report-preview-link").href = current.pdf;
+    const cDates = document.getElementById("cycle-dates");
+    if (cDates) cDates.textContent = formatDate(current.start) + " – " + formatDate(current.end);
+    const cLen = document.getElementById("cycle-length");
+    if (cLen) cLen.textContent = current.length + " days";
+    const cRec = document.getElementById("cycle-recorded");
+    if (cRec) cRec.textContent = current.recorded + " of " + current.length;
+    const rLink = document.getElementById("report-preview-link");
+    if (rLink) rLink.href = current.pdf;
     const preview = document.getElementById("report-preview");
-    preview.src = current.preview;
-    preview.alt = `VitaChart sample report in Portuguese: ${current.length} fictional days, page 1 of ${current.pages}.`;
-    document.getElementById("report-caption").textContent = `${current.length}-day example · Page 1 of ${current.pages} · Report in Portuguese · Select the preview to open the PDF.`;
+    if (preview) {
+      preview.src = current.preview;
+      preview.alt = `VitaChart sample report in Portuguese: ${current.length} fictional days, page 1 of ${current.pages}.`;
+    }
+    const rCap = document.getElementById("report-caption");
+    if (rCap) rCap.textContent = `${current.length}-day example · Page 1 of ${current.pages} · Report in Portuguese · Select the preview to open the PDF.`;
     selectDay(Math.min(selected, current.days.length - 1));
   }
 
   document.querySelectorAll("[data-cycle]").forEach(button => button.addEventListener("click", () => selectCycle(button.dataset.cycle)));
   document.querySelectorAll("[data-style]").forEach(button => button.addEventListener("click", () => selectStyle(button.dataset.style)));
   document.querySelectorAll("[data-select-day]").forEach(button => button.addEventListener("click", () => selectDay(Number(button.dataset.selectDay) - 1, false, true)));
-  previous.addEventListener("click", () => selectDay(selected - 1));
-  next.addEventListener("click", () => selectDay(selected + 1));
+  if (previous) previous.addEventListener("click", () => selectDay(selected - 1));
+  if (next) next.addEventListener("click", () => selectDay(selected + 1));
   selectCycle(28);
   document.querySelectorAll(".demo-cycle-picker, .demo-style-picker, .demo-highlights, .demo-day-controls").forEach(element => { element.hidden = false; });
-  if (new URLSearchParams(window.location.search).get("demo") === "1" && !window.location.hash) {
-    const showDemo = () => requestAnimationFrame(() => {
-      document.getElementById("demo-title").focus({preventScroll: true});
-      document.getElementById("demo").scrollIntoView({behavior: "instant", block: "start"});
-    });
-    if (document.readyState === "complete") showDemo();
-    else window.addEventListener("load", showDemo, {once: true});
-  }
 })();

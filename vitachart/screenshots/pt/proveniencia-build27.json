@@ -1,0 +1,20 @@
+{
+  "version": "1.2.3",
+  "build": 27,
+  "platform": "Android",
+  "language": "pt",
+  "syntheticData": true,
+  "dimensions": [
+    1080,
+    2400
+  ],
+  "sources": {
+    "01-onboarding-profile.png": "Onboarding step 1: Profile setup in Portuguese",
+    "02-today-dashboard.png": "Today dashboard in Portuguese",
+    "03-observation-grid.png": "Observation cards grid in Portuguese",
+    "04-mucus-inspection.png": "Mucus and elasticity inspection drawer in Portuguese",
+    "05-cycle-chart.png": "Cycle chart and stamps in Portuguese",
+    "06-clinical-report.png": "Clinical PDF consultation report in Portuguese",
+    "07-settings-language.png": "Settings with multilingual selection in Portuguese"
+  }
+}
