@@ -41,9 +41,9 @@
       "@id": "https://diogobronzesilva.com/projects/vitachart/#webpage",
       "url": "https://diogobronzesilva.com/projects/vitachart/",
       "name": "VitaChart — A Private Fertility Diary | Diogo Silva",
-      "description": "VitaChart is a local fertility diary by Diogo Silva, in private testing for Android and iPhone.",
+      "description": "VitaChart is a local fertility diary by Diogo Silva supporting Standardized Code (Creighton / NaPro style) and Vulvar Sensation (Billings / BOM style) notations, in private testing for Android and iPhone.",
       "inLanguage": "en",
-      "dateModified": "2026-10-30",
+      "dateModified": "2026-11-01",
       "isPartOf": {
         "@id": "https://diogobronzesilva.com/#website"
       },
@@ -57,7 +57,7 @@
       "@id": "https://diogobronzesilva.com/projects/vitachart/#software",
       "name": "VitaChart",
       "url": "https://diogobronzesilva.com/projects/vitachart/",
-      "description": "A local fertility diary in development, informed by family experience with the Creighton Model and NaProTechnology.",
+      "description": "A local fertility diary in development supporting Standardized Code (Creighton / NaPro style) and Vulvar Sensation (Billings / BOM style) charting across 4 languages.",
       "creativeWorkStatus": "In development — private testing",
       "author": {
         "@id": "https://diogobronzesilva.com/#person"
@@ -67,9 +67,9 @@
       "keywords": [
         "Android, iOS, Web",
         "HealthApplication",
-        "Creighton Model daily observations",
+        "Standardized Code and Vulvar Sensation fertility charting",
         "Local-only storage on the device",
-        "PDF chart generation for consultations",
+        "PDF and CSV chart export for consultations",
         "Local backup and export",
         "No advertising or third-party tracking"
       ]
@@ -100,7 +100,7 @@
   ]
 }
 </script>
-<link rel="stylesheet" href="/assets/css/site.css?v=20261030-2">
+<link rel="stylesheet" href="/assets/css/site.css?v=20261101-1">
 </head>
 <body>
 
@@ -135,8 +135,8 @@
         <span class="entry__date">01</span>
         <div>
           <h2 class="entry__title">Why I started building it</h2>
-          <p class="entry__dek">For years, my wife and I have used the Creighton Model to chart her cycle, with the guidance of a FertilityCare practitioner and a NaProTechnology doctor. VitaChart grew out of that part of our family life and my interest in women’s health and natural fertility.</p>
-          <p class="entry__dek">I wanted a simple place to keep daily observations, see them together and prepare the questions we take to consultations. That is where I started: a diary that is easy to keep and useful to review with the people accompanying us.</p>
+          <p class="entry__dek">For years, my wife and I have charted her cycle using standardized fertility observations with the guidance of a FertilityCare practitioner and a NaProTechnology doctor. VitaChart grew out of that part of our family life and my interest in women’s health and natural fertility.</p>
+          <p class="entry__dek">I wanted a simple place to keep daily observations, see them together and prepare the questions we take to consultations—supporting both Standardized Code charting (Creighton / NaPro style, Peak Day <strong>P</strong>) and Vulvar Sensation &amp; Peak charting (Billings / BOM style, Apex Day <strong>&times;</strong> and Basic Infertile Pattern) without locking couples into a single notation.</p>
         </div>
       </section>
 
@@ -144,8 +144,8 @@
         <span class="entry__date">02</span>
         <div>
           <h2 class="entry__title">A record for the next consultation</h2>
-          <p class="entry__dek">The diary brings together observations of sensations, cervical mucus, bleeding, temperature and other information the user chooses to record. Notes and questions sit alongside the cycle, ready to return to at the next consultation.</p>
-          <p class="entry__dek">Charts use 35 days per page and include consultation notes. They can be printed or saved as a PDF through the device’s export options. The app also calculates summaries from the recorded observations. Those interpretations remain under validation and need review with a FertilityCare practitioner or doctor. VitaChart does not diagnose conditions or replace instruction in the method.</p>
+          <p class="entry__dek">The diary brings together observations of sensations while walking or wiping, cervical mucus characteristics, bleeding, basal body temperature (with 3-over-6 thermal shift detection), hormone tests (LH, PdG, HCG) and consultation questions.</p>
+          <p class="entry__dek">Charts use 35 days per page in A4 Landscape PDF format and include consultation notes, adapting automatically to Peak Day (<strong>P</strong>) or Apex Day (<strong>&times;</strong>) terminology. Records can also be exported as CSV / Excel spreadsheets or local JSON backups. Automated summaries remain under validation and need review with an instructor or doctor. VitaChart does not diagnose conditions or replace instruction in the method.</p>
           <p class="entry__next"><a class="link" href="/vitachart/#demo">Explore a fictional journal and sample report &rarr;</a></p>
         </div>
       </section>
@@ -156,9 +156,9 @@
           <h2 class="entry__title">Keeping the journal local</h2>
           <p class="entry__dek">A fertility diary holds intimate information. I wanted to keep that record on the device and make daily recording work offline, without requiring an online account. That is how the current version works:</p>
           <ul class="entry__details">
-            <li><strong>Local records:</strong> observations, cycle history and the optional profile are stored on the device.</li>
+            <li><strong>Local records:</strong> observations, cycle history and the optional profile are stored 100% locally on the device.</li>
             <li><strong>No advertising or third-party analytics:</strong> the app does not include advertising or analytics SDKs.</li>
-            <li><strong>Exports you control:</strong> reports and JSON backups leave the app only when you choose to save or share them. The backup is not encrypted by the app.</li>
+            <li><strong>Exports you control:</strong> A4 PDF reports, CSV / Excel tables and JSON backups leave the app only when you choose to save or share them. The backup is not encrypted by the app.</li>
             <li><strong>Couple sharing is future work:</strong> remote synchronisation and encrypted pairing are not available in the current version.</li>
           </ul>
         </div>
@@ -168,10 +168,10 @@
         <span class="entry__date">04</span>
         <div>
           <h2 class="entry__title">What is available today</h2>
-          <p class="entry__dek">Daily recording uses a grid of 12 cards. The journal includes optional local reminders, a profile photo processed on the device, consultation notes and backup and restore options. Android, iPhone and the installable web version share a React and TypeScript codebase.</p>
+          <p class="entry__dek">Daily recording uses a grid of 12 cards and supports 4 languages (English, Portuguese, Spanish and French, with automatic device language detection and English fallback). The journal includes optional local reminders, discreet mode for marital union markers, a profile photo processed on the device, consultation notes and backup and restore points. Android, iPhone and the installable web version share a React and TypeScript codebase.</p>
           <ul class="entry__details">
             <li><strong>Availability:</strong> Android and iPhone versions are in private testing. Store release is in preparation; there is no public download yet.</li>
-            <li><strong>Validation:</strong> technical testing is ongoing and does not establish clinical accuracy or certification.</li>
+            <li><strong>Independent &amp; Nominative Fair Use:</strong> VitaChart is an independent application and is not affiliated with, endorsed by, or certified by the Saint Paul VI Institute, FertilityCare Centers of America, or WOOMB International. References to Creighton Model, NaProTechnology, and Billings Ovulation Method are used strictly for descriptive compatibility.</li>
             <li><strong>Privacy:</strong> read the <a class="link" href="/vitachart/privacy/">VitaChart Privacy Policy</a> for storage, export and deletion details.</li>
           </ul>
         </div>
