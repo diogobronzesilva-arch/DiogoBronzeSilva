@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-PT">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>VitaChart — Live Mobile App Demo &amp; Practitioner Preview | Diogo Silva</title>
-<meta name="description" content="Experience the live VitaChart mobile application: interactive cycle ring, 12 tactile observation cards, Creighton mucus inspection drawer, cycle chart and clinical PDF consultation reports.">
+<title>VitaChart — Um diário visual, offline e privado | Diogo Silva</title>
+<meta name="description" content="Experimenta o VitaChart: selos do ciclo, registo diário Billings e Creighton / NaPro e relatórios para a consulta. Pagamento único, uso offline e dados no teu dispositivo.">
 <meta name="author" content="Diogo Silva">
 <meta name="robots" content="index, follow, max-image-preview:large">
 <meta name="theme-color" content="#FBFAF7">
@@ -14,10 +14,10 @@
 <link rel="icon" href="/assets/favicon-32.png" type="image/png" sizes="32x32">
 <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
 <link rel="alternate" type="application/rss+xml" title="Diogo Silva — Notes" href="/feed.xml">
-<meta property="og:title" content="VitaChart — Live Mobile App Demo &amp; Practitioner Preview | Diogo Silva">
-<meta property="og:description" content="Experience the live VitaChart mobile application: interactive cycle ring, 12 tactile observation cards, Creighton mucus inspection drawer, cycle chart and clinical PDF consultation reports.">
+<meta property="og:title" content="VitaChart — Um diário visual, offline e privado | Diogo Silva">
+<meta property="og:description" content="Experimenta o VitaChart: selos do ciclo, registo diário Billings e Creighton / NaPro e relatórios para a consulta. Pagamento único, uso offline e dados no teu dispositivo.">
 <meta property="og:type" content="website">
-<meta property="og:locale" content="en_GB">
+<meta property="og:locale" content="pt_PT">
 <link rel="canonical" href="https://diogobronzesilva.com/vitachart/">
 <meta property="og:url" content="https://diogobronzesilva.com/vitachart/">
 <meta property="og:image" content="https://diogobronzesilva.com/assets/img/og/vitachart.jpg">
@@ -30,8 +30,8 @@
 <meta name="twitter:image:alt" content="VitaChart — a private fertility biomarker diary built from family experience">
 <meta property="og:site_name" content="Diogo Silva">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="VitaChart — Live Mobile App Demo &amp; Practitioner Preview | Diogo Silva">
-<meta name="twitter:description" content="Experience the live VitaChart mobile application: interactive cycle ring, 12 tactile observation cards, Creighton mucus inspection drawer, cycle chart and clinical PDF consultation reports.">
+<meta name="twitter:title" content="VitaChart — Um diário visual, offline e privado | Diogo Silva">
+<meta name="twitter:description" content="Experimenta o VitaChart: selos do ciclo, registo diário Billings e Creighton / NaPro e relatórios para a consulta. Pagamento único, uso offline e dados no teu dispositivo.">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -40,10 +40,10 @@
       "@type": "WebPage",
       "@id": "https://diogobronzesilva.com/vitachart/#webpage",
       "url": "https://diogobronzesilva.com/vitachart/",
-      "name": "VitaChart — Live Mobile App Demo & Practitioner Preview | Diogo Silva",
-      "description": "Experience the live VitaChart mobile application: interactive cycle ring, 12 tactile observation cards, Creighton mucus inspection drawer, cycle chart and clinical PDF consultation reports.",
-      "inLanguage": "en",
-      "dateModified": "2026-11-01",
+      "name": "VitaChart — Um diário visual, offline e privado | Diogo Silva",
+      "description": "Experimenta o VitaChart: selos do ciclo, registo diário Billings e Creighton / NaPro e relatórios para a consulta. Pagamento único, uso offline e dados no teu dispositivo.",
+      "inLanguage": "pt-PT",
+      "dateModified": "2026-11-02",
       "isPartOf": {
         "@id": "https://diogobronzesilva.com/#website"
       },
@@ -55,9 +55,9 @@
     {
       "@type": "CreativeWork",
       "@id": "https://diogobronzesilva.com/vitachart/#demonstration",
-      "name": "VitaChart fictional journal demonstration",
+      "name": "Demonstração interativa do VitaChart",
       "url": "https://diogobronzesilva.com/vitachart/#demo",
-      "description": "A read-only demonstration of 28- and 47-day fictional journals in Standardized Code (Creighton / NaPro style) and Vulvar Sensation (Billings / BOM style) notations, with matching consultation reports. It does not calculate or predict fertility.",
+      "description": "A aplicação VitaChart 1.2.9 com dados fictícios locais e isolados. Permite explorar Hoje, Registar, Ciclo e Definições nos métodos Billings e Creighton / NaPro.",
       "about": {
         "@id": "https://diogobronzesilva.com/projects/vitachart/#software"
       },
@@ -98,15 +98,16 @@
 }
 </script>
 <link rel="stylesheet" href="/assets/css/site.css?v=20261101-3">
-<script src="/assets/js/vitachart-demo.js?v=20261101-2" defer></script>
+<script src="/assets/js/vitachart-demo.js?v=20261102-1" defer></script>
+<link rel="stylesheet" href="/assets/css/vitachart.css?v=20261102-1">
 </head>
-<body>
+<body class="vitachart-marketing">
 
 
 
-<a class="skip" href="#main">Skip to content</a>
+<a class="skip" href="#main">Saltar para o conteúdo</a>
 
-<header class="masthead">
+<header class="masthead" lang="en">
   <div class="shell masthead__inner">
     <a class="wordmark" href="/">Diogo Silva</a>
     <nav class="nav" aria-label="Sections">
@@ -121,203 +122,66 @@
 </header>
 
 <main id="main" tabindex="-1">
-  <article class="shell article project-page demo-page">
-    <header class="article__head demo-page__head">
-      <p class="article__date label"><a class="link" href="/projects/vitachart/">VitaChart</a> &middot; Practitioner preview &middot; Live mobile application</p>
-      <h1 class="article__title">A diary to review together.</h1>
-      <p class="standfirst">Explore daily observations in both Standardized Code (Creighton / NaPro style, Peak <strong>P</strong>) and Vulvar Sensation (Billings / BOM style, Peak <strong>&times;</strong>), test the real mobile application live in your browser, and inspect the matching consultation PDFs. <strong>Experience the real app in the phone simulator below or open it in full screen on your phone.</strong></p>
-      <nav aria-label="VitaChart preview sections">
-        <ul class="project-index demo-page__links">
-          <li><a class="link" href="#demo">Live mobile demo &darr;</a></li>
-          <li><a class="link" href="#gallery">Inside the app</a></li>
-          <li><a class="link" href="#reports">View sample reports</a></li>
-          <li><a class="link" href="#testing">For invited testers</a></li>
-        </ul>
-      </nav>
-    </header>
+  <article class="vc-page shell">
+    <div class="vc-showcase">
+      <header class="vc-intro">
+        <a class="vc-brand" href="/projects/vitachart/"><img src="/vitachart/app/icons/icon-192.png" width="42" height="42" alt=""><span>VitaChart</span></a>
+        <p class="vc-eyebrow">Um diário visual. Os teus dados contigo.</p>
+        <h1>O teu ciclo,<br>ao teu ritmo.</h1>
+        <p class="vc-lead">Regista o que observas, acompanha os selos do teu ciclo e prepara a consulta. Billings e Creighton / NaPro, num diário simples de usar.</p>
+        <div class="vc-actions">
+          <a class="vc-primary" data-demo-fullscreen href="/vitachart/app/demo-1.2.9-build33-e6a72801.html?demo=1&amp;lang=pt&amp;method=CREIGHTON" target="_blank" rel="noopener">Experimentar em ecrã inteiro <span aria-hidden="true">↗</span></a>
+          <a class="vc-inline" href="#demo">Explorar aqui <span aria-hidden="true">↓</span></a>
+        </div>
+        <div class="vc-price">
+          <span class="vc-price-icon" aria-hidden="true">✓</span>
+          <div><h2>Um pagamento. Sem subscrições.</h2><p>Preço único na aplicação, sem mensalidades nem anuidade. Esta demonstração é gratuita.</p></div>
+        </div>
+      </header>
 
-    <section class="demo-section" id="demo" aria-labelledby="demo-title">
-      <div class="demo-section__head">
-        <div>
-          <p class="label">01 &middot; Experiência na Aplicação Móvel</p>
-          <h2 id="demo-title" tabindex="-1">A aplicação móvel real ao vivo.</h2>
+      <section id="demo" class="vc-device" aria-labelledby="demo-title">
+        <div class="vc-device-heading"><h2 id="demo-title">Experimenta a aplicação</h2><span class="vc-release">1.2.9 · 33</span></div>
+        <div class="vc-phone">
+          <iframe id="vitachart-live-demo" src="/vitachart/app/demo-1.2.9-build33-e6a72801.html?demo=1&amp;lang=pt&amp;method=CREIGHTON&amp;tab=today" title="Demonstração interativa do VitaChart 1.2.9" loading="eager"></iframe>
         </div>
-        <div class="demo-version-chip-group">
-          <span class="demo-version-badge"><span class="demo-version-dot"></span>VitaChart v1.2.8 &middot; Compilação 32</span>
-          <span class="demo-status">3 ciclos clínicos fictícios &middot; Dados sintéticos locais</span>
+        <p class="vc-caption">Aplicação real · Dados fictícios guardados neste browser.<br>Podes tocar, registar e navegar livremente.</p>
+        <noscript><p>A aplicação precisa de JavaScript. Podes consultar a <a class="link" href="/projects/vitachart/">apresentação do projeto</a> e os <a class="link" href="/assets/docs/vitachart-sample-consultation-chart.pdf">exemplos de relatório em PDF</a>.</p></noscript>
+      </section>
+
+      <section class="vc-explore" aria-labelledby="explore-title">
+        <div class="vc-explore-heading"><h2 id="explore-title">Quatro ecrãs. Um diário.</h2><p>Escolhe um ecrã ou usa a navegação da aplicação.</p></div>
+        <div class="vc-tours" role="group" aria-label="Explorar os ecrãs do VitaChart">
+          <button type="button" data-demo-tab="today" aria-pressed="true"><span class="vc-tour-number" aria-hidden="true">01</span><span><strong>Hoje</strong><small>O ciclo em selos. Registar e ver o gráfico.</small></span><span class="vc-tour-arrow" aria-hidden="true">↗</span></button>
+          <button type="button" data-demo-tab="dayLog" aria-pressed="false"><span class="vc-tour-number" aria-hidden="true">02</span><span><strong>Registar</strong><small>A tua semana e as observações de cada dia.</small></span><span class="vc-tour-arrow" aria-hidden="true">↗</span></button>
+          <button type="button" data-demo-tab="chart" aria-pressed="false"><span class="vc-tour-number" aria-hidden="true">03</span><span><strong>Ciclo</strong><small>Gráfico, histórico e PDF para a consulta.</small></span><span class="vc-tour-arrow" aria-hidden="true">↗</span></button>
+          <button type="button" data-demo-tab="settings" aria-pressed="false"><span class="vc-tour-number" aria-hidden="true">04</span><span><strong>Definições</strong><small>O teu perfil, preferências e cópias de segurança.</small></span><span class="vc-tour-arrow" aria-hidden="true">↗</span></button>
         </div>
+        <div class="vc-selectors">
+          <label for="demo-method">Método<select id="demo-method"><option value="CREIGHTON">Creighton / NaPro</option><option value="BILLINGS">Billings</option></select></label>
+          <label for="demo-language">Idioma da aplicação<select id="demo-language"><option value="pt">Português</option><option value="en">English</option><option value="es">Español</option><option value="fr">Français</option></select></label>
+        </div>
+      </section>
+    </div>
+
+    <section class="vc-benefits" aria-labelledby="benefits-title">
+      <div class="vc-benefits-heading"><p class="vc-eyebrow">O que ganhas com o VitaChart</p><h2>Mais controlo sobre o teu diário.</h2></div>
+      <div class="vc-benefit-grid">
+        <div><span class="vc-benefit-mark" aria-hidden="true">01</span><h3>Funciona offline</h3><p>Na aplicação, registas e consultas o teu diário mesmo sem internet. Sem conta online obrigatória.</p></div>
+        <div><span class="vc-benefit-mark" aria-hidden="true">02</span><h3>Privado por princípio</h3><p>Os registos ficam no teu dispositivo, sem partilha automática com terceiros. Sem publicidade nem rastreio.</p></div>
+        <div><span class="vc-benefit-mark" aria-hidden="true">03</span><h3>Preparado para a consulta</h3><p>Selos, observações e notas num PDF. Tu decides quando exportar e com quem partilhar.</p></div>
       </div>
-      <p class="demo-introduction">Experimenta a versão móvel 1.2.8 do VitaChart diretamente no simulador interativo abaixo ou abre-a em ecrã inteiro no teu telemóvel. Podes explorar 3 ciclos fictícios completos, registar observações tocando nos cartões, abrir a Bottom Sheet de inspeção de muco, verificar a folha com selos coloridos (P / &times;) e gerar o relatório clínico PDF oficial para consulta médica.</p>
+    </section>
 
-      <div class="demo-showcase-grid">
-        <div class="demo-mockup-wrapper">
-          <div class="phone-mockup">
-            <iframe id="vitachart-live-demo" src="/vitachart/app/?demo=1&amp;lang=pt&amp;tab=today" title="VitaChart Interactive Mobile Demo" loading="lazy"></iframe>
-          </div>
-        </div>
-
-        <div class="demo-controls-card">
-          <div class="demo-controls-top">
-            <div class="demo-lang-box">
-              <span class="demo-controls-heading">Idioma da Demonstração</span>
-              <div class="demo-lang-row" role="group" aria-label="Seletor de idioma da demonstração">
-                <button type="button" class="demo-lang-btn" data-lang="pt" aria-pressed="true">Português</button>
-                <button type="button" class="demo-lang-btn" data-lang="en" aria-pressed="false">English</button>
-                <button type="button" class="demo-lang-btn" data-lang="es" aria-pressed="false">Español</button>
-                <button type="button" class="demo-lang-btn" data-lang="fr" aria-pressed="false">Français</button>
-              </div>
-            </div>
-          </div>
-
-          <div class="demo-tours-box">
-            <div class="demo-tours-header">
-              <span class="demo-controls-heading">Visitas Guiadas com 1 Clique</span>
-              <span class="demo-tours-sub">Toca para abrir diretamente cada funcionalidade no simulador</span>
-            </div>
-            <div class="demo-tours-list" role="group" aria-label="Visitas guiadas pela aplicação">
-              <button type="button" class="demo-tour-item" data-tour-tab="today" aria-pressed="true">
-                <div class="demo-tour-item-header">
-                  <span class="demo-tour-step">1</span>
-                  <span class="demo-tour-title">Ecrã Hoje &amp; Anel</span>
-                  <span class="demo-tour-badge">Painel diário</span>
-                </div>
-                <p class="demo-tour-desc">Visão diária do ciclo, biomarcadores observados e atalhos rápidos.</p>
-              </button>
-
-              <button type="button" class="demo-tour-item" data-tour-tab="dayLog" aria-pressed="false">
-                <div class="demo-tour-item-header">
-                  <span class="demo-tour-step">2</span>
-                  <span class="demo-tour-title">12 Cartões Táteis</span>
-                  <span class="demo-tour-badge">Ergonomia</span>
-                </div>
-                <p class="demo-tour-desc">Entrada tátil imediata: hemorragia, sensação vulvar e temperatura.</p>
-              </button>
-
-              <button type="button" class="demo-tour-item" data-tour-tab="dayLog" data-tour-sheet="inspection" aria-pressed="false">
-                <div class="demo-tour-item-header">
-                  <span class="demo-tour-step">3</span>
-                  <span class="demo-tour-title">Inspeção de Muco</span>
-                  <span class="demo-tour-badge">Creighton</span>
-                </div>
-                <p class="demo-tour-desc">Bottom Sheet com elasticidade (2 a 10WL) e modificadores (C, K, P...).</p>
-              </button>
-
-              <button type="button" class="demo-tour-item" data-tour-tab="chart" aria-pressed="false">
-                <div class="demo-tour-item-header">
-                  <span class="demo-tour-step">4</span>
-                  <span class="demo-tour-title">Folha com Selos</span>
-                  <span class="demo-tour-badge">Gráfico Clínico</span>
-                </div>
-                <p class="demo-tour-desc">Selos de fertilidade coloridos, Dia de Pico (P/&times;) e curva BBT.</p>
-              </button>
-
-              <button type="button" class="demo-tour-item" data-tour-report="1" aria-pressed="false">
-                <div class="demo-tour-item-header">
-                  <span class="demo-tour-step">5</span>
-                  <span class="demo-tour-title">Relatório PDF A4</span>
-                  <span class="demo-tour-badge">Exportação</span>
-                </div>
-                <p class="demo-tour-desc">Pré-visualização e geração de relatório médico oficial para consulta.</p>
-              </button>
-
-              <button type="button" class="demo-tour-item" data-tour-tab="settings" aria-pressed="false">
-                <div class="demo-tour-item-header">
-                  <span class="demo-tour-step">6</span>
-                  <span class="demo-tour-title">Métodos &amp; Línguas</span>
-                  <span class="demo-tour-badge">Definições</span>
-                </div>
-                <p class="demo-tour-desc">Alternância Creighton/Billings, 4 idiomas e cópias locais cifradas.</p>
-              </button>
-            </div>
-          </div>
-
-          <div class="demo-controls-footer">
-            <a href="/vitachart/app/?demo=1" target="_blank" rel="noopener" class="demo-cta-btn">
-              <span class="demo-cta-label">Abrir Demonstração em Ecrã Inteiro &nearr;</span>
-              <span class="demo-cta-sub">Experiência interativa recomendada para telemóveis e tablets</span>
-            </a>
-
-            <p class="demo-privacy-notice">
-              <strong>Privacidade e dados locais:</strong> A demonstração opera em modo isolado com dados sintéticos locais (IndexedDB). Nenhum dado pessoal é transmitido.
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <div class="gallery-section" id="gallery">
-        <div class="gallery-header">
-          <div>
-            <p class="label">Inside the App</p>
-            <h3 id="gallery-title">Ecrãs Principais da Aplicação Móvel</h3>
-            <p class="demo-introduction">Capturas reais obtidas diretamente na versão móvel 1.2.8 do VitaChart. Ao alternares o idioma da demonstração acima, as imagens adaptam-se imediatamente (Português, Inglês, Espanhol ou Francês).</p>
-          </div>
-          <div class="gallery-nav-btns" aria-label="Navegar na galeria">
-            <button type="button" class="gallery-nav-btn" id="gallery-prev" aria-label="Ecrã anterior">&larr;</button>
-            <button type="button" class="gallery-nav-btn" id="gallery-next" aria-label="Próximo ecrã">&rarr;</button>
-          </div>
-        </div>
-
-        <div class="gallery-carousel" role="region" aria-label="Galeria de ecrãs do VitaChart">
-          <figure class="gallery-card">
-            <img src="/vitachart/screenshots/pt/01-onboarding-profile.png" data-file="01-onboarding-profile.png" alt="Ecrã de boas-vindas e perfil de utilizador do VitaChart" width="1080" height="2400" loading="lazy">
-            <figcaption class="gallery-card-body">
-              <strong class="gallery-card-title">1. Perfil Inicial &amp; Método</strong>
-              <p class="gallery-card-caption">Configuração inicial: escolha do objetivo do casal (monitorizar, espaçar ou engravidar) e seleção do método (Creighton ou Billings).</p>
-            </figcaption>
-          </figure>
-
-          <figure class="gallery-card">
-            <img src="/vitachart/screenshots/pt/02-today-dashboard.png" data-file="02-today-dashboard.png" alt="Painel diário Hoje com o anel dinâmico do ciclo" width="1080" height="2400" loading="lazy">
-            <figcaption class="gallery-card-body">
-              <strong class="gallery-card-title">2. Ecrã &ldquo;Hoje&rdquo; &amp; Anel do Ciclo</strong>
-              <p class="gallery-card-caption">Painel diário com o anel dinâmico de fertilidade, dia do ciclo decorrido, resumo dos biomarcadores registados e atalhos táteis rápidos.</p>
-            </figcaption>
-          </figure>
-
-          <figure class="gallery-card">
-            <img src="/vitachart/screenshots/pt/03-observation-grid.png" data-file="03-observation-grid.png" alt="Grelha ergonómica de 12 cartões de observação diária" width="1080" height="2400" loading="lazy">
-            <figcaption class="gallery-card-body">
-              <strong class="gallery-card-title">3. Grelha Tátil de Registo</strong>
-              <p class="gallery-card-caption">12 cartões de entrada rápida para registo diário ergonómico: intensidade de fluxo, sensação ao caminhar, sensação ao limpar e temperatura basal.</p>
-            </figcaption>
-          </figure>
-
-          <figure class="gallery-card">
-            <img src="/vitachart/screenshots/pt/04-mucus-inspection.png" data-file="04-mucus-inspection.png" alt="Drawer inferior de inspeção de muco e elasticidade Creighton" width="1080" height="2400" loading="lazy">
-            <figcaption class="gallery-card-body">
-              <strong class="gallery-card-title">4. Inspeção de Muco Creighton</strong>
-              <p class="gallery-card-caption">Drawer inferior com a escala estrita de elasticidade Creighton (códigos 2 a 10WL) e modificadores clínicos (C, K, CK, G, P, Y, B, L).</p>
-            </figcaption>
-          </figure>
-
-          <figure class="gallery-card">
-            <img src="/vitachart/screenshots/pt/05-cycle-chart.png" data-file="05-cycle-chart.png" alt="Folha panorâmica de registo do ciclo com selos coloridos e curva BBT" width="1080" height="2400" loading="lazy">
-            <figcaption class="gallery-card-body">
-              <strong class="gallery-card-title">5. Folha do Ciclo &amp; Curva BBT</strong>
-              <p class="gallery-card-caption">Visão clínica panorâmica com selos coloridos normalizados, identificação do Dia de Pico (P ou &times;), contagem 1-2-3 e subida térmica de temperatura.</p>
-            </figcaption>
-          </figure>
-
-          <figure class="gallery-card">
-            <img src="/vitachart/screenshots/pt/06-clinical-report.png" data-file="06-clinical-report.png" alt="Relatório clínico PDF oficial de consulta médica em A4 Landscape" width="1080" height="2400" loading="lazy">
-            <figcaption class="gallery-card-body">
-              <strong class="gallery-card-title">6. Relatório Clínico PDF A4</strong>
-              <p class="gallery-card-caption">Exportação médica em PDF em folha A4 horizontal pronta para impressão ou partilha segura com médicos e instrutores credenciados.</p>
-            </figcaption>
-          </figure>
-
-          <figure class="gallery-card">
-            <img src="/vitachart/screenshots/pt/07-settings-language.png" data-file="07-settings-language.png" alt="Definições clínicas, alternância de 4 línguas e modo de privacidade" width="1080" height="2400" loading="lazy">
-            <figcaption class="gallery-card-body">
-              <strong class="gallery-card-title">7. Definições &amp; Multi-Idioma</strong>
-              <p class="gallery-card-caption">Alternância entre 4 idiomas (PT, EN, ES, FR), escolha de notação de gráficos, modo de privacidade e gestão de cópias locais cifradas.</p>
-            </figcaption>
-          </figure>
-        </div>
-      </div>
-
-      <details class="demo-static-fallback">
-        <summary>Ver transcrição estática dos 28 dias e registos do ciclo (Modo sem JavaScript)</summary>
+    <details class="vc-details">
+      <summary>Sobre esta demonstração e os métodos</summary>
+      <div><p>Esta é a interface da versão 1.2.9 do VitaChart, com um diário fictício separado dos registos pessoais. A demo precisa de internet na primeira abertura. Os registos que experimentares ficam apenas neste browser; evita introduzir dados reais.</p>
+      <p>Billings e Creighton / NaPro mantêm as suas opções e notações próprias. A interpretação depende dos sinais registados e deve ser revista com a instrutora ou profissional de saúde. O VitaChart é uma ferramenta independente de registo, sem certificação ou afiliação oficial ao Saint Paul VI Institute, FertilityCare Centers of America ou WOOMB International.</p>
+      <p>O bloqueio por biometria é opcional na aplicação Android e usa a autenticação do telemóvel. A autenticação nativa não é reproduzida no browser. As cópias exportadas devem ser guardadas por ti num local privado.</p>
+      <p>Queres experimentar a aplicação no telemóvel? <!--email_off--><a class="link" href="mailto:hello@diogobronzesilva.com?subject=VitaChart%20%E2%80%94%20Testar%20a%20aplica%C3%A7%C3%A3o">Contacta-me</a><!--/email_off-->. O teste por convite é gratuito.</p>
+      <p class="vc-detail-links"><a class="link" href="/projects/vitachart/">A história do projeto</a><a class="link" href="/vitachart/privacy/">Privacidade</a><a class="link" href="/assets/docs/vitachart-sample-consultation-chart.pdf" target="_blank" rel="noopener">Exemplo de PDF · 28 dias ↗</a><a class="link" href="/assets/docs/vitachart-sample-47-days.pdf" target="_blank" rel="noopener">Exemplo de PDF · 47 dias ↗</a></p></div>
+    </details>
+<details class="demo-static-fallback vc-details" lang="en">
+        <summary lang="pt-PT">Exemplos de referência dos relatórios (28 e 47 dias)</summary><p>For invited testers: archived fictional examples matching the sample PDFs. Explore the current application above.</p>
         <p class="demo-introduction">Visualização de referência transcrita a partir dos relatórios em PDF para inspeção detalhada de registos diários em código padronizado Creighton (P) e sensação vulvar Billings (✕).</p>
 
       <div class="demo-toolbar">
@@ -520,65 +384,9 @@
       </div>
       <p class="demo-note">Annotations are copied from the fictional report. This page does not calculate or predict fertility, accept personal entries or save a journal. Automated interpretations in the app remain under validation.</p>
       </details>
-    </section>
-
-    <section class="demo-section" id="reports" aria-labelledby="report-title">
-      <div class="demo-section__head">
-        <div><p class="label">02 &middot; Consultation report &amp; exports</p><h2 id="report-title">See the record on paper.</h2></div>
-      </div>
-      <p class="demo-introduction">These are existing A4 Landscape PDF exports from VitaChart with fictional names and records. In the app, reports adapt automatically to the selected method (displaying Peak Day <strong>P</strong> for Creighton / NaPro style or Peak Day <strong>&times;</strong> for Billings / BOM style) and can be exported alongside full CSV / Excel spreadsheets and local JSON backups. The sample PDFs below are in Portuguese, and the 47-day example continues onto a second sheet rather than ending at day 35.</p>
-      <ul class="project-index demo-report-links">
-        <li><a class="link" href="/assets/docs/vitachart-sample-consultation-chart.pdf" target="_blank" rel="noopener">28-day report &middot; 1 page &nearr;</a></li>
-        <li><a class="link" href="/assets/docs/vitachart-sample-47-days.pdf" target="_blank" rel="noopener">47-day report &middot; 2 pages &nearr;</a></li>
-      </ul>
-      <figure class="demo-report-preview">
-        <a id="report-preview-link" href="/assets/docs/vitachart-sample-consultation-chart.pdf" target="_blank" rel="noopener">
-          <img id="report-preview" src="/assets/img/vitachart-report-28.webp" alt="VitaChart sample report in Portuguese: 28 fictional days, observation stamps, temperatures and notes for consultation." width="1432" height="1012" loading="lazy">
-        </a>
-        <figcaption id="report-caption">28-day example &middot; Full report in Portuguese &middot; Select the preview to open the PDF.</figcaption>
-      </figure>
-      <details class="demo-report-continuation">
-        <summary>See how the 47-day report continues after day 35</summary>
-        <img src="/assets/img/vitachart-report-47-page-2.webp" alt="Second sheet of the 47-day fictional report, showing days 36 through 47." width="1432" height="1012" loading="lazy">
-      </details>
-    </section>
-
-    <section class="demo-section" id="testing" aria-labelledby="testing-title">
-      <div class="demo-section__head">
-        <div><p class="label">03 &middot; Invitation</p><h2 id="testing-title">Your experience would help.</h2></div>
-      </div>
-      <div class="prose">
-        <p>I am inviting a small group of practitioners, instructors and testers to try VitaChart free of charge and tell me whether the daily record and consultation report are clear and useful. The app now supports 4 languages (English, Portuguese, Spanish and French, with automatic device language detection and English fallback) and lets users switch between Standardized Code (Creighton / NaPro style, Peak <strong>P</strong>) and Vulvar Sensation &amp; Peak (Billings / BOM style, Peak <strong>&times;</strong> and Basic Infertile Pattern) while preserving recorded data. Interpretation still depends on the signs actually recorded for that method; Billings requires an individually reviewed Basic Infertile Pattern. This web preview is read-only; the invited app test includes entering and editing records.</p>
-        <p>If you received a Google Play code, use the code in your invitation at <a class="link" href="https://play.google.com/redeem" target="_blank" rel="noopener">Google Play &nearr;</a>. Installation access is arranged through the invitation; this page does not provide a public download. If you need iPhone access, reply to your invitation to confirm the current testing options.</p>
-        <h3>What I would like to hear</h3>
-        <ul>
-          <li>Is it clear how to record a day in either Standardized Code (Creighton / NaPro style) or Vulvar Sensation (Billings / BOM style), and distinguish a note from an observation of signs?</li>
-          <li>Can you read the chart easily, including the method-specific Peak markers (<strong>P</strong> / <strong>&times;</strong>), missing observations, 3-over-6 temperature shifts and longer cycles?</li>
-          <li>Would the A4 Landscape PDF report and CSV / Excel export help in a consultation? What is missing or difficult to read?</li>
-          <li>Which terms would you change? English, Portuguese, Spanish and French wording is open for professional review.</li>
-        </ul>
-        <p>Reply to the invitation, or <!--email_off--><a class="link" href="mailto:hello@diogobronzesilva.com?subject=VitaChart%20beta%20feedback">send feedback to Diogo</a><!--/email_off-->. Fictional examples are enough to explain a problem.</p>
-      </div>
-    </section>
-
-    <section class="demo-section demo-about" aria-labelledby="about-title">
-      <h2 id="about-title">About this independent project</h2>
-      <div class="prose">
-        <p>VitaChart grew out of our family’s fertility charting experience with a FertilityCare practitioner and a NaProTechnology doctor, and has expanded to support both Standardized Code charting (Creighton / NaPro style) and Vulvar Sensation &amp; Peak charting (Billings / BOM style). It keeps daily records 100% locally on the device, without a mandatory online account, advertising or third-party tracking. I am building VitaChart around a one-time purchase, without monthly or annual subscriptions. Invited testing is free.</p>
-        <p>VitaChart is an independent fertility charting application and is not affiliated with, endorsed by, or certified by the Saint Paul VI Institute, FertilityCare Centers of America, or WOOMB International. References to Creighton Model, NaProTechnology, and Billings Ovulation Method are used strictly for descriptive compatibility of user-recorded notations. It does not diagnose conditions or replace instruction and professional guidance.</p>
-        <p><a class="link" href="/projects/vitachart/">Read the project story</a> &middot; <a class="link" href="/vitachart/privacy/">Privacy policy (Portuguese)</a></p>
-      </div>
-    </section>
   </article>
 </main>
 <script type="application/json" id="vitachart-samples">{"28":{"length":28,"start":"2026-08-01","end":"2026-08-28","recorded":27,"pdf":"/assets/docs/vitachart-sample-consultation-chart.pdf","pdfSha256":"c3435335d7a50b31ff19b7171013ae6a4d5c22d203eb080404cf8cea04416f27","preview":"/assets/img/vitachart-report-28.webp","pages":1,"days":[{"day":1,"date":"2026-08-01","shortDate":"01 Aug","code":"M","temperature":"36.25","observed":true,"stamp":"red","marker":"","question":"","medication":"","note":""},{"day":2,"date":"2026-08-02","shortDate":"02 Aug","code":"M","temperature":"36.25","observed":true,"stamp":"red","marker":"","question":"","medication":"","note":""},{"day":3,"date":"2026-08-03","shortDate":"03 Aug","code":"M","temperature":"36.25","observed":true,"stamp":"red","marker":"","question":"","medication":"","note":""},{"day":4,"date":"2026-08-04","shortDate":"04 Aug","code":"M","temperature":"36.25","observed":true,"stamp":"red","marker":"","question":"","medication":"","note":""},{"day":5,"date":"2026-08-05","shortDate":"05 Aug","code":"0 AD","temperature":"36.25","observed":true,"stamp":"green","marker":"","question":"","medication":"","note":""},{"day":6,"date":"2026-08-06","shortDate":"06 Aug","code":"0 AD","temperature":"36.25","observed":true,"stamp":"green","marker":"","question":"","medication":"","note":""},{"day":7,"date":"2026-08-07","shortDate":"07 Aug","code":"0 AD","temperature":"36.25","observed":true,"stamp":"green","marker":"","question":"","medication":"","note":""},{"day":8,"date":"2026-08-08","shortDate":"08 Aug","code":"","temperature":"36.25","observed":false,"stamp":"unknown","marker":"","question":"","medication":"","note":"Temperature recorded; no sign observation in this example."},{"day":9,"date":"2026-08-09","shortDate":"09 Aug","code":"0 AD","temperature":"36.25","observed":true,"stamp":"green","marker":"","question":"","medication":"","note":""},{"day":10,"date":"2026-08-10","shortDate":"10 Aug","code":"0 AD","temperature":"36.25","observed":true,"stamp":"green","marker":"","question":"Fictional question to review at the consultation.","medication":"","note":""},{"day":11,"date":"2026-08-11","shortDate":"11 Aug","code":"0 AD","temperature":"36.25","observed":true,"stamp":"green","marker":"","question":"","medication":"","note":""},{"day":12,"date":"2026-08-12","shortDate":"12 Aug","code":"10KL AD","temperature":"36.25","observed":true,"stamp":"white","marker":"","question":"","medication":"","note":""},{"day":13,"date":"2026-08-13","shortDate":"13 Aug","code":"10KL AD","temperature":"36.25","observed":true,"stamp":"white","marker":"","question":"","medication":"","note":""},{"day":14,"date":"2026-08-14","shortDate":"14 Aug","code":"10KL AD","temperature":"36.25","observed":true,"stamp":"white","marker":"","question":"","medication":"","note":""},{"day":15,"date":"2026-08-15","shortDate":"15 Aug","code":"10KL AD","temperature":"36.25","observed":true,"stamp":"white","marker":"P","question":"","medication":"","note":""},{"day":16,"date":"2026-08-16","shortDate":"16 Aug","code":"0 AD","temperature":"36.65","observed":true,"stamp":"green","marker":"1","question":"","medication":"","note":""},{"day":17,"date":"2026-08-17","shortDate":"17 Aug","code":"0 AD","temperature":"36.65","observed":true,"stamp":"green","marker":"2","question":"","medication":"","note":""},{"day":18,"date":"2026-08-18","shortDate":"18 Aug","code":"0 AD","temperature":"36.65","observed":true,"stamp":"green","marker":"3","question":"","medication":"Fictional medication note.","note":""},{"day":19,"date":"2026-08-19","shortDate":"19 Aug","code":"0 AD","temperature":"36.65","observed":true,"stamp":"green","marker":"","question":"","medication":"","note":""},{"day":20,"date":"2026-08-20","shortDate":"20 Aug","code":"0 AD","temperature":"36.65","observed":true,"stamp":"green","marker":"","question":"","medication":"","note":""},{"day":21,"date":"2026-08-21","shortDate":"21 Aug","code":"0 AD","temperature":"36.65","observed":true,"stamp":"green","marker":"","question":"","medication":"","note":""},{"day":22,"date":"2026-08-22","shortDate":"22 Aug","code":"0 AD","temperature":"36.65","observed":true,"stamp":"green","marker":"","question":"","medication":"","note":""},{"day":23,"date":"2026-08-23","shortDate":"23 Aug","code":"0 AD","temperature":"36.65","observed":true,"stamp":"green","marker":"","question":"","medication":"","note":""},{"day":24,"date":"2026-08-24","shortDate":"24 Aug","code":"0 AD","temperature":"36.65","observed":true,"stamp":"green","marker":"","question":"","medication":"","note":""},{"day":25,"date":"2026-08-25","shortDate":"25 Aug","code":"0 AD","temperature":"36.65","observed":true,"stamp":"green","marker":"","question":"","medication":"","note":""},{"day":26,"date":"2026-08-26","shortDate":"26 Aug","code":"0 AD","temperature":"36.65","observed":true,"stamp":"green","marker":"","question":"","medication":"","note":""},{"day":27,"date":"2026-08-27","shortDate":"27 Aug","code":"0 AD","temperature":"36.65","observed":true,"stamp":"green","marker":"","question":"","medication":"","note":""},{"day":28,"date":"2026-08-28","shortDate":"28 Aug","code":"0 AD","temperature":"36.65","observed":true,"stamp":"green","marker":"","question":"","medication":"","note":""}]},"47":{"length":47,"start":"2026-08-29","end":"2026-10-14","recorded":46,"pdf":"/assets/docs/vitachart-sample-47-days.pdf","pdfSha256":"1a0937b6ded11f40362c8adf93464e49592726c071b4eccc52f88c2c3cc968e3","preview":"/assets/img/vitachart-report-47.webp","pages":2,"days":[{"day":1,"date":"2026-08-29","shortDate":"29 Aug","code":"M","temperature":"36.25","observed":true,"stamp":"red","marker":"","question":"","medication":"","note":""},{"day":2,"date":"2026-08-30","shortDate":"30 Aug","code":"M","temperature":"36.25","observed":true,"stamp":"red","marker":"","question":"","medication":"","note":""},{"day":3,"date":"2026-08-31","shortDate":"31 Aug","code":"M","temperature":"36.25","observed":true,"stamp":"red","marker":"","question":"","medication":"","note":""},{"day":4,"date":"2026-09-01","shortDate":"01 Sep","code":"M","temperature":"36.25","observed":true,"stamp":"red","marker":"","question":"","medication":"","note":""},{"day":5,"date":"2026-09-02","shortDate":"02 Sep","code":"0 AD","temperature":"36.25","observed":true,"stamp":"green","marker":"","question":"","medication":"","note":""},{"day":6,"date":"2026-09-03","shortDate":"03 Sep","code":"0 AD","temperature":"36.25","observed":true,"stamp":"green","marker":"","question":"","medication":"","note":""},{"day":7,"date":"2026-09-04","shortDate":"04 Sep","code":"0 AD","temperature":"36.25","observed":true,"stamp":"green","marker":"","question":"","medication":"","note":""},{"day":8,"date":"2026-09-05","shortDate":"05 Sep","code":"","temperature":"36.25","observed":false,"stamp":"unknown","marker":"","question":"","medication":"","note":"Temperature recorded; no sign observation in this example."},{"day":9,"date":"2026-09-06","shortDate":"06 Sep","code":"0 AD","temperature":"36.25","observed":true,"stamp":"green","marker":"","question":"","medication":"","note":""},{"day":10,"date":"2026-09-07","shortDate":"07 Sep","code":"0 AD","temperature":"36.25","observed":true,"stamp":"green","marker":"","question":"Fictional question to review at the consultation.","medication":"","note":""},{"day":11,"date":"2026-09-08","shortDate":"08 Sep","code":"0 AD","temperature":"36.25","observed":true,"stamp":"green","marker":"","question":"","medication":"","note":""},{"day":12,"date":"2026-09-09","shortDate":"09 Sep","code":"10KL AD","temperature":"36.25","observed":true,"stamp":"white","marker":"","question":"","medication":"","note":""},{"day":13,"date":"2026-09-10","shortDate":"10 Sep","code":"10KL AD","temperature":"36.25","observed":true,"stamp":"white","marker":"","question":"","medication":"","note":""},{"day":14,"date":"2026-09-11","shortDate":"11 Sep","code":"10KL AD","temperature":"36.25","observed":true,"stamp":"white","marker":"","question":"","medication":"","note":""},{"day":15,"date":"2026-09-12","shortDate":"12 Sep","code":"10KL AD","temperature":"36.25","observed":true,"stamp":"white","marker":"P","question":"","medication":"","note":""},{"day":16,"date":"2026-09-13","shortDate":"13 Sep","code":"0 AD","temperature":"36.65","observed":true,"stamp":"green","marker":"1","question":"","medication":"","note":""},{"day":17,"date":"2026-09-14","shortDate":"14 Sep","code":"0 AD","temperature":"36.65","observed":true,"stamp":"green","marker":"2","question":"","medication":"","note":""},{"day":18,"date":"2026-09-15","shortDate":"15 Sep","code":"0 AD","temperature":"36.65","observed":true,"stamp":"green","marker":"3","question":"","medication":"Fictional medication note.","note":""},{"day":19,"date":"2026-09-16","shortDate":"16 Sep","code":"0 AD","temperature":"36.65","observed":true,"stamp":"green","marker":"","question":"","medication":"","note":""},{"day":20,"date":"2026-09-17","shortDate":"17 Sep","code":"0 AD","temperature":"36.65","observed":true,"stamp":"green","marker":"","question":"","medication":"","note":""},{"day":21,"date":"2026-09-18","shortDate":"18 Sep","code":"0 AD","temperature":"36.65","observed":true,"stamp":"green","marker":"","question":"","medication":"","note":""},{"day":22,"date":"2026-09-19","shortDate":"19 Sep","code":"0 AD","temperature":"36.65","observed":true,"stamp":"green","marker":"","question":"","medication":"","note":""},{"day":23,"date":"2026-09-20","shortDate":"20 Sep","code":"0 AD","temperature":"36.65","observed":true,"stamp":"green","marker":"","question":"","medication":"","note":""},{"day":24,"date":"2026-09-21","shortDate":"21 Sep","code":"0 AD","temperature":"36.65","observed":true,"stamp":"green","marker":"","question":"","medication":"","note":""},{"day":25,"date":"2026-09-22","shortDate":"22 Sep","code":"0 AD","temperature":"36.65","observed":true,"stamp":"green","marker":"","question":"","medication":"","note":""},{"day":26,"date":"2026-09-23","shortDate":"23 Sep","code":"0 AD","temperature":"36.65","observed":true,"stamp":"green","marker":"","question":"","medication":"","note":""},{"day":27,"date":"2026-09-24","shortDate":"24 Sep","code":"0 AD","temperature":"36.65","observed":true,"stamp":"green","marker":"","question":"","medication":"","note":""},{"day":28,"date":"2026-09-25","shortDate":"25 Sep","code":"0 AD","temperature":"36.65","observed":true,"stamp":"green","marker":"","question":"","medication":"","note":""},{"day":29,"date":"2026-09-26","shortDate":"26 Sep","code":"0 AD","temperature":"36.65","observed":true,"stamp":"green","marker":"","question":"","medication":"","note":""},{"day":30,"date":"2026-09-27","shortDate":"27 Sep","code":"0 AD","temperature":"36.65","observed":true,"stamp":"green","marker":"","question":"","medication":"","note":""},{"day":31,"date":"2026-09-28","shortDate":"28 Sep","code":"0 AD","temperature":"36.65","observed":true,"stamp":"green","marker":"","question":"","medication":"","note":""},{"day":32,"date":"2026-09-29","shortDate":"29 Sep","code":"0 AD","temperature":"36.65","observed":true,"stamp":"green","marker":"","question":"","medication":"","note":""},{"day":33,"date":"2026-09-30","shortDate":"30 Sep","code":"0 AD","temperature":"36.65","observed":true,"stamp":"green","marker":"","question":"","medication":"","note":""},{"day":34,"date":"2026-10-01","shortDate":"01 Oct","code":"0 AD","temperature":"36.65","observed":true,"stamp":"green","marker":"","question":"","medication":"","note":""},{"day":35,"date":"2026-10-02","shortDate":"02 Oct","code":"0 AD","temperature":"36.65","observed":true,"stamp":"green","marker":"","question":"","medication":"","note":""},{"day":36,"date":"2026-10-03","shortDate":"03 Oct","code":"0 AD","temperature":"36.65","observed":true,"stamp":"green","marker":"","question":"","medication":"","note":""},{"day":37,"date":"2026-10-04","shortDate":"04 Oct","code":"0 AD","temperature":"36.65","observed":true,"stamp":"green","marker":"","question":"","medication":"","note":""},{"day":38,"date":"2026-10-05","shortDate":"05 Oct","code":"0 AD","temperature":"36.65","observed":true,"stamp":"green","marker":"","question":"","medication":"","note":""},{"day":39,"date":"2026-10-06","shortDate":"06 Oct","code":"0 AD","temperature":"36.65","observed":true,"stamp":"green","marker":"","question":"","medication":"","note":""},{"day":40,"date":"2026-10-07","shortDate":"07 Oct","code":"0 AD","temperature":"36.65","observed":true,"stamp":"green","marker":"","question":"","medication":"","note":""},{"day":41,"date":"2026-10-08","shortDate":"08 Oct","code":"0 AD","temperature":"36.65","observed":true,"stamp":"green","marker":"","question":"","medication":"","note":""},{"day":42,"date":"2026-10-09","shortDate":"09 Oct","code":"0 AD","temperature":"36.65","observed":true,"stamp":"green","marker":"","question":"","medication":"","note":""},{"day":43,"date":"2026-10-10","shortDate":"10 Oct","code":"0 AD","temperature":"36.65","observed":true,"stamp":"green","marker":"","question":"","medication":"","note":""},{"day":44,"date":"2026-10-11","shortDate":"11 Oct","code":"0 AD","temperature":"36.65","observed":true,"stamp":"green","marker":"","question":"","medication":"","note":""},{"day":45,"date":"2026-10-12","shortDate":"12 Oct","code":"0 AD","temperature":"36.65","observed":true,"stamp":"green","marker":"","question":"","medication":"","note":""},{"day":46,"date":"2026-10-13","shortDate":"13 Oct","code":"0 AD","temperature":"36.65","observed":true,"stamp":"green","marker":"","question":"","medication":"","note":""},{"day":47,"date":"2026-10-14","shortDate":"14 Oct","code":"0 AD","temperature":"36.65","observed":true,"stamp":"green","marker":"","question":"","medication":"","note":""}]}}</script>
-
-<footer class="colophon">
-  <div class="shell colophon__inner label">
-    <span>Diogo Silva &middot; diogobronzesilva.com &middot; <a href="/feed.xml">RSS</a></span>
-    <span>Written by hand, between bedtimes.</span>
-  </div>
-</footer>
-
+<footer class="colophon" lang="en"><div class="shell colophon__inner label"><span>Diogo Silva · diogobronzesilva.com · <a href="/feed.xml">RSS</a></span><span>Written by hand, between bedtimes.</span></div></footer>
 </body>
 </html>

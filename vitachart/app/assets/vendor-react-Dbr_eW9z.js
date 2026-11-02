@@ -1,4 +1,4 @@
-import{r as w1}from"./vendor-icons-OUxamrC9.js";var d0={exports:{}},Fe={},h0={exports:{}},g0={};/**
+import{r as w1}from"./vendor-icons-B3nGc66N.js";var d0={exports:{}},Fe={},h0={exports:{}},g0={};/**
  * @license React
  * scheduler.production.js
  *

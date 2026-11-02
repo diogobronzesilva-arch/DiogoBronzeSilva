@@ -218,5 +218,50 @@ class VitaChartSampleTests(unittest.TestCase):
         self.assertIn('WOOMB International', self.html)
 
 
+
+class VitaChartLiveDemoTests(unittest.TestCase):
+    root = Path(__file__).resolve().parents[1]
+
+    @classmethod
+    def setUpClass(cls):
+        cls.html = (cls.root / 'vitachart/index.html').read_text(encoding='utf-8')
+        cls.client = (cls.root / 'assets/js/vitachart-demo.js').read_text(encoding='utf-8')
+        cls.release = json.loads((cls.root / 'vitachart/app/release-info.json').read_text())
+
+    def test_demo_uses_the_current_real_app_and_a_fresh_entry(self):
+        entry = self.release['demoEntry']
+        self.assertTrue(entry.startswith(f"demo-{self.release['version']}-build{self.release['build']}-"))
+        self.assertIn('/vitachart/app/' + entry + '?demo=1', self.html)
+        self.assertEqual((self.root / 'vitachart/app' / entry).read_bytes(), (self.root / 'vitachart/app/index.html').read_bytes())
+        self.assertIn('class="demo-static-fallback vc-details"', self.html)
+        self.assertNotIn('class="gallery-carousel"', self.html)
+        self.assertNotIn('describeBillingsEquivalent', self.client)
+
+    def test_four_screens_and_both_methods_remain_reachable(self):
+        self.assertEqual(['today', 'dayLog', 'chart', 'settings'], re.findall(r'data-demo-tab="([^"]+)"', self.html))
+        for value in ['CREIGHTON', 'BILLINGS', 'pt', 'en', 'es', 'fr']:
+            self.assertIn('value="' + value + '"', self.html)
+        self.assertIn('VITACHART_NAVIGATE', self.client)
+        self.assertIn('VITACHART_DEMO_STATE', self.client)
+        self.assertIn('event.source !== frame.contentWindow', self.client)
+        self.assertIn('event.origin !== window.location.origin', self.client)
+        self.assertNotIn('frame.src =', self.client)
+
+    def test_copy_describes_the_current_product_and_native_limits(self):
+        for text in ['Um pagamento. Sem subscrições.', 'sem mensalidades nem anuidade', 'Funciona offline', 'sem partilha automática com terceiros', 'biometria', 'dados fictícios']:
+            self.assertIn(text.lower(), self.html.lower())
+        self.assertNotIn('relatório clínico PDF oficial', self.html)
+        self.assertNotIn('cópias locais cifradas', self.html)
+        self.assertNotIn('window.location.replace', self.client)
+
+    def test_app_manifest_stays_under_its_own_path(self):
+        manifest = json.loads((self.root / 'vitachart/app/manifest.webmanifest').read_text())
+        self.assertEqual('/vitachart/app/', manifest['scope'])
+        self.assertTrue(manifest['start_url'].startswith('/vitachart/app/'))
+        for icon in manifest['icons']:
+            self.assertTrue(icon['src'].startswith('/vitachart/app/icons/'))
+            self.assertTrue((self.root / icon['src'].lstrip('/')).is_file())
+
+
 if __name__ == '__main__':
     unittest.main()
