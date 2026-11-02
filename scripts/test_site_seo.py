@@ -247,8 +247,19 @@ class VitaChartLiveDemoTests(unittest.TestCase):
         self.assertIn('event.origin !== window.location.origin', self.client)
         self.assertNotIn('frame.src =', self.client)
 
+    def test_demo_page_and_app_default_to_english(self):
+        self.assertIn('<html lang="en">', self.html)
+        self.assertIn('"inLanguage": "en"', self.html)
+        self.assertIn('content="en_GB"', self.html)
+        self.assertIn('lang: "en"', self.client)
+        self.assertNotIn('lang=pt', self.html)
+        self.assertEqual(2, self.html.count('&amp;lang=en'))
+        options = re.search(r'<select id="demo-language">(.*?)</select>', self.html).group(1)
+        self.assertTrue(options.startswith('<option value="en">English</option>'))
+        self.assertIn('Your cycle,<br>at your own pace.', self.html)
+
     def test_copy_describes_the_current_product_and_native_limits(self):
-        for text in ['Um pagamento. Sem subscrições.', 'sem mensalidades nem anuidade', 'Funciona offline', 'sem partilha automática com terceiros', 'biometria', 'dados fictícios']:
+        for text in ['One payment. No subscription.', 'no monthly or annual fees', 'Works offline', 'no automatic sharing with third parties', 'biometric', 'fictional data']:
             self.assertIn(text.lower(), self.html.lower())
         self.assertNotIn('relatório clínico PDF oficial', self.html)
         self.assertNotIn('cópias locais cifradas', self.html)
