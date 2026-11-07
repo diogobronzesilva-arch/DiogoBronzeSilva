@@ -1,7 +1,7 @@
 {
-  "version": "1.2.9",
-  "build": 33,
-  "sourceCommit": "e643e8099e8a2b51b5b424a99a0f03994261721f",
+  "version": "1.3.0",
+  "build": 36,
+  "sourceCommit": "a3967f43d554b7ed1eed3ede332aa1efefc34d98",
   "sourceDirty": true,
-  "demoEntry": "demo-1.2.9-build33-54af7278.html"
+  "demoEntry": "demo-1.3.0-build36-9f674fa9.html"
 }
