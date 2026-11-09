@@ -15,11 +15,11 @@ Full context document: [llms-full.txt](https://diogobronzesilva.com/llms-full.tx
 
 ## Work
 
-- [Work](https://diogobronzesilva.com/work/): Diogo's approach to B2B software sales, decision-making, and AI-native sales workflows.
-- Core idea: Sales is conversation.
-- Core idea: Good salespeople help people decide. They don't decide for them.
-- Core idea: AI should remove the work around the conversation, not the conversation itself.
-- Practical AI usage: Account discovery research, pre-call synthesis, CRM and pipeline discipline, identifying decision criteria, and reducing administrative overhead to preserve attention for the client.
+- [Work](https://diogobronzesilva.com/work/): Diogo's approach to B2B software sales, Sales Systems Architecture, and Deal Intelligence.
+- Core idea: The era of the salesperson as a product presenter is over; Account Executives must become Sales Systems Architects who understand the client's industry and synthesize their commercial structure.
+- Core idea: Purchasing structures and sales motions must be fine-tuned by the individual in the field, not flattened by rigid RevOps standardization.
+- Core idea: Automate the backoffice ruthlessly with Deal Intelligence (LLM context synthesis + deterministic fiscal calculations) to preserve high-value human attention and physical presence in the room.
+- Current Role: Senior Account Executive at Coverflex (FinTech / employee compensation & benefits).
 
 ## Projects
 
@@ -56,7 +56,7 @@ The Notes index also holds selected podcast and interview appearances under a Po
 ## Pages
 
 - [Home](https://diogobronzesilva.com/): Personal front door to Work, Projects, Photography and Notes.
-- [Work](https://diogobronzesilva.com/work/): Sales, technology, decisions and the human part of the job.
+- [Work](https://diogobronzesilva.com/work/): Sales systems architecture, Deal Intelligence, and enterprise B2B SaaS.
 - [Projects](https://diogobronzesilva.com/projects/): Bronze Art Galleries, Cutline, VitaChart and AI sales workflows, with visible questions about availability and scope.
 - [VitaChart](https://diogobronzesilva.com/projects/vitachart/): Local fertility diary in development supporting Standardized Code and Vulvar Sensation notations, with reports for professional review.
 - [VitaChart Demo & Overview](https://diogobronzesilva.com/vitachart/): A read-only practitioner preview with matching 28- and 47-day fictional journals, Standardized Code (Peak P) and Vulvar Sensation (Peak ✕) notation toggle, and Portuguese PDF exports. Invited testers can send feedback. No fertility calculation or prediction.
