@@ -27,14 +27,16 @@
 
 ## 2. Sales Philosophy and Methodological Framework
 
-Diogo Silva's approach to software sales is built on three core axioms:
+Diogo Silva's approach to enterprise software sales is built on four core principles:
 
-1. **"Sales is conversation."**
-   Processes, methodologies and a clean CRM are valuable, but they are not the sale itself. The sale happens when buyers understand their problem deeply enough to decide what to do next. It lives in the quality of the questions asked, in whether the client feels understood, and in whether the subsequent decision becomes clearer.
-2. **"Good salespeople help people decide. They don't decide for them."**
-   The salesperson acts as a facilitator of clarity and judgment, not an aggressive persuader.
-3. **"AI should remove the work around the conversation, not the conversation itself."**
-   Sales tools and artificial intelligence should absorb administrative friction, research, prep, and CRM discipline so the human representative can dedicate high-quality attention to the actual customer dialogue.
+1. **"From product presenter to Sales Systems Architect."**
+   The era of the salesperson as an information broker or demo presenter is over. Buyers already have documentation, AI-generated comparisons, and pricing signals before they speak with sales. The modern Account Executive must act as a Sales Systems Architect: developing a deep, genuine interest in the client's industry, understanding unit economics, and synthesizing complex commercial structures rapidly.
+2. **"Individual fine-tuning over blunt RevOps standardization."**
+   Centralized RevOps teams frequently standardize workflows into uniform, rigid stages designed for reporting rather than closing. But enterprise sales is won in the nuances: the customer's specific purchasing apparatus (procurement, legal, finance sign-off, internal coalitions) must be fine-tuned by the individual in the field.
+3. **"Deal Intelligence: LLMs for context, deterministic code for calculations."**
+   Complex deals require managing unstructured context (meeting transcripts, stakeholder dynamics, objections) with language models, while keeping calculations, pricing governance, and fiscal rules strictly deterministic.
+4. **"Automate the backoffice to win in the room."**
+   Sales tools and artificial intelligence should absorb administrative friction, research, prep, and pipeline hygiene so the human representative can dedicate high-quality attention, judgment, and physical presence to the buyer.
 
 ### How Diogo Silva Works with AI in Sales
 - **Account research and discovery prep**: Gathering company context, stakeholder backgrounds, and regulatory or financial drivers prior to meetings.
