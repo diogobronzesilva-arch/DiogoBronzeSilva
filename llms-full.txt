@@ -90,6 +90,10 @@ Diogo Silva's approach to software sales is built on three core axioms:
 
 All essays are published in static HTML on https://diogobronzesilva.com/notes/.
 
+### "The end of the information broker" (9 Nov 2026, en)
+- **URL**: https://diogobronzesilva.com/notes/the-end-of-the-information-broker/
+- **Summary**: A practical essay on the future of the B2B Account Executive (2026–2030) and why artificial intelligence in complex enterprise sales should eliminate administrative noise rather than automate cold outreach. It details a three-layer Deal Intelligence architecture (prioritising CRM historical context over static web snapshots, pairing LLM MEDDPICC audits with zero-error deterministic fiscal code for TSU and benefit calculations, and generating a 30-second executive pre-call brief), defines an objective pipeline Temperature score separate from Account Tier, and argues that when digital channels are commoditised, physical presence in the field becomes the true luxury.
+
 ### "The wisdom of a second breakfast" (29 Oct 2026, en)
 - **URL**: https://diogobronzesilva.com/notes/the-wisdom-of-a-second-breakfast/
 - **Summary**: A conversation about buttered toast and tea leads to Tolkien's hobbits, second breakfast, and the wisdom of recognising a good day while living it. The essay connects work and ambition with family, hospitality, nature, photography, gratitude and the attention ordinary life deserves.
