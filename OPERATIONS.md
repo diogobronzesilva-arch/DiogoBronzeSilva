@@ -62,6 +62,10 @@ Em outubro de 2026 (PR [#49](https://github.com/diogobronzesilva-arch/DiogoBronz
 
 A PR [#50](https://github.com/diogobronzesilva-arch/DiogoBronzeSilva/pull/50) publicou a nota `saber-ler-a-sala` em 11 de outubro de 2026 com cartão Open Graph dedicado e atualizou os índices, feed, sitemap e ficheiros de contexto LLM.
 
+A PR [#60](https://github.com/diogobronzesilva-arch/DiogoBronzeSilva/pull/60) publicou a nota `the-wisdom-of-a-second-breakfast` em 29 de outubro de 2026 com cartão Open Graph dedicado e atualizou os índices, feed, sitemap e ficheiros de contexto LLM.
+
+A PR [#75](https://github.com/diogobronzesilva-arch/DiogoBronzeSilva/pull/75) publicou a nota `the-end-of-the-information-broker` em 9 de novembro de 2026 com cartão Open Graph dedicado, atualizou a navegação bidirecional e alinhou a descoberta técnica.
+
 Em 23 de outubro de 2026, foi realizada uma revisão integral de frontend, acessibilidade bilingue (`pt-PT`/`en`), tipografia (`text-wrap: balance`/`pretty`), cache de fontes self-hosted em `_headers`, cobertura de `llms-full.txt` e paridade da Home/Notes em `scripts/check_site.py`, atualizando a versão da folha de estilos para `20261023-1`.
 
 O workflow `Production audit` executa semanalmente a partir da branch `main` e pode ser acionado manualmente. Valida as rotas públicas e a respetiva paridade com o código, os cabeçalhos, o RSS, o sitemap, o redirecionamento canónico, os links de email sem dependência de JavaScript e os registos DNS públicos usados pelo email. Este check é de leitura e não altera DNS nem envia mensagens.
