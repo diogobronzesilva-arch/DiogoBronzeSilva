@@ -92,9 +92,9 @@ Diogo Silva's approach to enterprise software sales is built on four core princi
 
 All essays are published in static HTML on https://diogobronzesilva.com/notes/.
 
-### "O que permanece quando o mundo muda" (11 Nov 2026, pt-PT)
+### "What remains when the world turns" (11 Nov 2026, en)
 - **URL**: https://diogobronzesilva.com/notes/o-que-permanece-quando-o-mundo-muda/
-- **Summary**: Five illustrated portraits of the same family in different fictional worlds introduce a reflection on personal identity through changing circumstances. The essay distinguishes substance from changing attributes, explains Eucharistic transubstantiation accurately as the conversion of bread and wine into Christ's Body and Blood, and separates personal continuity from moral growth. Family provides support, concrete responsibilities and a reference for choosing professional opportunities, while itself growing and changing.
+- **Summary**: Five illustrated family portraits in imagined worlds begin an English essay on identity, family, faith and changing circumstances. With an autumnal literary cadence and restrained humour, it distinguishes substance and accidents, explains Eucharistic transubstantiation as the conversion of bread and wine into Our Lord's Body and Blood, and reflects on moral growth, professional ambition, daily duties and the people by whom one hopes to remain recognisable.
 
 ### "The end of the information broker" (9 Nov 2026, en)
 - **URL**: https://diogobronzesilva.com/notes/the-end-of-the-information-broker/
