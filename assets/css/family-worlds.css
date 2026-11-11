@@ -1,0 +1,19 @@
+/* Five family portraits: preserve each full frame, without scripts. */
+.family-worlds { margin: 1.75rem 0 2.5rem; max-width: 100%; }
+.family-worlds__strip { overflow-x: auto; overscroll-behavior-x: contain; scroll-snap-type: x mandatory; scrollbar-width: thin; scrollbar-color: var(--bronze) var(--paper); }
+.family-worlds__strip:focus-visible { outline: 2px solid var(--bronze); outline-offset: 4px; }
+.family-worlds__strip ul { display: flex; gap: 1rem; list-style: none; padding: 0 0 0.75rem; margin: 0; }
+.family-worlds__strip li { flex: 0 0 calc(50% - 0.5rem); min-width: 0; margin: 0; scroll-snap-align: start; }
+.family-worlds figure { margin: 0; }
+.family-worlds a { display: block; border: 0; }
+.family-worlds img { width: 100%; height: auto; }
+.family-worlds figcaption, .family-worlds__caption { color: var(--ink-soft); font: 0.75rem/1.6 var(--sans); }
+.family-worlds figcaption { margin-top: 0.5rem; }
+.family-worlds__caption { margin: 0.75rem 0 0; }
+@media (max-width: 36rem) { .family-worlds__strip li { flex-basis: 86%; } }
+@media print {
+  .family-worlds__strip { overflow: visible; }
+  .family-worlds__strip ul { display: grid; grid-template-columns: repeat(2, 1fr); }
+  .family-worlds__strip li { break-inside: avoid; }
+  .family-worlds__caption { display: none; }
+}

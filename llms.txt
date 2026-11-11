@@ -33,6 +33,7 @@ Full context document: [llms-full.txt](https://diogobronzesilva.com/llms-full.tx
 
 ## Notes
 
+- [O que permanece quando o mundo muda](https://diogobronzesilva.com/notes/o-que-permanece-quando-o-mundo-muda/): A personal reflection in Portuguese on continuity of identity through changing circumstances, the distinction between transformation and Eucharistic transubstantiation, and family as a grounding for personal and professional choices. Published 11 November 2026.
 - [The end of the information broker](https://diogobronzesilva.com/notes/the-end-of-the-information-broker/): On the future of the B2B Account Executive (2026–2030), a three-layer Deal Intelligence architecture combining LLM context synthesis with deterministic fiscal code, separating pipeline Temperature from Account Tier, and why automating the backoffice makes physical presence in the field the ultimate differentiator. Published 9 November 2026.
 - [The wisdom of a second breakfast](https://diogobronzesilva.com/notes/the-wisdom-of-a-second-breakfast/): On Tolkien's hobbits, the pleasures of breakfast and the attention ordinary life deserves alongside work and ambition. Published 29 October 2026.
 - [Saber ler a sala](https://diogobronzesilva.com/notes/saber-ler-a-sala/): Em português. Uma reflexão sobre carreira, liderança, comunicação e confiança, a partir de um texto sobre Cristiano Ronaldo. Publicado a 11 de outubro de 2026.

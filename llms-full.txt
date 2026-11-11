@@ -92,6 +92,10 @@ Diogo Silva's approach to enterprise software sales is built on four core princi
 
 All essays are published in static HTML on https://diogobronzesilva.com/notes/.
 
+### "O que permanece quando o mundo muda" (11 Nov 2026, pt-PT)
+- **URL**: https://diogobronzesilva.com/notes/o-que-permanece-quando-o-mundo-muda/
+- **Summary**: Five illustrated portraits of the same family in different fictional worlds introduce a reflection on personal identity through changing circumstances. The essay distinguishes substance from changing attributes, explains Eucharistic transubstantiation accurately as the conversion of bread and wine into Christ's Body and Blood, and separates personal continuity from moral growth. Family provides support, concrete responsibilities and a reference for choosing professional opportunities, while itself growing and changing.
+
 ### "The end of the information broker" (9 Nov 2026, en)
 - **URL**: https://diogobronzesilva.com/notes/the-end-of-the-information-broker/
 - **Summary**: A practical essay on the future of the B2B Account Executive (2026–2030) and why artificial intelligence in complex enterprise sales should eliminate administrative noise rather than automate cold outreach. It details a three-layer Deal Intelligence architecture (prioritising CRM historical context over static web snapshots, pairing LLM MEDDPICC audits with zero-error deterministic fiscal code for TSU and benefit calculations, and generating a 30-second executive pre-call brief), defines an objective pipeline Temperature score separate from Account Tier, and argues that when digital channels are commoditised, physical presence in the field becomes the true luxury.
