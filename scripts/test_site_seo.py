@@ -6,7 +6,7 @@ from datetime import date, timedelta
 from pathlib import Path
 import unittest
 
-from check_site import PageParser, Report, check_discovery, check_page_shell
+from check_site import PageParser, Report, check_discovery, check_entity_seo, check_page_shell
 
 
 def page(body='<h1>Example</h1>', *, title='Example', description='A specific page.', robots='index, follow', lang='en', locale='en_GB', schema=None):
@@ -272,6 +272,127 @@ class VitaChartLiveDemoTests(unittest.TestCase):
         for icon in manifest['icons']:
             self.assertTrue(icon['src'].startswith('/vitachart/app/icons/'))
             self.assertTrue((self.root / icon['src'].lstrip('/')).is_file())
+
+
+def canonical_person(same_as=None):
+    return {
+        '@type': 'Person',
+        '@id': 'https://diogobronzesilva.com/#person',
+        'name': 'Diogo Silva',
+        'alternateName': 'Diogo Bronze Silva',
+        'url': 'https://diogobronzesilva.com/',
+        'jobTitle': 'Senior Account Executive',
+        'worksFor': {'@type': 'Organization', 'name': 'Coverflex', 'url': 'https://www.coverflex.com'},
+        'sameAs': same_as or [
+            'https://www.linkedin.com/in/diogosilvae/',
+            'https://www.instagram.com/bronzeart.pt/',
+            'https://bronzeart.pt',
+            'https://github.com/diogobronzesilva-arch',
+        ],
+    }
+
+
+def note_parser(slug='sample-note', *, include_article_meta=True, post_overrides=None, person=None, extra_body=''):
+    url = f'https://diogobronzesilva.com/notes/{slug}/'
+    post = {
+        '@type': 'BlogPosting',
+        '@id': f'{url}#article',
+        'headline': 'Sample Note',
+        'url': url,
+        'mainEntityOfPage': url,
+        'datePublished': '2026-11-09T00:00:00+00:00',
+        'dateModified': '2026-11-11T00:00:00+00:00',
+        'wordCount': 450,
+        'timeRequired': 'PT3M',
+        'articleSection': 'B2B SaaS Sales',
+        'keywords': 'B2B sales, Account Executive',
+        'author': {'@id': 'https://diogobronzesilva.com/#person'},
+        'publisher': {'@id': 'https://diogobronzesilva.com/#person'},
+    }
+    if post_overrides:
+        post.update(post_overrides)
+    graph = [post]
+    if person is not None:
+        graph.append(person)
+    else:
+        graph.append(canonical_person())
+    meta = (
+        '<meta property="article:published_time" content="2026-11-09T00:00:00+00:00">'
+        '<meta property="article:modified_time" content="2026-11-11T00:00:00+00:00">'
+        '<meta property="article:section" content="B2B SaaS Sales">'
+        if include_article_meta
+        else ''
+    )
+    parser = PageParser()
+    parser.feed(
+        f'<html lang="en"><head><title>Sample</title>'
+        f'<meta name="description" content="Sample description.">'
+        f'<meta property="og:locale" content="en_GB">{meta}'
+        f'<script type="application/ld+json">{json.dumps({"@context": "https://schema.org", "@graph": graph})}</script>'
+        f'</head><body><h1>Sample Note</h1>{extra_body}</body></html>'
+    )
+    return parser
+
+
+def entity_errors(pages):
+    report = Report()
+    check_entity_seo(report, pages)
+    return '\n'.join(message for _, message in report.errors)
+
+
+class EntityAndArticleSeoTests(unittest.TestCase):
+    def test_valid_person_note_and_work_hub(self):
+        work_schema = {
+            '@context': 'https://schema.org',
+            '@graph': [
+                {'@type': 'ProfilePage', '@id': 'https://diogobronzesilva.com/work/#webpage'},
+                canonical_person(),
+            ],
+        }
+        work_parser = PageParser()
+        work_parser.feed(
+            '<html lang="en"><head><title>Work</title>'
+            '<meta property="og:image" content="https://diogobronzesilva.com/assets/img/og/work.jpg">'
+            '<meta name="twitter:image" content="https://diogobronzesilva.com/assets/img/og/work.jpg">'
+            f'<script type="application/ld+json">{json.dumps(work_schema)}</script></head>'
+            '<body><h1>Work</h1>'
+            '<a href="/projects/#ai-sales-workflows">Projects</a>'
+            '<a href="/notes/the-end-of-the-information-broker/">Essay</a>'
+            '<a href="/notes/saber-ler-a-sala/" lang="pt-PT" hreflang="pt-PT">PT</a>'
+            '</body></html>'
+        )
+        broker = note_parser(
+            'the-end-of-the-information-broker',
+            extra_body='<a href="/work/">Work</a><a href="/projects/#ai-sales-workflows">Workflows</a>',
+        )
+        self.assertEqual('', entity_errors({
+            Path('work/index.html'): work_parser,
+            Path('notes/the-end-of-the-information-broker/index.html'): broker,
+        }))
+
+    def test_missing_person_or_incomplete_same_as_rejected(self):
+        self.assertIn('#person', entity_errors({Path('index.html'): page()}))
+        incomplete = canonical_person(same_as=['https://www.linkedin.com/in/diogosilvae/'])
+        self.assertIn('sameAs', entity_errors({Path('index.html'): page(schema={'@graph': [incomplete]})}))
+
+    def test_note_requires_article_meta_and_wordcount_duration(self):
+        no_meta = note_parser(include_article_meta=False)
+        found = entity_errors({Path('notes/sample-note/index.html'): no_meta})
+        self.assertIn('article:published_time', found)
+        self.assertIn('article:section', found)
+
+        bad_post = note_parser(post_overrides={'wordCount': 0, 'timeRequired': '8 minutes'})
+        found_post = entity_errors({Path('notes/sample-note/index.html'): bad_post})
+        self.assertIn('wordCount', found_post)
+        self.assertIn('timeRequired', found_post)
+
+    def test_work_page_requires_og_card_and_cross_links(self):
+        work_only = page(schema={'@graph': [{'@type': 'ProfilePage'}, canonical_person()]})
+        found = entity_errors({Path('work/index.html'): work_only})
+        self.assertIn('og/work.jpg', found)
+        self.assertIn('/projects/#ai-sales-workflows', found)
+        self.assertIn('/notes/the-end-of-the-information-broker/', found)
+        self.assertIn('/notes/saber-ler-a-sala/', found)
 
 
 if __name__ == '__main__':

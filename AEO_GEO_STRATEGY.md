@@ -96,3 +96,15 @@ A validação recorre às [orientações oficiais de vídeo](https://developers.
 
 
 As três páginas de software são histórias de projetos pessoais, sem ofertas públicas nem avaliações. Usam WebPage + CreativeWork + BreadcrumbList. A marcação SoftwareApplication anterior podia ser semanticamente descritiva, mas não cumpria os requisitos de preço e avaliação dos [resultados especiais de aplicações da Google](https://developers.google.com/search/docs/appearance/structured-data/software-app). Não se inventam ofertas, preços ou classificações para os preencher. A plataforma e as funcionalidades continuam nos textos e nas palavras-chave dos projetos.
+
+## Revisão integral de SEO e GEO — 11/11/2026
+
+Esta revisão fortalece a autoridade temática da entidade `Diogo Silva` / `Diogo Bronze Silva` em vendas B2B SaaS, Account Executive, FinTech e sistemas comerciais com IA, mantendo todas as regras de honestidade estática acima:
+
+1. **Grafo de entidade autossuficiente (`#person`)**: Todas as 28 URLs publicadas incluem agora um nó `#person` completo com `name`, `alternateName`, `url`, `jobTitle` (`Senior Account Executive`), `worksFor` (`Coverflex`), `homeLocation` / `address` (`Fátima, Portugal`) e os 4 links `sameAs` oficiais (`LinkedIn`, `GitHub`, `Bronze Art`, `Instagram`), evitando nós órfãos quando motores de resposta leem uma única página isolada.
+2. **Posicionamento reforçado da Home e `/work/`**:
+   - `index.html` e `work/index.html` apresentam títulos, descrições e copys claros para consultas sobre *Senior Account Executive*, *B2B SaaS Sales*, *FinTech*, *Portugal / EMEA / UK&I*, *Sales Systems Architecture* e *Deal Intelligence*.
+   - `work/index.html` usa `ProfilePage`, cartão Open Graph próprio (`/assets/img/og/work.jpg`, 1200×630) e a nova secção editorial `05` (`#writing-and-speaking`) ligando explicitamente a prática comercial aos ensaios de fundo e à sessão em direto.
+3. **Ligação tópica `Work ↔ Notes ↔ Projects` e sinais bilingues (`en` / `pt-PT`)**: Ligação bidirecional entre `/work/`, `/projects/#ai-sales-workflows`, `/notes/the-end-of-the-information-broker/` e `/notes/saber-ler-a-sala/` (com `hreflang="pt-PT"`), evitando páginas isoladas e reforçando a ponte semântica entre termos em inglês e contexto lusófono.
+4. **Padronização de `BlogPosting` e metas `article:*`**: Todos os 18 ensaios e `notes/_template.html` incluem `<meta property="article:published_time">`, `article:modified_time`, `article:section`, fusos horários explícitos (`Europe/Lisbon`), `url`, `mainEntityOfPage`, `wordCount`, `timeRequired` (`PTnM`), `articleSection` e ligação por `@id` a `#person`.
+5. **Verificação automática**: `check_entity_seo` em `scripts/check_site.py` (testado em `scripts/test_site_seo.py`) garante que nenhuma página ou nota publicada volta a perder a entidade `#person`, os metadados de artigo ou as ligações estruturais entre `Work`, `Notes` e `Projects`.

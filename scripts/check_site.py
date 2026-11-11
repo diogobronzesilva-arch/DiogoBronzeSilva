@@ -798,6 +798,40 @@ def readable_text(value: object) -> str:
     return " ".join(" ".join(parser.body_text_parts).split()).casefold()
 
 
+PERSON_ID = f"{SITE_ORIGIN}/#person"
+EXPECTED_PERSON_SAME_AS = {
+    "https://www.linkedin.com/in/diogosilvae",
+    "https://www.instagram.com/bronzeart.pt",
+    "https://bronzeart.pt",
+    "https://github.com/diogobronzesilva-arch",
+}
+
+
+def has_tz_iso_timestamp(value: object) -> bool:
+    """Return True when value is an ISO 8601 timestamp including time and timezone."""
+    if not isinstance(value, str) or "T" not in value:
+        return False
+    try:
+        stamp = datetime.fromisoformat(value.replace("Z", "+00:00"))
+    except ValueError:
+        return False
+    return stamp.tzinfo is not None
+
+
+def parsed_jsonld_nodes(parser: PageParser) -> list[dict]:
+    """Collect all structured-data dict nodes from valid JSON-LD blocks on a page."""
+    nodes: list[dict] = []
+    for block in parser.json_ld_blocks:
+        try:
+            data = json.loads(block)
+        except json.JSONDecodeError:
+            continue  # check_html reports the syntax error.
+        for node in structured_nodes(data):
+            if isinstance(node, dict):
+                nodes.append(node)
+    return nodes
+
+
 def check_discovery(report: Report, parsed: dict[Path, PageParser]) -> None:
     """Check search-facing consistency and crawlable in-page navigation."""
     def normal(value: str) -> str:
@@ -824,43 +858,33 @@ def check_discovery(report: Report, parsed: dict[Path, PageParser]) -> None:
         if not locale or locale.split("_")[0] != (parser.lang or "").split("-")[0]:
             report.error("Open Graph locale must match the page language.", rel)
         visible = normal(" ".join(parser.body_text_parts))
-        for block in parser.json_ld_blocks:
-            try:
-                data = json.loads(block)
-            except json.JSONDecodeError:
-                continue  # check_html reports the syntax error.
-            for node in structured_nodes(data):
-                types = as_list(node.get("@type"))
-                if "FAQPage" in types:
-                    questions = as_list(node.get("mainEntity"))
-                    if not questions:
-                        report.error("Structured FAQ must contain questions and answers.", rel)
-                    for question in questions:
-                        if not isinstance(question, dict):
-                            report.error("Structured FAQ question must be an object.", rel)
-                            continue
-                        name = readable_text(question.get("name"))
-                        answers = as_list(question.get("acceptedAnswer"))
-                        if not name or not answers or name not in visible:
+        for node in parsed_jsonld_nodes(parser):
+            types = as_list(node.get("@type"))
+            if "FAQPage" in types:
+                questions = as_list(node.get("mainEntity"))
+                if not questions:
+                    report.error("Structured FAQ must contain questions and answers.", rel)
+                for question in questions:
+                    if not isinstance(question, dict):
+                        report.error("Structured FAQ question must be an object.", rel)
+                        continue
+                    name = readable_text(question.get("name"))
+                    answers = as_list(question.get("acceptedAnswer"))
+                    if not name or not answers or name not in visible:
+                        report.error("Structured FAQ questions and answers must match visible page content.", rel)
+                    for answer in answers:
+                        value = readable_text(answer.get("text")) if isinstance(answer, dict) else ""
+                        if not value or value not in visible:
                             report.error("Structured FAQ questions and answers must match visible page content.", rel)
-                        for answer in answers:
-                            value = readable_text(answer.get("text")) if isinstance(answer, dict) else ""
-                            if not value or value not in visible:
-                                report.error("Structured FAQ questions and answers must match visible page content.", rel)
-                if "VideoObject" in types:
-                    for field in ("name", "thumbnailUrl", "uploadDate"):
-                        if not node.get(field):
-                            report.error(f"VideoObject is missing required field {field}.", rel)
-                    upload_date = node.get("uploadDate")
-                    if upload_date:
-                        try:
-                            stamp = datetime.fromisoformat(upload_date.replace("Z", "+00:00"))
-                            if "T" not in upload_date or stamp.tzinfo is None:
-                                raise ValueError("Time and timezone required")
-                        except (ValueError, TypeError, AttributeError):
-                            report.error("VideoObject uploadDate must include a valid time and timezone.", rel)
-                    if not parser.has_video_player:
-                        report.error("VideoObject requires a playable video on the page; use CreativeWork for external interview links.", rel)
+            if "VideoObject" in types:
+                for field in ("name", "thumbnailUrl", "uploadDate"):
+                    if not node.get(field):
+                        report.error(f"VideoObject is missing required field {field}.", rel)
+                upload_date = node.get("uploadDate")
+                if upload_date and not has_tz_iso_timestamp(upload_date):
+                    report.error("VideoObject uploadDate must include a valid time and timezone.", rel)
+                if not parser.has_video_player:
+                    report.error("VideoObject requires a playable video on the page; use CreativeWork for external interview links.", rel)
 
     for rel, parser in parsed.items():
         for anchor in parser.anchors:
@@ -882,10 +906,119 @@ def check_discovery(report: Report, parsed: dict[Path, PageParser]) -> None:
     report.passed("Unique search metadata, indexability, language, visible FAQ consistency, video markup and internal fragments")
 
 
+def _check_person_entity(report: Report, rel: Path, nodes: list[dict]) -> None:
+    """Verify every published page carries a complete, canonical #person entity node."""
+    persons = [
+        node for node in nodes
+        if node.get("@id") == PERSON_ID and "Person" in as_list(node.get("@type"))
+    ]
+    if not persons:
+        report.error(f"Published page must embed a full {PERSON_ID} Person JSON-LD node.", rel)
+        return
+
+    person = persons[0]
+    if person.get("name") != "Diogo Silva" or person.get("alternateName") != "Diogo Bronze Silva":
+        report.error("Person entity must preserve canonical name 'Diogo Silva' and alternateName 'Diogo Bronze Silva'.", rel)
+    if person.get("url") != f"{SITE_ORIGIN}/":
+        report.error(f"Person entity url must match canonical home {SITE_ORIGIN}/.", rel)
+    if not str(person.get("jobTitle", "")).strip():
+        report.error("Person entity must define a non-empty jobTitle.", rel)
+
+    works_for = [item for item in as_list(person.get("worksFor")) if isinstance(item, dict)]
+    if not any(item.get("name") == "Coverflex" for item in works_for):
+        report.error("Person entity worksFor must reference Coverflex.", rel)
+
+    same_as = {str(url).strip().rstrip("/") for url in as_list(person.get("sameAs"))}
+    missing_profiles = sorted(EXPECTED_PERSON_SAME_AS - same_as)
+    if missing_profiles:
+        report.error(f"Person entity is missing canonical sameAs profiles: {', '.join(missing_profiles)}", rel)
+
+
+def _check_note_article_seo(report: Report, rel: Path, parser: PageParser, nodes: list[dict]) -> None:
+    """Verify note pages expose complete BlogPosting schema and Open Graph article tags."""
+    for prop in ("article:published_time", "article:modified_time"):
+        if not has_tz_iso_timestamp(parser.meta_properties.get(prop)):
+            report.error(f"Note article must include timezone-aware meta property {prop}.", rel)
+    if not parser.meta_properties.get("article:section", "").strip():
+        report.error("Note article must include non-empty meta property article:section.", rel)
+
+    posts = [node for node in nodes if "BlogPosting" in as_list(node.get("@type"))]
+    if not posts:
+        report.error("Note article must include a BlogPosting JSON-LD node.", rel)
+        return
+
+    post = posts[0]
+    canonical = expected_url(rel)
+    if post.get("url") != canonical or post.get("mainEntityOfPage") != canonical:
+        report.error("BlogPosting url and mainEntityOfPage must match the page canonical URL.", rel)
+    for field in ("datePublished", "dateModified"):
+        if not has_tz_iso_timestamp(post.get(field)):
+            report.error(f"BlogPosting {field} must include time and timezone.", rel)
+
+    word_count = post.get("wordCount")
+    if isinstance(word_count, bool) or not isinstance(word_count, int) or word_count <= 0:
+        report.error("BlogPosting wordCount must be a positive integer.", rel)
+    if not re.fullmatch(r"PT\d+M", str(post.get("timeRequired", ""))):
+        report.error("BlogPosting timeRequired must use ISO duration format PTnM.", rel)
+    for field in ("articleSection", "keywords"):
+        if not str(post.get(field, "")).strip():
+            report.error(f"BlogPosting must include non-empty {field}.", rel)
+    for role in ("author", "publisher"):
+        ref = post.get(role)
+        if not isinstance(ref, dict) or ref.get("@id") != PERSON_ID:
+            report.error(f"BlogPosting {role} must link to {PERSON_ID}.", rel)
+
+
+def _check_work_hub_seo(report: Report, parsed: dict[Path, PageParser], nodes_by_page: dict[Path, list[dict]]) -> None:
+    """Verify the /work/ ProfilePage, dedicated OG card, and Work <-> Notes <-> Projects links."""
+    work_rel = Path("work/index.html")
+    work_parser = parsed.get(work_rel)
+    if work_parser is not None:
+        work_nodes = nodes_by_page[work_rel]
+        if not any("ProfilePage" in as_list(node.get("@type")) for node in work_nodes):
+            report.error("Work page must declare a ProfilePage JSON-LD node.", work_rel)
+
+        expected_og = f"{SITE_ORIGIN}/assets/img/og/work.jpg"
+        if work_parser.meta_properties.get("og:image") != expected_og or work_parser.meta_names.get("twitter:image") != expected_og:
+            report.error(f"Work page og:image and twitter:image must use {expected_og}.", work_rel)
+
+        work_hrefs = {a.get("href", "") for a in work_parser.anchors}
+        for required in ("/projects/#ai-sales-workflows", "/notes/the-end-of-the-information-broker/"):
+            if required not in work_hrefs:
+                report.error(f"Work page must link to {required}.", work_rel)
+        if not any(a.get("href") == "/notes/saber-ler-a-sala/" and a.get("hreflang") == "pt-PT" for a in work_parser.anchors):
+            report.error("Work page must link to /notes/saber-ler-a-sala/ with hreflang='pt-PT'.", work_rel)
+
+    broker_rel = Path("notes/the-end-of-the-information-broker/index.html")
+    broker_parser = parsed.get(broker_rel)
+    if broker_parser is not None:
+        broker_hrefs = {a.get("href", "") for a in broker_parser.anchors}
+        for required in ("/work/", "/projects/#ai-sales-workflows"):
+            if required not in broker_hrefs:
+                report.error(f"Flagship sales essay must link back to {required}.", broker_rel)
+
+
+def check_entity_seo(report: Report, parsed: dict[Path, PageParser]) -> None:
+    """Verify canonical #person graph, note article schema/meta and topical cross-linking."""
+    nodes_by_page: dict[Path, list[dict]] = {}
+    for rel, parser in parsed.items():
+        if rel in {TEMPLATE, NOT_FOUND}:
+            continue
+        nodes = parsed_jsonld_nodes(parser)
+        nodes_by_page[rel] = nodes
+        _check_person_entity(report, rel, nodes)
+        if len(rel.parts) == 3 and rel.parts[0] == "notes" and rel.parts[2] == "index.html":
+            _check_note_article_seo(report, rel, parser, nodes)
+
+    _check_work_hub_seo(report, parsed, nodes_by_page)
+    report.passed("Canonical #person entity graph, note BlogPosting/article metadata and Work/Notes/Projects links")
+
+
 def main() -> int:
     report = Report()
     parsed = check_html(report)
     check_discovery(report, parsed)
+    check_entity_seo(report, parsed)
     check_sitemap(report)
     check_feed(report)
     check_text_files(report)
