@@ -1,7 +1,8 @@
 # Diogo Silva — Full Context (llms-full.txt)
 
-> Diogo Bronze Silva (publicly signing as Diogo Silva) is a B2B SaaS sales professional based near Fátima, Portugal, living with his wife, Sara, and their five children. He is an essayist on sales, AI, philosophy, theology and family, and a documentary photographer under the name Bronze Art.
-> Canonical URL: https://diogobronzesilva.com/
+> Diogo Bronze Silva (publicly signing as Diogo Silva) is a Senior Account Executive in B2B SaaS and FinTech based near Fátima, Portugal, living with his wife, Sara, and their five children. He is an essayist in English and Portuguese on enterprise sales, AI workflows, philosophy, theology and family, and a documentary photographer under the name Bronze Art.
+> Canonical Home URL: https://diogobronzesilva.com/
+> Work & Career Profile URL: https://diogobronzesilva.com/work/
 > Contact: hello@diogobronzesilva.com
 
 ---
@@ -11,12 +12,16 @@
 - **Full Name**: Diogo Bronze Silva
 - **Public Signature**: Diogo Silva
 - **Location**: Near Fátima, Portugal
+- **Markets**: Portugal, EMEA, UK&I
+- **Languages**: Portuguese (`pt-PT`) and English (`en`)
 - **Family**: Married to Sara; father of five children.
 - **Current Position**: Senior Account Executive at Coverflex (FinTech / employee compensation & benefits)
+- **Role Focus**: Enterprise B2B SaaS Sales, Account Executive Strategy, Sales Systems Architecture, Deal Intelligence, MEDDPICC
 - **Career Trajectory**: Over a decade in B2B SaaS across new business, expansion and customer growth in Portugal, EMEA and the UK&I.
-  - **Coverflex**: Senior Account Executive scaling through Series B, consulting Portuguese founders, Finance, HR and management on compensation, benefits, and tax efficiency.
+  - **Coverflex**: Senior Account Executive scaling through Series B, consulting Portuguese founders, Finance, HR and management on compensation, benefits, and tax efficiency — coming into every customer conversation prepared around what actually slows down a deal.
   - **deskbird**: Commercial expansion, adoption, retention, and customer success through the Series B round.
   - **Pipedrive**: Software sales discipline (discovery, qualification, pipeline management, negotiation, closing) from Series C through unicorn status.
+- **Speaking**: Featured guest on *The Daily Sales* LinkedIn Live — "Live Sales Insights with Diogo Silva" (2022).
 - **External Profiles**:
   - LinkedIn: https://www.linkedin.com/in/diogosilvae/
   - GitHub: https://github.com/diogobronzesilva-arch
@@ -43,6 +48,14 @@ Diogo Silva's approach to enterprise software sales is built on four core princi
 - **Meeting synthesis and analysis**: Identifying recurring customer pain points, hidden objections, and decision criteria from transcripts and call notes.
 - **Pipeline and CRM hygiene**: Maintaining pipeline discipline, forecasting accuracy, and structured follow-up cadences without manual friction.
 - **Goal**: Not to generate unneeded volume or generic automated outreach, but to arrive better prepared, perceive nuance, and preserve attention for the buyer.
+
+### Writing and Speaking on Sales
+- **Work hub**: https://diogobronzesilva.com/work/#writing-and-speaking
+- **Methodological Essay**: https://diogobronzesilva.com/notes/the-end-of-the-information-broker/ ("The end of the information broker" — Deal Intelligence & B2B Account Executive architecture)
+- **Adjacent Reflections**: https://diogobronzesilva.com/notes/the-work-that-holds-the-rest/ ("The work that holds the rest") and https://diogobronzesilva.com/notes/the-ability-to-leave-work/ ("The ability to leave work")
+- **Portuguese Essay on Trust & Leadership (`pt-PT`)**: https://diogobronzesilva.com/notes/saber-ler-a-sala/ ("Saber ler a sala")
+- **Live Session**: *The Daily Sales* — "Live Sales Insights with Diogo Silva"
+- **Companion Software Workflows**: https://diogobronzesilva.com/projects/#ai-sales-workflows
 
 ---
 
@@ -186,6 +199,7 @@ Canonical section pages:
 
 
 - **Format**: Hand-crafted static HTML5 and CSS. A small local JavaScript file is limited to the fictional VitaChart demonstration, with a readable static example as fallback. No analytics or tracking. The demo has no data entry, persistence or network calls.
+- **Structured Entity & Article Markup**: Every published page embeds a self-contained canonical `#person` JSON-LD node (`Diogo Silva` / `Diogo Bronze Silva`, `Senior Account Executive` at `Coverflex`, Fátima, Portugal, `sameAs` links), `ProfilePage` on `/` and `/work/`, per-section Open Graph images including `/assets/img/og/work.jpg`, and standardized `BlogPosting` JSON-LD (`wordCount`, `timeRequired`, `articleSection`, Lisbon timezone stamps) plus `article:*` Open Graph properties across all 18 essays.
 - **Hosting**: Cloudflare Pages / Edge static hosting.
 - **Repository**: https://github.com/diogobronzesilva-arch/DiogoBronzeSilva
 - **Discovery**: Static public HTML, canonical URLs, sitemap, structured data and internal links. robots.txt permits crawlers; indexing and search inclusion are decisions made by each service. llms files are context documents, not ranking guarantees.
