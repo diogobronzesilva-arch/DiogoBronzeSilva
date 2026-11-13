@@ -287,6 +287,7 @@ def canonical_person(same_as=None):
             'https://www.linkedin.com/in/diogosilvae/',
             'https://www.instagram.com/bronzeart.pt/',
             'https://bronzeart.pt',
+            'https://bronzepodcast.com',
             'https://github.com/diogobronzesilva-arch',
         ],
     }

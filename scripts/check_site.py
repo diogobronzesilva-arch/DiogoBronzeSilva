@@ -803,6 +803,7 @@ EXPECTED_PERSON_SAME_AS = {
     "https://www.linkedin.com/in/diogosilvae",
     "https://www.instagram.com/bronzeart.pt",
     "https://bronzeart.pt",
+    "https://bronzepodcast.com",
     "https://github.com/diogobronzesilva-arch",
 }
 

@@ -3,6 +3,7 @@
 # Tudo o que esta aqui e para ser lido, por pessoas e por maquinas.
 
 User-agent: *
+Disallow: /vitachart/app/
 Allow: /
 
 # Motores de busca e crawlers de IA, explicitamente bem-vindos.
@@ -29,6 +30,7 @@ User-agent: Diffbot
 User-agent: Amazonbot
 User-agent: Bytespider
 User-agent: CCBot
+Disallow: /vitachart/app/
 Allow: /
 
 Sitemap: https://diogobronzesilva.com/sitemap.xml

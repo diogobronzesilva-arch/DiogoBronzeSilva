@@ -101,7 +101,7 @@ As três páginas de software são histórias de projetos pessoais, sem ofertas 
 
 Esta revisão fortalece a autoridade temática da entidade `Diogo Silva` / `Diogo Bronze Silva` em vendas B2B SaaS, Account Executive, FinTech e sistemas comerciais com IA, mantendo todas as regras de honestidade estática acima:
 
-1. **Grafo de entidade autossuficiente (`#person`)**: Todas as 28 URLs publicadas incluem agora um nó `#person` completo com `name`, `alternateName`, `url`, `jobTitle` (`Senior Account Executive`), `worksFor` (`Coverflex`), `homeLocation` / `address` (`Fátima, Portugal`) e os 4 links `sameAs` oficiais (`LinkedIn`, `GitHub`, `Bronze Art`, `Instagram`), evitando nós órfãos quando motores de resposta leem uma única página isolada.
+1. **Grafo de entidade autossuficiente (`#person`)**: Todas as 28 URLs publicadas incluem agora um nó `#person` completo com `name`, `alternateName`, `url`, `jobTitle` (`Senior Account Executive`), `worksFor` (`Coverflex`), `homeLocation` / `address` (`Fátima, Portugal`) e os 5 links `sameAs` oficiais (`LinkedIn`, `GitHub`, `Bronze Art`, `Bronze Podcast`, `Instagram`), evitando nós órfãos quando motores de resposta leem uma única página isolada.
 2. **Posicionamento reforçado da Home e `/work/`**:
    - `index.html` e `work/index.html` apresentam títulos, descrições e copys claros para consultas sobre *Senior Account Executive*, *B2B SaaS Sales*, *FinTech*, *Portugal / EMEA / UK&I*, *Sales Systems Architecture* e *Deal Intelligence*.
    - `work/index.html` usa `ProfilePage`, cartão Open Graph próprio (`/assets/img/og/work.jpg`, 1200×630) e a nova secção editorial `05` (`#writing-and-speaking`) ligando explicitamente a prática comercial aos ensaios de fundo e à sessão em direto.
