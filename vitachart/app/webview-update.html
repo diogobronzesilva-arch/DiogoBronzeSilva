@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="pt-PT">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#FAF7F2">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; script-src 'unsafe-inline'; base-uri 'none'; form-action 'none'">
+  <title>VitaChart</title>
+  <style>
+    *{box-sizing:border-box}body{margin:0;padding:24px;min-height:100vh;background:#FAF7F2;color:#2C2520;font:16px/1.6 Arial,sans-serif;display:flex;align-items:center;justify-content:center}
+    main{width:100%;max-width:440px;padding:28px;border-radius:24px;background:#fff;border:1px solid rgba(234,226,216,.7);box-shadow:0 6px 24px -4px rgba(44,37,32,.05)}
+    h1{font:32px/1.2 Georgia,serif;margin:0 0 20px}p{color:#6E5D4F}a,button{display:block;width:100%;margin-top:12px;padding:14px;border-radius:16px;background:#B86B52;color:#fff;text-align:center;text-decoration:none;font:inherit;border:0;cursor:pointer;user-select:none;transition:transform 180ms cubic-bezier(.22,1,.36,1)}
+    button{background:#F4EFE8;color:#2C2520}a:active,button:active{transform:scale(.97)}a:focus,button:focus{outline:3px solid #5B8266;outline-offset:3px}
+    @media(prefers-reduced-motion:reduce){a,button{transition:none}}
+  </style>
+</head>
+<body><main>
+  <h1>VitaChart</h1>
+  <strong id="title">Atualiza o componente de navegação</strong>
+  <p id="description">O VitaChart precisa de uma versão mais recente do Android System WebView ou do Chrome. Atualiza-os na Play Store e volta a abrir a aplicação.</p>
+  <p id="data">Esta atualização não apaga os registos guardados. Não desinstales o VitaChart nem limpes os seus dados.</p>
+  <a id="webview" href="https://play.google.com/store/apps/details?id=com.google.android.webview">Atualizar Android System WebView</a>
+  <a id="chrome" href="https://play.google.com/store/apps/details?id=com.android.chrome">Atualizar Chrome</a>
+  <button id="retry" type="button">Tentar novamente</button>
+</main><script>
+  (function () {
+    var locale = (navigator.language || 'pt').slice(0, 2);
+    var copy = {
+      en: ['Update the browser component', 'VitaChart needs a newer Android System WebView or Chrome. Update them in the Play Store, then reopen the app.', 'This update does not erase saved entries. Do not uninstall VitaChart or clear its data.', 'Update Android System WebView', 'Update Chrome', 'Try again'],
+      es: ['Actualiza el componente de navegación', 'VitaChart necesita una versión más reciente de Android System WebView o Chrome. Actualízalos en Play Store y vuelve a abrir la aplicación.', 'Esta actualización no borra los registros guardados. No desinstales VitaChart ni borres sus datos.', 'Actualizar Android System WebView', 'Actualizar Chrome', 'Intentar de nuevo'],
+      fr: ['Mets à jour le composant de navigation', 'VitaChart nécessite une version plus récente d’Android System WebView ou de Chrome. Mets-les à jour dans le Play Store, puis rouvre l’application.', 'Cette mise à jour ne supprime pas les entrées enregistrées. Ne désinstalle pas VitaChart et n’efface pas ses données.', 'Mettre à jour Android System WebView', 'Mettre à jour Chrome', 'Réessayer']
+    };
+    var ids = ['title', 'description', 'data', 'webview', 'chrome', 'retry'];
+    if (copy[locale]) {
+      document.documentElement.lang = locale;
+      for (var i = 0; i < ids.length; i++) document.getElementById(ids[i]).textContent = copy[locale][i];
+    }
+    document.getElementById('retry').addEventListener('click', function () {
+      var engine = navigator.userAgent.match(/(?:Chrome|Chromium)\/(\d+)/);
+      if (engine && Number(engine[1]) >= 111) window.location.href = '/';
+      else window.location.reload();
+    });
+  }());
+</script></body></html>
