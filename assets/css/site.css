@@ -107,6 +107,15 @@ h1, h2, h3 {
   text-wrap: balance;
 }
 
+strong, b {
+  font-weight: 500;
+}
+
+em strong, strong em,
+em b, b em {
+  font-weight: 400;
+}
+
 p { margin: 0 0 1.1em; }
 
 .prose p,
@@ -951,7 +960,7 @@ p { margin: 0 0 1.1em; }
   display: inline-flex;
   align-items: center;
   gap: 0.45rem;
-  font: 600 0.8125rem var(--sans);
+  font: 500 0.8125rem var(--sans);
   background: #EFE8DF;
   color: #2C2520;
   padding: 0.3rem 0.75rem;
@@ -1050,7 +1059,7 @@ p { margin: 0 0 1.1em; }
 }
 
 .demo-controls-heading {
-  font: 600 0.75rem var(--sans);
+  font: 500 0.75rem var(--sans);
   text-transform: uppercase;
   letter-spacing: 0.05em;
   color: var(--ink-soft);
@@ -1068,7 +1077,7 @@ p { margin: 0 0 1.1em; }
   border: 1px solid var(--rule);
   border-radius: 9999px;
   padding: 0.35rem 0.85rem;
-  font: 600 0.8125rem var(--sans);
+  font: 500 0.8125rem var(--sans);
   color: var(--ink);
   cursor: pointer;
   transition: all 0.15s ease;
@@ -1152,12 +1161,12 @@ p { margin: 0 0 1.1em; }
   border-radius: 50%;
   background: rgba(184, 107, 82, 0.12);
   color: #B86B52;
-  font: 700 0.75rem var(--sans);
+  font: 500 0.75rem var(--sans);
   flex-shrink: 0;
 }
 
 .demo-tour-title {
-  font: 600 0.8125rem var(--sans);
+  font: 500 0.8125rem var(--sans);
   color: #2C2520;
   flex-grow: 1;
 }
@@ -1206,7 +1215,7 @@ p { margin: 0 0 1.1em; }
 }
 
 .demo-cta-label {
-  font: 600 0.9375rem var(--sans);
+  font: 500 0.9375rem var(--sans);
 }
 
 .demo-cta-sub {
@@ -1302,7 +1311,7 @@ p { margin: 0 0 1.1em; }
 }
 
 .gallery-card-title {
-  font: 600 0.875rem var(--sans);
+  font: 500 0.875rem var(--sans);
   color: #2C2520;
   margin: 0;
 }
@@ -1323,7 +1332,7 @@ p { margin: 0 0 1.1em; }
 
 .demo-static-fallback summary {
   cursor: pointer;
-  font: 600 0.875rem var(--sans);
+  font: 500 0.875rem var(--sans);
   color: #6E5D4F;
   padding: 0.5rem 0;
 }

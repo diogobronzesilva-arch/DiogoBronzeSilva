@@ -76,6 +76,7 @@ The Notes index also holds selected podcast and interview appearances under a Po
 ## Elsewhere
 
 - [Bronze Art](https://bronzeart.pt): Diogo Silva's photography project. Classical, documentary photography of family, faith, and what gets handed down between generations.
+- [Bronze Podcast](https://bronzepodcast.com): Independent cultural project and podcast by Diogo Silva.
 - [LinkedIn](https://www.linkedin.com/in/diogosilvae/): Professional profile and chronological career history.
 - [GitHub](https://github.com/diogobronzesilva-arch): Source code repository and technical projects.
 - [Instagram](https://www.instagram.com/bronzeart.pt/): Bronze Art photography.
