@@ -39,6 +39,7 @@ Full context document: [llms-full.txt](https://diogobronzesilva.com/llms-full.tx
 
 ## Notes
 
+- [Even a castle in the sky needs roots](https://diogobronzesilva.com/notes/even-a-castle-in-the-sky-needs-roots/): A child’s question about Laputa leads to an essay on Miyazaki, technological power, family, nature and the ordinary life useful tools ought to serve. Published 14 November 2026.
 - [What remains when the world turns](https://diogobronzesilva.com/notes/what-remains-when-the-world-turns/): A literary personal essay in English on family, identity and the changes of a life, with an autumnal cadence. Distinguishes personal continuity and moral growth from Eucharistic transubstantiation. Published 11 November 2026.
 - [The end of the information broker](https://diogobronzesilva.com/notes/the-end-of-the-information-broker/): On the future of the B2B Account Executive (2026–2030), a three-layer Deal Intelligence architecture combining LLM context synthesis with deterministic fiscal code, separating pipeline Temperature from Account Tier, and why automating the backoffice makes physical presence in the field the ultimate differentiator. Published 9 November 2026.
 - [The wisdom of a second breakfast](https://diogobronzesilva.com/notes/the-wisdom-of-a-second-breakfast/): On Tolkien's hobbits, the pleasures of breakfast and the attention ordinary life deserves alongside work and ambition. Published 29 October 2026.
