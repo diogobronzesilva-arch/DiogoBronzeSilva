@@ -68,7 +68,7 @@ Diogo Silva's approach to enterprise software sales is built on four core princi
 - **Project URL**: https://diogobronzesilva.com/projects/vitachart/
 - **Fictional journal demonstration**: https://diogobronzesilva.com/vitachart/ (matching 28- and 47-day fictional journals with Standardized Code / Peak P and Vulvar Sensation / Peak ✕ toggle, and Portuguese PDF exports; no fertility calculation or prediction; invited testing is free).
 - **Privacy Policy**: https://diogobronzesilva.com/vitachart/privacy/
-- **Guide and support**: https://diogobronzesilva.com/vitachart/apoio/ (in Portuguese).
+- VitaChart guide and support: [Português](https://diogobronzesilva.com/vitachart/apoio/), [English](https://diogobronzesilva.com/vitachart/apoio/en/), [Español](https://diogobronzesilva.com/vitachart/apoio/es/), [Français](https://diogobronzesilva.com/vitachart/apoio/fr/). Getting started, consultation PDFs, backups and recovery.
 - **Product brand**: Bronze App.
 - **Category**: Personal fertility diary (Android, iPhone and installable web version).
 - **Background**: Grew out of the family's fertility charting experience with a FertilityCare practitioner and NaProTechnology doctor, and expanded to support both Standardized Code charting (Creighton / NaPro style, Peak Day P) and Vulvar Sensation & Peak charting (Billings / BOM style, Peak Day ✕ and Basic Infertile Pattern). VitaChart is an independent application and is not affiliated with, endorsed by, or certified by the Saint Paul VI Institute, FertilityCare Centers of America, or WOOMB International.
