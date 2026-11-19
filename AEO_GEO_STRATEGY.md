@@ -29,7 +29,7 @@ Estes temas servem para orientar conteúdo útil; não são previsões das pesqu
 | Identidade e percurso profissional | [Work](https://diogobronzesilva.com/work/) e perfil LinkedIn | Usar cargos, empresas, datas e experiência verificáveis; a cronologia completa fica no LinkedIn. |
 | Vendas, decisão e tecnologia | [Work](https://diogobronzesilva.com/work/) e notas relacionadas | Partilhar princípios e exemplos que resultem da experiência real, sem se apresentar como autoridade universal. |
 | Ensaios sobre fé, filosofia, trabalho e família | [Notes](https://diogobronzesilva.com/notes/) | Manter o argumento, o contexto e a língua original de cada texto. |
-| Fotografia documental | [Bronze Art](https://bronzeart.pt/) | Tratar como projeto separado e ligar ao website correto. |
+| Fotografia documental e entrega | [Bronze Art & Galleries](https://diogobronzesilva.com/projects/bronze-art-galleries/) e [Bronze Art](https://bronzeart.pt/) | Apresentar a fotografia documental e o software de entrega em conjunto dentro de Projects, ligando ao portefólio público em `bronzeart.pt`. |
 
 ## Práticas on-page
 
@@ -75,7 +75,7 @@ As designações e usos podem mudar; confirma a documentação oficial antes de 
 
 ## Projects e perguntas frequentes — revisão de 27/10/2026
 
-Projects reúne VitaChart, Bronze Art Galleries, Cutline e workflows de IA para vendas. As páginas da galeria e do Cutline descrevem a origem e as funcionalidades verificadas, distinguem utilização de distribuição pública e não publicam ligações de clientes, fotografias privadas, instaladores ou código proprietário.
+Projects reúne VitaChart, Bronze Art & Galleries, Bronze Clinical, Cutline e workflows de IA para vendas. As páginas da galeria e do Cutline descrevem a origem e as funcionalidades verificadas, distinguem utilização de distribuição pública e não publicam ligações de clientes, fotografias privadas, instaladores ou código proprietário.
 
 As perguntas frequentes de Projects são conteúdo visível, com HTML nativo, sobre disponibilidade, processamento local, galerias privadas, âmbito do VitaChart e contacto. O seu propósito é responder ao leitor. A Google retirou os resultados especiais de FAQ a partir de 7 de maio de 2026 e removeu a documentação em junho. Não se acrescenta marcação FAQPage com uma promessa de destaque. Os dados estruturados de Work descrevem a própria página e a sua navegação, sem perguntas invisíveis.
 

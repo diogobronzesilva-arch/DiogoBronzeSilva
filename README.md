@@ -17,6 +17,7 @@ work/index.html                         → /work/
 projects/index.html                     → /projects/
 projects/vitachart/index.html           → /projects/vitachart/
 projects/bronze-art-galleries/index.html → /projects/bronze-art-galleries/
+projects/bronze-clinical/index.html     → /projects/bronze-clinical/
 projects/cutline/index.html             → /projects/cutline/
 vitachart/index.html                    → /vitachart/ (demonstração fictícia)
 vitachart/privacy/index.html            → /vitachart/privacy/
@@ -49,14 +50,13 @@ A raiz deste repositório é a fonte de verdade do site. Não deve existir uma p
 
 A navegação principal é:
 
-**Home · Work · Projects · Photography · Notes · Contact**
+**Home · Work · Projects · Notes · Contact**
 
-- **Home** é a porta de entrada pessoal: apresenta quem vive aqui (a família, Sara e os cinco filhos perto de Fátima sob a secção *At Home*) e conduz às divisões (Work, Projects, Photography, Notes); mantém-se concisa e acolhedora.
+- **Home** é a porta de entrada pessoal: apresenta quem vive aqui (a família, Sara e os cinco filhos perto de Fátima sob a secção *At Home*) e conduz às divisões principais (Work, Projects, Notes); mantém-se concisa e acolhedora.
 - **Work** reúne experiência e pensamento sobre vendas, tecnologia, decisão e relações humanas.
-- **Projects** apresenta VitaChart, Bronze Art Galleries, Cutline e os workflows pessoais de IA para vendas, distinguindo funcionalidades atuais de trabalho futuro. A política do VitaChart mantém o URL `/vitachart/privacy/`.
-- **Photography** aponta directamente para `bronzeart.pt`.
+- **Projects** apresenta VitaChart, Bronze Art & Galleries (a fotografia documental em `bronzeart.pt` e a aplicação web de entrega a clientes), Bronze Clinical (estúdio de Direção Visual & Engenharia Web exclusivo para a Saúde Privada), Cutline e os workflows pessoais de IA para vendas, distinguindo funcionalidades atuais de trabalho futuro. A política do VitaChart mantém o URL `/vitachart/privacy/`.
 - **Notes** é a biblioteca de textos e, quando aplicável, participações seleccionadas em podcasts e entrevistas ao vivo sob `Podcasts and Live Interviews`.
-- **Contact** é deliberadamente simples: email, LinkedIn e Bronze Art.
+- **Contact** é deliberadamente simples: email, Newsletter, LinkedIn e Bronze Art.
 
 O site não deve transformar-se num CV online, landing page comercial ou exercício de personal branding.
 
@@ -119,7 +119,7 @@ A estética deve continuar editorial, calma, clássica e com muito espaço negat
 
 ### Revisão estética — 30 de setembro de 2026
 
-A Home aproxima nome, boas-vindas e retrato numa composição equilibrada de duas colunas em computador, alinhada pela base. Em telemóvel, o texto de apresentação surge antes do retrato, mantendo a leitura contínua. As quatro salas (Work, Projects, Photography, Notes) preservam a estrutura tipográfica limpa e uniforme.
+A Home aproxima nome, boas-vindas e retrato numa composição equilibrada de duas colunas em computador, alinhada pela base. Em telemóvel, o texto de apresentação surge antes do retrato, mantendo a leitura contínua. As três salas (Work, Projects, Notes) preservam a estrutura tipográfica limpa e uniforme.
 
 - A primeira nota recebe a classe `entry--featured` na Home e no índice Notes; ao publicar uma nova nota, mover esse destaque para a entrada mais recente.
 - Conversas externas têm uma indicação explícita para assistir (`Watch conversation ↗`); continuam sem embeds externos.

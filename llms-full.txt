@@ -76,11 +76,19 @@ Diogo Silva's approach to enterprise software sales is built on four core princi
 - **Storage and sharing**: No mandatory online account, advertising or third-party analytics. The journal is stored locally; exports are initiated by the user. JSON and CSV exports are not encrypted by the app. Remote couple synchronisation and encrypted pairing are future work, not current features.
 - **Status**: Private testing; store release is in preparation and there is no public download. Automated interpretations are still under validation and require professional review. Technical tests do not establish clinical accuracy.
 
-### Bronze Art Galleries
+### Bronze Art & Galleries
 - **Project URL**: https://diogobronzesilva.com/projects/bronze-art-galleries/
-- **Purpose**: Software built around Diogo's photographic delivery workflow: browsing a finished story, downloading final JPEGs and making album selections.
+- **Photography Portfolio**: https://bronzeart.pt/ (classical, documentary photography of family, faith, sacraments, and what is handed down between generations).
+- **Delivery Application**: Custom web application built around Diogo's photographic delivery workflow: browsing a finished chaptered story, downloading final high-resolution JPEGs and making album selections.
 - **Workflow**: Ordinary JPEG folders, chapter-based presentation, resumable uploads, review before publishing, and separate actions for adding or replacing photographs.
-- **Access**: Used within Bronze Art. Client access has an expiry and is separate from the author's internal archive. Client links and photographs are not published on the personal site. A recipient can forward a delivery link.
+- **Access**: Used within Bronze Art. Client access has an expiry and is separate from the author's internal archive. Client links and private family photographs are not published on the personal site. A recipient can forward a delivery link.
+
+### Bronze Clinical
+- **Project URL**: https://diogobronzesilva.com/projects/bronze-clinical/
+- **Focus & Thesis**: A high-craft image delivery, clinical communication and static web architecture boutique for private medical clinics in Portugal. Built around the thesis that a better website or better photographs alone are not enough—the objective is optimizing click-to-consultation conversion by aligning mobile speed, clear clinical communication, authentic visual proof and frictionless booking paths.
+- **Modular Scope & Founder Customers**: Includes a core Architecture, Communication & Conversion foundation (preserving and optimizing strong existing photography or institutional video) plus an optional On-site Editorial Photography module so clinics that already have solid imagery do not pay twice, and optional post-launch continuity without mandatory retainers. Early partner clinics have access to initial Founder Customer terms, starting with a concise 4-page technical diagnostic.
+- **Methodology & Realistic Timelines**: One focused capture phase (a single day on-site when the photography module is selected, plus a 30-to-45-minute recorded interview with the Clinical Director so physicians write zero copy), delivered in roughly 15 days for single-unit clinics or in phased milestones for larger multi-unit clinics.
+- **Technical & Regulatory Scope**: Sub-second edge-hosted static architecture, structured medical metadata (`MedicalClinic`, `Physician`, `FAQPage`), `/llms.txt` discovery, DNS/email preservation (`MX`, `SPF`, `DKIM`), searchable health-insurance agreements and built-in ERS / Decreto-Lei n.º 238/2015 and OM/OMD compliance.
 
 ### Cutline
 - **Project URL**: https://diogobronzesilva.com/projects/cutline/
