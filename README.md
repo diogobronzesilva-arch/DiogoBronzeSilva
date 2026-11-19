@@ -54,7 +54,7 @@ A navegação principal é:
 
 - **Home** é a porta de entrada pessoal: apresenta quem vive aqui (a família, Sara e os cinco filhos perto de Fátima sob a secção *At Home*) e conduz às divisões principais (Work, Projects, Notes); mantém-se concisa e acolhedora.
 - **Work** reúne experiência e pensamento sobre vendas, tecnologia, decisão e relações humanas.
-- **Projects** apresenta VitaChart, Bronze Art & Galleries (a fotografia documental em `bronzeart.pt` e a aplicação web de entrega a clientes), Bronze Clinical (estúdio de Direção Visual & Engenharia Web exclusivo para a Saúde Privada), Cutline e os workflows pessoais de IA para vendas, distinguindo funcionalidades atuais de trabalho futuro. A política do VitaChart mantém o URL `/vitachart/privacy/`.
+- **Projects** apresenta VitaChart, Bronze Art & Galleries (a fotografia documental em `bronzeart.pt` e a aplicação web de entrega a clientes), Bronze Clinical (projeto chave-na-mão de direção visual, vídeo e engenharia web de alta performance para clínicas médicas privadas), Cutline e os workflows pessoais de IA para vendas, distinguindo funcionalidades atuais de trabalho futuro. A política do VitaChart mantém o URL `/vitachart/privacy/`.
 - **Notes** é a biblioteca de textos e, quando aplicável, participações seleccionadas em podcasts e entrevistas ao vivo sob `Podcasts and Live Interviews`.
 - **Contact** é deliberadamente simples: email, Newsletter, LinkedIn e Bronze Art.
 

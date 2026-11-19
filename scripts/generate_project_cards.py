@@ -14,7 +14,7 @@ def main():
     args.output.mkdir(parents=True,exist_ok=True)
     cards=[
         ('projects','Projects','Photography, clinics, video, health and sales.','Independent work and tools shaped by everyday life.'),
-        ('bronze-clinical','Bronze Clinical','Imagem editorial, comunicação clínica e conversão digital.','Fotografia opcional · Arquitetura web · Conversão · Portugal'),
+        ('bronze-clinical','Bronze Clinical','Direção Visual & Engenharia Web para a Saúde Privada.','Projeto chave-na-mão · Fotografia & Vídeo · Conversão'),
         ('bronze-art-galleries','Bronze Art\n& Galleries','Documentary photography and client delivery software.','bronzeart.pt · Chapter galleries · Album selections'),
         ('cutline','Cutline','Local video clipping for Mac.','Transcription · Vertical framing · Editable captions'),
         ('vitachart','VitaChart','A fertility diary built from family experience.','In development · Private testing'),
