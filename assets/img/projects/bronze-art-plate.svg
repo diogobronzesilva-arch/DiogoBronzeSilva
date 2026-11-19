@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 400" width="960" height="400" role="img" aria-label="Bronze Art and Galleries editorial plate showing 3:2 documentary frame and chapter-based client delivery workflow">
+  <rect width="960" height="400" fill="#F6F3EC"/>
+  <line x1="480" y1="24" x2="480" y2="376" stroke="#191814" stroke-opacity="0.14" stroke-width="1"/>
+
+  <!-- Left sheet: I · Bronze Art Documentary Frame -->
+  <g>
+    <text x="36" y="46" font-family="-apple-system, 'Helvetica Neue', Arial, sans-serif" font-size="10.5" letter-spacing="1.6" fill="#8A6A3C" font-weight="500">I · BRONZE ART — DOCUMENTARY FRAME</text>
+    <text x="444" y="46" text-anchor="end" font-family="-apple-system, 'Helvetica Neue', Arial, sans-serif" font-size="10" letter-spacing="1.2" fill="#746E63">3:2 CLASSICAL</text>
+
+    <!-- Classical 3:2 matte frame -->
+    <rect x="36" y="66" width="408" height="272" fill="#FBFAF7" stroke="#191814" stroke-opacity="0.18" stroke-width="1"/>
+    <!-- Inner photograph window -->
+    <rect x="64" y="92" width="352" height="214" fill="#EAE4D8" stroke="#191814" stroke-opacity="0.16" stroke-width="1"/>
+    <!-- Bronze corner crop marks -->
+    <path d="M 64 106 L 64 92 L 78 92 M 402 92 L 416 92 L 416 106 M 64 292 L 64 306 L 78 306 M 402 306 L 416 306 L 416 292" fill="none" stroke="#8A6A3C" stroke-width="1.5"/>
+    <!-- Minimalist documentary horizon & architectural light -->
+    <line x1="64" y1="234" x2="416" y2="234" stroke="#191814" stroke-opacity="0.22" stroke-width="1"/>
+    <rect x="196" y="130" width="88" height="104" fill="#FBFAF7" fill-opacity="0.65" stroke="#191814" stroke-opacity="0.24" stroke-width="1"/>
+    <line x1="240" y1="130" x2="240" y2="234" stroke="#191814" stroke-opacity="0.16" stroke-width="1"/>
+    <circle cx="240" cy="182" r="22" fill="none" stroke="#8A6A3C" stroke-opacity="0.55" stroke-width="1.2"/>
+    <text x="240" y="272" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="12" fill="#56534C">Light, natural gesture, and what stays thirty years later</text>
+
+    <!-- Archival tonal step-wedge I-X -->
+    <g transform="translate(64, 316)">
+      <rect x="0" y="0" width="32" height="8" fill="#191814"/>
+      <rect x="35" y="0" width="32" height="8" fill="#322F28"/>
+      <rect x="70" y="0" width="32" height="8" fill="#4D4940"/>
+      <rect x="105" y="0" width="32" height="8" fill="#686358"/>
+      <rect x="140" y="0" width="32" height="8" fill="#8A6A3C"/>
+      <rect x="175" y="0" width="32" height="8" fill="#9E978B"/>
+      <rect x="210" y="0" width="32" height="8" fill="#B7B0A4"/>
+      <rect x="245" y="0" width="32" height="8" fill="#CFC8BC"/>
+      <rect x="280" y="0" width="32" height="8" fill="#E3DDD2"/>
+      <rect x="315" y="0" width="37" height="8" fill="#FBFAF7" stroke="#191814" stroke-opacity="0.2" stroke-width="0.8"/>
+    </g>
+
+    <text x="36" y="366" font-family="-apple-system, 'Helvetica Neue', Arial, sans-serif" font-size="10" letter-spacing="1.2" fill="#746E63">FAMILY · FAITH · SACRAMENTS · BRONZEART.PT</text>
+  </g>
+
+  <!-- Right sheet: II · Bronze Art Galleries Client Delivery -->
+  <g>
+    <text x="516" y="46" font-family="-apple-system, 'Helvetica Neue', Arial, sans-serif" font-size="10.5" letter-spacing="1.6" fill="#8A6A3C" font-weight="500">II · BRONZE ART GALLERIES — CLIENT DELIVERY</text>
+    <text x="924" y="46" text-anchor="end" font-family="-apple-system, 'Helvetica Neue', Arial, sans-serif" font-size="10" letter-spacing="1.2" fill="#746E63">WEB APP</text>
+
+    <rect x="516" y="66" width="408" height="272" fill="#FBFAF7" stroke="#191814" stroke-opacity="0.18" stroke-width="1"/>
+
+    <!-- Chapter 01 -->
+    <text x="538" y="96" font-family="-apple-system, 'Helvetica Neue', Arial, sans-serif" font-size="9.5" letter-spacing="1.2" fill="#8A6A3C" font-weight="500">CHAPTER 01 · PREPARATION</text>
+    <text x="902" y="96" text-anchor="end" font-family="-apple-system, 'Helvetica Neue', Arial, sans-serif" font-size="9.5" fill="#746E63">Original JPEGs · ZIP on demand</text>
+    <g>
+      <rect x="538" y="106" width="84" height="54" fill="#EFEAE0" stroke="#191814" stroke-opacity="0.16" stroke-width="1"/>
+      <rect x="630" y="106" width="84" height="54" fill="#EFEAE0" stroke="#8A6A3C" stroke-width="1.3"/>
+      <circle cx="702" cy="118" r="5" fill="#8A6A3C"/>
+      <rect x="722" y="106" width="84" height="54" fill="#EFEAE0" stroke="#191814" stroke-opacity="0.16" stroke-width="1"/>
+      <rect x="814" y="106" width="88" height="54" fill="#EFEAE0" stroke="#191814" stroke-opacity="0.16" stroke-width="1"/>
+    </g>
+
+    <!-- Chapter 02 -->
+    <text x="538" y="186" font-family="-apple-system, 'Helvetica Neue', Arial, sans-serif" font-size="9.5" letter-spacing="1.2" fill="#8A6A3C" font-weight="500">CHAPTER 02 · THE SACRAMENT</text>
+    <text x="902" y="186" text-anchor="end" font-family="-apple-system, 'Helvetica Neue', Arial, sans-serif" font-size="9.5" fill="#746E63">Album Selection Active</text>
+    <g>
+      <rect x="538" y="196" width="84" height="54" fill="#EFEAE0" stroke="#8A6A3C" stroke-width="1.3"/>
+      <circle cx="610" cy="208" r="5" fill="#8A6A3C"/>
+      <rect x="630" y="196" width="84" height="54" fill="#EFEAE0" stroke="#191814" stroke-opacity="0.16" stroke-width="1"/>
+      <rect x="722" y="196" width="84" height="54" fill="#EFEAE0" stroke="#191814" stroke-opacity="0.16" stroke-width="1"/>
+      <rect x="814" y="196" width="88" height="54" fill="#EFEAE0" stroke="#8A6A3C" stroke-width="1.3"/>
+      <circle cx="890" cy="208" r="5" fill="#8A6A3C"/>
+    </g>
+
+    <!-- Governance separation bar -->
+    <line x1="538" y1="274" x2="902" y2="274" stroke="#191814" stroke-opacity="0.16" stroke-width="1"/>
+    <rect x="538" y="286" width="174" height="36" fill="#F4EFE6" stroke="#191814" stroke-opacity="0.14" stroke-width="1"/>
+    <text x="625" y="302" text-anchor="middle" font-family="-apple-system, 'Helvetica Neue', Arial, sans-serif" font-size="9" letter-spacing="1.1" fill="#8A6A3C" font-weight="500">CLIENT ACCESS</text>
+    <text x="625" y="315" text-anchor="middle" font-family="-apple-system, 'Helvetica Neue', Arial, sans-serif" font-size="9.5" fill="#56534C">Timed expiry · Story &amp; ZIPs</text>
+
+    <rect x="728" y="286" width="174" height="36" fill="#F4EFE6" stroke="#191814" stroke-opacity="0.14" stroke-width="1"/>
+    <text x="815" y="302" text-anchor="middle" font-family="-apple-system, 'Helvetica Neue', Arial, sans-serif" font-size="9" letter-spacing="1.1" fill="#191814" font-weight="500">INTERNAL ARCHIVE</text>
+    <text x="815" y="315" text-anchor="middle" font-family="-apple-system, 'Helvetica Neue', Arial, sans-serif" font-size="9.5" fill="#56534C">Separate retention decision</text>
+
+    <text x="516" y="366" font-family="-apple-system, 'Helvetica Neue', Arial, sans-serif" font-size="10" letter-spacing="1.2" fill="#746E63">FOLDER UPLOAD · RESUMABLE TRANSFER · PRIVATE DELIVERY</text>
+  </g>
+</svg>
