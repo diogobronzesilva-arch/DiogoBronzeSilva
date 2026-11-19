@@ -1,0 +1,89 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 420" width="960" height="420" role="img" aria-label="Bronze Clinical architectural plate showing 4:5 optical portrait direction and A4 diagnostic web audit">
+  <rect width="960" height="420" fill="#F6F3EC"/>
+  <line x1="480" y1="24" x2="480" y2="396" stroke="#191814" stroke-opacity="0.14" stroke-width="1"/>
+
+  <!-- Left sheet: I · Direção Visual no Consultório -->
+  <g>
+    <text x="36" y="46" font-family="-apple-system, 'Helvetica Neue', Arial, sans-serif" font-size="10.5" letter-spacing="1.6" fill="#8A6A3C" font-weight="500">I · DIREÇÃO VISUAL NO CONSULTÓRIO · 4:5</text>
+    <rect x="332" y="32" width="112" height="20" fill="none" stroke="#8A6A3C" stroke-opacity="0.55" stroke-width="1"/>
+    <text x="388" y="45.5" text-anchor="middle" font-family="-apple-system, 'Helvetica Neue', Arial, sans-serif" font-size="9.5" letter-spacing="1.1" fill="#8A6A3C">SEM IA SINTÉTICA</text>
+
+    <!-- 4:5 Optical Viewfinder Frame -->
+    <rect x="36" y="66" width="408" height="296" fill="#FBFAF7" stroke="#191814" stroke-opacity="0.18" stroke-width="1"/>
+    <!-- Inner crop frame (4:5 aspect proportion inside box) -->
+    <rect x="132" y="84" width="216" height="260" fill="#F4EFE6" stroke="#191814" stroke-opacity="0.14" stroke-width="1"/>
+    <!-- Bronze crop marks -->
+    <path d="M 132 100 L 132 84 L 148 84 M 332 84 L 348 84 L 348 100 M 132 328 L 132 344 L 148 344 M 332 344 L 348 344 L 348 328" fill="none" stroke="#8A6A3C" stroke-width="1.6"/>
+    <!-- Rule-of-thirds hairlines -->
+    <line x1="204" y1="84" x2="204" y2="344" stroke="#191814" stroke-opacity="0.08" stroke-dasharray="3 4" stroke-width="1"/>
+    <line x1="276" y1="84" x2="276" y2="344" stroke="#191814" stroke-opacity="0.08" stroke-dasharray="3 4" stroke-width="1"/>
+    <line x1="132" y1="170" x2="348" y2="170" stroke="#191814" stroke-opacity="0.08" stroke-dasharray="3 4" stroke-width="1"/>
+    <line x1="132" y1="258" x2="348" y2="258" stroke="#191814" stroke-opacity="0.08" stroke-dasharray="3 4" stroke-width="1"/>
+    <!-- Optical reticle & minimalist classical portrait silhouette -->
+    <circle cx="240" cy="206" r="76" fill="none" stroke="#8A6A3C" stroke-opacity="0.32" stroke-width="1"/>
+    <circle cx="240" cy="172" r="28" fill="none" stroke="#191814" stroke-opacity="0.65" stroke-width="1.25"/>
+    <path d="M 178 308 C 178 260 202 232 240 232 C 278 232 302 260 302 308" fill="none" stroke="#191814" stroke-opacity="0.65" stroke-width="1.25"/>
+    <!-- Center crosshairs -->
+    <line x1="233" y1="206" x2="247" y2="206" stroke="#8A6A3C" stroke-width="1"/>
+    <line x1="240" y1="199" x2="240" y2="213" stroke="#8A6A3C" stroke-width="1"/>
+    <!-- Frame caption -->
+    <text x="240" y="330" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="11.5" fill="#56534C">Retrato médico real · 1 dia no local</text>
+
+    <!-- Bottom technical bar -->
+    <text x="36" y="388" font-family="-apple-system, 'Helvetica Neue', Arial, sans-serif" font-size="10" letter-spacing="1.2" fill="#746E63">ÓTICA 50MM F/2.0  ·  LUZ NATURAL  ·  WEBP + SCHEMA PERSON</text>
+  </g>
+
+  <!-- Right sheet: II · Dossiê A4 & Engenharia Web Estática -->
+  <g>
+    <text x="516" y="46" font-family="-apple-system, 'Helvetica Neue', Arial, sans-serif" font-size="10.5" letter-spacing="1.6" fill="#8A6A3C" font-weight="500">II · DOSSIÊ A4 &amp; ENGENHARIA WEB ESTÁTICA</text>
+    <text x="924" y="46" text-anchor="end" font-family="-apple-system, 'Helvetica Neue', Arial, sans-serif" font-size="10" letter-spacing="1.2" fill="#746E63">15 DIAS</text>
+
+    <!-- A4 Dossier Card -->
+    <rect x="516" y="66" width="408" height="296" fill="#FBFAF7" stroke="#191814" stroke-opacity="0.18" stroke-width="1"/>
+    <!-- A4 top hairline -->
+    <text x="536" y="92" font-family="-apple-system, 'Helvetica Neue', Arial, sans-serif" font-size="9.5" letter-spacing="1.4" fill="#191814" font-weight="500">BRONZE CLINICAL</text>
+    <text x="904" y="92" text-anchor="end" font-family="-apple-system, 'Helvetica Neue', Arial, sans-serif" font-size="9" letter-spacing="1.1" fill="#8A6A3C">RELATÓRIO DE AUDITORIA</text>
+    <line x1="536" y1="104" x2="904" y2="104" stroke="#191814" stroke-opacity="0.16" stroke-width="1"/>
+
+    <!-- Four audited pillars -->
+    <g font-family="-apple-system, 'Helvetica Neue', Arial, sans-serif">
+      <!-- Row 1 -->
+      <text x="536" y="130" font-size="10" letter-spacing="1.1" fill="#8A6A3C" font-weight="500">01</text>
+      <text x="564" y="130" font-family="Georgia, 'Times New Roman', serif" font-size="14" fill="#191814">Higiene &amp; Velocidade</text>
+      <text x="904" y="130" text-anchor="end" font-size="10.5" fill="#56534C">&lt; 0.5s Edge · Zero plugins</text>
+      <line x1="536" y1="146" x2="904" y2="146" stroke="#191814" stroke-opacity="0.12" stroke-width="1"/>
+
+      <!-- Row 2 -->
+      <text x="536" y="172" font-size="10" letter-spacing="1.1" fill="#8A6A3C" font-weight="500">02</text>
+      <text x="564" y="172" font-family="Georgia, 'Times New Roman', serif" font-size="14" fill="#191814">SEO Clínico &amp; /llms.txt</text>
+      <text x="904" y="172" text-anchor="end" font-size="10.5" fill="#56534C">MedicalClinic · Physician</text>
+      <line x1="536" y1="188" x2="904" y2="188" stroke="#191814" stroke-opacity="0.12" stroke-width="1"/>
+
+      <!-- Row 3 -->
+      <text x="536" y="214" font-size="10" letter-spacing="1.1" fill="#8A6A3C" font-weight="500">03</text>
+      <text x="564" y="214" font-family="Georgia, 'Times New Roman', serif" font-size="14" fill="#191814">Autoridade Médica</text>
+      <text x="904" y="214" text-anchor="end" font-size="10.5" fill="#56534C">Entrevista 40 min · OM / OMD</text>
+      <line x1="536" y1="230" x2="904" y2="230" stroke="#191814" stroke-opacity="0.12" stroke-width="1"/>
+
+      <!-- Row 4 -->
+      <text x="536" y="256" font-size="10" letter-spacing="1.1" fill="#8A6A3C" font-weight="500">04</text>
+      <text x="564" y="256" font-family="Georgia, 'Times New Roman', serif" font-size="14" fill="#191814">Conformidade ERS</text>
+      <text x="904" y="256" text-anchor="end" font-size="10.5" fill="#56534C">DL 238/2015 · DNS protegido</text>
+      <line x1="536" y1="272" x2="904" y2="272" stroke="#191814" stroke-opacity="0.12" stroke-width="1"/>
+    </g>
+
+    <!-- Auditor's Red Pen Annotation -->
+    <ellipse cx="628" cy="306" rx="74" ry="15" fill="none" stroke="#8F3E33" stroke-width="1.35"/>
+    <text x="628" y="310" text-anchor="middle" font-family="-apple-system, 'Helvetica Neue', Arial, sans-serif" font-size="9.5" letter-spacing="0.9" fill="#8F3E33" font-weight="500">ANOMALIA CMS</text>
+    <path d="M 706 306 L 742 306" fill="none" stroke="#8F3E33" stroke-width="1.2"/>
+    <path d="M 737 302 L 744 306 L 737 310" fill="none" stroke="#8F3E33" stroke-width="1.2"/>
+    <text x="752" y="310" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="12.5" fill="#191814">HTML Estático Edge</text>
+
+    <!-- Dossier footer -->
+    <line x1="536" y1="334" x2="904" y2="334" stroke="#191814" stroke-opacity="0.16" stroke-width="1"/>
+    <text x="536" y="350" font-family="-apple-system, 'Helvetica Neue', Arial, sans-serif" font-size="9.5" letter-spacing="1.2" fill="#746E63">SAÚDE PRIVADA · PORTUGAL</text>
+    <text x="904" y="350" text-anchor="end" font-family="-apple-system, 'Helvetica Neue', Arial, sans-serif" font-size="9.5" letter-spacing="1.2" fill="#191814" font-weight="500">ASSINADO: BRONZE CLINICAL</text>
+
+    <text x="516" y="388" font-family="-apple-system, 'Helvetica Neue', Arial, sans-serif" font-size="10" letter-spacing="1.2" fill="#746E63">ZERO PLUGINS  ·  MX/SPF/DKIM PRESERVADOS  ·  CHAVE-NA-MÃO</text>
+  </g>
+</svg>
