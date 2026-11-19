@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Regenerate the four typographic project cards. Requires Pillow, not used by the site build."""
+"""Regenerate the typographic project cards. Requires Pillow, not used by the site build."""
 from pathlib import Path
 from PIL import Image, ImageDraw, ImageFont
 import argparse
@@ -9,14 +9,20 @@ def main():
     parser.add_argument('--output',type=Path,required=True)
     parser.add_argument('--serif',default='/System/Library/Fonts/Supplemental/Georgia.ttf')
     parser.add_argument('--sans',default='/System/Library/Fonts/Supplemental/Arial.ttf')
+    parser.add_argument('--only',default=None,help='Generate only the card matching this slug')
     args=parser.parse_args()
     args.output.mkdir(parents=True,exist_ok=True)
     cards=[
-        ('projects','Projects','Photography, video, health and sales.','Tools shaped by everyday work.'),
-        ('bronze-art-galleries','Bronze Art\nGalleries','Photo delivery built around a photographer’s workflow.','Client delivery · Album selections · Web application'),
+        ('projects','Projects','Photography, clinics, video, health and sales.','Independent work and tools shaped by everyday life.'),
+        ('bronze-clinical','Bronze Clinical','Imagem editorial, comunicação clínica e conversão digital.','Fotografia opcional · Arquitetura web · Conversão · Portugal'),
+        ('bronze-art-galleries','Bronze Art\n& Galleries','Documentary photography and client delivery software.','bronzeart.pt · Chapter galleries · Album selections'),
         ('cutline','Cutline','Local video clipping for Mac.','Transcription · Vertical framing · Editable captions'),
         ('vitachart','VitaChart','A fertility diary built from family experience.','In development · Private testing'),
     ]
+    if args.only:
+        cards=[c for c in cards if c[0]==args.only]
+        if not cards:
+            raise SystemExit(f'Unknown card slug: {args.only}')
     for slug,title,subtitle,detail in cards:
         img=Image.new('RGB',(1200,630),'#FBFAF7')
         draw=ImageDraw.Draw(img)
@@ -33,6 +39,6 @@ def main():
         draw.text((80,482),detail,font=small,fill='#746E63')
         draw.text((80,560),'DIOGOBRONZESILVA.COM',font=small,fill='#746E63')
         img.save(args.output/(slug+'.jpg'),quality=92,optimize=True)
-    print('Generated four 1200 × 630 project cards.')
+    print(f'Generated {len(cards)} 1200 × 630 project card(s).')
 
 if __name__=='__main__':main()

@@ -371,9 +371,9 @@ def check_html(report: Report) -> dict[Path, PageParser]:
         parsed[rel] = parser
         check_page_shell(report, rel, parser)
 
-        expected_navigation = ["/", "/work/", "/projects/", "https://bronzeart.pt", "/notes/", "/contact/"]
+        expected_navigation = ["/", "/work/", "/projects/", "/notes/", "/contact/"]
         if parser.navigation_links != expected_navigation:
-            report.error("Global navigation must include Home, Work, Projects, Photography, Notes and Contact in order.", rel)
+            report.error("Global navigation must include Home, Work, Projects, Notes and Contact in order.", rel)
 
         if not parser.lang:
             report.error("Missing non-empty <html lang>.", rel)

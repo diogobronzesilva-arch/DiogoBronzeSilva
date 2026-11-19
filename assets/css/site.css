@@ -230,7 +230,7 @@ p { margin: 0 0 1.1em; }
 }
 
 /* On phones, the wordmark already links to Home. Hide the duplicate Home
-   destination and distribute the five section links with comfortable touch targets. */
+   destination and distribute the four section links with comfortable touch targets. */
 @media (max-width: 46rem) {
   .masthead { padding-top: 1.5rem; }
   .masthead__inner { align-items: stretch; }
@@ -245,7 +245,7 @@ p { margin: 0 0 1.1em; }
   .nav {
     width: 100%;
     display: grid;
-    grid-template-columns: repeat(5, max-content);
+    grid-template-columns: repeat(4, max-content);
     justify-content: space-between;
     gap: 0.25rem;
   }
@@ -267,12 +267,12 @@ p { margin: 0 0 1.1em; }
   }
 }
 
-/* Give the longer Photography label room on narrow phones. */
+/* Keep the four section links comfortable on very narrow phones. */
 @media (max-width: 24rem) {
   .nav {
-    grid-template-columns: repeat(3, max-content);
-    justify-content: start;
-    column-gap: 1.25rem;
+    grid-template-columns: repeat(4, max-content);
+    justify-content: space-between;
+    column-gap: 0.75rem;
   }
 }
 
