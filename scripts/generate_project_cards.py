@@ -13,11 +13,11 @@ def main():
     args=parser.parse_args()
     args.output.mkdir(parents=True,exist_ok=True)
     cards=[
-        ('projects','Projects','Photography, clinics, video, health and sales.','Independent work and tools shaped by everyday life.'),
-        ('bronze-clinical','Bronze Clinical','Direção Visual & Engenharia Web para a Saúde Privada.','Projeto chave-na-mão · Fotografia & Vídeo · Conversão'),
-        ('bronze-art-galleries','Bronze Art\n& Galleries','Documentary photography and client delivery software.','bronzeart.pt · Chapter galleries · Album selections'),
+        ('projects','Projects','AI workflows, photography and independent software.','Projects by Diogo Silva'),
+        ('bronze-clinical','Bronze Clinical','Websites for private medical and dental clinics.','Photography · Video · Writing · Web development'),
+        ('bronze-art-galleries','Bronze Art','Documentary photography of family life and faith.','Photography portfolio · Private client galleries'),
         ('cutline','Cutline','Local video clipping for Mac.','Transcription · Vertical framing · Editable captions'),
-        ('vitachart','VitaChart','A fertility diary built from family experience.','In development · Private testing'),
+        ('vitachart','VitaChart','A fertility diary built from family experience.','Creighton and Billings · Reports for consultations'),
     ]
     if args.only:
         cards=[c for c in cards if c[0]==args.only]
