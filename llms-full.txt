@@ -73,6 +73,9 @@
 ### VitaChart
 - **Project URL**: https://diogobronzesilva.com/projects/vitachart/
 - **Fictional journal demonstration**: https://diogobronzesilva.com/vitachart/ (VitaChart 1.3.2, with a selectable example diary for Creighton or Billings and each method’s current chart and PDF).
+- VitaChart in Portuguese. [Project](https://diogobronzesilva.com/projects/vitachart/pt/) · [Web demo](https://diogobronzesilva.com/vitachart/pt/).
+- VitaChart in Spanish. [Project](https://diogobronzesilva.com/projects/vitachart/es/) · [Web demo](https://diogobronzesilva.com/vitachart/es/).
+- VitaChart in French. [Project](https://diogobronzesilva.com/projects/vitachart/fr/) · [Web demo](https://diogobronzesilva.com/vitachart/fr/).
 - **Privacy**: https://diogobronzesilva.com/vitachart/privacy/ (Portuguese) and https://diogobronzesilva.com/vitachart/app/privacy-en.html (English).
 - VitaChart guide and support: [Português](https://diogobronzesilva.com/vitachart/apoio/), [English](https://diogobronzesilva.com/vitachart/apoio/en/), [Español](https://diogobronzesilva.com/vitachart/apoio/es/), [Français](https://diogobronzesilva.com/vitachart/apoio/fr/). Getting started, consultation PDFs, backups and recovery.
 - **Product brand**: Bronze App.
