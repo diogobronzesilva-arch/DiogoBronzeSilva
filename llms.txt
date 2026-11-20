@@ -12,7 +12,7 @@ Full context document: [llms-full.txt](https://diogobronzesilva.com/llms-full.tx
 - Canonical Home & Work URLs: https://diogobronzesilva.com/ and https://diogobronzesilva.com/work/
 - Current Role: Senior Account Executive at Coverflex (FinTech / employee compensation & benefits)
 - Location & Markets: Near Fátima, Portugal — commercial experience across Portugal, EMEA and UK&I
-- Experience: Over a decade in B2B SaaS enterprise sales, new business, expansion and customer growth (Coverflex through Series B, deskbird through Series B, Pipedrive through unicorn status)
+- Experience: Over a decade in B2B software sales, including new business and customer growth at Coverflex, deskbird and Pipedrive.
 - Disciplines: Enterprise B2B SaaS Sales, Account Executive Strategy, Sales Systems Architecture, Deal Intelligence, MEDDPICC
 - Languages: English (en) and Portuguese (pt-PT)
 - Speaking / Live Sessions: Featured guest on *The Daily Sales* LinkedIn Live ("Live Sales Insights with Diogo Silva")
@@ -20,21 +20,18 @@ Full context document: [llms-full.txt](https://diogobronzesilva.com/llms-full.tx
 
 ## Work
 
-- [Work](https://diogobronzesilva.com/work/): Senior Account Executive practice across B2B SaaS and FinTech — from Sales Systems Architecture and Deal Intelligence to Coverflex, deskbird, Pipedrive, and selected writing and speaking on sales (`/work/#writing-and-speaking`).
-- Core idea: Preparing for customer conversations thoroughly so every meeting focuses on what actually slows a deal down — understanding unit economics, procurement, legal, finance sign-off, and internal coalitions across complex B2B SaaS and FinTech environments.
-- Core idea: The era of the salesperson as an information broker or product presenter is over; Account Executives must become Sales Systems Architects who fine-tune sales motions by hand rather than flattening deals behind rigid RevOps standardization.
-- Core idea: Automate the backoffice ruthlessly with Deal Intelligence (LLM context synthesis + deterministic fiscal code + pre-call briefs) so full human judgment and physical presence go into the room with the buyer.
-- Companion Software Workflows: https://diogobronzesilva.com/projects/#ai-sales-workflows
-- Flagship Sales Essay: [The end of the information broker](https://diogobronzesilva.com/notes/the-end-of-the-information-broker/)
+- [Work](https://diogobronzesilva.com/work/): Senior Account Executive at Coverflex, with B2B software sales experience at deskbird and Pipedrive. Includes writing and interviews (https://diogobronzesilva.com/work/#writing-and-speaking).
+- Deal Intelligence brings together call notes, procurement documents and stakeholder questions. Diogo reviews the brief, and pricing calculations and financial checks use verifiable rules.
+- [The end of the information broker](https://diogobronzesilva.com/notes/the-end-of-the-information-broker/): Diogo's essay on Deal Intelligence and B2B sales.
 
 ## Projects
 
 - [Projects](https://diogobronzesilva.com/projects/): AI sales workflows, Bronze Art, Bronze Clinical, VitaChart and Cutline.
 - [AI Sales Systems and Custom Workflows](https://diogobronzesilva.com/projects/#ai-sales-workflows): Tools Diogo uses for account research, meeting preparation, summaries and CRM follow-up, with human review.
 - [Bronze Art](https://diogobronzesilva.com/projects/bronze-art-galleries/): Documentary photography of family life and faith, with private client galleries for viewing stories, downloading full-resolution JPEGs and choosing photographs for an album.
-- [Bronze Clinical](https://diogobronzesilva.com/projects/bronze-clinical/): Photography, video, writing and web development for private medical and dental clinics in Portugal, from a technical review to launch. A clinic can start with a single specialty.
+- [Bronze Clinical](https://diogobronzesilva.com/projects/bronze-clinical/): Website design for private medical and dental clinics in Portugal, with photography, video, clinical writing and direct appointment booking. A five-page technical review sets priorities. A clinic can commission a complete website or start with one specialty.
 - [VitaChart](https://diogobronzesilva.com/projects/vitachart/): A private fertility diary for Creighton and Billings charting. See the project page for store availability. Includes consultation reports and local backups. Automated interpretations remain under validation.
-- [VitaChart Demo & Overview](https://diogobronzesilva.com/vitachart/): A read-only practitioner preview with matching 28- and 47-day fictional journals, interactive toggle between Standardized Code (Peak P) and Vulvar Sensation (Peak ✕) notations, and Portuguese PDF exports. Invited testers can send feedback. No fertility calculation or prediction.
+- [VitaChart Demo & Overview](https://diogobronzesilva.com/vitachart/): A web demonstration with 28- and 47-day fictional journals, interactive toggle between Standardized Code (Peak P) and Vulvar Sensation (Peak ✕) notations, and Portuguese PDF exports. The demonstration displays examples for review.
 - [VitaChart Privacy Policy](https://diogobronzesilva.com/vitachart/privacy/): Complete privacy policy for VitaChart.
 - VitaChart guide and support: [Português](https://diogobronzesilva.com/vitachart/apoio/), [English](https://diogobronzesilva.com/vitachart/apoio/en/), [Español](https://diogobronzesilva.com/vitachart/apoio/es/), [Français](https://diogobronzesilva.com/vitachart/apoio/fr/). Getting started, consultation PDFs, backups and recovery.
 - [Cutline](https://diogobronzesilva.com/projects/cutline/): A personal Mac app for local transcription, vertical video clips and separate editable captions. Apple silicon, macOS 13.5 or later. Linked-video and initial model downloads need a connection; processing runs on the Mac. No installer is distributed here.
@@ -43,7 +40,7 @@ Full context document: [llms-full.txt](https://diogobronzesilva.com/llms-full.tx
 
 - [Even a castle in the sky needs roots](https://diogobronzesilva.com/notes/even-a-castle-in-the-sky-needs-roots/): A child’s question about Laputa leads to an essay on Miyazaki, technological power, family, nature and the ordinary life useful tools ought to serve. Published 14 November 2026.
 - [What remains when the world turns](https://diogobronzesilva.com/notes/what-remains-when-the-world-turns/): A literary personal essay in English on family, identity and the changes of a life, with an autumnal cadence. Distinguishes personal continuity and moral growth from Eucharistic transubstantiation. Published 11 November 2026.
-- [The end of the information broker](https://diogobronzesilva.com/notes/the-end-of-the-information-broker/): On the future of the B2B Account Executive (2026–2030), a three-layer Deal Intelligence architecture combining LLM context synthesis with deterministic fiscal code, separating pipeline Temperature from Account Tier, and why automating the backoffice makes physical presence in the field the ultimate differentiator. Published 9 November 2026.
+- [The end of the information broker](https://diogobronzesilva.com/notes/the-end-of-the-information-broker/): An essay on AI-assisted preparation for B2B sales, verifiable calculations and the value of meeting buyers in person. Published 9 November 2026.
 - [The wisdom of a second breakfast](https://diogobronzesilva.com/notes/the-wisdom-of-a-second-breakfast/): On Tolkien's hobbits, the pleasures of breakfast and the attention ordinary life deserves alongside work and ambition. Published 29 October 2026.
 - [Saber ler a sala](https://diogobronzesilva.com/notes/saber-ler-a-sala/): Em português. Uma reflexão sobre carreira, liderança, comunicação e confiança, a partir de um texto sobre Cristiano Ronaldo. Publicado a 11 de outubro de 2026.
 - [The life I would not trade](https://diogobronzesilva.com/notes/the-life-i-would-not-trade/): Ordinary family days may look modest beside a celebrated career, but they hold a kind of wealth professional success cannot replace. Published 29 September 2026.
@@ -66,10 +63,10 @@ The Notes index also holds selected podcast and interview appearances under a Po
 ## Pages
 
 - [Home](https://diogobronzesilva.com/): Personal front door to Work (Senior Account Executive), Projects and Notes.
-- [Work](https://diogobronzesilva.com/work/): Senior Account Executive practice — Sales Systems Architecture, Deal Intelligence, B2B SaaS & FinTech career, and selected sales writing (`/work/#writing-and-speaking`).
+- [Work](https://diogobronzesilva.com/work/): B2B software sales, Deal Intelligence and selected writing and interviews (`/work/#writing-and-speaking`).
 - [Projects](https://diogobronzesilva.com/projects/): AI sales workflows, Bronze Art, Bronze Clinical, VitaChart and Cutline (`/projects/#ai-sales-workflows`), with visible questions about availability and scope.
 - [VitaChart](https://diogobronzesilva.com/projects/vitachart/): Local fertility diary supporting Standardized Code and Vulvar Sensation notations, with reports for professional review.
-- [VitaChart Demo & Overview](https://diogobronzesilva.com/vitachart/): A read-only practitioner preview with matching 28- and 47-day fictional journals, Standardized Code (Peak P) and Vulvar Sensation (Peak ✕) notation toggle, and Portuguese PDF exports. Invited testers can send feedback. No fertility calculation or prediction.
+- [VitaChart Demo & Overview](https://diogobronzesilva.com/vitachart/): A web demonstration with 28- and 47-day fictional journals, Standardized Code (Peak P) and Vulvar Sensation (Peak ✕) notation toggle, and Portuguese PDF exports. The demonstration displays examples for review.
 - [VitaChart Privacy Policy](https://diogobronzesilva.com/vitachart/privacy/): Complete privacy policy for VitaChart.
 - [Notes index](https://diogobronzesilva.com/notes/): Essays, handwritten notes and selected podcast/live interview appearances.
 - [Contact](https://diogobronzesilva.com/contact/): Email address and links.
