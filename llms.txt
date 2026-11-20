@@ -29,15 +29,15 @@ Full context document: [llms-full.txt](https://diogobronzesilva.com/llms-full.tx
 
 ## Projects
 
-- [Projects](https://diogobronzesilva.com/projects/): Fertility diary, Bronze Art documentary photography and delivery software, Bronze Clinical for private healthcare, local video tools and AI sales workflows by Diogo Silva.
-- [VitaChart](https://diogobronzesilva.com/projects/vitachart/): A local fertility diary in private testing for Android and iPhone supporting Standardized Code (Creighton / NaPro style, Peak P) and Vulvar Sensation (Billings / BOM style, Peak ✕) charting across 4 languages (EN, PT, ES, FR). Includes A4 PDF reports, CSV / Excel export and local JSON backups; automated interpretations remain under validation. Remote couple synchronisation is not available.
+- [Projects](https://diogobronzesilva.com/projects/): AI sales workflows, Bronze Art, Bronze Clinical, VitaChart and Cutline.
+- [AI Sales Systems and Custom Workflows](https://diogobronzesilva.com/projects/#ai-sales-workflows): Tools Diogo uses for account research, meeting preparation, summaries and CRM follow-up, with human review.
+- [Bronze Art](https://diogobronzesilva.com/projects/bronze-art-galleries/): Documentary photography of family life and faith, with private client galleries for viewing stories, downloading full-resolution JPEGs and choosing photographs for an album.
+- [Bronze Clinical](https://diogobronzesilva.com/projects/bronze-clinical/): Photography, video, writing and web development for private medical and dental clinics in Portugal, from a technical review to launch. A clinic can start with a single specialty.
+- [VitaChart](https://diogobronzesilva.com/projects/vitachart/): A private fertility diary for Creighton and Billings charting. See the project page for store availability. Includes consultation reports and local backups. Automated interpretations remain under validation.
 - [VitaChart Demo & Overview](https://diogobronzesilva.com/vitachart/): A read-only practitioner preview with matching 28- and 47-day fictional journals, interactive toggle between Standardized Code (Peak P) and Vulvar Sensation (Peak ✕) notations, and Portuguese PDF exports. Invited testers can send feedback. No fertility calculation or prediction.
 - [VitaChart Privacy Policy](https://diogobronzesilva.com/vitachart/privacy/): Complete privacy policy for VitaChart.
 - VitaChart guide and support: [Português](https://diogobronzesilva.com/vitachart/apoio/), [English](https://diogobronzesilva.com/vitachart/apoio/en/), [Español](https://diogobronzesilva.com/vitachart/apoio/es/), [Français](https://diogobronzesilva.com/vitachart/apoio/fr/). Getting started, consultation PDFs, backups and recovery.
-- [Bronze Art & Galleries](https://diogobronzesilva.com/projects/bronze-art-galleries/): Classical, documentary photography on family, faith and generational memory under [Bronze Art](https://bronzeart.pt), paired with the custom photo delivery web application built for client stories (chapter-based galleries, final JPEG downloads, album selections and resumable folder uploads). Client links and private family galleries are not published on this site.
-- [Bronze Clinical](https://diogobronzesilva.com/projects/bronze-clinical/): BRONZE CLINICAL — Um estúdio de Direção Visual & Engenharia Web exclusivo para a Saúde Privada. Turnkey online conversion projects for private medical and dental clinics in Portugal: on-site editorial photography and institutional video (preserving strong existing media when present), clear clinical communication, technology-agnostic high-performance web engineering (including fluid video and direct booking integrations), Google/AI discoverability, and built-in ERS/OM/OMD regulatory compliance.
 - [Cutline](https://diogobronzesilva.com/projects/cutline/): A personal Mac app for local transcription, vertical video clips and separate editable captions. Apple silicon, macOS 13.5 or later. Linked-video and initial model downloads need a connection; processing runs on the Mac. No installer is distributed here.
-- AI Sales Systems & Custom Workflows: Custom AI agents and operational workflows for enterprise B2B SaaS sales (account research, conversation synthesis, and pipeline hygiene).
 
 ## Notes
 
@@ -67,8 +67,8 @@ The Notes index also holds selected podcast and interview appearances under a Po
 
 - [Home](https://diogobronzesilva.com/): Personal front door to Work (Senior Account Executive), Projects and Notes.
 - [Work](https://diogobronzesilva.com/work/): Senior Account Executive practice — Sales Systems Architecture, Deal Intelligence, B2B SaaS & FinTech career, and selected sales writing (`/work/#writing-and-speaking`).
-- [Projects](https://diogobronzesilva.com/projects/): VitaChart, Bronze Art & Galleries, Bronze Clinical, Cutline and AI sales workflows (`/projects/#ai-sales-workflows`), with visible questions about availability and scope.
-- [VitaChart](https://diogobronzesilva.com/projects/vitachart/): Local fertility diary in development supporting Standardized Code and Vulvar Sensation notations, with reports for professional review.
+- [Projects](https://diogobronzesilva.com/projects/): AI sales workflows, Bronze Art, Bronze Clinical, VitaChart and Cutline (`/projects/#ai-sales-workflows`), with visible questions about availability and scope.
+- [VitaChart](https://diogobronzesilva.com/projects/vitachart/): Local fertility diary supporting Standardized Code and Vulvar Sensation notations, with reports for professional review.
 - [VitaChart Demo & Overview](https://diogobronzesilva.com/vitachart/): A read-only practitioner preview with matching 28- and 47-day fictional journals, Standardized Code (Peak P) and Vulvar Sensation (Peak ✕) notation toggle, and Portuguese PDF exports. Invited testers can send feedback. No fertility calculation or prediction.
 - [VitaChart Privacy Policy](https://diogobronzesilva.com/vitachart/privacy/): Complete privacy policy for VitaChart.
 - [Notes index](https://diogobronzesilva.com/notes/): Essays, handwritten notes and selected podcast/live interview appearances.

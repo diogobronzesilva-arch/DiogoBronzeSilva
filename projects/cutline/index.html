@@ -43,7 +43,7 @@
       "name": "Cutline — Local Video Clipping for Mac | Diogo Silva",
       "description": "Cutline is my Mac app for turning long videos into vertical clips, with local transcription, portrait framing and editable subtitle files. Built for Apple silicon.",
       "inLanguage": "en",
-      "dateModified": "2026-10-27",
+      "dateModified": "2026-11-20",
       "isPartOf": {
         "@id": "https://diogobronzesilva.com/#website"
       },
@@ -92,7 +92,7 @@
         "Automatic clip suggestions for human review",
         "Vertical 9:16 framing",
         "1080 × 1920 MP4 export",
-        "Separate editable SRT captions"
+        "Editable SRT captions captions"
       ]
     },
     {
@@ -124,7 +124,7 @@
 <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/newsreader-regular.woff2" crossorigin>
 <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/instrument-sans-regular.woff2" crossorigin>
 <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/newsreader-italic.woff2" crossorigin>
-<link rel="stylesheet" href="/assets/css/site.css?v=20261119-3">
+<link rel="stylesheet" href="/assets/css/site.css?v=20261120">
 </head>
 <body>
 
@@ -144,74 +144,61 @@
 </header>
 
 <main id="main" tabindex="-1">
-  <article class="shell article work-page project-page">
+  <article class="shell article project-page project-detail">
     <header class="article__head">
-      <p class="article__date label"><a class="link" href="/projects/">&larr; Projects</a> &middot; Mac App</p>
+      <p class="article__date label"><a class="link" href="/projects/">&larr; Projects</a></p>
       <h1 class="article__title">Cutline</h1>
-      <p class="standfirst">A first editorial pass at short clips, processed on the Mac.</p>
+      <p class="standfirst">A Mac app for turning long videos into short clips you can review, reframe and caption.</p>
     </header>
 
     <dl class="project-specs" aria-label="Cutline specifications">
       <div>
         <dt>Platform</dt>
-        <dd>Apple Silicon Mac <span class="project-specs__sub">macOS 13.5 or later</span></dd>
+        <dd>Mac with Apple silicon <span class="project-specs__sub">macOS 13.5 or later</span></dd>
       </div>
       <div>
         <dt>Local Processing</dt>
-        <dd>On-Device Whisper <span class="project-specs__sub">Up to 10 editorial clip suggestions</span></dd>
+        <dd>Whisper on the Mac <span class="project-specs__sub">Up to 10 editorial clip suggestions</span></dd>
       </div>
       <div>
         <dt>Video &amp; Captions</dt>
-        <dd>1080 &times; 1920 MP4 <span class="project-specs__sub">9:16 framing &middot; Separate editable SRT</span></dd>
+        <dd>1080 &times; 1920 MP4 <span class="project-specs__sub">9:16 framing &middot; Editable SRT captions</span></dd>
       </div>
       <div>
-        <dt>Operating Model</dt>
-        <dd>No Account or API <span class="project-specs__sub">Proprietary personal Mac project</span></dd>
+        <dt>Availability</dt>
+        <dd>Personal project <span class="project-specs__sub">No public download</span></dd>
       </div>
     </dl>
 
     <div class="entries" aria-label="Cutline overview">
       <section class="entry">
-        <span class="entry__date">01</span>
         <div>
-          <h2 class="entry__title">It began with a link and a long conversation</h2>
-          <p class="entry__dek">Cutline began with a practical request: give the app a link to a long video and get a first selection of short clips to review. Podcasts, interviews and talks were the starting point. I wanted to bring downloading, transcription, framing and export into one local workflow.</p>
-          <p class="entry__dek">A useful clip still needs context and a complete thought. The software prepares suggestions; the person reviewing them decides what is worth publishing. That distinction shaped the project from the beginning.</p>
+          <h2 class="entry__title">From a long video to a shortlist</h2>
+          <p class="entry__dek">I built Cutline for podcasts, interviews and talks. Give it an authorised public video link and it transcribes the recording on the Mac with Whisper, then suggests up to ten short clips to preview.</p>
+          <p class="entry__dek">The suggestions look for a clear opening, specific details, a steady rhythm and a conclusion. I review each clip for context and decide what is worth publishing.</p>
         </div>
       </section>
 
       <section class="entry">
-        <span class="entry__date">02</span>
         <div>
-          <h2 class="entry__title">The first pass happens on the Mac</h2>
-          <p class="entry__dek">The Mac application downloads a video from an authorised public link, transcribes it locally with Whisper and suggests up to ten moments. It prepares previews so the results can be reviewed before export.</p>
-          <p class="entry__dek">The selection uses editorial heuristics, including the opening, concrete detail, rhythm and conclusion. These are suggestions to examine, rather than a prediction of how a clip will perform online.</p>
+          <h2 class="entry__title">Vertical video and editable captions</h2>
+          <p class="entry__dek">Cutline follows a face or subject to frame the clip vertically, then exports a 1080 × 1920 MP4.</p>
+          <p class="entry__dek">It saves captions as a separate SRT file, so you can correct or style them in your editor while keeping a clean master video.</p>
         </div>
       </section>
 
       <section class="entry">
-        <span class="entry__date">03</span>
         <div>
-          <h2 class="entry__title">Portrait video and editable captions</h2>
-          <p class="entry__dek">Cutline follows a face or subject to prepare a vertical 9:16 frame and exports 1080 × 1920 MP4 video. It uses the Mac’s video and machine-learning facilities for parts of the processing.</p>
-          <p class="entry__dek">Captions are exported as separate SRT files, alongside text and other project outputs. They can be corrected in an editing workflow without having to remove words already burned into the video. The exported MP4 keeps the picture free of embedded captions.</p>
-        </div>
-      </section>
-
-      <section class="entry">
-        <span class="entry__date">04</span>
-        <div>
-          <h2 class="entry__title">What local use means</h2>
-          <p class="entry__dek">The Mac workflow described here runs transcription and rendering on the computer and keeps its working files locally. It does not require a mandatory online account, a subscription or an AI API key.</p>
-          <p class="entry__dek">A connection is still needed to fetch a linked video and to download the transcription model on first use. The supported Mac build is for Apple silicon with macOS 13.5 or later. Use your own videos or material you are authorised to process.</p>
-          <p class="entry__dek">Cutline is presented here as a personal project. Its original code is proprietary, and no installer is distributed from this website. For current availability, contact me.</p>
+          <h2 class="entry__title">What runs on the Mac</h2>
+          <p class="entry__dek">Transcription and rendering run on the Mac, and working files stay there. The app runs without a subscription, an online account or an AI API key.</p>
+          <p class="entry__dek">You need an internet connection to fetch a linked video and download the speech model on first use. Cutline is built for Apple silicon and macOS 13.5 or later.</p>
+          <p class="entry__dek">Cutline is a personal project. If you’d like to know more about availability, you can email me below.</p>
         </div>
       </section>
     </div>
     <div class="prose">
-      <hr>
       <p>Questions about Cutline or local video workflows? Write to <!--email_off--><a class="link" href="mailto:hello@diogobronzesilva.com">hello@diogobronzesilva.com</a><!--/email_off-->. You can also explore <a class="link" href="/projects/#ai-sales-workflows">how I use AI in sales work</a>.</p>
-      <p><a class="link" href="/projects/">All projects &rarr;</a></p>
+      <p><a class="link" href="/projects/">&larr; All projects</a></p>
     </div>
   </article>
 </main>

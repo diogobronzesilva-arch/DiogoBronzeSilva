@@ -64,6 +64,24 @@ Diogo Silva's approach to enterprise software sales is built on four core princi
 
 - **Overview Page**: https://diogobronzesilva.com/projects/
 
+### AI Sales Systems and Custom Workflows
+- **Project URL**: https://diogobronzesilva.com/projects/#ai-sales-workflows
+- **Scope**: Personal B2B sales workflows for account research and meeting preparation, follow-up and CRM updates. Diogo reviews the source material before deciding what to record or send.
+
+### Bronze Art
+- **Project URL**: https://diogobronzesilva.com/projects/bronze-art-galleries/
+- **Photography Portfolio**: https://bronzeart.pt/ (classical, documentary photography of family, faith, sacraments, and what is handed down between generations).
+- **Delivery Application**: Custom web application built around Diogo's photographic delivery workflow: browsing a finished chaptered story, downloading final high-resolution JPEGs and making album selections.
+- **Workflow**: Ordinary JPEG folders, chapter-based presentation, resumable uploads, review before publishing, and separate actions for adding or replacing photographs.
+- **Access**: Used within Bronze Art. Client access has an expiry and is separate from the author's internal archive. Client links and private family photographs are not published on the personal site. A recipient can forward a delivery link.
+
+### Bronze Clinical
+- **Project URL**: https://diogobronzesilva.com/projects/bronze-clinical/
+- **Scope**: Photography, video, clinical writing and web development for private medical and dental clinics in Portugal, with one point of contact.
+- **Delivery**: A complete website or a project for one priority specialty. Existing visual material can be carried across. The clinic owns the domain, content, code and media after launch. Ongoing support is optional.
+- **Process**: A five-page technical review covers mobile measurements, the booking route and regulatory information. A 30–45-minute interview with the clinical director informs copy, with one day on site if new visuals are required. Single-site work typically takes about 15 days. Multi-site schedules are phased.
+- **Technical work**: Mobile performance, booking integrations, searchable insurance information, structured medical data, review of how the website presents Portuguese healthcare requirements, and checks on DNS and email before moving a domain.
+
 ### VitaChart
 - **Project URL**: https://diogobronzesilva.com/projects/vitachart/
 - **Fictional journal demonstration**: https://diogobronzesilva.com/vitachart/ (matching 28- and 47-day fictional journals with Standardized Code / Peak P and Vulvar Sensation / Peak ✕ toggle, and Portuguese PDF exports; no fertility calculation or prediction; invited testing is free).
@@ -74,22 +92,7 @@ Diogo Silva's approach to enterprise software sales is built on four core princi
 - **Background**: Grew out of the family's fertility charting experience with a FertilityCare practitioner and NaProTechnology doctor, and expanded to support both Standardized Code charting (Creighton / NaPro style, Peak Day P) and Vulvar Sensation & Peak charting (Billings / BOM style, Peak Day ✕ and Basic Infertile Pattern). VitaChart is an independent application and is not affiliated with, endorsed by, or certified by the Saint Paul VI Institute, FertilityCare Centers of America, or WOOMB International.
 - **Current scope**: Daily observations in 4 languages (EN, PT, ES, FR with automatic device language detection), a 12-card journal, basal body temperature with 3-over-6 thermal shift detection, local reminders, consultation notes, 35-day A4 Landscape PDF report pages, CSV / Excel spreadsheet export and JSON backup and restore.
 - **Storage and sharing**: No mandatory online account, advertising or third-party analytics. The journal is stored locally; exports are initiated by the user. JSON and CSV exports are not encrypted by the app. Remote couple synchronisation and encrypted pairing are future work, not current features.
-- **Status**: Private testing; store release is in preparation and there is no public download. Automated interpretations are still under validation and require professional review. Technical tests do not establish clinical accuracy.
-
-### Bronze Art & Galleries
-- **Project URL**: https://diogobronzesilva.com/projects/bronze-art-galleries/
-- **Photography Portfolio**: https://bronzeart.pt/ (classical, documentary photography of family, faith, sacraments, and what is handed down between generations).
-- **Delivery Application**: Custom web application built around Diogo's photographic delivery workflow: browsing a finished chaptered story, downloading final high-resolution JPEGs and making album selections.
-- **Workflow**: Ordinary JPEG folders, chapter-based presentation, resumable uploads, review before publishing, and separate actions for adding or replacing photographs.
-- **Access**: Used within Bronze Art. Client access has an expiry and is separate from the author's internal archive. Client links and private family photographs are not published on the personal site. A recipient can forward a delivery link.
-
-### Bronze Clinical
-- **Project URL**: https://diogobronzesilva.com/projects/bronze-clinical/
-- **Canonical Identity**: BRONZE CLINICAL — Um estúdio de Direção Visual & Engenharia Web exclusivo para a Saúde Privada.
-- **Focus & Thesis**: Turnkey online conversion projects for private medical and dental clinics in Portugal. Built around the thesis that a better website or better photographs alone are not enough—the objective is optimizing click-to-consultation conversion by aligning mobile speed, clear clinical communication, authentic photography and fluid video, and frictionless booking paths under one senior lead.
-- **Turnkey Scope & Respect for Existing Assets**: Delivered end-to-end as a turnkey project for the Clinical Director while adapting to each clinic's existing visual assets (preserving and optimizing solid portraits or institutional video when already present), with an optional closed-scope entry for a single priority clinical area, 100% ownership after launch, and zero mandatory retainers. Early partner clinics have access to initial Founder Customer terms, starting with a 5-page executive technical diagnostic with real mobile measurements, practical priorities and visual evidence.
-- **Methodology & Realistic Timelines**: One focused capture phase (a single day on-site when new photography or video production is required, plus a 30-to-45-minute recorded interview with the Clinical Director so physicians write zero copy), delivered in roughly 15 days for single-unit clinics or in phased milestones for larger multi-unit clinics.
-- **Engineering & Regulatory Scope**: Technology-agnostic high-performance web engineering (sub-second edge delivery, fluid institutional video without blocking preloaders, direct booking integrations, structured `MedicalClinic`, `Physician` and `FAQPage` markup, `/llms.txt` discovery, `MX`/`SPF`/`DKIM` DNS preservation, searchable health-insurance agreements and built-in ERS / Decreto-Lei n.º 238/2015 and OM/OMD compliance).
+- **Status**: Released for iPhone, with availability varying by country. Android release is planned. See the project page for current availability. Automated interpretations remain under validation and require professional review.
 
 ### Cutline
 - **Project URL**: https://diogobronzesilva.com/projects/cutline/
@@ -97,11 +100,6 @@ Diogo Silva's approach to enterprise software sales is built on four core princi
 - **Features**: Local Whisper transcription, up to ten suggested moments, face or subject framing, 9:16 video, 1080 × 1920 MP4 and separate editable SRT captions.
 - **Local processing**: Runs transcription and rendering on the Mac without a mandatory account, subscription or AI API key. Fetching a linked video and downloading the model initially need a connection.
 - **Platform and scope**: Apple silicon, macOS 13.5 or later. The original code is proprietary. No installer is distributed from the personal website. Use owned or authorised source material.
-
-### AI Sales Systems & Custom Workflows
-- **Category**: Enterprise B2B SaaS Sales Operating System
-- **Philosophy**: Personal tools complement shared Sales Enablement and RevOps foundations, helping prepare for the account, people and decisions involved in a deal. Diogo reviews generated output and remains responsible for what he uses or sends.
-- **Components**: Account research, meeting synthesis, preparation and CRM follow-up.
 
 ---
 
