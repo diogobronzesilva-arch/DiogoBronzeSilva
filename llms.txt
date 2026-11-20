@@ -83,3 +83,14 @@ The Notes index also holds selected podcast and interview appearances under a Po
 - [LinkedIn](https://www.linkedin.com/in/diogosilvae/): Professional profile and chronological career history.
 - [GitHub](https://github.com/diogobronzesilva-arch): Source code repository and technical projects.
 - [Instagram](https://www.instagram.com/bronzeart.pt/): Bronze Art photography.
+
+## Portuguese website
+
+- [Página inicial](https://diogobronzesilva.com/pt/)
+- [Trabalho](https://diogobronzesilva.com/work/pt/)
+- [Projetos](https://diogobronzesilva.com/projects/pt/)
+- [Notas e ensaios](https://diogobronzesilva.com/notes/pt/)
+- [Contacto](https://diogobronzesilva.com/contact/pt/)
+- [Bronze Art](https://diogobronzesilva.com/projects/bronze-art-galleries/pt/)
+- [Bronze Clinical](https://diogobronzesilva.com/projects/bronze-clinical/pt/)
+- [Cutline](https://diogobronzesilva.com/projects/cutline/pt/)

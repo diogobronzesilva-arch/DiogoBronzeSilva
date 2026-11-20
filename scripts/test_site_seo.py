@@ -340,6 +340,46 @@ def entity_errors(pages):
     return '\n'.join(message for _, message in report.errors)
 
 
+class WebsiteLanguageTests(unittest.TestCase):
+    root = Path(__file__).resolve().parents[1]
+    routes = (
+        '/', '/work/', '/projects/', '/notes/', '/contact/',
+        '/projects/bronze-art-galleries/', '/projects/bronze-clinical/', '/projects/cutline/',
+    )
+
+    def read_route(self, route):
+        return (self.root / route.strip('/') / 'index.html').read_text(encoding='utf-8')
+
+    def test_english_and_portuguese_pages_link_to_equivalent_content(self):
+        origin = 'https://diogobronzesilva.com'
+        for route in self.routes:
+            portuguese = route + 'pt/'
+            for current, language in ((route, 'en'), (portuguese, 'pt-PT')):
+                with self.subTest(current=current):
+                    html = self.read_route(current)
+                    self.assertRegex(html, f'<html lang="{language}(?:-GB)?">')
+                    self.assertIn(f'<link rel="canonical" href="{origin}{current}">', html)
+                    for label, target in (('en', route), ('pt-PT', portuguese), ('x-default', route)):
+                        self.assertIn(f'<link rel="alternate" hreflang="{label}" href="{origin}{target}">', html)
+                    nav = re.search(r'<nav class="site-languages"[^>]*>(.*?)</nav>', html, re.S).group(1)
+                    parser = PageParser()
+                    parser.feed(nav)
+                    self.assertEqual([route, portuguese], [link.get('href') for link in parser.anchors])
+                    self.assertEqual([current], [link.get('href') for link in parser.anchors if link.get('aria-current') == 'page'])
+
+    def test_essays_link_to_the_two_language_catalogues(self):
+        for path in (self.root / 'notes').glob('*/index.html'):
+            if path.parent.name == 'pt':
+                continue
+            with self.subTest(essay=path.parent.name):
+                html = path.read_text(encoding='utf-8')
+                nav = re.search(r'<nav class="site-languages"[^>]*>(.*?)</nav>', html, re.S).group(1)
+                self.assertIn('href="/notes/"', nav)
+                self.assertIn('href="/notes/pt/"', nav)
+                self.assertNotIn('aria-current', nav)
+                self.assertNotIn('rel="alternate" hreflang=', html)
+
+
 class VitaChartLocaleTests(unittest.TestCase):
     root = Path(__file__).resolve().parents[1]
     locales = {'en': 'en-GB', 'pt': 'pt-PT', 'es': 'es', 'fr': 'fr'}

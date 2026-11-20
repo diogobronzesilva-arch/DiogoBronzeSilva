@@ -210,3 +210,14 @@ Canonical section pages:
 - **Hosting**: Cloudflare Pages / Edge static hosting.
 - **Repository**: https://github.com/diogobronzesilva-arch/DiogoBronzeSilva
 - **Discovery**: Static public HTML, canonical URLs, sitemap, structured data and internal links. robots.txt permits crawlers; indexing and search inclusion are decisions made by each service. llms files are context documents, not ranking guarantees.
+
+## Portuguese website
+
+- [Página inicial](https://diogobronzesilva.com/pt/)
+- [Trabalho](https://diogobronzesilva.com/work/pt/)
+- [Projetos](https://diogobronzesilva.com/projects/pt/)
+- [Notas e ensaios](https://diogobronzesilva.com/notes/pt/)
+- [Contacto](https://diogobronzesilva.com/contact/pt/)
+- [Bronze Art](https://diogobronzesilva.com/projects/bronze-art-galleries/pt/)
+- [Bronze Clinical](https://diogobronzesilva.com/projects/bronze-clinical/pt/)
+- [Cutline](https://diogobronzesilva.com/projects/cutline/pt/)
