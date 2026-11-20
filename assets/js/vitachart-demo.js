@@ -18,7 +18,7 @@
   if (methods.includes(requestedMethod)) state.method = requestedMethod;
   let keepAppLanguage = languages.includes(requestedLanguage);
   if (keepAppLanguage) state.lang = requestedLanguage;
-  let connected = false;
+  let receivedAppState = false;
 
   function paint() {
     buttons.forEach(button => button.setAttribute("aria-pressed", String(button.dataset.demoTab === state.tab)));
@@ -42,7 +42,7 @@
   }
 
   function send() {
-    if (connected) frame.contentWindow.postMessage({ type: "VITACHART_NAVIGATE", ...state, report: false }, window.location.origin);
+    frame.contentWindow?.postMessage({ type: "VITACHART_NAVIGATE", ...state, report: false }, window.location.origin);
   }
 
   function choose(patch) {
@@ -59,13 +59,16 @@
     choose({ lang: language.value });
   });
 
+  // The embedded app can finish loading before this deferred script runs.
+  frame.addEventListener("load", send);
+
   window.addEventListener("message", event => {
     if (event.origin !== window.location.origin || event.source !== frame.contentWindow) return;
     const value = event.data;
     if (!value || value.type !== "VITACHART_DEMO_STATE") return;
-    if (!connected) {
+    if (!receivedAppState) {
       // Apply any choice made before the application finished loading.
-      connected = true;
+      receivedAppState = true;
       send();
       return;
     }
@@ -78,4 +81,5 @@
     paint();
   });
   paint();
+  send();
 })();
