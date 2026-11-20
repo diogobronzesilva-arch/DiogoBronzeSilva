@@ -40,7 +40,7 @@
 .vc-tours strong { font-size: .875rem; font-weight: 600; margin-bottom: .2rem; }
 .vc-tours small { font-size: .72rem; color: #6E5D4F; line-height: 1.65; }
 .vc-tour-arrow { margin-left: auto; color: #B86B52; font-size: 1rem; flex-shrink: 0; }
-.vc-selectors { display: grid; grid-template-columns: 1fr 1fr; gap: .75rem; margin-top: 1rem; }
+.vc-selectors { display: grid; grid-template-columns: 1fr 1fr; gap: .75rem; margin: 0 .5rem .9rem; }
 .vc-selectors label { display: block; font-size: .7rem; font-weight: 600; color: #6E5D4F; }
 .vc-selectors select { display: block; width: 100%; min-width: 0; min-height: 2.75rem; padding: .6rem; margin-top: .35rem; background: #fff; border: 1px solid #EAE2D8; border-radius: .75rem; color: #2C2520; font: 400 .85rem var(--vc-sans); }
 .vc-benefits { padding-block: 3rem 2rem; margin-top: 3rem; border-top: 1px solid #EAE2D8; }

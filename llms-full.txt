@@ -72,15 +72,17 @@
 
 ### VitaChart
 - **Project URL**: https://diogobronzesilva.com/projects/vitachart/
-- **Fictional journal demonstration**: https://diogobronzesilva.com/vitachart/ (matching 28- and 47-day fictional journals with Standardized Code / Peak P and Vulvar Sensation / Peak ✕ toggle, and Portuguese PDF exports; no fertility calculation or prediction; invited testing is free).
+- **Fictional journal demonstration**: https://diogobronzesilva.com/vitachart/ (VitaChart 1.3.2, with a selectable example diary for Creighton or Billings and each method’s current chart and PDF).
 - **Privacy**: https://diogobronzesilva.com/vitachart/privacy/ (Portuguese) and https://diogobronzesilva.com/vitachart/app/privacy-en.html (English).
 - VitaChart guide and support: [Português](https://diogobronzesilva.com/vitachart/apoio/), [English](https://diogobronzesilva.com/vitachart/apoio/en/), [Español](https://diogobronzesilva.com/vitachart/apoio/es/), [Français](https://diogobronzesilva.com/vitachart/apoio/fr/). Getting started, consultation PDFs, backups and recovery.
 - **Product brand**: Bronze App.
 - **Category**: Personal fertility diary (Android, iPhone and installable web version).
-- **Background**: Grew out of the family's fertility charting experience with a FertilityCare practitioner and NaProTechnology doctor, and expanded to support both Standardized Code charting (Creighton / NaPro style, Peak Day P) and Vulvar Sensation & Peak charting (Billings / BOM style, Peak Day ✕ and Basic Infertile Pattern). VitaChart is an independent application and is not affiliated with, endorsed by, or certified by the Saint Paul VI Institute, FertilityCare Centers of America, or WOOMB International.
-- **Current scope**: Daily observations in 4 languages (EN, PT, ES, FR with automatic device language detection), a 12-card journal, basal body temperature with 3-over-6 thermal shift detection, local reminders, consultation notes, 35-day A4 Landscape PDF report pages, CSV / Excel spreadsheet export and JSON backup and restore.
+- **Background**: Grew out of the family’s fertility charting with a FertilityCare practitioner and NaProTechnology doctor. VitaChart is an independent application.
+- **Creighton**: Standardised observation codes and stamps, with P for Peak Day. Earlier Creighton records keep their original notation.
+- **Billings**: A dedicated form for vulval sensation, visible discharge and the Basic Infertile Pattern (BIP), with × for a confirmed Peak in the chart and PDF.
+- **Shared tools**: English, Portuguese, Spanish and French, local reminders, consultation notes, PDF and CSV / Excel export, and JSON backup and restore.
 - **Storage and sharing**: No mandatory online account, advertising or third-party analytics. The journal is stored locally; exports are initiated by the user. Standard JSON and CSV exports are readable. The app also supports password-protected backups. Remote couple synchronisation and encrypted pairing are future work, not current features.
-- **Status**: Released for iPhone, with availability varying by country. Android release is planned. The project page is the source for availability, and the published iPhone listing is at https://apps.apple.com/app/vitachart-fertility-cycle/id6835496784. Automated interpretations remain under validation and require professional review.
+- **Status**: Released for iPhone, with availability varying by country. Android release is planned. The web demo runs 1.3.2. Check the project page for store availability. The iPhone listing is at https://apps.apple.com/app/vitachart-fertility-cycle/id6835496784. Automated interpretations remain under validation and require professional review.
 
 ### Cutline
 - **Project URL**: https://diogobronzesilva.com/projects/cutline/
@@ -200,7 +202,7 @@ Canonical section pages:
 - Contact: https://diogobronzesilva.com/contact/
 
 
-- **Format**: Hand-crafted static HTML5 and CSS. A small local JavaScript file is limited to the fictional VitaChart demonstration, with a readable static example as fallback. No analytics or tracking. The demo has no data entry, persistence or network calls.
+- **Format**: Hand-crafted static HTML5 and CSS. A small local JavaScript file is limited to the fictional VitaChart demonstration, with a readable static example as fallback. No analytics or tracking. The interactive app demo accepts fictional entries and stores them in the visitor’s browser.
 - **Structured Entity & Article Markup**: Every published page embeds a self-contained canonical `#person` JSON-LD node (`Diogo Silva` / `Diogo Bronze Silva`, `Senior Account Executive` at `Coverflex`, Fátima, Portugal, `sameAs` links), `ProfilePage` on `/` and `/work/`, per-section Open Graph images including `/assets/img/og/work.jpg`, and standardized `BlogPosting` JSON-LD (`wordCount`, `timeRequired`, `articleSection`, Lisbon timezone stamps) plus `article:*` Open Graph properties across all 18 essays.
 - **Hosting**: Cloudflare Pages / Edge static hosting.
 - **Repository**: https://github.com/diogobronzesilva-arch/DiogoBronzeSilva
