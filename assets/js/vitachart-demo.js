@@ -10,7 +10,12 @@
   const method = document.getElementById("demo-method");
   const language = document.getElementById("demo-language");
   const fullscreen = document.querySelectorAll("[data-demo-fullscreen]");
+  const query = new URLSearchParams(window.location.search);
+  const requestedMethod = query.get("method");
+  const requestedLanguage = query.get("lang");
   let state = { tab: "today", method: "CREIGHTON", lang: "en" };
+  if (methods.includes(requestedMethod)) state.method = requestedMethod;
+  if (languages.includes(requestedLanguage)) state.lang = requestedLanguage;
   let connected = false;
 
   function paint() {

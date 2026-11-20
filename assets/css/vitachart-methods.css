@@ -1,0 +1,30 @@
+/* Method cards on the VitaChart project page. */
+.vc-method-grid {
+  display: grid;
+  gap: 1rem;
+  margin-top: 1.25rem;
+}
+
+.vc-method-card {
+  min-width: 0;
+  gap: 0.8rem;
+  padding: clamp(1.2rem, 3vw, 1.6rem);
+}
+
+.vc-method-card h3 {
+  margin: 0;
+  font-size: clamp(1.45rem, 3vw, 1.8rem);
+  line-height: 1.14;
+}
+
+.vc-method-card p { margin: 0; }
+.vc-method-card .link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.75rem;
+  margin-top: auto;
+}
+
+@media (min-width: 45rem) {
+  .vc-method-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
