@@ -22,6 +22,7 @@ SITE_ORIGIN = "https://diogobronzesilva.com"
 SITE_HOST = "diogobronzesilva.com"
 TEMPLATE = Path("notes/_template.html")
 NOT_FOUND = Path("404.html")
+NOTES_INDEXES = (Path("notes/index.html"), Path("notes/pt/index.html"))
 
 REQUIRED_META_NAMES = {
     "description",
@@ -254,6 +255,10 @@ def is_app_file(rel: Path) -> bool:
     return len(rel.parts) >= 2 and rel.parts[0] == "vitachart" and rel.parts[1] == "app"
 
 
+def is_note_article(rel: Path) -> bool:
+    return rel.parts[0] == "notes" and rel.name == "index.html" and rel not in NOTES_INDEXES
+
+
 def published_html_files() -> list[Path]:
     files: list[Path] = []
     for path in ROOT.rglob("*.html"):
@@ -344,7 +349,8 @@ def check_page_shell(report: Report, rel: Path, parser: PageParser) -> None:
     """Keep the shared shell usable and isolate the demonstration script."""
     if not any(a.get("href") == "#main" and "skip" in a.get("class", "").split() for a in parser.anchors):
         report.error("Missing styled skip link to #main.", rel)
-    if not any(a.get("href") == "/" and "wordmark" in a.get("class", "").split() for a in parser.anchors):
+    home_links = ("/", "/pt/") if (parser.lang or "").startswith("pt") else ("/",)
+    if not any(a.get("href") in home_links and "wordmark" in a.get("class", "").split() for a in parser.anchors):
         report.error("Missing shared wordmark link to Home.", rel)
     for href in parser.unprotected_mailtos:
         report.error(f"Unprotected mailto link: {href}; use Cloudflare email_off markers.", rel)
@@ -373,6 +379,8 @@ def check_html(report: Report) -> dict[Path, PageParser]:
         check_page_shell(report, rel, parser)
 
         expected_navigation = ["/", "/work/", "/projects/", "/notes/", "/contact/"]
+        if (parser.lang or "").startswith("pt"):
+            expected_navigation = [href + "pt/" for href in expected_navigation]
         if parser.navigation_links != expected_navigation:
             report.error("Global navigation must include Home, Work, Projects, Notes and Contact in order.", rel)
 
@@ -578,7 +586,7 @@ def check_feed(report: Report) -> None:
     note_articles = {
         expected_url(relative(path))
         for path in published_html_files()
-        if relative(path).parts[:1] == ("notes",) and relative(path) != Path("notes/index.html")
+        if is_note_article(relative(path))
     }
     actual_links = set(links)
     for url in sorted(note_articles - actual_links):
@@ -624,45 +632,19 @@ def check_feed(report: Report) -> None:
 
     expected_paths = [urlsplit(link).path for link in links]
 
-    home_path = ROOT / "index.html"
-    if home_path.is_file() and expected_paths:
-        home_html = home_path.read_text(encoding="utf-8")
-        home_entries = re.findall(
-            r'<a\s+class="([^"]*\bentry\b[^"]*)"\s+href="(/notes/[^"]+)"',
-            home_html,
-        )
-        home_note_paths = [href for _, href in home_entries]
-        if home_note_paths != expected_paths[:3]:
-            report.error(
-                f"Home Latest Notes must match the 3 most recent RSS notes {expected_paths[:3]}, found {home_note_paths}",
-                Path("index.html"),
-            )
-        home_featured = [href for cls, href in home_entries if "entry--featured" in cls.split()]
-        if home_featured != expected_paths[:1]:
-            report.error(
-                f"Home must mark only the newest note ({expected_paths[0]}) as entry--featured.",
-                Path("index.html"),
-            )
-
-    notes_index_path = ROOT / "notes/index.html"
-    if notes_index_path.is_file() and expected_paths:
-        notes_html = notes_index_path.read_text(encoding="utf-8")
-        index_entries = re.findall(
-            r'<a\s+class="([^"]*\bentry\b[^"]*)"\s+href="(/notes/[^"]+)"',
-            notes_html,
-        )
-        index_note_paths = [href for _, href in index_entries]
-        if index_note_paths != expected_paths:
-            report.error(
-                "notes/index.html written notes order/completeness does not match feed.xml.",
-                Path("notes/index.html"),
-            )
-        index_featured = [href for cls, href in index_entries if "entry--featured" in cls.split()]
-        if index_featured != expected_paths[:1]:
-            report.error(
-                f"notes/index.html must mark only the newest note ({expected_paths[0]}) as entry--featured.",
-                Path("notes/index.html"),
-            )
+    indexes = [(Path("index.html"), expected_paths[:3]), (Path("pt/index.html"), expected_paths[:3])]
+    indexes.extend((path, expected_paths) for path in NOTES_INDEXES)
+    for path, expected in indexes:
+        if not (ROOT / path).is_file() or not expected:
+            continue
+        html = (ROOT / path).read_text(encoding="utf-8")
+        entries = re.findall(r'<a\s+class="([^"]*\bentry\b[^"]*)"\s+href="(/notes/[^"]+)"', html)
+        note_paths = [href for _, href in entries]
+        if note_paths != expected:
+            report.error("Written notes order and completeness must match feed.xml.", path)
+        featured = [href for cls, href in entries if "entry--featured" in cls.split()]
+        if featured != expected[:1]:
+            report.error(f"Mark only the newest note ({expected[0]}) as entry--featured.", path)
 
     report.passed("feed.xml syntax, written-note policy, Home/Notes index parity and bidirectional article navigation")
 
@@ -1009,7 +991,7 @@ def check_entity_seo(report: Report, parsed: dict[Path, PageParser]) -> None:
         nodes = parsed_jsonld_nodes(parser)
         nodes_by_page[rel] = nodes
         _check_person_entity(report, rel, nodes)
-        if len(rel.parts) == 3 and rel.parts[0] == "notes" and rel.parts[2] == "index.html":
+        if is_note_article(rel):
             _check_note_article_seo(report, rel, parser, nodes)
 
     _check_work_hub_seo(report, parsed, nodes_by_page)

@@ -2,8 +2,11 @@
 <!-- Uma <url> por pagina publicada, sempre com a URL limpa e barra no fim. -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://diogobronzesilva.com/</loc><lastmod>2026-11-20</lastmod></url>
+  <url><loc>https://diogobronzesilva.com/pt/</loc><lastmod>2026-11-20</lastmod></url>
   <url><loc>https://diogobronzesilva.com/work/</loc><lastmod>2026-11-20</lastmod></url>
+  <url><loc>https://diogobronzesilva.com/work/pt/</loc><lastmod>2026-11-20</lastmod></url>
   <url><loc>https://diogobronzesilva.com/projects/</loc><lastmod>2026-11-20</lastmod></url>
+  <url><loc>https://diogobronzesilva.com/projects/pt/</loc><lastmod>2026-11-20</lastmod></url>
   <url><loc>https://diogobronzesilva.com/projects/vitachart/</loc><lastmod>2026-11-20</lastmod></url>
   <url><loc>https://diogobronzesilva.com/projects/vitachart/pt/</loc><lastmod>2026-11-20</lastmod></url>
   <url><loc>https://diogobronzesilva.com/projects/vitachart/es/</loc><lastmod>2026-11-20</lastmod></url>
@@ -18,6 +21,7 @@
   <url><loc>https://diogobronzesilva.com/vitachart/apoio/es/</loc><lastmod>2026-11-20</lastmod></url>
   <url><loc>https://diogobronzesilva.com/vitachart/apoio/fr/</loc><lastmod>2026-11-20</lastmod></url>
   <url><loc>https://diogobronzesilva.com/notes/</loc><lastmod>2026-11-14</lastmod></url>
+  <url><loc>https://diogobronzesilva.com/notes/pt/</loc><lastmod>2026-11-20</lastmod></url>
   <url><loc>https://diogobronzesilva.com/notes/saber-ler-a-sala/</loc><lastmod>2026-11-11</lastmod></url>
   <url><loc>https://diogobronzesilva.com/notes/the-life-i-would-not-trade/</loc><lastmod>2026-11-11</lastmod></url>
   <url><loc>https://diogobronzesilva.com/notes/the-work-that-holds-the-rest/</loc><lastmod>2026-11-11</lastmod></url>
@@ -25,6 +29,7 @@
   <url><loc>https://diogobronzesilva.com/notes/rumo-ao-deserto/</loc><lastmod>2026-11-11</lastmod></url>
   <url><loc>https://diogobronzesilva.com/notes/deus-e-o-belo/</loc><lastmod>2026-11-11</lastmod></url>
   <url><loc>https://diogobronzesilva.com/contact/</loc><lastmod>2026-11-19</lastmod></url>
+  <url><loc>https://diogobronzesilva.com/contact/pt/</loc><lastmod>2026-11-20</lastmod></url>
   <url><loc>https://diogobronzesilva.com/notes/the-ability-to-leave-work/</loc><lastmod>2026-11-11</lastmod></url>
   <url><loc>https://diogobronzesilva.com/notes/parenthood-teaches-you-about-people/</loc><lastmod>2026-11-11</lastmod></url>
   <url><loc>https://diogobronzesilva.com/notes/what-ten-years-can-build/</loc><lastmod>2026-11-11</lastmod></url>
@@ -35,8 +40,11 @@
   <url><loc>https://diogobronzesilva.com/notes/the-reign-of-quantities/</loc><lastmod>2026-11-11</lastmod></url>
   <url><loc>https://diogobronzesilva.com/notes/efficiency-the-one-ring/</loc><lastmod>2026-11-11</lastmod></url>
   <url><loc>https://diogobronzesilva.com/projects/bronze-art-galleries/</loc><lastmod>2026-11-20</lastmod></url>
+  <url><loc>https://diogobronzesilva.com/projects/bronze-art-galleries/pt/</loc><lastmod>2026-11-20</lastmod></url>
   <url><loc>https://diogobronzesilva.com/projects/bronze-clinical/</loc><lastmod>2026-11-20</lastmod></url>
+  <url><loc>https://diogobronzesilva.com/projects/bronze-clinical/pt/</loc><lastmod>2026-11-20</lastmod></url>
   <url><loc>https://diogobronzesilva.com/projects/cutline/</loc><lastmod>2026-11-20</lastmod></url>
+  <url><loc>https://diogobronzesilva.com/projects/cutline/pt/</loc><lastmod>2026-11-20</lastmod></url>
   <url><loc>https://diogobronzesilva.com/notes/the-wisdom-of-a-second-breakfast/</loc><lastmod>2026-11-11</lastmod></url>
   <url><loc>https://diogobronzesilva.com/notes/the-end-of-the-information-broker/</loc><lastmod>2026-11-11</lastmod></url>
   <url><loc>https://diogobronzesilva.com/notes/what-remains-when-the-world-turns/</loc><lastmod>2026-11-14</lastmod></url>

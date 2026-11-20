@@ -123,6 +123,10 @@
 <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/instrument-sans-regular.woff2" crossorigin>
 <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/newsreader-italic.woff2" crossorigin>
 <link rel="stylesheet" href="/assets/css/site.css?v=20261120">
+<link rel="stylesheet" href="/assets/css/site-languages.css?v=20261120-1">
+<link rel="alternate" hreflang="en" href="https://diogobronzesilva.com/projects/cutline/">
+<link rel="alternate" hreflang="pt-PT" href="https://diogobronzesilva.com/projects/cutline/pt/">
+<link rel="alternate" hreflang="x-default" href="https://diogobronzesilva.com/projects/cutline/">
 </head>
 <body>
 
@@ -130,7 +134,13 @@
 
 <header class="masthead">
   <div class="shell masthead__inner">
-    <a class="wordmark" href="/">Diogo Silva</a>
+    <div class="masthead__identity">
+      <a class="wordmark" href="/">Diogo Silva</a>
+      <nav class="site-languages" aria-label="Site language">
+        <a href="/projects/cutline/" lang="en" hreflang="en" aria-current="page">English</a>
+        <a href="/projects/cutline/pt/" lang="pt-PT" hreflang="pt-PT">Português</a>
+      </nav>
+    </div>
     <nav class="nav" aria-label="Sections">
       <a href="/">Home</a>
       <a href="/work/">Work</a>
