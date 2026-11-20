@@ -350,7 +350,8 @@ def check_page_shell(report: Report, rel: Path, parser: PageParser) -> None:
         report.error(f"Unprotected mailto link: {href}; use Cloudflare email_off markers.", rel)
 
     scripts = parser.executable_scripts
-    if rel == Path("vitachart/index.html"):
+    demo_pages = {Path("vitachart") / variant / "index.html" for variant in ("", "pt", "es", "fr")}
+    if rel in demo_pages:
         expected = "/assets/js/vitachart-demo.js"
         source = urlsplit(scripts[0].get("src", "")) if scripts else None
         if len(scripts) != 1 or source is None or source.scheme or source.netloc or source.path != expected or "defer" not in scripts[0]:

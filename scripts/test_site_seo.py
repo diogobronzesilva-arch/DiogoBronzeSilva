@@ -251,7 +251,6 @@ class VitaChartLiveDemoTests(unittest.TestCase):
         self.assertIn('<html lang="en">', self.html)
         self.assertIn('"inLanguage": "en"', self.html)
         self.assertIn('content="en_GB"', self.html)
-        self.assertIn('lang: "en"', self.client)
         self.assertNotIn('lang=pt', self.html)
         self.assertEqual(2, self.html.count('&amp;lang=en'))
         options = re.search(r'<select id="demo-language">(.*?)</select>', self.html).group(1)
@@ -339,6 +338,47 @@ def entity_errors(pages):
     report = Report()
     check_entity_seo(report, pages)
     return '\n'.join(message for _, message in report.errors)
+
+
+class VitaChartLocaleTests(unittest.TestCase):
+    root = Path(__file__).resolve().parents[1]
+    locales = {'en': 'en-GB', 'pt': 'pt-PT', 'es': 'es', 'fr': 'fr'}
+
+    def read_variant(self, family, language):
+        variant = '' if language == 'en' else f'{language}/'
+        return (self.root / family / variant / 'index.html').read_text(encoding='utf-8')
+
+    def test_switchers_reach_all_locales_and_mark_the_current_page(self):
+        for family in ('projects/vitachart', 'vitachart'):
+            for language, tag in self.locales.items():
+                with self.subTest(family=family, language=language):
+                    html = self.read_variant(family, language)
+                    parser = PageParser()
+                    parser.feed(html)
+                    self.assertIn(f'<html lang="{tag if language != "en" else "en"}">', html)
+                    for alternative, locale in self.locales.items():
+                        suffix = f'{alternative}/' if alternative != 'en' else ''
+                        href = f'/{family}/{suffix}'
+                        anchors = [a for a in parser.anchors if a.get('href') == href and a.get('hreflang') == locale]
+                        self.assertEqual(1, len(anchors), href)
+                        self.assertEqual('page' if alternative == language else None, anchors[0].get('aria-current'))
+                        self.assertIn(f'hreflang="{locale}" href="https://diogobronzesilva.com{href}"', html)
+
+    def test_project_links_and_app_defaults_follow_the_page_language(self):
+        for language in self.locales:
+            with self.subTest(language=language):
+                suffix = f'{language}/' if language != 'en' else ''
+                project = self.read_variant('projects/vitachart', language)
+                demo = self.read_variant('vitachart', language)
+                self.assertIn(f'href="/vitachart/{suffix}#demo"', project)
+                for method in ('CREIGHTON', 'BILLINGS'):
+                    self.assertIn(f'href="/vitachart/{suffix}?method={method}#demo"', project)
+                options = re.search(r'<select id="demo-language">(.*?)</select>', demo, re.S).group(1)
+                self.assertEqual(list(self.locales), re.findall(r'<option value="([a-z]+)"', options))
+                selected = re.search(r'<option value="([a-z]+)" selected>', options)
+                self.assertEqual(language, selected.group(1) if selected else 'en')
+                self.assertEqual(2, demo.count(f'&amp;lang={language}'))
+
 
 
 class EntityAndArticleSeoTests(unittest.TestCase):

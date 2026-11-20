@@ -10,12 +10,14 @@
   const method = document.getElementById("demo-method");
   const language = document.getElementById("demo-language");
   const fullscreen = document.querySelectorAll("[data-demo-fullscreen]");
+  const pageLanguages = document.querySelectorAll("[data-demo-page-language]");
   const query = new URLSearchParams(window.location.search);
   const requestedMethod = query.get("method");
   const requestedLanguage = query.get("lang");
-  let state = { tab: "today", method: "CREIGHTON", lang: "en" };
+  let state = { tab: "today", method: "CREIGHTON", lang: language.value };
   if (methods.includes(requestedMethod)) state.method = requestedMethod;
-  if (languages.includes(requestedLanguage)) state.lang = requestedLanguage;
+  let keepAppLanguage = languages.includes(requestedLanguage);
+  if (keepAppLanguage) state.lang = requestedLanguage;
   let connected = false;
 
   function paint() {
@@ -29,6 +31,13 @@
       url.searchParams.set("method", state.method);
       url.searchParams.set("lang", state.lang);
       link.href = url.pathname + url.search;
+    });
+    pageLanguages.forEach(link => {
+      const url = new URL(link.getAttribute("href"), window.location.origin);
+      if (state.method === "CREIGHTON") url.searchParams.delete("method");
+      else url.searchParams.set("method", state.method);
+      if (keepAppLanguage) url.searchParams.set("lang", state.lang);
+      link.href = url.pathname + url.search + url.hash;
     });
   }
 
@@ -44,7 +53,11 @@
 
   buttons.forEach(button => button.addEventListener("click", () => choose({ tab: button.dataset.demoTab })));
   method.addEventListener("change", () => { if (methods.includes(method.value)) choose({ method: method.value }); });
-  language.addEventListener("change", () => { if (languages.includes(language.value)) choose({ lang: language.value }); });
+  language.addEventListener("change", () => {
+    if (!languages.includes(language.value)) return;
+    keepAppLanguage = true;
+    choose({ lang: language.value });
+  });
 
   window.addEventListener("message", event => {
     if (event.origin !== window.location.origin || event.source !== frame.contentWindow) return;
@@ -58,7 +71,10 @@
     }
     if (tabs.includes(value.tab)) state.tab = value.tab;
     if (methods.includes(value.method)) state.method = value.method;
-    if (languages.includes(value.lang)) state.lang = value.lang;
+    if (languages.includes(value.lang) && value.lang !== state.lang) {
+      keepAppLanguage = true;
+      state.lang = value.lang;
+    }
     paint();
   });
   paint();
