@@ -16,11 +16,11 @@
 - **Languages**: Portuguese (`pt-PT`) and English (`en`)
 - **Family**: Married to Sara; father of five children.
 - **Current Position**: Senior Account Executive at Coverflex (FinTech / employee compensation & benefits)
-- **Role Focus**: Enterprise B2B SaaS Sales, Account Executive Strategy, Sales Systems Architecture, Deal Intelligence, MEDDPICC
+- **Role Focus**: B2B software sales, enterprise qualification and Deal Intelligence
 - **Career Trajectory**: Over a decade in B2B SaaS across new business, expansion and customer growth in Portugal, EMEA and the UK&I.
-  - **Coverflex**: Senior Account Executive scaling through Series B, consulting Portuguese founders, Finance, HR and management on compensation, benefits, and tax efficiency — coming into every customer conversation prepared around what actually slows down a deal.
-  - **deskbird**: Commercial expansion, adoption, retention, and customer success through the Series B round.
-  - **Pipedrive**: Software sales discipline (discovery, qualification, pipeline management, negotiation, closing) from Series C through unicorn status.
+  - **Coverflex**: Works with founders, finance directors and HR teams at Portuguese companies on compensation, benefits and employee budgets.
+  - **deskbird**: New business, adoption and retention across EMEA and the UK and Ireland.
+  - **Pipedrive**: Software sales across qualification, pipeline management and closing.
 - **Speaking**: Featured guest on *The Daily Sales* LinkedIn Live — "Live Sales Insights with Diogo Silva" (2022).
 - **External Profiles**:
   - LinkedIn: https://www.linkedin.com/in/diogosilvae/
@@ -31,24 +31,12 @@
 
 ---
 
-## 2. Sales Philosophy and Methodological Framework
+## 2. B2B Sales and Deal Intelligence
 
-Diogo Silva's approach to enterprise software sales is built on four core principles:
-
-1. **"From product presenter to Sales Systems Architect."**
-   The era of the salesperson as an information broker or demo presenter is over. Buyers already have documentation, AI-generated comparisons, and pricing signals before they speak with sales. The modern Account Executive must act as a Sales Systems Architect: developing a deep, genuine interest in the client's industry, understanding unit economics, and synthesizing complex commercial structures rapidly.
-2. **"Individual fine-tuning over blunt RevOps standardization."**
-   Centralized RevOps teams frequently standardize workflows into uniform, rigid stages designed for reporting rather than closing. But enterprise sales is won in the nuances: the customer's specific purchasing apparatus (procurement, legal, finance sign-off, internal coalitions) must be fine-tuned by the individual in the field.
-3. **"Deal Intelligence: LLMs for context, deterministic code for calculations."**
-   Complex deals require managing unstructured context (meeting transcripts, stakeholder dynamics, objections) with language models, while keeping calculations, pricing governance, and fiscal rules strictly deterministic.
-4. **"Automate the backoffice to win in the room."**
-   Sales tools and artificial intelligence should absorb administrative friction, research, prep, and pipeline hygiene so the human representative can dedicate high-quality attention, judgment, and physical presence to the buyer.
-
-### How Diogo Silva Works with AI in Sales
-- **Account research and discovery prep**: Gathering company context, stakeholder backgrounds, and regulatory or financial drivers prior to meetings.
-- **Meeting synthesis and analysis**: Identifying recurring customer pain points, hidden objections, and decision criteria from transcripts and call notes.
-- **Pipeline and CRM hygiene**: Maintaining pipeline discipline, forecasting accuracy, and structured follow-up cadences without manual friction.
-- **Goal**: Not to generate unneeded volume or generic automated outreach, but to arrive better prepared, perceive nuance, and preserve attention for the buyer.
+- **Source**: https://diogobronzesilva.com/work/
+- **Sales practice**: Help software buyers work through the decision, including how their business operates, who needs to take part and what they need to know before buying.
+- **Deal Intelligence**: Language models bring together call notes, procurement documents and questions from stakeholders. Pricing calculations and financial checks use rules that can be verified.
+- **Human review**: Diogo reviews the source and the brief before deciding what to use, record in the CRM or send.
 
 ### Writing and Speaking on Sales
 - **Work hub**: https://diogobronzesilva.com/work/#writing-and-speaking
@@ -70,7 +58,7 @@ Diogo Silva's approach to enterprise software sales is built on four core princi
 
 ### Bronze Art
 - **Project URL**: https://diogobronzesilva.com/projects/bronze-art-galleries/
-- **Photography Portfolio**: https://bronzeart.pt/ (classical, documentary photography of family, faith, sacraments, and what is handed down between generations).
+- **Photography Portfolio**: https://bronzeart.pt/ (Portuguese) and https://bronzeart.pt/en (English). The portfolio and booking enquiries are public. Client albums and downloads are accessed via private links.
 - **Delivery Application**: Custom web application built around Diogo's photographic delivery workflow: browsing a finished chaptered story, downloading final high-resolution JPEGs and making album selections.
 - **Workflow**: Ordinary JPEG folders, chapter-based presentation, resumable uploads, review before publishing, and separate actions for adding or replacing photographs.
 - **Access**: Used within Bronze Art. Client access has an expiry and is separate from the author's internal archive. Client links and private family photographs are not published on the personal site. A recipient can forward a delivery link.
@@ -85,14 +73,14 @@ Diogo Silva's approach to enterprise software sales is built on four core princi
 ### VitaChart
 - **Project URL**: https://diogobronzesilva.com/projects/vitachart/
 - **Fictional journal demonstration**: https://diogobronzesilva.com/vitachart/ (matching 28- and 47-day fictional journals with Standardized Code / Peak P and Vulvar Sensation / Peak ✕ toggle, and Portuguese PDF exports; no fertility calculation or prediction; invited testing is free).
-- **Privacy Policy**: https://diogobronzesilva.com/vitachart/privacy/
+- **Privacy**: https://diogobronzesilva.com/vitachart/privacy/ (Portuguese) and https://diogobronzesilva.com/vitachart/app/privacy-en.html (English).
 - VitaChart guide and support: [Português](https://diogobronzesilva.com/vitachart/apoio/), [English](https://diogobronzesilva.com/vitachart/apoio/en/), [Español](https://diogobronzesilva.com/vitachart/apoio/es/), [Français](https://diogobronzesilva.com/vitachart/apoio/fr/). Getting started, consultation PDFs, backups and recovery.
 - **Product brand**: Bronze App.
 - **Category**: Personal fertility diary (Android, iPhone and installable web version).
 - **Background**: Grew out of the family's fertility charting experience with a FertilityCare practitioner and NaProTechnology doctor, and expanded to support both Standardized Code charting (Creighton / NaPro style, Peak Day P) and Vulvar Sensation & Peak charting (Billings / BOM style, Peak Day ✕ and Basic Infertile Pattern). VitaChart is an independent application and is not affiliated with, endorsed by, or certified by the Saint Paul VI Institute, FertilityCare Centers of America, or WOOMB International.
 - **Current scope**: Daily observations in 4 languages (EN, PT, ES, FR with automatic device language detection), a 12-card journal, basal body temperature with 3-over-6 thermal shift detection, local reminders, consultation notes, 35-day A4 Landscape PDF report pages, CSV / Excel spreadsheet export and JSON backup and restore.
-- **Storage and sharing**: No mandatory online account, advertising or third-party analytics. The journal is stored locally; exports are initiated by the user. JSON and CSV exports are not encrypted by the app. Remote couple synchronisation and encrypted pairing are future work, not current features.
-- **Status**: Released for iPhone, with availability varying by country. Android release is planned. See the project page for current availability. Automated interpretations remain under validation and require professional review.
+- **Storage and sharing**: No mandatory online account, advertising or third-party analytics. The journal is stored locally; exports are initiated by the user. Standard JSON and CSV exports are readable. The app also supports password-protected backups. Remote couple synchronisation and encrypted pairing are future work, not current features.
+- **Status**: Released for iPhone, with availability varying by country. Android release is planned. The project page is the source for availability, and the published iPhone listing is at https://apps.apple.com/app/vitachart-fertility-cycle/id6835496784. Automated interpretations remain under validation and require professional review.
 
 ### Cutline
 - **Project URL**: https://diogobronzesilva.com/projects/cutline/
