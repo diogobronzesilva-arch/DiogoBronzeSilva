@@ -73,7 +73,11 @@
 
 *, *::before, *::after { box-sizing: border-box; }
 
-html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+html {
+  -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
+  scrollbar-gutter: stable;
+}
 
 body {
   margin: 0;
@@ -196,6 +200,7 @@ p { margin: 0 0 1.1em; }
   font-family: var(--serif);
   font-size: 1.0625rem;
   font-weight: 400;
+  line-height: 1.4;
   letter-spacing: 0.02em;
 }
 
@@ -204,13 +209,15 @@ p { margin: 0 0 1.1em; }
 .nav {
   display: flex;
   flex-wrap: wrap;
-  gap: clamp(0.75rem, 1.65vw, 1.35rem);
+  gap: clamp(1rem, 1.65vw, 1.35rem);
 }
 
 .nav a {
+  position: relative;
   font-family: var(--sans);
   font-size: 0.75rem;
   font-weight: 400;
+  line-height: 1.4;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--ink-soft);
@@ -224,11 +231,20 @@ p { margin: 0 0 1.1em; }
 .nav a:is([aria-current="page"], [aria-current="location"]) { color: var(--ink); }
 .nav a:is([aria-current="page"], [aria-current="location"])::before {
   content: "";
-  display: inline-block;
-  width: 4px; height: 4px;
-  margin-right: 0.5rem;
-  vertical-align: 0.18em;
+  position: absolute;
+  inset-inline-start: -0.625rem;
+  inset-block-start: 50%;
+  width: 4px;
+  height: 4px;
+  transform: translateY(-50%);
   background: var(--bronze);
+  pointer-events: none;
+}
+
+@media (forced-colors: active) {
+  .nav a:is([aria-current="page"], [aria-current="location"])::before {
+    background: CanvasText;
+  }
 }
 
 .site-languages {
@@ -295,10 +311,12 @@ p { margin: 0 0 1.1em; }
   }
 
   .nav a:is([aria-current="page"], [aria-current="location"])::before {
-    flex-shrink: 0;
+    inset-inline-start: 50%;
+    inset-block-start: auto;
+    inset-block-end: 0.35rem;
     width: 3px;
     height: 3px;
-    margin-right: 0.25rem;
+    transform: translateX(-50%);
   }
 }
 
