@@ -1,6 +1,6 @@
 # Diogo Silva — diogobronzesilva.com
 
-Website pessoal e publicação editorial bilingue (EN / PT-PT) de Diogo Bronze Silva. HTML e CSS estáticos, sem framework. JavaScript executável local está restrito a três ficheiros diferidos e isolados (`vitachart-demo.js`, `notes-filter.js` e `note-share.js`), mantendo todo o conteúdo legível e indexável sem JavaScript. Um pequeno script Python valida e prepara a publicação em Cloudflare Pages.
+Website pessoal e publicação editorial bilingue (EN / PT-PT) de Diogo Bronze Silva. As páginas editoriais usam HTML e CSS estáticos, com JavaScript local para filtros, partilha e controlos da demonstração do VitaChart. A demonstração interativa em `/vitachart/app/` inclui o seu próprio pacote JavaScript. Um script Python valida e prepara a publicação em Cloudflare Pages.
 
 Domínio: **diogobronzesilva.com**  
 Email público: **hello@diogobronzesilva.com**
@@ -22,9 +22,10 @@ projects/cutline/{,pt/}index.html                     → /projects/cutline/
 vitachart/{,pt/,es/,fr/}index.html                    → /vitachart/ (demonstração interativa 1.3.2)
 vitachart/apoio/{,en/,es/,fr/}index.html              → /vitachart/apoio/ (guia e apoio em 4 idiomas)
 vitachart/privacy/index.html                          → /vitachart/privacy/
+vitachart/app/                                        → demonstração interativa e respetivos ativos
 notes/index.html / notes/pt/index.html                → /notes/ e /notes/pt/
 notes/<slug>/index.html                               → /notes/<slug>/ (ensaios)
-notes/_template.html                                  → molde noindex para novas notas
+notes/_template.html                                  → molde local excluído da publicação
 contact/index.html / contact/pt/index.html            → /contact/ e /contact/pt/
 404.html                                              → página de erro (noindex)
 feed.xml, sitemap.xml, robots.txt, llms.txt, llms-full.txt, _headers
@@ -115,14 +116,15 @@ A estética deve continuar editorial, calma, clássica e com muito espaço negat
 
 ### Revisão editorial e estabilidade de navegação — 21 de novembro de 2026
 
-- **Seletor de idioma tipográfico (`EN / PT`):** integrado à direita da navegação com divisor subtil `1px`, sem caixas ou pílulas junto ao wordmark `Diogo Silva`, preservando área clicável de `44px` e altura uniforme do cabeçalho em todas as rotas.
-- **Zero solavanco entre páginas (`0.00px` de desvio):** `scrollbar-gutter: stable` em `html`, indicador ativo `[aria-current]` fora do fluxo (`position: absolute` à esquerda em desktop e centrado por baixo em mobile, com suporte a `forced-colors: active`) e `line-height: 1.4` explícito no cabeçalho.
+- **Seletor de idioma tipográfico (`EN / PT`):** em computador fica à direita da navegação, com um divisor de `1px`. Em ecrãs estreitos fica na linha da assinatura, acima da navegação, com alvos de pelo menos `44 × 44px`.
+- **Estabilidade entre páginas:** `scrollbar-gutter: stable` em `html`, indicador ativo `[aria-current]` fora do fluxo e `line-height: 1.4` nas ligações do cabeçalho.
+- **Medição local em Chrome:** os links do cabeçalho conservaram a posição horizontal em `/work/`, `/notes/` e `/contact/` a `1440 × 900px` e em `/work/pt/` e `/notes/pt/` a `390 × 844px`.
 - **Home centrada nos textos e biblioteca `/notes/` funcional:** `Latest Notes` sobe para 2.º bloco da Home; `/notes/` ganha bloco «Por onde começar», filtros progressivos por tema/idioma e pesquisa; artigos ganham leituras relacionadas e botão «Copiar ligação».
-- **Versão atual da folha de estilos:** `site.css?v=20261121-2` (unificada em todos os 50 HTML, incluindo `notes/_template.html` e `404.html`).
+- **Folha de estilos partilhada:** `site.css?v=20261121-2` é usada pelos 50 HTML do site fora de `/vitachart/app/`, contando com `404.html` e o molde local de notas.
 
 ## Privacidade e dependências
 
-Não há analytics nem tracking instalados. Os únicos scripts locais permitidos (`vitachart-demo.js`, `notes-filter.js`, `note-share.js`, validados em `scripts/check_site.py`) correm com `defer`, sem pedidos externos nem armazenamento persistente de dados pessoais. Todo o conteúdo editorial continua integralmente legível sem JavaScript.
+As páginas editoriais são legíveis sem JavaScript e o seu código não inclui ferramentas de analytics. O validador `scripts/check_site.py` verifica os três scripts diferidos das páginas que os usam (`vitachart-demo.js`, `notes-filter.js` e `note-share.js`). A demonstração interativa carrega o pacote próprio em `/vitachart/app/` e tem uma ligação para abrir em ecrã inteiro.
 
 As fontes (Newsreader e Instrument Sans) são self-hosted localmente em `/assets/fonts/` através de ficheiros `.woff2` e regras `@font-face` em `site.css`, eliminando pedidos externos a CDNs de terceiros.
 
@@ -166,4 +168,4 @@ Não guardes endereços de destino privados, credenciais SMTP nem chaves API nes
 
 ### Demonstração enviada aos testers
 
-`/vitachart/?demo=1` mantém o endereço usado nos convites. A página abre com a demonstração de consulta, relatórios de 28 e 47 dias e feedback; não é uma versão editável da app. Os exemplos fictícios do gráfico são transcritos dos PDFs associados, com datas, códigos, temperaturas, ausência de observação e notas preservados. Não se calculam interpretações no website. Os relatórios existentes são em português e a página identifica a língua. Os códigos privados de acesso ficam apenas no email.
+`/vitachart/?demo=1` mantém o endereço usado nos convites. A página incorpora a demonstração interativa 1.3.2, com registos fictícios, seleção de método e opção de abrir em ecrã inteiro. Também liga aos relatórios de exemplo de 28 e 47 dias. A versão e a origem do pacote constam de `vitachart/app/release-info.json`. Os códigos privados de acesso ficam apenas no email.
