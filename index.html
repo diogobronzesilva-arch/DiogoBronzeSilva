@@ -153,8 +153,7 @@
 <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/newsreader-regular.woff2" crossorigin>
 <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/instrument-sans-regular.woff2" crossorigin>
 <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/newsreader-italic.woff2" crossorigin>
-<link rel="stylesheet" href="/assets/css/site.css?v=20261120">
-<link rel="stylesheet" href="/assets/css/site-languages.css?v=20261120-1">
+<link rel="stylesheet" href="/assets/css/site.css?v=20261121">
 <link rel="alternate" hreflang="en" href="https://diogobronzesilva.com/">
 <link rel="alternate" hreflang="pt-PT" href="https://diogobronzesilva.com/pt/">
 <link rel="alternate" hreflang="x-default" href="https://diogobronzesilva.com/">
@@ -165,19 +164,17 @@
 
 <header class="masthead">
   <div class="shell masthead__inner">
-    <div class="masthead__identity">
-      <a class="wordmark" href="/">Diogo Silva</a>
-      <nav class="site-languages" aria-label="Site language">
-        <a href="/" lang="en" hreflang="en" aria-current="page">English</a>
-        <a href="/pt/" lang="pt-PT" hreflang="pt-PT">Português</a>
-      </nav>
-    </div>
+    <a class="wordmark" href="/">Diogo Silva</a>
     <nav class="nav" aria-label="Sections">
       <a href="/" aria-current="page">Home</a>
       <a href="/work/">Work</a>
       <a href="/projects/">Projects</a>
       <a href="/notes/">Notes</a>
       <a href="/contact/">Contact</a>
+    </nav>
+    <nav class="site-languages" aria-label="Page language">
+      <a href="/" lang="en" hreflang="en" aria-label="EN — English" aria-current="page">EN</a>
+      <a href="/pt/" lang="pt-PT" hreflang="pt-PT" aria-label="PT — Português">PT</a>
     </nav>
   </div>
 </header>
@@ -190,11 +187,10 @@
       <h1 class="hero__name">Diogo<br><em>Silva</em></h1>
 
       <div class="hero__welcome">
-        <p class="hero__greeting">Welcome to my home. Come in.</p>
-        <p>I live near Fátima, Portugal, with my wife, Sara, and our five children, which explains most of the noise in this house, and puts the rest of it in perspective.</p>
-        <p>I am Diogo Bronze Silva, a Senior Account Executive at Coverflex with over a decade in B2B SaaS sales across Portugal, EMEA and the UK&amp;I. I build Deal Intelligence and AI workflows to take care of the routine so I can give my attention to the interesting part: helping founders, CFOs and HR leaders understand a problem and make a decision.</p>
-        <p>Around that, I build tools when a real problem needs one, photograph, read theology and philosophy, and write to think things through. This is where I keep all of it.</p>
-        <p><a class="link" href="/contact/">Write to me &rarr;</a></p>
+        <p>I’m a Senior Account Executive at Coverflex and have spent more than a decade in B2B software sales. I build Deal Intelligence and AI workflows to make time for the conversations that help a team make a decision.</p>
+        <p>I build tools when I come across a problem worth solving. I write to think through what I learn at work and what occupies me outside it.</p>
+        <p class="hero__actions"><a class="link" href="/notes/">Read my notes &rarr;</a>
+          <a class="link" href="/work/">About my work &rarr;</a></p>
       </div>
 
       <figure class="portrait">
@@ -207,40 +203,6 @@
     </div>
   </section>
 
-  <section class="shell at-home" aria-labelledby="at-home-title">
-    <h2 class="at-home__title" id="at-home-title">At Home</h2>
-    <div class="at-home__body">
-      <div class="at-home__text">
-        <p>Sara, my wife, is the heroine of this story, though she would never describe herself that way. She is the centre of our home, and most of what is stable and beautiful in our life begins with her.</p>
-        <p>We chose a life with room for children, close to what matters to us. I work mostly from home, which often means breakfast with the children, seeing them again at lunchtime, and being part of ordinary days rather than hearing about them later. It is not always quiet, and it is rarely tidy. I would not trade it.</p>
-        <p>Faith holds it all together, and it runs through most of what I photograph and write.</p>
-        <p><a class="link" href="/notes/the-life-i-would-not-trade/">The life I would not trade &rarr;</a></p>
-      </div>
-    </div>
-  </section>
-
-  <section class="shell rooms" aria-label="Where to go next">
-
-    <a class="room" href="/work/">
-      <h2 class="room__name">Work</h2>
-      <p class="room__note">Senior Account Executive in B2B SaaS &amp; FinTech, Sales Systems Architecture, and Deal Intelligence across Portugal, EMEA and the UK&amp;I.</p>
-      <span class="room__mark">Enter</span>
-    </a>
-
-    <a class="room" href="/projects/">
-      <h2 class="room__name">Projects</h2>
-      <p class="room__note">AI sales workflows, Bronze Art, Bronze Clinical, VitaChart and Cutline.</p>
-      <span class="room__mark">Explore</span>
-    </a>
-
-    <a class="room" href="/notes/">
-      <h2 class="room__name">Notes</h2>
-      <p class="room__note">Essays on B2B sales, AI systems, faith, philosophy, family, and the things I write to understand them better.</p>
-      <span class="room__mark">Read</span>
-    </a>
-
-  </section>
-
   <section class="shell notes-preview" aria-label="Latest Notes">
     <div class="notes-preview__head">
       <h2 class="notes-preview__title">Latest Notes</h2>
@@ -250,7 +212,10 @@
     <div class="entries">
 
       <a class="entry entry--featured" href="/notes/even-a-castle-in-the-sky-needs-roots/">
-        <time class="entry__date" datetime="2026-11-14">14 Nov 2026</time>
+        <div class="entry__meta">
+          <time class="entry__date" datetime="2026-11-14">14 Nov 2026</time>
+          <span class="entry__lang">Technology &amp; Life<br>EN &middot; 7 min</span>
+        </div>
         <div>
           <h3 class="entry__title">Even a castle in the sky needs roots</h3>
           <p class="entry__dek">On Miyazaki’s Laputa, the uses of power, and the ordinary life our cleverest machines ought to serve.</p>
@@ -258,7 +223,10 @@
       </a>
 
       <a class="entry" href="/notes/what-remains-when-the-world-turns/">
-        <time class="entry__date" datetime="2026-11-11">11 Nov 2026</time>
+        <div class="entry__meta">
+          <time class="entry__date" datetime="2026-11-11">11 Nov 2026</time>
+          <span class="entry__lang">Family<br>EN &middot; 7 min</span>
+        </div>
         <div>
           <h3 class="entry__title">What remains when the world turns</h3>
           <p class="entry__dek">An autumn reflection on family, identity, and the things we hope to keep through a changing life.</p>
@@ -266,24 +234,69 @@
       </a>
 
       <a class="entry" href="/notes/the-end-of-the-information-broker/">
-        <time class="entry__date" datetime="2026-11-09">9 Nov 2026</time>
+        <div class="entry__meta">
+          <time class="entry__date" datetime="2026-11-09">9 Nov 2026</time>
+          <span class="entry__lang">Sales &amp; AI<br>EN &middot; 8 min</span>
+        </div>
         <div>
           <h3 class="entry__title">The end of the information broker</h3>
           <p class="entry__dek">In complex enterprise sales, artificial intelligence is not for generating more digital noise; it is for automating the backoffice so you can afford the time to be present in the field.</p>
         </div>
       </a>
 
-
-
-
+      <a class="entry" href="/notes/the-wisdom-of-a-second-breakfast/">
+        <div class="entry__meta">
+          <time class="entry__date" datetime="2026-10-29">29 Oct 2026</time>
+          <span class="entry__lang">Family<br>EN &middot; 7 min</span>
+        </div>
+        <div>
+          <h3 class="entry__title">The wisdom of a second breakfast</h3>
+          <p class="entry__dek">Tolkien’s hobbits have something to teach us about ambition, attention, and the quiet pleasure of a life we need not keep postponing.</p>
+        </div>
+      </a>
     </div>
   </section>
+
+  <section class="shell home-initiatives" aria-labelledby="initiatives-title">
+    <h2 class="notes-preview__title" id="initiatives-title">Work and initiatives</h2>
+    <div class="home-initiatives__grid">
+      <div><h3><a class="link" href="/work/">Commercial leadership &rarr;</a></h3><p>B2B sales, Deal Intelligence and tools that help teams make buying decisions.</p></div>
+      <div><h3><a class="link" href="/projects/">Independent projects &rarr;</a></h3><p>VitaChart, Bronze Clinical, Bronze Art, Cutline and AI workflows.</p></div>
+    </div>
+  </section>
+
+  <section class="shell at-home" aria-labelledby="at-home-title">
+    <h2 class="at-home__title" id="at-home-title">At Home</h2>
+    <div class="at-home__body">
+      <div class="at-home__text">
+        <p>I live near Fátima with my wife, Sara, and our five children.</p>
+        <p>Sara is the heroine of this story, though she would never describe herself that way. She is the centre of our home, and most of what is stable and beautiful in our life begins with her.</p>
+        <p>We chose a life with room for children, close to what matters to us. I work mostly from home, which often means breakfast with the children, seeing them again at lunchtime, and being part of ordinary days rather than hearing about them later. It is not always quiet, and it is rarely tidy. I would not trade it.</p>
+        <p>Faith holds it all together, and it runs through most of what I photograph and write.</p>
+        <p><a class="link" href="/notes/the-life-i-would-not-trade/">The life I would not trade &rarr;</a></p>
+      </div>
+    </div>
+  </section>
+
+  <div class="shell home-signup">
+    <form class="signup signup--wide" action="https://buttondown.com/api/emails/embed-subscribe/bronze_da_silva" method="post" target="_blank">
+      <p class="signup__line">Occasional notes, straight to your inbox.</p>
+      <div class="signup__row">
+        <label class="skip" for="email">Email address</label>
+        <input id="email" type="email" name="email" placeholder="you@example.com" autocomplete="email" required>
+        <input type="hidden" name="embed" value="1">
+        <button type="submit">Subscribe</button>
+      </div>
+      <p class="signup__fine">No marketing. Unsubscribe whenever.</p>
+    </form>
+  </div>
 
 </main>
 
 <footer class="colophon">
   <div class="shell colophon__inner label">
-    <span>Diogo Silva &middot; diogobronzesilva.com &middot; <a href="/feed.xml">RSS</a></span>
+    <span>Diogo Silva</span>
+    <span class="colophon__links"><!--email_off--><a href="mailto:hello@diogobronzesilva.com">Email</a><!--/email_off--> &middot; <a href="https://www.linkedin.com/in/diogosilvae/">LinkedIn</a> &middot; <a href="/feed.xml">RSS</a> &middot; <a href="https://bronzeart.pt/">Bronze Art</a> &middot; <a href="https://bronzepodcast.com/">Bronze Podcast</a></span>
     <span>Written by hand, between bedtimes.</span>
   </div>
 </footer>

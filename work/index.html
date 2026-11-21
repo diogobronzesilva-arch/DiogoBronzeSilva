@@ -173,8 +173,7 @@
 <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/newsreader-regular.woff2" crossorigin>
 <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/instrument-sans-regular.woff2" crossorigin>
 <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/newsreader-italic.woff2" crossorigin>
-<link rel="stylesheet" href="/assets/css/site.css?v=20261120">
-<link rel="stylesheet" href="/assets/css/site-languages.css?v=20261120-1">
+<link rel="stylesheet" href="/assets/css/site.css?v=20261121">
 <link rel="alternate" hreflang="en" href="https://diogobronzesilva.com/work/">
 <link rel="alternate" hreflang="pt-PT" href="https://diogobronzesilva.com/work/pt/">
 <link rel="alternate" hreflang="x-default" href="https://diogobronzesilva.com/work/">
@@ -185,19 +184,17 @@
 
 <header class="masthead">
   <div class="shell masthead__inner">
-    <div class="masthead__identity">
-      <a class="wordmark" href="/">Diogo Silva</a>
-      <nav class="site-languages" aria-label="Site language">
-        <a href="/work/" lang="en" hreflang="en" aria-current="page">English</a>
-        <a href="/work/pt/" lang="pt-PT" hreflang="pt-PT">Português</a>
-      </nav>
-    </div>
+    <a class="wordmark" href="/">Diogo Silva</a>
     <nav class="nav" aria-label="Sections">
       <a href="/">Home</a>
       <a href="/work/" aria-current="page">Work</a>
       <a href="/projects/">Projects</a>
       <a href="/notes/">Notes</a>
       <a href="/contact/">Contact</a>
+    </nav>
+    <nav class="site-languages" aria-label="Page language">
+      <a href="/work/" lang="en" hreflang="en" aria-label="EN — English" aria-current="page">EN</a>
+      <a href="/work/pt/" lang="pt-PT" hreflang="pt-PT" aria-label="PT — Português">PT</a>
     </nav>
   </div>
 </header>
@@ -210,6 +207,12 @@
       <h1 class="article__title">I sell software for a living.</h1>
       <p class="standfirst">I’m a Senior Account Executive at Coverflex. I’ve spent more than a decade in B2B software sales, working on new business and customer growth in Portugal, EMEA and the UK &amp; Ireland. I also build tools that help me prepare for complex sales conversations.</p>
     </header>
+
+    <dl class="project-specs">
+      <div><dt>Experience</dt><dd>10+ years in B2B software</dd></div>
+      <div><dt>Markets</dt><dd>Portugal, EMEA, UK &amp; Ireland</dd></div>
+      <div><dt>Companies</dt><dd>Coverflex, deskbird and Pipedrive</dd></div>
+    </dl>
 
     <div class="entries" aria-label="Work and experience">
 
@@ -268,7 +271,8 @@
 
 <footer class="colophon">
   <div class="shell colophon__inner label">
-    <span>Diogo Silva &middot; diogobronzesilva.com &middot; <a href="/feed.xml">RSS</a></span>
+    <span>Diogo Silva</span>
+    <span class="colophon__links"><!--email_off--><a href="mailto:hello@diogobronzesilva.com">Email</a><!--/email_off--> &middot; <a href="https://www.linkedin.com/in/diogosilvae/">LinkedIn</a> &middot; <a href="/feed.xml">RSS</a> &middot; <a href="https://bronzeart.pt/">Bronze Art</a> &middot; <a href="https://bronzepodcast.com/">Bronze Podcast</a></span>
     <span>Written by hand, between bedtimes.</span>
   </div>
 </footer>

@@ -102,9 +102,8 @@
 <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/newsreader-regular.woff2" crossorigin>
 <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/instrument-sans-regular.woff2" crossorigin>
 <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/newsreader-italic.woff2" crossorigin>
-<link rel="stylesheet" href="/assets/css/site.css?v=20261120">
+<link rel="stylesheet" href="/assets/css/site.css?v=20261121">
 <link rel="stylesheet" href="/assets/css/vitachart-methods.css">
-<link rel="stylesheet" href="/assets/css/vitachart-languages.css?v=20261120-1">
 <link rel="alternate" hreflang="en-GB" href="https://diogobronzesilva.com/projects/vitachart/">
 <link rel="alternate" hreflang="pt-PT" href="https://diogobronzesilva.com/projects/vitachart/pt/">
 <link rel="alternate" hreflang="es" href="https://diogobronzesilva.com/projects/vitachart/es/">
@@ -118,12 +117,18 @@
 <header class="masthead">
   <div class="shell masthead__inner">
     <a class="wordmark" href="/">Diogo Silva</a>
-    <nav class="nav" aria-label="Secciones">
-      <a href="/">Inicio</a>
-      <a href="/work/">Trabajo</a>
-      <a href="/projects/" aria-current="location">Proyectos</a>
-      <a href="/notes/">Notas</a>
-      <a href="/contact/">Contacto</a>
+    <nav class="nav" lang="en" aria-label="Sections">
+      <a href="/">Home</a>
+      <a href="/work/">Work</a>
+      <a href="/projects/" aria-current="location">Projects</a>
+      <a href="/notes/">Notes</a>
+      <a href="/contact/">Contact</a>
+    </nav>
+    <nav class="site-languages" aria-label="Idioma de la página">
+      <a href="/projects/vitachart/" lang="en-GB" hreflang="en-GB" aria-label="EN — English">EN</a>
+      <a href="/projects/vitachart/pt/" lang="pt-PT" hreflang="pt-PT" aria-label="PT — Português">PT</a>
+      <a href="/projects/vitachart/es/" lang="es" hreflang="es" aria-label="ES — Español" aria-current="page">ES</a>
+      <a href="/projects/vitachart/fr/" lang="fr" hreflang="fr" aria-label="FR — Français">FR</a>
     </nav>
   </div>
 </header>
@@ -133,14 +138,7 @@
 
     <header class="article__head">
       <p class="article__date label"><a class="link" href="/projects/">&larr; Proyectos</a></p>
-      <nav class="vc-page-languages" aria-label="Idioma de la página">
-        <ul>
-          <li><a href="/projects/vitachart/" lang="en-GB" hreflang="en-GB">English</a></li>
-          <li><a href="/projects/vitachart/pt/" lang="pt-PT" hreflang="pt-PT">Português</a></li>
-          <li><a href="/projects/vitachart/es/" lang="es" hreflang="es" aria-current="page">Español</a></li>
-          <li><a href="/projects/vitachart/fr/" lang="fr" hreflang="fr">Français</a></li>
-        </ul>
-      </nav>
+
       <h1 class="article__title">VitaChart</h1>
       <p class="standfirst">Un diario privado de fertilidad con registro, gráfico e informe propios para Creighton y Billings.</p>
       <p class="project-release">La demostración web usa la versión 1.3.2. VitaChart para iPhone está disponible en los <a class="link" href="https://apps.apple.com/app/vitachart-fertility-cycle/id6835496784">países donde se ofrece en la App Store</a>, entre ellos <a class="link" href="https://apps.apple.com/br/app/vitachart-fertilidade-e-ciclo/id6835496784" lang="pt-BR">Brasil</a>. La versión para Android está en pruebas cerradas.</p>
@@ -241,7 +239,8 @@
 
 <footer class="colophon">
   <div class="shell colophon__inner label">
-    <span>Diogo Silva &middot; diogobronzesilva.com &middot; <a href="/feed.xml">RSS</a></span>
+    <span>Diogo Silva</span>
+    <span class="colophon__links"><!--email_off--><a href="mailto:hello@diogobronzesilva.com">Email</a><!--/email_off--> &middot; <a href="https://www.linkedin.com/in/diogosilvae/">LinkedIn</a> &middot; <a href="/feed.xml">RSS</a> &middot; <a href="https://bronzeart.pt/">Bronze Art</a> &middot; <a href="https://bronzepodcast.com/">Bronze Podcast</a></span>
     <span>Escrito a mano, entre horas de acostar.</span>
   </div>
 </footer>

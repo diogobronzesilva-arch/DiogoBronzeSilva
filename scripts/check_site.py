@@ -355,15 +355,21 @@ def check_page_shell(report: Report, rel: Path, parser: PageParser) -> None:
     for href in parser.unprotected_mailtos:
         report.error(f"Unprotected mailto link: {href}; use Cloudflare email_off markers.", rel)
 
-    scripts = parser.executable_scripts
+    expected = None
     demo_pages = {Path("vitachart") / variant / "index.html" for variant in ("", "pt", "es", "fr")}
     if rel in demo_pages:
         expected = "/assets/js/vitachart-demo.js"
-        source = urlsplit(scripts[0].get("src", "")) if scripts else None
-        if len(scripts) != 1 or source is None or source.scheme or source.netloc or source.path != expected or "defer" not in scripts[0]:
-            report.error("VitaChart demonstration must load only its deferred local script.", rel)
+    elif rel in {Path("notes/index.html"), Path("notes/pt/index.html")}:
+        expected = "/assets/js/notes-filter.js"
+    elif rel == TEMPLATE or (len(rel.parts) == 3 and rel.parts[0] == "notes" and rel.name == "index.html"):
+        expected = "/assets/js/note-share.js"
+
+    scripts = parser.executable_scripts
+    if expected:
+        if len(scripts) != 1 or scripts[0].get("src", "").partition("?")[0] != expected or "defer" not in scripts[0]:
+            report.error(f"Page must load only its deferred local script: {expected}", rel)
     elif scripts:
-        report.error("Executable JavaScript is limited to the VitaChart demonstration.", rel)
+        report.error("Executable JavaScript is not allowed on this route.", rel)
 
 
 def check_html(report: Report) -> dict[Path, PageParser]:
@@ -544,7 +550,7 @@ def check_sitemap(report: Report) -> None:
     report.passed("sitemap.xml syntax and published-page coverage")
 
 
-def check_feed(report: Report) -> None:
+def check_feed(report: Report, parsed: dict[Path, PageParser]) -> None:
     path = ROOT / "feed.xml"
     try:
         root = ET.parse(path).getroot()
@@ -632,13 +638,17 @@ def check_feed(report: Report) -> None:
 
     expected_paths = [urlsplit(link).path for link in links]
 
-    indexes = [(Path("index.html"), expected_paths[:3]), (Path("pt/index.html"), expected_paths[:3])]
+    indexes = [(Path("index.html"), expected_paths[:4]), (Path("pt/index.html"), expected_paths[:4])]
     indexes.extend((path, expected_paths) for path in NOTES_INDEXES)
     for path, expected in indexes:
-        if not (ROOT / path).is_file() or not expected:
+        if path not in parsed or not expected:
             continue
-        html = (ROOT / path).read_text(encoding="utf-8")
-        entries = re.findall(r'<a\s+class="([^"]*\bentry\b[^"]*)"\s+href="(/notes/[^"]+)"', html)
+        entries = [
+            (anchor.get("class", ""), anchor.get("href", ""))
+            for anchor in parsed[path].anchors
+            if "entry" in anchor.get("class", "").split()
+            and anchor.get("href", "").startswith("/notes/")
+        ]
         note_paths = [href for _, href in entries]
         if note_paths != expected:
             report.error("Written notes order and completeness must match feed.xml.", path)
@@ -1004,7 +1014,7 @@ def main() -> int:
     check_discovery(report, parsed)
     check_entity_seo(report, parsed)
     check_sitemap(report)
-    check_feed(report)
+    check_feed(report, parsed)
     check_text_files(report)
     check_cloudflare_infrastructure(report)
     return report.finish()

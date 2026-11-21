@@ -77,11 +77,11 @@
 <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/newsreader-regular.woff2" crossorigin>
 <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/instrument-sans-regular.woff2" crossorigin>
 <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/newsreader-italic.woff2" crossorigin>
-<link rel="stylesheet" href="/assets/css/site.css?v=20261120">
-<link rel="stylesheet" href="/assets/css/site-languages.css?v=20261120-1">
+<link rel="stylesheet" href="/assets/css/site.css?v=20261121">
 <link rel="alternate" hreflang="en" href="https://diogobronzesilva.com/notes/">
 <link rel="alternate" hreflang="pt-PT" href="https://diogobronzesilva.com/notes/pt/">
 <link rel="alternate" hreflang="x-default" href="https://diogobronzesilva.com/notes/">
+<script src="/assets/js/notes-filter.js" defer></script>
 </head>
 <body>
 
@@ -89,19 +89,17 @@
 
 <header class="masthead">
   <div class="shell masthead__inner">
-    <div class="masthead__identity">
-      <a class="wordmark" href="/pt/">Diogo Silva</a>
-      <nav class="site-languages" aria-label="Idioma do site">
-        <a href="/notes/" lang="en" hreflang="en">English</a>
-        <a href="/notes/pt/" lang="pt-PT" hreflang="pt-PT" aria-current="page">Português</a>
-      </nav>
-    </div>
+    <a class="wordmark" href="/pt/">Diogo Silva</a>
     <nav class="nav" aria-label="Secções">
       <a href="/pt/">Início</a>
       <a href="/work/pt/">Trabalho</a>
       <a href="/projects/pt/">Projetos</a>
       <a href="/notes/pt/" aria-current="page">Notas</a>
       <a href="/contact/pt/">Contacto</a>
+    </nav>
+    <nav class="site-languages" aria-label="Idioma da página">
+      <a href="/notes/" lang="en" hreflang="en" aria-label="EN — English">EN</a>
+      <a href="/notes/pt/" lang="pt-PT" hreflang="pt-PT" aria-label="PT — Português" aria-current="page">PT</a>
     </nav>
   </div>
 </header>
@@ -117,213 +115,322 @@
 
   <section class="shell">
 
-    <h2 class="notes-section">Notas recentes</h2>
-    <p class="notes-section__note">Textos sobre trabalho, fé, filosofia e vida em família, a partir de coisas do dia a dia.</p>
+    <section class="notes-start" aria-labelledby="notes-start-title">
+      <h2 class="notes-section" id="notes-start-title">Por onde começar</h2>
+      <ul>
+      <li><span class="label">Vendas e IA</span><a class="link" href="/notes/the-end-of-the-information-broker/" lang="en">The end of the information broker</a></li>
+      <li><span class="label">Liderança e trabalho</span><a class="link" href="/notes/saber-ler-a-sala/" lang="pt-PT">Saber ler a sala</a></li>
+      <li><span class="label">Tecnologia e vida</span><a class="link" href="/notes/even-a-castle-in-the-sky-needs-roots/" lang="en">Even a castle in the sky needs roots</a></li>
+      <li><span class="label">Família</span><a class="link" href="/notes/the-life-i-would-not-trade/" lang="en">The life I would not trade</a></li>
+      </ul>
+    </section>
 
-    <div class="entries">
-
-      <a class="entry entry--featured" href="/notes/even-a-castle-in-the-sky-needs-roots/">
-        <time class="entry__date" datetime="2026-11-14">14 nov 2026<span class="entry__lang">Inglês</span></time>
-        <div>
-          <h3 class="entry__title" lang="en">Even a castle in the sky needs roots</h3>
-          <p class="entry__dek">Sobre a Laputa de Miyazaki, os usos do poder e a vida comum que as nossas máquinas deviam servir.</p>
-        </div>
-      </a>
-
-      <a class="entry" href="/notes/what-remains-when-the-world-turns/">
-        <time class="entry__date" datetime="2026-11-11">11 nov 2026<span class="entry__lang">Inglês</span></time>
-        <div>
-          <h3 class="entry__title" lang="en">What remains when the world turns</h3>
-          <p class="entry__dek">Uma reflexão de outono sobre família, identidade e o que esperamos conservar à medida que a vida muda.</p>
-        </div>
-      </a>
-
-      <a class="entry" href="/notes/the-end-of-the-information-broker/">
-        <time class="entry__date" datetime="2026-11-09">9 nov 2026<span class="entry__lang">Inglês</span></time>
-        <div>
-          <h3 class="entry__title" lang="en">The end of the information broker</h3>
-          <p class="entry__dek">Nas vendas complexas a empresas, uso a inteligência artificial para automatizar o trabalho de bastidores e ganhar tempo para estar no terreno.</p>
-        </div>
-      </a>
-
-      <a class="entry" href="/notes/the-wisdom-of-a-second-breakfast/">
-        <time class="entry__date" datetime="2026-10-29">29 out 2026<span class="entry__lang">Inglês</span></time>
-        <div>
-          <h3 class="entry__title" lang="en">The wisdom of a second breakfast</h3>
-          <p class="entry__dek">Os hobbits de Tolkien têm algo a ensinar-nos sobre ambição, atenção e o gosto tranquilo de uma vida que podemos começar a viver já.</p>
-        </div>
-      </a>
-
-      <a class="entry" href="/notes/saber-ler-a-sala/">
-        <time class="entry__date" datetime="2026-10-11">11 out 2026<span class="entry__lang">Português</span></time>
-        <div>
-          <h3 class="entry__title" lang="pt-PT">Saber ler a sala</h3>
-          <p class="entry__dek" lang="pt-PT">O talento conta. Saber ouvir, comunicar e perceber quando o nosso papel mudou também faz parte de uma carreira.</p>
-        </div>
-      </a>
-
-      <a class="entry" href="/notes/the-life-i-would-not-trade/">
-        <time class="entry__date" datetime="2026-09-29">29 set 2026<span class="entry__lang">Inglês</span></time>
-        <div>
-          <h3 class="entry__title" lang="en">The life I would not trade</h3>
-          <p class="entry__dek">Os dias comuns em família podem parecer modestos ao lado de uma carreira reconhecida. Guardam uma riqueza que o sucesso profissional não consegue substituir.</p>
-        </div>
-      </a>
-
-      <a class="entry" href="/notes/the-work-that-holds-the-rest/">
-        <time class="entry__date" datetime="2026-09-25">25 set 2026<span class="entry__lang">Inglês</span></time>
-        <div>
-          <h3 class="entry__title" lang="en">The work that holds the rest</h3>
-          <p class="entry__dek">O mundo moderno convida-nos a confundir comodidade com independência. Só conseguimos construir sobre o que outros sustentam discretamente.</p>
-        </div>
-      </a>
-
-      <a class="entry" href="/notes/a-impossibilidade-de-separar-costumes-e-economia/">
-        <time class="entry__date" datetime="2026-09-14">14 set 2026<span class="entry__lang">Português</span></time>
-        <div>
-          <h3 class="entry__title" lang="pt-PT">A impossibilidade de separar costumes e economia</h3>
-          <p class="entry__dek" lang="pt-PT">Não há economia moralmente neutra: o modo como trabalhamos, compramos, contratamos e lucramos acaba sempre por formar os costumes que dizemos querer proteger.</p>
-        </div>
-      </a>
-
-      <a class="entry" href="/notes/rumo-ao-deserto/">
-        <time class="entry__date" datetime="2026-09-07">7 set 2026<span class="entry__lang">Português</span></time>
-        <div>
-          <h3 class="entry__title" lang="pt-PT">Rumo ao Deserto</h3>
-          <p class="entry__dek" lang="pt-PT">Desinvestir do mundo não é abandonar os deveres concretos; é recuperar silêncio, oração e critério numa cultura que pede atenção permanente.</p>
-        </div>
-      </a>
-
-      <a class="entry" href="/notes/deus-e-o-belo/">
-        <time class="entry__date" datetime="2026-08-31">31 ago 2026<span class="entry__lang">Português</span></time>
-        <div>
-          <h3 class="entry__title" lang="pt-PT">Deus e o Belo</h3>
-          <p class="entry__dek" lang="pt-PT">Se Deus é o próprio Ser, então a beleza não é um adorno religioso: é um sinal da ordem, da verdade e do bem que todas as coisas recebem d'Ele.</p>
-        </div>
-      </a>
-
-      <a class="entry" href="/notes/the-ability-to-leave-work/">
-        <time class="entry__date" datetime="2026-08-24">24 ago 2026<span class="entry__lang">Inglês</span></time>
-        <div>
-          <h3 class="entry__title" lang="en">The ability to leave work</h3>
-          <p class="entry__dek">Um trabalho deve importar o suficiente para ser bem feito, deixando espaço para o resto da vida.</p>
-        </div>
-      </a>
-
-      <a class="entry" href="/notes/parenthood-teaches-you-about-people/">
-        <time class="entry__date" datetime="2026-08-19">19 ago 2026<span class="entry__lang">Inglês</span></time>
-        <div>
-          <h3 class="entry__title" lang="en">Things parenthood teaches you about people</h3>
-          <p class="entry__dek">Saber pedir desculpa, proteger a confiança e dar espaço à curiosidade, mesmo quando atrapalha.</p>
-        </div>
-      </a>
-
-      <a class="entry" href="/notes/what-ten-years-can-build/">
-        <time class="entry__date" datetime="2026-08-18">18 ago 2026<span class="entry__lang">Inglês</span></time>
-        <div>
-          <h3 class="entry__title" lang="en">What ten years can build</h3>
-          <p class="entry__dek">A maior parte do que importa constrói-se em silêncio, em dias comuns que se repetem até se tornarem uma vida.</p>
-        </div>
-      </a>
-
-      <a class="entry" href="/notes/work-educates/">
-        <time class="entry__date" datetime="2026-08-14">14 ago 2026<span class="entry__lang">Inglês</span></time>
-        <div>
-          <h3 class="entry__title" lang="en">Work educates</h3>
-          <p class="entry__dek">Há coisas que se percebem melhor quando a matéria oferece resistência.</p>
-        </div>
-      </a>
-
+    <div class="notes-filters" hidden>
+      <label>Tema
+        <select name="topic">
+          <option value="">Todos</option>
+          <option value="sales-ai">Vendas e IA</option>
+          <option value="leadership-work">Liderança e trabalho</option>
+          <option value="technology-life">Tecnologia e vida</option>
+          <option value="philosophy-faith">Filosofia e fé</option>
+          <option value="family">Família</option>
+        </select>
+      </label>
+      <label>Idioma
+        <select name="language">
+          <option value="">Todos</option>
+          <option value="pt">PT</option>
+          <option value="en">EN</option>
+        </select>
+      </label>
+      <label for="notes-query">Pesquisar por título ou resumo<input id="notes-query" type="search" name="query"></label>
+      <p class="label notes-results" role="status" data-empty="Nenhuma entrada encontrada." data-count="Resultados"></p>
     </div>
 
-    <h2 class="notes-section">Podcasts e entrevistas</h2>
-    <p class="notes-section__note">Algumas conversas mais longas, sobretudo sobre fé, filosofia, teologia e as questões que atravessam a vida comum.</p>
+    <div id="notes-archive">
+      <div data-note-group>
+        <h2 class="notes-section">Notas recentes</h2>
+        <p class="notes-section__note">Textos sobre trabalho, fé, filosofia e vida em família, a partir de coisas do dia a dia.</p>
 
-    <div class="entries entries--conversations">
+        <div class="entries">
 
-      <a class="entry entry--conversation" href="https://www.youtube.com/watch?v=REofjtDjftc&amp;t=85s" target="_blank" rel="noopener">
-        <time class="entry__date" datetime="2026-05-20">20 mai 2026<span class="entry__lang">LifeSiteNews &middot; EN</span></time>
-        <div>
-          <h3 class="entry__title" lang="en">Can Europe Return to God? Fatima and the Rise of the Faithful Remnant</h3>
-          <p class="entry__dek">Uma conversa fora do mundo das vendas, sobre as questões de fé, filosofia e teologia que reaparecem nestas notas.</p>
-          <span class="entry__action">Watch conversation &nearr;</span>
+          <a class="entry entry--featured" data-topic="technology-life" data-lang="en" href="/notes/even-a-castle-in-the-sky-needs-roots/">
+            <div class="entry__meta">
+              <time class="entry__date" datetime="2026-11-14">14 nov 2026</time>
+              <span class="entry__lang">Tecnologia e vida<br>EN &middot; 7 min</span>
+            </div>
+            <div>
+              <h3 class="entry__title" lang="en">Even a castle in the sky needs roots</h3>
+              <p class="entry__dek">Sobre a Laputa de Miyazaki, os usos do poder e a vida comum que as nossas máquinas deviam servir.</p>
+            </div>
+          </a>
+
+          <a class="entry" data-topic="family" data-lang="en" href="/notes/what-remains-when-the-world-turns/">
+            <div class="entry__meta">
+              <time class="entry__date" datetime="2026-11-11">11 nov 2026</time>
+              <span class="entry__lang">Família<br>EN &middot; 7 min</span>
+            </div>
+            <div>
+              <h3 class="entry__title" lang="en">What remains when the world turns</h3>
+              <p class="entry__dek">Uma reflexão de outono sobre família, identidade e o que esperamos conservar à medida que a vida muda.</p>
+            </div>
+          </a>
+
+          <a class="entry" data-topic="sales-ai" data-lang="en" href="/notes/the-end-of-the-information-broker/">
+            <div class="entry__meta">
+              <time class="entry__date" datetime="2026-11-09">9 nov 2026</time>
+              <span class="entry__lang">Vendas e IA<br>EN &middot; 8 min</span>
+            </div>
+            <div>
+              <h3 class="entry__title" lang="en">The end of the information broker</h3>
+              <p class="entry__dek">Nas vendas complexas a empresas, uso a inteligência artificial para automatizar o trabalho de bastidores e ganhar tempo para estar no terreno.</p>
+            </div>
+          </a>
+
+          <a class="entry" data-topic="family" data-lang="en" href="/notes/the-wisdom-of-a-second-breakfast/">
+            <div class="entry__meta">
+              <time class="entry__date" datetime="2026-10-29">29 out 2026</time>
+              <span class="entry__lang">Família<br>EN &middot; 7 min</span>
+            </div>
+            <div>
+              <h3 class="entry__title" lang="en">The wisdom of a second breakfast</h3>
+              <p class="entry__dek">Os hobbits de Tolkien têm algo a ensinar-nos sobre ambição, atenção e o gosto tranquilo de uma vida que podemos começar a viver já.</p>
+            </div>
+          </a>
+
+          <a class="entry" data-topic="leadership-work" data-lang="pt" href="/notes/saber-ler-a-sala/">
+            <div class="entry__meta">
+              <time class="entry__date" datetime="2026-10-11">11 out 2026</time>
+              <span class="entry__lang">Liderança e trabalho<br>PT &middot; 4 min</span>
+            </div>
+            <div>
+              <h3 class="entry__title" lang="pt-PT">Saber ler a sala</h3>
+              <p class="entry__dek" lang="pt-PT">O talento conta. Saber ouvir, comunicar e perceber quando o nosso papel mudou também faz parte de uma carreira.</p>
+            </div>
+          </a>
+
+          <a class="entry" data-topic="family" data-lang="en" href="/notes/the-life-i-would-not-trade/">
+            <div class="entry__meta">
+              <time class="entry__date" datetime="2026-09-29">29 set 2026</time>
+              <span class="entry__lang">Família<br>EN &middot; 5 min</span>
+            </div>
+            <div>
+              <h3 class="entry__title" lang="en">The life I would not trade</h3>
+              <p class="entry__dek">Os dias comuns em família podem parecer modestos ao lado de uma carreira reconhecida. Guardam uma riqueza que o sucesso profissional não consegue substituir.</p>
+            </div>
+          </a>
+
+          <a class="entry" data-topic="family" data-lang="en" href="/notes/the-work-that-holds-the-rest/">
+            <div class="entry__meta">
+              <time class="entry__date" datetime="2026-09-25">25 set 2026</time>
+              <span class="entry__lang">Família<br>EN &middot; 3 min</span>
+            </div>
+            <div>
+              <h3 class="entry__title" lang="en">The work that holds the rest</h3>
+              <p class="entry__dek">O mundo moderno convida-nos a confundir comodidade com independência. Só conseguimos construir sobre o que outros sustentam discretamente.</p>
+            </div>
+          </a>
+
+          <a class="entry" data-topic="philosophy-faith" data-lang="pt" href="/notes/a-impossibilidade-de-separar-costumes-e-economia/">
+            <div class="entry__meta">
+              <time class="entry__date" datetime="2026-09-14">14 set 2026</time>
+              <span class="entry__lang">Filosofia e fé<br>PT &middot; 4 min</span>
+            </div>
+            <div>
+              <h3 class="entry__title" lang="pt-PT">A impossibilidade de separar costumes e economia</h3>
+              <p class="entry__dek" lang="pt-PT">Não há economia moralmente neutra: o modo como trabalhamos, compramos, contratamos e lucramos acaba sempre por formar os costumes que dizemos querer proteger.</p>
+            </div>
+          </a>
+
+          <a class="entry" data-topic="philosophy-faith" data-lang="pt" href="/notes/rumo-ao-deserto/">
+            <div class="entry__meta">
+              <time class="entry__date" datetime="2026-09-07">7 set 2026</time>
+              <span class="entry__lang">Filosofia e fé<br>PT &middot; 3 min</span>
+            </div>
+            <div>
+              <h3 class="entry__title" lang="pt-PT">Rumo ao Deserto</h3>
+              <p class="entry__dek" lang="pt-PT">Desinvestir do mundo não é abandonar os deveres concretos; é recuperar silêncio, oração e critério numa cultura que pede atenção permanente.</p>
+            </div>
+          </a>
+
+          <a class="entry" data-topic="philosophy-faith" data-lang="pt" href="/notes/deus-e-o-belo/">
+            <div class="entry__meta">
+              <time class="entry__date" datetime="2026-08-31">31 ago 2026</time>
+              <span class="entry__lang">Filosofia e fé<br>PT &middot; 3 min</span>
+            </div>
+            <div>
+              <h3 class="entry__title" lang="pt-PT">Deus e o Belo</h3>
+              <p class="entry__dek" lang="pt-PT">Se Deus é o próprio Ser, então a beleza não é um adorno religioso: é um sinal da ordem, da verdade e do bem que todas as coisas recebem d'Ele.</p>
+            </div>
+          </a>
+
+          <a class="entry" data-topic="leadership-work" data-lang="en" href="/notes/the-ability-to-leave-work/">
+            <div class="entry__meta">
+              <time class="entry__date" datetime="2026-08-24">24 ago 2026</time>
+              <span class="entry__lang">Liderança e trabalho<br>EN &middot; 3 min</span>
+            </div>
+            <div>
+              <h3 class="entry__title" lang="en">The ability to leave work</h3>
+              <p class="entry__dek">Um trabalho deve importar o suficiente para ser bem feito, deixando espaço para o resto da vida.</p>
+            </div>
+          </a>
+
+          <a class="entry" data-topic="family" data-lang="en" href="/notes/parenthood-teaches-you-about-people/">
+            <div class="entry__meta">
+              <time class="entry__date" datetime="2026-08-19">19 ago 2026</time>
+              <span class="entry__lang">Família<br>EN &middot; 3 min</span>
+            </div>
+            <div>
+              <h3 class="entry__title" lang="en">Things parenthood teaches you about people</h3>
+              <p class="entry__dek">Saber pedir desculpa, proteger a confiança e dar espaço à curiosidade, mesmo quando atrapalha.</p>
+            </div>
+          </a>
+
+          <a class="entry" data-topic="family" data-lang="en" href="/notes/what-ten-years-can-build/">
+            <div class="entry__meta">
+              <time class="entry__date" datetime="2026-08-18">18 ago 2026</time>
+              <span class="entry__lang">Família<br>EN &middot; 2 min</span>
+            </div>
+            <div>
+              <h3 class="entry__title" lang="en">What ten years can build</h3>
+              <p class="entry__dek">A maior parte do que importa constrói-se em silêncio, em dias comuns que se repetem até se tornarem uma vida.</p>
+            </div>
+          </a>
+
+          <a class="entry" data-topic="leadership-work" data-lang="en" href="/notes/work-educates/">
+            <div class="entry__meta">
+              <time class="entry__date" datetime="2026-08-14">14 ago 2026</time>
+              <span class="entry__lang">Liderança e trabalho<br>EN &middot; 2 min</span>
+            </div>
+            <div>
+              <h3 class="entry__title" lang="en">Work educates</h3>
+              <p class="entry__dek">Há coisas que se percebem melhor quando a matéria oferece resistência.</p>
+            </div>
+          </a>
+
         </div>
-      </a>
+      </div>
 
-      <a class="entry entry--conversation" href="https://www.youtube.com/watch?v=_ZBN6BiYyO8&amp;t=6194s" target="_blank" rel="noopener">
-        <time class="entry__date" datetime="2025-10-01">1 out 2025<span class="entry__lang">CdK #108 &middot; PT</span></time>
-        <div>
-          <h3 class="entry__title" lang="pt-PT">Igreja, ciência, sexo e salvação: ainda há respostas?</h3>
-          <p class="entry__dek">Uma conversa longa sobre fé e razão, a Igreja, ciência, salvação, sofrimento, matrimónio e a crise do Ocidente moderno.</p>
-          <span class="entry__action">Watch conversation &nearr;</span>
+      <div data-note-group>
+        <h2 class="notes-section">Podcasts e entrevistas</h2>
+        <p class="notes-section__note">Algumas conversas mais longas, sobretudo sobre fé, filosofia, teologia e as questões que atravessam a vida comum.</p>
+
+        <div class="entries entries--conversations">
+
+          <a class="entry entry--conversation" data-topic="philosophy-faith" data-lang="en" href="https://www.youtube.com/watch?v=REofjtDjftc&amp;t=85s" target="_blank" rel="noopener">
+            <div class="entry__meta">
+              <time class="entry__date" datetime="2026-05-20">20 mai 2026</time>
+              <span class="entry__lang">Filosofia e fé<br>EN<br>LifeSiteNews</span>
+            </div>
+            <div>
+              <h3 class="entry__title" lang="en">Can Europe Return to God? Fatima and the Rise of the Faithful Remnant</h3>
+              <p class="entry__dek">Uma conversa fora do mundo das vendas, sobre as questões de fé, filosofia e teologia que reaparecem nestas notas.</p>
+              <span class="entry__action">Watch conversation &nearr;</span>
+            </div>
+          </a>
+
+          <a class="entry entry--conversation" data-topic="philosophy-faith" data-lang="pt" href="https://www.youtube.com/watch?v=_ZBN6BiYyO8&amp;t=6194s" target="_blank" rel="noopener">
+            <div class="entry__meta">
+              <time class="entry__date" datetime="2025-10-01">1 out 2025</time>
+              <span class="entry__lang">Filosofia e fé<br>PT<br>CdK #108</span>
+            </div>
+            <div>
+              <h3 class="entry__title" lang="pt-PT">Igreja, ciência, sexo e salvação: ainda há respostas?</h3>
+              <p class="entry__dek">Uma conversa longa sobre fé e razão, a Igreja, ciência, salvação, sofrimento, matrimónio e a crise do Ocidente moderno.</p>
+              <span class="entry__action">Watch conversation &nearr;</span>
+            </div>
+          </a>
+
+          <a class="entry entry--conversation" data-topic="technology-life" data-lang="pt" href="https://www.youtube.com/watch?v=9Rf6boqLP7Y" target="_blank" rel="noopener">
+            <div class="entry__meta">
+              <time class="entry__date" datetime="2022-12-14">14 dez 2022</time>
+              <span class="entry__lang">Tecnologia e vida<br>PT<br>A Seita Bitcoin #50</span>
+            </div>
+            <div>
+              <h3 class="entry__title" lang="pt-PT">Sessão OrangePill — Debate com Renato Amoedo</h3>
+              <p class="entry__dek">Um debate com Renato Amoedo sobre dinheiro, liberdade e a cultura que se formou em torno do Bitcoin.</p>
+              <span class="entry__action">Watch conversation &nearr;</span>
+            </div>
+          </a>
+
+          <a class="entry entry--conversation" data-topic="sales-ai" data-lang="en" href="https://www.linkedin.com/video/live/urn:li:ugcPost:6900091701063733248/" target="_blank" rel="noopener">
+            <div class="entry__meta">
+              <time class="entry__date" datetime="2022-02-17">17 fev 2022</time>
+              <span class="entry__lang">Vendas e IA<br>EN<br>The Daily Sales</span>
+            </div>
+            <div>
+              <h3 class="entry__title" lang="en">Live Sales Insights with Diogo Silva</h3>
+              <p class="entry__dek">Uma conversa em direto com Daniel Disney sobre o que funcionava nas vendas e como atingir metas em 2022. Foi gravada para The Daily Sales, uma comunidade do LinkedIn com mais de um milhão de seguidores.</p>
+              <span class="entry__action">Watch conversation &nearr;</span>
+            </div>
+          </a>
+
         </div>
-      </a>
+      </div>
 
-      <a class="entry entry--conversation" href="https://www.youtube.com/watch?v=9Rf6boqLP7Y" target="_blank" rel="noopener">
-        <time class="entry__date" datetime="2022-12-14">14 dez 2022<span class="entry__lang">A Seita Bitcoin #50 &middot; PT</span></time>
-        <div>
-          <h3 class="entry__title" lang="pt-PT">Sessão OrangePill — Debate com Renato Amoedo</h3>
-          <p class="entry__dek">Um debate com Renato Amoedo sobre dinheiro, liberdade e a cultura que se formou em torno do Bitcoin.</p>
-          <span class="entry__action">Watch conversation &nearr;</span>
+      <div data-note-group>
+        <h2 class="notes-section">Notas anteriores</h2>
+        <p class="notes-section__note">Notas e ensaios anteriores sobre filosofia, teologia, economia, tecnologia e sociedade.</p>
+
+        <div class="entries">
+
+          <a class="entry" data-topic="leadership-work" data-lang="pt" href="/notes/escassez-de-trabalhadores-qualificados/">
+            <div class="entry__meta">
+              <time class="entry__date" datetime="2022-07-08">8 jul 2022</time>
+              <span class="entry__lang">Liderança e trabalho<br>PT &middot; 3 min</span>
+            </div>
+            <div>
+              <h3 class="entry__title" lang="pt-PT">Escassez de trabalhadores qualificados</h3>
+              <p class="entry__dek" lang="pt-PT">Natalidade em quebra, um sistema de ensino desalinhado com a procura real, e uma cultura que tornou o risco de empreender menos atractivo.</p>
+            </div>
+          </a>
+
+          <a class="entry" data-topic="technology-life" data-lang="en" href="/notes/bitcoin-the-fairy-tale/">
+            <div class="entry__meta">
+              <time class="entry__date" datetime="2022-06-20">20 jun 2022</time>
+              <span class="entry__lang">Tecnologia e vida<br>EN &middot; 3 min</span>
+            </div>
+            <div>
+              <h3 class="entry__title" lang="en">Bitcoin | The Fairy Tale</h3>
+              <p class="entry__dek">Nenhuma moeda elimina as imperfeições das trocas humanas. A origem dessas imperfeições nunca esteve no registo das transações.</p>
+            </div>
+          </a>
+
+          <a class="entry" data-topic="philosophy-faith" data-lang="en" href="/notes/panem-et-circenses/">
+            <div class="entry__meta">
+              <time class="entry__date" datetime="2022-02-25">25 fev 2022</time>
+              <span class="entry__lang">Filosofia e fé<br>EN &middot; 2 min</span>
+            </div>
+            <div>
+              <h3 class="entry__title" lang="en">Panem et circenses</h3>
+              <p class="entry__dek">A multidão aplaude um lado ou outro. É mais fácil erguer uma bandeira do que apurar a verdade.</p>
+            </div>
+          </a>
+
+          <a class="entry" data-topic="technology-life" data-lang="en" href="/notes/the-reign-of-quantities/">
+            <div class="entry__meta">
+              <time class="entry__date" datetime="2021-12-10">10 dez 2021</time>
+              <span class="entry__lang">Tecnologia e vida<br>EN &middot; 3 min</span>
+            </div>
+            <div>
+              <h3 class="entry__title" lang="en">The Reign of Quantities</h3>
+              <p class="entry__dek">A qualidade exige um artífice e tempo. A quantidade dispensa ambos, e é essa a troca que continuamos a fazer.</p>
+            </div>
+          </a>
+
+          <a class="entry" data-topic="technology-life" data-lang="en" href="/notes/efficiency-the-one-ring/">
+            <div class="entry__meta">
+              <time class="entry__date" datetime="2021-11-22">22 nov 2021</time>
+              <span class="entry__lang">Tecnologia e vida<br>EN &middot; 2 min</span>
+            </div>
+            <div>
+              <h3 class="entry__title" lang="en">Efficiency, the One Ring to rule them all</h3>
+              <p class="entry__dek">A eficiência não tem um limite natural. Entregue a si mesma, acaba por nos pôr ao seu serviço.</p>
+            </div>
+          </a>
+
         </div>
-      </a>
-
-      <a class="entry entry--conversation" href="https://www.linkedin.com/video/live/urn:li:ugcPost:6900091701063733248/" target="_blank" rel="noopener">
-        <time class="entry__date" datetime="2022-02-17">17 fev 2022<span class="entry__lang">The Daily Sales &middot; EN</span></time>
-        <div>
-          <h3 class="entry__title" lang="en">Live Sales Insights with Diogo Silva</h3>
-          <p class="entry__dek">Uma conversa em direto com Daniel Disney sobre o que funcionava nas vendas e como atingir metas em 2022. Foi gravada para The Daily Sales, uma comunidade do LinkedIn com mais de um milhão de seguidores.</p>
-          <span class="entry__action">Watch conversation &nearr;</span>
-        </div>
-      </a>
-
-    </div>
-
-    <h2 class="notes-section">Notas anteriores</h2>
-    <p class="notes-section__note">Notas e ensaios anteriores sobre filosofia, teologia, economia, tecnologia e sociedade.</p>
-
-    <div class="entries">
-
-      <a class="entry" href="/notes/escassez-de-trabalhadores-qualificados/">
-        <time class="entry__date" datetime="2022-07-08">8 jul 2022<span class="entry__lang">Português</span></time>
-        <div>
-          <h3 class="entry__title" lang="pt-PT">Escassez de trabalhadores qualificados</h3>
-          <p class="entry__dek" lang="pt-PT">Natalidade em quebra, um sistema de ensino desalinhado com a procura real, e uma cultura que tornou o risco de empreender menos atractivo.</p>
-        </div>
-      </a>
-
-      <a class="entry" href="/notes/bitcoin-the-fairy-tale/">
-        <time class="entry__date" datetime="2022-06-20">20 jun 2022<span class="entry__lang">Inglês</span></time>
-        <div>
-          <h3 class="entry__title" lang="en">Bitcoin | The Fairy Tale</h3>
-          <p class="entry__dek">Nenhuma moeda elimina as imperfeições das trocas humanas. A origem dessas imperfeições nunca esteve no registo das transações.</p>
-        </div>
-      </a>
-
-      <a class="entry" href="/notes/panem-et-circenses/">
-        <time class="entry__date" datetime="2022-02-25">25 fev 2022<span class="entry__lang">Inglês</span></time>
-        <div>
-          <h3 class="entry__title" lang="en">Panem et circenses</h3>
-          <p class="entry__dek">A multidão aplaude um lado ou outro. É mais fácil erguer uma bandeira do que apurar a verdade.</p>
-        </div>
-      </a>
-
-      <a class="entry" href="/notes/the-reign-of-quantities/">
-        <time class="entry__date" datetime="2021-12-10">10 dez 2021<span class="entry__lang">Inglês</span></time>
-        <div>
-          <h3 class="entry__title" lang="en">The Reign of Quantities</h3>
-          <p class="entry__dek">A qualidade exige um artífice e tempo. A quantidade dispensa ambos, e é essa a troca que continuamos a fazer.</p>
-        </div>
-      </a>
-
-      <a class="entry" href="/notes/efficiency-the-one-ring/">
-        <time class="entry__date" datetime="2021-11-22">22 nov 2021<span class="entry__lang">Inglês</span></time>
-        <div>
-          <h3 class="entry__title" lang="en">Efficiency, the One Ring to rule them all</h3>
-          <p class="entry__dek">A eficiência não tem um limite natural. Entregue a si mesma, acaba por nos pôr ao seu serviço.</p>
-        </div>
-      </a>
-
+      </div>
     </div>
 
     <form class="signup signup--wide" action="https://buttondown.com/api/emails/embed-subscribe/bronze_da_silva" method="post" target="_blank">
@@ -343,7 +450,8 @@
 
 <footer class="colophon">
   <div class="shell colophon__inner label">
-    <span>Diogo Silva &middot; diogobronzesilva.com &middot; <a href="/feed.xml">RSS</a></span>
+    <span>Diogo Silva</span>
+    <span class="colophon__links"><!--email_off--><a href="mailto:hello@diogobronzesilva.com">Email</a><!--/email_off--> &middot; <a href="https://www.linkedin.com/in/diogosilvae/">LinkedIn</a> &middot; <a href="/feed.xml">RSS</a> &middot; <a href="https://bronzeart.pt/">Bronze Art</a> &middot; <a href="https://bronzepodcast.com/">Bronze Podcast</a></span>
     <span>Escrito à mão, enquanto os miúdos dormem.</span>
   </div>
 </footer>
