@@ -1,47 +1,43 @@
 # Diogo Silva — diogobronzesilva.com
 
-Website pessoal de Diogo Silva. HTML e CSS estáticos, sem framework. A demonstração fictícia do VitaChart usa um pequeno ficheiro JavaScript local; o resto do site mantém-se sem JavaScript executável. Um pequeno script Python prepara a publicação no Cloudflare Pages.
+Website pessoal e publicação editorial bilingue (EN / PT-PT) de Diogo Bronze Silva. HTML e CSS estáticos, sem framework. JavaScript executável local está restrito a três ficheiros diferidos e isolados (`vitachart-demo.js`, `notes-filter.js` e `note-share.js`), mantendo todo o conteúdo legível e indexável sem JavaScript. Um pequeno script Python valida e prepara a publicação em Cloudflare Pages.
 
 Domínio: **diogobronzesilva.com**  
 Email público: **hello@diogobronzesilva.com**
 
-## Estado da infraestrutura — 23 de outubro de 2026
+## Estado atual — 21 de novembro de 2026
 
-O site está publicado no Cloudflare Pages, com DNS e DNSSEC no Cloudflare. O domínio continua registado na Hostinger, com renovação automática ativa; o plano partilhado permanece para outros projetos. A entrada de email encaminha pelo Cloudflare e a saída usa Resend via Gmail. O estado de produção e o DMARC em `p=none`, com relatórios a recolher no Cloudflare, estão registados em [OPERATIONS.md](OPERATIONS.md).
+O site está publicado no Cloudflare Pages (commit de referência `325449c`, após as PRs #100 e #101), com DNS e DNSSEC no Cloudflare. O domínio continua registado na Hostinger, com renovação automática ativa. A entrada de email encaminha pelo Cloudflare e a saída usa Resend via Gmail. O estado de produção e o DMARC em `p=none`, com relatórios a recolher no Cloudflare, estão registados em [OPERATIONS.md](OPERATIONS.md).
 
 ## Estrutura
 
 ```text
-index.html                              → /
-work/index.html                         → /work/
-projects/index.html                     → /projects/
-projects/vitachart/index.html           → /projects/vitachart/
-projects/bronze-art-galleries/index.html → /projects/bronze-art-galleries/
-projects/bronze-clinical/index.html     → /projects/bronze-clinical/
-projects/cutline/index.html             → /projects/cutline/
-vitachart/index.html                    → /vitachart/ (demonstração fictícia)
-vitachart/privacy/index.html            → /vitachart/privacy/
-notes/index.html                        → /notes/
-notes/<slug>/index.html                 → /notes/<slug>/
-notes/_template.html                    → molde para novas notas
-contact/index.html                      → /contact/
-404.html                                → página de erro
-feed.xml                                → /feed.xml
-sitemap.xml                             → /sitemap.xml
-robots.txt                              → /robots.txt
-llms.txt                                → /llms.txt
-llms-full.txt                           → /llms-full.txt
-_headers                                → cabeçalhos de segurança e cache Cloudflare Pages
-assets/css/site.css                     → folha de estilos única
-assets/js/vitachart-demo.js              → seletor de dias fictícios (sem armazenamento/rede)
-assets/fonts/                           → tipografia self-hosted (.woff2)
-assets/img/                             → fotografia, Open Graph e vinhetas
-scripts/check_site.py                   → validação técnica do site
-scripts/build_pages.py                  → empacotador Cloudflare Pages
-scripts/check_pages_output.py           → validação do artefacto publicado
-scripts/check_production.py             → auditoria manual/agendada do site público
-.github/workflows/site-checks.yml       → CI para PRs e main
-.github/workflows/production-audit.yml  → auditoria semanal de produção e DNS
+index.html / pt/index.html                            → / e /pt/
+work/index.html / work/pt/index.html                  → /work/ e /work/pt/
+projects/index.html / projects/pt/index.html          → /projects/ e /projects/pt/
+projects/vitachart/{,pt/,es/,fr/}index.html           → /projects/vitachart/ (4 idiomas)
+projects/bronze-art-galleries/{,pt/}index.html        → /projects/bronze-art-galleries/
+projects/bronze-clinical/{,pt/}index.html             → /projects/bronze-clinical/
+projects/cutline/{,pt/}index.html                     → /projects/cutline/
+vitachart/{,pt/,es/,fr/}index.html                    → /vitachart/ (demonstração interativa 1.3.2)
+vitachart/apoio/{,en/,es/,fr/}index.html              → /vitachart/apoio/ (guia e apoio em 4 idiomas)
+vitachart/privacy/index.html                          → /vitachart/privacy/
+notes/index.html / notes/pt/index.html                → /notes/ e /notes/pt/
+notes/<slug>/index.html                               → /notes/<slug>/ (ensaios)
+notes/_template.html                                  → molde noindex para novas notas
+contact/index.html / contact/pt/index.html            → /contact/ e /contact/pt/
+404.html                                              → página de erro (noindex)
+feed.xml, sitemap.xml, robots.txt, llms.txt, llms-full.txt, _headers
+assets/css/site.css                                   → folha de estilos principal unificada
+assets/js/notes-filter.js                             → filtros progressivos e pesquisa em /notes/
+assets/js/note-share.js                               → botão discreto «Copiar ligação» nos ensaios
+assets/js/vitachart-demo.js                           → demonstração interativa local do VitaChart
+assets/fonts/                                         → tipografia self-hosted (.woff2)
+assets/img/                                           → fotografia, Open Graph e vinhetas
+brand/                                                → wordmark e monograma vetoriais SVG
+scripts/check_site.py, build_pages.py, check_pages_output.py, check_production.py, test_site_seo.py
+.github/workflows/site-checks.yml                     → CI para PRs e main
+.github/workflows/production-audit.yml                → auditoria semanal de produção e DNS
 ```
 
 A raiz deste repositório é a fonte de verdade do site. Não deve existir uma pasta intermédia com uma cópia datada do website.
@@ -50,13 +46,13 @@ A raiz deste repositório é a fonte de verdade do site. Não deve existir uma p
 
 A navegação principal é:
 
-**Home · Work · Projects · Notes · Contact**
+**Home · Work · Projects · Notes · Contact** *(em português: **Início · Trabalho · Projetos · Notas · Contacto**)*, acompanhada à direita por um seletor tipográfico minimalista **`EN / PT`** (sem caixas nem pílulas junto ao wordmark).
 
-- **Home** é a porta de entrada pessoal: apresenta quem vive aqui (a família, Sara e os cinco filhos perto de Fátima sob a secção *At Home*) e conduz às divisões principais (Work, Projects, Notes); mantém-se concisa e acolhedora.
-- **Work** reúne experiência e pensamento sobre vendas, tecnologia, decisão e relações humanas.
-- **Projects** apresenta VitaChart, Bronze Art & Galleries (a fotografia documental em `bronzeart.pt` e a aplicação web de entrega a clientes), Bronze Clinical (projeto chave-na-mão de direção visual, vídeo e engenharia web de alta performance para clínicas médicas privadas), Cutline e os workflows pessoais de IA para vendas, distinguindo funcionalidades atuais de trabalho futuro. A política do VitaChart mantém o URL `/vitachart/privacy/`.
-- **Notes** é a biblioteca de textos e, quando aplicável, participações seleccionadas em podcasts e entrevistas ao vivo sob `Podcasts and Live Interviews`.
-- **Contact** é deliberadamente simples: email, Newsletter, LinkedIn e Bronze Art.
+- **Home (`/` e `/pt/`):** capa editorial executiva centrada nos textos — abertura com retrato e tese pessoal/profissional, seguida imediatamente por *Latest Notes* / *Notas recentes*, resumo unificado de *Trabalho & Iniciativas*, secção pessoal *At Home* / *Em casa* e subscrição editorial (Buttondown).
+- **Work (`/work/` e `/work/pt/`):** faixa de factos de carreira + pensamento estruturado sobre vendas B2B SaaS, *Deal Intelligence*, decisão e relações humanas.
+- **Projects (`/projects/` e `/projects/pt/`):** AI Sales Systems, Bronze Art & Galleries (`bronzeart.pt`), Bronze Clinical, VitaChart (com suporte separado Creighton e Billings na 1.3.2) e Cutline.
+- **Notes (`/notes/` e `/notes/pt/`):** biblioteca de ensaios com bloco curado *Start here* / *Por onde começar*, filtros progressivos por tema/idioma e pesquisa rápida, além de *Podcasts and Live Interviews*. Cada artigo inclui leituras relacionadas por tema e ação «Copiar ligação».
+- **Contact (`/contact/` e `/contact/pt/`):** email, Newsletter, LinkedIn e Bronze Art.
 
 O site não deve transformar-se num CV online, landing page comercial ou exercício de personal branding.
 
@@ -117,20 +113,16 @@ Manter em cada página publicada:
 
 A estética deve continuar editorial, calma, clássica e com muito espaço negativo. Evitar elementos visuais típicos de SaaS, animações gratuitas, cartões excessivos e componentes que façam o site parecer um template.
 
-### Revisão estética — 30 de setembro de 2026
+### Revisão editorial e estabilidade de navegação — 21 de novembro de 2026
 
-A Home aproxima nome, boas-vindas e retrato numa composição equilibrada de duas colunas em computador, alinhada pela base. Em telemóvel, o texto de apresentação surge antes do retrato, mantendo a leitura contínua. As três salas (Work, Projects, Notes) preservam a estrutura tipográfica limpa e uniforme.
-
-- A primeira nota recebe a classe `entry--featured` na Home e no índice Notes; ao publicar uma nova nota, mover esse destaque para a entrada mais recente.
-- Conversas externas têm uma indicação explícita para assistir (`Watch conversation ↗`); continuam sem embeds externos.
-- Datas, idiomas e rodapé usam tamanhos maiores; a navegação tem áreas de toque confortáveis (44px) em telemóvel.
-- A versão da folha de estilos é `20261101-1` em todos os HTML, incluindo o template.
-
-O conteúdo editorial, as rotas, o RSS e a configuração de publicação mantêm-se. A folha de estilos comum aplica os ajustes de legibilidade a Work, Contact, artigos e 404.
+- **Seletor de idioma tipográfico (`EN / PT`):** integrado à direita da navegação com divisor subtil `1px`, sem caixas ou pílulas junto ao wordmark `Diogo Silva`, preservando área clicável de `44px` e altura uniforme do cabeçalho em todas as rotas.
+- **Zero solavanco entre páginas (`0.00px` de desvio):** `scrollbar-gutter: stable` em `html`, indicador ativo `[aria-current]` fora do fluxo (`position: absolute` à esquerda em desktop e centrado por baixo em mobile, com suporte a `forced-colors: active`) e `line-height: 1.4` explícito no cabeçalho.
+- **Home centrada nos textos e biblioteca `/notes/` funcional:** `Latest Notes` sobe para 2.º bloco da Home; `/notes/` ganha bloco «Por onde começar», filtros progressivos por tema/idioma e pesquisa; artigos ganham leituras relacionadas e botão «Copiar ligação».
+- **Versão atual da folha de estilos:** `site.css?v=20261121-2` (unificada em todos os 50 HTML, incluindo `notes/_template.html` e `404.html`).
 
 ## Privacidade e dependências
 
-Não há analytics nem tracking instalados. A demonstração do VitaChart é uma exceção localizada ao JavaScript: usa apenas dados fictícios predefinidos, sem chamadas de rede nem armazenamento de entradas. A observação de exemplo e o PDF continuam acessíveis sem o script. A história do projeto fica em `/projects/vitachart/`, a demonstração em `/vitachart/` e a política em `/vitachart/privacy/`.
+Não há analytics nem tracking instalados. Os únicos scripts locais permitidos (`vitachart-demo.js`, `notes-filter.js`, `note-share.js`, validados em `scripts/check_site.py`) correm com `defer`, sem pedidos externos nem armazenamento persistente de dados pessoais. Todo o conteúdo editorial continua integralmente legível sem JavaScript.
 
 As fontes (Newsreader e Instrument Sans) são self-hosted localmente em `/assets/fonts/` através de ficheiros `.woff2` e regras `@font-face` em `site.css`, eliminando pedidos externos a CDNs de terceiros.
 
