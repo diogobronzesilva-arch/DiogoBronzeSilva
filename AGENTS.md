@@ -23,8 +23,19 @@ Pasta canónica: `/Users/diogosilva/Desktop/Antigravity/WebsitePessoal`. Atalho 
 
 ## Correções de CI autorizadas e aplicadas — 26/10/2026
 
-Diogo autorizou aplicar as correções e informar o AntiGravity. Ler `docs/DESENVOLVIMENTO-LOCAL-E-CI.md`: documentação tem uma verificação leve, código mantém testes completos, branches de trabalho deixam de duplicar CI e execuções antigas são canceladas. No VitaCare, a entrega nativa conjunta é acionada explicitamente. Sondas do Podcast/Bronze Art são diárias. Orçamento Actions permanece em 0 USD. A PR #54 do website pessoal foi integrada com autorização expressa para a publicação automática, que terminou com sucesso. As branches e alterações de aplicação em curso foram preservadas; integrar futuras alterações sem voltar aos gatilhos antigos.
+Diogo autorizou aplicar as correções e informar o AntiGravity. Ler `docs/DESENVOLVIMENTO-LOCAL-E-CI.md`: documentação tem uma verificação leve, código mantém testes completos, branches de trabalho deixam de duplicar CI e execuções antigas são canceladas. No VitaCare, a entrega nativa conjunta é acionada explicitamente. Orçamento Actions permanece em 0 USD. A PR #54 do website pessoal foi integrada com autorização expressa para a publicação automática, que terminou com sucesso. As branches e alterações de aplicação em curso foram preservadas; integrar futuras alterações sem voltar aos gatilhos antigos.
 
 ## GitHub Actions e trabalho local — decisão de 26/10/2026
 
 Diogo autorizou aplicar a redução de consumo e informar o AntiGravity. Seguir `docs/DESENVOLVIMENTO-LOCAL-E-CI.md`: testes locais durante o trabalho, sincronização por tarefa, classificação documental antes de trabalhos pesados, cancelamento de execuções substituídas e orçamento Actions de 0 USD. Não usar uma verificação documental como prova de aprovação de código ou entrega. Esta decisão atualiza a obrigação histórica de CI pesado em cada gravação documental; mantém as guardas de publicação e a entrega conjunta Android/Apple.
+
+## Padrões editoriais, UX e aprendizagens transversais — 21/11/2026
+
+Consolidação do que foi validado neste projeto (PRs #100 e #101) e puxado de Bronze Art, Bronze Podcast e VitaCare:
+
+- **Postura crítica (Bronze Art):** zero bajulação; escrutinar posicionamento, UX e código com frontalidade, apontando problemas reais e alternativas concretas.
+- **Conferência remota prévia:** correr `git fetch` e comparar `origin/main` + produção antes de auditar ou editar, preservando trabalho concorrente de Codex/AntiGravity.
+- **Estabilidade da navegação:** manter `scrollbar-gutter: stable` em `html`, indicador `[aria-current]` fora do fluxo e percetível em alto contraste, e `line-height` explícito no cabeçalho. Manter o seletor `EN / PT` à direita da navegação em computador e na linha da assinatura em ecrãs estreitos.
+- **Disciplina tipográfica e numérica (Bronze Podcast e VitaCare):** preservar os papéis de Newsreader (leitura) e Instrument Sans (interface) com fontes `.woff2` locais de pesos reais. Usar `tabular-nums` em colunas de datas e métricas comparáveis e `user-select: none` apenas onde a seleção interfere com um controlo. Manter `?v=` consistente nas páginas que carregam `site.css`. O pacote em `/vitachart/app/` tem estilos e scripts próprios.
+- **Acessibilidade, proveniência e provas reais (Bronze Podcast e Bronze Art):** verificar ampliação de texto, reflow, espaçamento e foco de teclado, incluindo o regresso do foco ao fechar um diálogo com `Escape` em WebKit quando aplicável. Registar o motor, as dimensões e as rotas comparadas na revisão visual e identificar a origem das imagens.
+- **Sondas periódicas:** manter a auditoria semanal existente em produção (decisão de 07/11/2026; orçamento Actions em 0 USD).
