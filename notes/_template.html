@@ -44,8 +44,8 @@
 <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/newsreader-regular.woff2" crossorigin>
 <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/instrument-sans-regular.woff2" crossorigin>
 <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/newsreader-italic.woff2" crossorigin>
-<link rel="stylesheet" href="/assets/css/site.css?v=20261120">
-<link rel="stylesheet" href="/assets/css/site-languages.css?v=20261120-1">
+<link rel="stylesheet" href="/assets/css/site.css?v=20261121">
+<script src="/assets/js/note-share.js" defer></script>
 </head>
 <body>
 
@@ -53,19 +53,17 @@
 
 <header class="masthead">
   <div class="shell masthead__inner">
-    <div class="masthead__identity">
-      <a class="wordmark" href="/">Diogo Silva</a>
-      <nav class="site-languages" aria-label="Notes index language">
-        <a href="/notes/" lang="en" title="Browse the Notes index in English">English</a>
-        <a href="/notes/pt/" lang="pt-PT" title="Abrir o índice de notas em português">Português</a>
-      </nav>
-    </div>
+    <a class="wordmark" href="/">Diogo Silva</a>
     <nav class="nav" aria-label="Sections">
       <a href="/">Home</a>
       <a href="/work/">Work</a>
       <a href="/projects/">Projects</a>
       <a href="/notes/">Notes</a>
       <a href="/contact/">Contact</a>
+    </nav>
+    <nav class="site-languages" aria-label="Page language">
+      <span lang="en" aria-label="EN — article language: English" aria-current="true">EN</span>
+      <a href="/notes/pt/" lang="pt-PT" hreflang="pt-PT" aria-label="PT — Abrir o índice de notas em português">PT</a>
     </nav>
   </div>
 </header>
@@ -99,7 +97,19 @@
       <p class="signup__fine">No schedule, no marketing. Unsubscribe whenever.</p>
     </form>
 
-    <footer class="article__foot label">
+    <section class="related-reading" aria-labelledby="related-title">
+  <h2 id="related-title">Related reading</h2>
+  <ul>
+    <li><a class="link" href="/notes/SLUG-DA-NOTA-RELACIONADA/">Related title</a></li>
+    <li><a class="link" href="/notes/SLUG-DA-NOTA-RELACIONADA-2/">Second related title</a></li>
+  </ul>
+  <div class="note-share" hidden>
+    <button type="button" data-copy-link data-copied="Link copied.">Copy link</button>
+    <span role="status"></span>
+    <input id="share-url" type="url" aria-label="Link to this article" readonly hidden>
+  </div>
+</section>
+<footer class="article__foot label">
       <a href="/notes/SLUG-DA-NOTA-MAIS-RECENTE/">&larr; Newer</a>
       <a href="/notes/">All notes</a>
       <a href="/notes/SLUG-DA-NOTA-MAIS-ANTIGA/">Older &rarr;</a>
@@ -110,7 +120,8 @@
 
 <footer class="colophon">
   <div class="shell colophon__inner label">
-    <span>Diogo Silva &middot; diogobronzesilva.com &middot; <a href="/feed.xml">RSS</a></span>
+    <span>Diogo Silva</span>
+    <span class="colophon__links"><!--email_off--><a href="mailto:hello@diogobronzesilva.com">Email</a><!--/email_off--> &middot; <a href="https://www.linkedin.com/in/diogosilvae/">LinkedIn</a> &middot; <a href="/feed.xml">RSS</a> &middot; <a href="https://bronzeart.pt/">Bronze Art</a> &middot; <a href="https://bronzepodcast.com/">Bronze Podcast</a></span>
     <span>Written by hand, between bedtimes.</span>
   </div>
 </footer>

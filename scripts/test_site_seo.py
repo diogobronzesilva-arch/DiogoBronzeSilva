@@ -154,7 +154,7 @@ class PageShellTests(unittest.TestCase):
 
     def test_inline_or_remote_scripts_rejected(self):
         for script in ('<script>run()</script>', '<script src="https://example.org/tracker.js"></script>'):
-            self.assertIn('limited to', self.shell_errors(self.shell + script))
+            self.assertIn('not allowed on this route', self.shell_errors(self.shell + script))
 
     def test_metadata_scripts_allowed(self):
         self.assertEqual('', self.shell_errors(self.shell + '<script type="application/ld+json">{}</script>'))
@@ -367,16 +367,21 @@ class WebsiteLanguageTests(unittest.TestCase):
                     self.assertEqual([route, portuguese], [link.get('href') for link in parser.anchors])
                     self.assertEqual([current], [link.get('href') for link in parser.anchors if link.get('aria-current') == 'page'])
 
-    def test_essays_link_to_the_two_language_catalogues(self):
+    def test_essays_indicate_language_and_link_to_the_other_catalogue(self):
         for path in (self.root / 'notes').glob('*/index.html'):
             if path.parent.name == 'pt':
                 continue
             with self.subTest(essay=path.parent.name):
                 html = path.read_text(encoding='utf-8')
                 nav = re.search(r'<nav class="site-languages"[^>]*>(.*?)</nav>', html, re.S).group(1)
-                self.assertIn('href="/notes/"', nav)
-                self.assertIn('href="/notes/pt/"', nav)
-                self.assertNotIn('aria-current', nav)
+                portuguese = '<html lang="pt-PT">' in html
+                current = 'PT' if portuguese else 'EN'
+                other_index = '/notes/' if portuguese else '/notes/pt/'
+                parser = PageParser()
+                parser.feed(nav)
+                self.assertEqual([other_index], [link.get('href') for link in parser.anchors])
+                self.assertIn('aria-label', parser.anchors[0])
+                self.assertIn(f'aria-current="true">{current}</span>', nav)
                 self.assertNotIn('rel="alternate" hreflang=', html)
 
 

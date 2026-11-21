@@ -185,24 +185,26 @@ p { margin: 0 0 1.1em; }
 .masthead__inner {
   display: flex;
   flex-wrap: wrap;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: 0.75rem 1.5rem;
+  align-items: center;
+  gap: 0.75rem 1rem;
   padding-bottom: 1rem;
   border-bottom: 1px solid var(--rule);
 }
 
 .wordmark {
+  color: var(--ink);
   font-family: var(--serif);
   font-size: 1.0625rem;
   font-weight: 400;
   letter-spacing: 0.02em;
 }
 
+.masthead__inner > .nav { margin-inline-start: auto; }
+
 .nav {
   display: flex;
   flex-wrap: wrap;
-  gap: 1.35rem;
+  gap: clamp(0.75rem, 1.65vw, 1.35rem);
 }
 
 .nav a {
@@ -229,23 +231,56 @@ p { margin: 0 0 1.1em; }
   background: var(--bronze);
 }
 
+.site-languages {
+  display: flex;
+  align-items: center;
+  padding-inline-start: 0.65rem;
+  border-inline-start: 1px solid var(--rule);
+  font: 400 0.75rem/1 var(--sans);
+  letter-spacing: 0.1em;
+}
+
+.site-languages :is(a, span) {
+  display: inline-grid;
+  place-items: center;
+  min-height: 44px;
+  min-width: 36px;
+  color: var(--ink-faint);
+  text-underline-offset: 0.4em;
+}
+
+.site-languages a:hover,
+.site-languages [aria-current] {
+  color: var(--ink);
+  text-decoration: underline;
+  text-decoration-color: var(--bronze);
+  text-decoration-thickness: 1px;
+}
+
 /* On phones, the wordmark already links to Home. Hide the duplicate Home
    destination and distribute the four section links with comfortable touch targets. */
 @media (max-width: 46rem) {
   .masthead { padding-top: 1.5rem; }
-  .masthead__inner { align-items: stretch; }
+  .masthead__inner {
+    display: grid;
+    grid-template-columns: 1fr auto;
+  }
+
+  .masthead__inner > .nav { grid-column: 1 / -1; grid-row: 2; margin: 0; }
+  .site-languages { grid-column: 2; grid-row: 1; border: 0; padding: 0; }
+  .site-languages :is(a, span) { min-width: 44px; }
 
   .wordmark {
     width: 100%;
     font-size: 1.25rem;
   }
 
-  .nav a[href="/"] { display: none; }
+  .nav a:is([href="/"], [href="/pt/"]) { display: none; }
 
   .nav {
     width: 100%;
     display: grid;
-    grid-template-columns: repeat(4, max-content);
+    grid-template-columns: repeat(4, minmax(0, auto));
     justify-content: space-between;
     gap: 0.25rem;
   }
@@ -270,9 +305,9 @@ p { margin: 0 0 1.1em; }
 /* Keep the four section links comfortable on very narrow phones. */
 @media (max-width: 24rem) {
   .nav {
-    grid-template-columns: repeat(4, max-content);
+    grid-template-columns: repeat(4, minmax(0, auto));
     justify-content: space-between;
-    column-gap: 0.75rem;
+    column-gap: 0.25rem;
   }
 }
 
@@ -936,17 +971,13 @@ p { margin: 0 0 1.1em; }
   flex-direction: column;
   align-items: start;
   gap: 0.65rem;
-  padding: clamp(1.25rem, 3.5vw, 2.5rem);
-  border: 1px solid rgba(234, 226, 216, 0.7);
-  border-radius: 1rem;
-  background: #fff;
-  box-shadow: 0 6px 24px -4px rgba(44, 37, 32, 0.05);
+  padding-block: clamp(1.25rem, 3.5vw, 2rem);
+  border-top: 1px solid var(--rule);
   scroll-margin-top: 1.5rem;
 }
 .project-card--featured {
   display: grid;
   gap: 1.5rem 2.5rem;
-  background: #f4efe8;
 }
 .project-card__copy { min-width: 0; }
 .project-card h2, .project-visual h2 {
@@ -1570,3 +1601,94 @@ p { margin: 0 0 1.1em; }
     padding-bottom: 0;
   }
 }
+
+
+/* Editorial archive and home */
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.25rem;
+}
+.hero__actions a:first-child { font-weight: 600; }
+
+.home-initiatives { padding-block: clamp(2rem, 5vw, 3.5rem); }
+.home-initiatives__grid,
+.notes-start ul {
+  display: grid;
+  gap: 0 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr));
+}
+.home-initiatives__grid > div,
+.notes-start li {
+  border-top: 1px solid var(--rule);
+  padding-block: 0.85rem;
+}
+.home-initiatives h3 { font-size: 1.35rem; }
+.home-initiatives p { margin-block: 0.4rem 0; }
+.home-signup { margin-bottom: 2rem; }
+
+.notes-start ul,
+.related-reading ul { list-style: none; padding: 0; }
+.notes-start .label { display: block; margin-bottom: 0.25rem; }
+.notes-filters {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem 1rem;
+  padding-block: 1.25rem;
+  border-block: 1px solid var(--rule);
+}
+.notes-filters label,
+.note-share { font: 400 0.875rem/1.4 var(--sans); }
+.notes-filters label:last-of-type,
+.notes-results { grid-column: 1 / -1; }
+.notes-filters :is(input, select),
+.note-share input {
+  display: block;
+  width: 100%;
+  min-height: 44px;
+  margin-top: 0.25rem;
+  padding: 0.45rem 0.6rem;
+  border: 1px solid var(--rule);
+  background: var(--paper);
+  color: var(--ink);
+  font: inherit;
+}
+.notes-results { margin: 0; }
+.entry__meta .entry__lang { display: block; margin: 0.25rem 0 0; }
+.related-reading {
+  max-width: var(--measure);
+  margin-block: 2rem 1.25rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--rule);
+}
+.related-reading h2 { font-size: 1.5rem; }
+.related-reading li + li { margin-top: 0.5rem; }
+.note-share button {
+  min-height: 44px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--ink);
+  font: inherit;
+  text-decoration: underline;
+  text-decoration-color: var(--bronze);
+  text-underline-offset: 0.25em;
+  cursor: pointer;
+}
+.note-share [role="status"] { margin-inline-start: 0.65rem; }
+
+@media (max-width: 46rem) {
+  .project-index {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0 1rem;
+  }
+  .project-index li { border-bottom: 1px solid var(--rule); }
+}
+@media (min-width: 48rem) {
+  .work-page .project-specs { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .notes-filters { grid-template-columns: 1fr 1fr 2fr; }
+  .notes-filters label:last-of-type { grid-column: auto; }
+}
+
+:is(.notes-filters, [data-note-group], #notes-archive .entry, .note-share, .note-share input)[hidden] { display: none; }

@@ -41,18 +41,21 @@
 <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/newsreader-regular.woff2" crossorigin>
 <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/instrument-sans-regular.woff2" crossorigin>
 <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/newsreader-italic.woff2" crossorigin>
-<link rel="stylesheet" href="/assets/css/site.css?v=20261120">
-<link rel="stylesheet" href="/assets/css/site-languages.css?v=20261120-1">
+<link rel="stylesheet" href="/assets/css/site.css?v=20261121">
+<script src="/assets/js/note-share.js" defer></script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
-<header class="masthead"><div class="shell masthead__inner"><div class="masthead__identity">
-      <a class="wordmark" href="/">Diogo Silva</a>
-      <nav class="site-languages" aria-label="Notes index language">
-        <a href="/notes/" lang="en" title="Browse the Notes index in English">English</a>
-        <a href="/notes/pt/" lang="pt-PT" title="Abrir o índice de notas em português">Português</a>
-      </nav>
-    </div><nav class="nav" aria-label="Sections"><a href="/">Home</a><a href="/work/">Work</a><a href="/projects/">Projects</a><a href="/notes/" aria-current="location">Notes</a><a href="/contact/">Contact</a></nav></div></header>
+<header class="masthead">
+  <div class="shell masthead__inner">
+    <a class="wordmark" href="/">Diogo Silva</a>
+    <nav class="nav" aria-label="Sections"><a href="/">Home</a><a href="/work/">Work</a><a href="/projects/">Projects</a><a href="/notes/" aria-current="location">Notes</a><a href="/contact/">Contact</a></nav>
+    <nav class="site-languages" aria-label="Page language">
+      <span lang="en" aria-label="EN — article language: English" aria-current="true">EN</span>
+      <a href="/notes/pt/" lang="pt-PT" hreflang="pt-PT" aria-label="PT — Abrir o índice de notas em português">PT</a>
+    </nav>
+  </div>
+</header>
 <main id="main" tabindex="-1"><article class="shell article">
 <header class="article__head"><p class="article__date label"><time datetime="2026-09-29">29 Sep 2026</time> &middot; Diogo Silva &middot; 5 min read</p><h1 class="article__title">The life I would not trade</h1><p class="standfirst">The ordinary days shared with a family can hold a kind of wealth no professional success can replace.</p></header>
 <div class="prose">
@@ -81,8 +84,21 @@
 <p>Tomorrow, making breakfast for my children will be an ordinary task again. It is one of the parts of my life I would not trade for all the success in the world.</p>
 </div>
 <form class="signup" action="https://buttondown.com/api/emails/embed-subscribe/bronze_da_silva" method="post" target="_blank"><p class="signup__line">Occasional notes, straight to your inbox.</p><div class="signup__row"><label class="skip" for="email">Email address</label><input id="email" type="email" name="email" placeholder="you@example.com" autocomplete="email" required><input type="hidden" name="embed" value="1"><button type="submit">Subscribe</button></div><p class="signup__fine">No schedule, no marketing. Unsubscribe whenever.</p></form>
+<section class="related-reading" aria-labelledby="related-title">
+  <h2 id="related-title">Related reading</h2>
+  <ul>
+    <li><a class="link" href="/notes/what-remains-when-the-world-turns/" lang="en">What remains when the world turns</a></li>
+    <li><a class="link" href="/notes/the-wisdom-of-a-second-breakfast/" lang="en">The wisdom of a second breakfast</a></li>
+  </ul>
+  <div class="note-share" hidden>
+    <button type="button" data-copy-link data-copied="Link copied.">Copy link</button>
+    <span role="status"></span>
+    <input id="share-url" type="url" aria-label="Link to this article" readonly hidden>
+  </div>
+</section>
 <footer class="article__foot label"><a href="/notes/saber-ler-a-sala/">&larr; Newer</a><a href="/notes/">All notes</a><a href="/notes/the-work-that-holds-the-rest/">Older &rarr;</a></footer>
 </article></main>
-<footer class="colophon"><div class="shell colophon__inner label"><span>Diogo Silva &middot; diogobronzesilva.com &middot; <a href="/feed.xml">RSS</a></span><span>Written by hand, between bedtimes.</span></div></footer>
+<footer class="colophon"><div class="shell colophon__inner label"><span>Diogo Silva</span>
+    <span class="colophon__links"><!--email_off--><a href="mailto:hello@diogobronzesilva.com">Email</a><!--/email_off--> &middot; <a href="https://www.linkedin.com/in/diogosilvae/">LinkedIn</a> &middot; <a href="/feed.xml">RSS</a> &middot; <a href="https://bronzeart.pt/">Bronze Art</a> &middot; <a href="https://bronzepodcast.com/">Bronze Podcast</a></span><span>Written by hand, between bedtimes.</span></div></footer>
 </body>
 </html>
