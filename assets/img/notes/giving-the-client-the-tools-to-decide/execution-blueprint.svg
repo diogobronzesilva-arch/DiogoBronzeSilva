@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 468" width="640" height="468" role="img" aria-labelledby="fig3-title fig3-desc">
+  <title id="fig3-title">The Enterprise Execution Blueprint</title>
+  <desc id="fig3-desc">A four-phase implementation roadmap shared before contract signature, mapping Weeks 1-2 Scope and Payroll Mapping, Weeks 3-4 Configuration and Parallel Dry Run, Weeks 5-6 Communication and Rollout, and Day 60-90 Utilisation Audit with named owners on both client and vendor sides.</desc>
+
+  <!-- Canvas -->
+  <rect x="0.5" y="0.5" width="639" height="467" fill="#FBFAF7" stroke="#DCD7CE" stroke-width="1"/>
+
+  <!-- Header -->
+  <text x="28" y="32" font-family="Instrument Sans, ui-sans-serif, system-ui, -apple-system, Helvetica Neue, Arial, sans-serif" font-size="11" font-weight="600" letter-spacing="1.4" fill="#746E63">FIGURE 03 · THE EXECUTION BLUEPRINT (BUILT BEFORE SIGNATURE)</text>
+  <text x="28" y="51" font-family="Newsreader, Georgia, serif" font-style="italic" font-size="13.5" fill="#56534C">Removing transition fear by naming every phase, owner, and exit check in advance</text>
+  <line x1="28" y1="64" x2="612" y2="64" stroke="#E5E0D7" stroke-width="1"/>
+
+  <!-- Vertical timeline spine -->
+  <line x1="52" y1="106" x2="52" y2="394" stroke="#C9B28B" stroke-width="1.5"/>
+
+  <!-- Phase 01 -->
+  <circle cx="52" cy="116" r="14" fill="#FBFAF7" stroke="#8A6A3C" stroke-width="1.5"/>
+  <text x="52" y="120.5" text-anchor="middle" font-family="Instrument Sans, ui-sans-serif, system-ui, sans-serif" font-size="11" font-weight="600" fill="#8A6A3C">01</text>
+  <rect x="82" y="80" width="530" height="74" fill="#FBFAF7" stroke="#DCD7CE" stroke-width="1"/>
+  <text x="98" y="102" font-family="Instrument Sans, ui-sans-serif, system-ui, sans-serif" font-size="10.5" font-weight="600" letter-spacing="1" fill="#8A6A3C">WEEKS 1–2 · SCOPE, FISCAL RULES &amp; PAYROLL MAPPING</text>
+  <text x="98" y="123" font-family="Newsreader, Georgia, serif" font-size="15" fill="#191814">Lock tax categories, ERP export formats, and compliance sign-off.</text>
+  <text x="98" y="143" font-family="Instrument Sans, ui-sans-serif, system-ui, sans-serif" font-size="11.5" fill="#746E63">Owners: Finance · Payroll Lead · Vendor Solutions · Exit check: Signed technical spec</text>
+
+  <!-- Phase 02 -->
+  <circle cx="52" cy="206" r="14" fill="#FBFAF7" stroke="#8A6A3C" stroke-width="1.5"/>
+  <text x="52" y="210.5" text-anchor="middle" font-family="Instrument Sans, ui-sans-serif, system-ui, sans-serif" font-size="11" font-weight="600" fill="#8A6A3C">02</text>
+  <rect x="82" y="170" width="530" height="74" fill="#FBFAF7" stroke="#DCD7CE" stroke-width="1"/>
+  <text x="98" y="192" font-family="Instrument Sans, ui-sans-serif, system-ui, sans-serif" font-size="10.5" font-weight="600" letter-spacing="1" fill="#8A6A3C">WEEKS 3–4 · CONFIGURATION &amp; PARALLEL PAYROLL DRY RUN</text>
+  <text x="98" y="213" font-family="Newsreader, Georgia, serif" font-size="15" fill="#191814">Run a simulated cycle alongside live payroll to prove zero disruption.</text>
+  <text x="98" y="233" font-family="Instrument Sans, ui-sans-serif, system-ui, sans-serif" font-size="11.5" fill="#746E63">Owners: Payroll · IT · Implementation Manager · Exit check: Clean reconciliation file</text>
+
+  <!-- Phase 03 -->
+  <circle cx="52" cy="296" r="14" fill="#FBFAF7" stroke="#8A6A3C" stroke-width="1.5"/>
+  <text x="52" y="300.5" text-anchor="middle" font-family="Instrument Sans, ui-sans-serif, system-ui, sans-serif" font-size="11" font-weight="600" fill="#8A6A3C">03</text>
+  <rect x="82" y="260" width="530" height="74" fill="#FBFAF7" stroke="#DCD7CE" stroke-width="1"/>
+  <text x="98" y="282" font-family="Instrument Sans, ui-sans-serif, system-ui, sans-serif" font-size="10.5" font-weight="600" letter-spacing="1" fill="#8A6A3C">WEEKS 5–6 · COMMUNICATION &amp; WORKFORCE ROLLOUT</text>
+  <text x="98" y="303" font-family="Newsreader, Georgia, serif" font-size="15" fill="#191814">Equip managers, host live employee Q&amp;As, and activate cards &amp; wallets.</text>
+  <text x="98" y="323" font-family="Instrument Sans, ui-sans-serif, system-ui, sans-serif" font-size="11.5" fill="#746E63">Owners: HR · Internal Comms · Customer Success · Exit check: Target activation rate</text>
+
+  <!-- Phase 04 -->
+  <circle cx="52" cy="386" r="14" fill="#8A6A3C" stroke="#8A6A3C" stroke-width="1.5"/>
+  <text x="52" y="390.5" text-anchor="middle" font-family="Instrument Sans, ui-sans-serif, system-ui, sans-serif" font-size="11" font-weight="600" fill="#FBFAF7">04</text>
+  <rect x="82" y="350" width="530" height="74" fill="#F5F2EB" stroke="#8A6A3C" stroke-width="1"/>
+  <text x="98" y="372" font-family="Instrument Sans, ui-sans-serif, system-ui, sans-serif" font-size="10.5" font-weight="600" letter-spacing="1" fill="#8A6A3C">DAY 60–90 · UTILISATION AUDIT &amp; BUSINESS CASE REVIEW</text>
+  <text x="98" y="393" font-family="Newsreader, Georgia, serif" font-size="15" fill="#191814">Reconcile real usage and tax savings against the original CFO model.</text>
+  <text x="98" y="413" font-family="Instrument Sans, ui-sans-serif, system-ui, sans-serif" font-size="11.5" fill="#56534C">Owners: CFO · HR Director · Account Executive · Exit check: Verified ROI review</text>
+
+  <!-- Footer note -->
+  <text x="28" y="450" font-family="Instrument Sans, ui-sans-serif, system-ui, sans-serif" font-size="11" fill="#746E63">Timeline scales with entity count and ERP complexity; the principle is fixed: no team signs blind.</text>
+</svg>

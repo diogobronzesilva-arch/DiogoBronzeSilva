@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 472" width="640" height="472" role="img" aria-labelledby="fig2-title fig2-desc">
+  <title id="fig2-title">Dual-Engine ROI of Benefit Utilisation</title>
+  <desc id="fig2-desc">Illustrative model for a 500-employee company in Portugal showing two return engines: direct fiscal efficiency (€118,750 per year in employer TSU savings on €1,000 shifted per employee plus €92.40 per month in tax-exempt meal card lift) and retention leverage (~€250,000 per year from avoiding 2 percent voluntary attrition).</desc>
+
+  <!-- Canvas -->
+  <rect x="0.5" y="0.5" width="639" height="471" fill="#FBFAF7" stroke="#DCD7CE" stroke-width="1"/>
+
+  <!-- Header -->
+  <text x="28" y="32" font-family="Instrument Sans, ui-sans-serif, system-ui, -apple-system, Helvetica Neue, Arial, sans-serif" font-size="11" font-weight="600" letter-spacing="1.4" fill="#746E63">FIGURE 02 · DUAL-ENGINE ROI OF BENEFIT UTILISATION</text>
+  <text x="28" y="51" font-family="Newsreader, Georgia, serif" font-style="italic" font-size="13.5" fill="#56534C">Illustrative 500-employee model · Portuguese fiscal framework · conservative assumptions</text>
+  <line x1="28" y1="64" x2="612" y2="64" stroke="#E5E0D7" stroke-width="1"/>
+
+  <!-- Engine 01 label -->
+  <text x="28" y="86" font-family="Instrument Sans, ui-sans-serif, system-ui, sans-serif" font-size="10.5" font-weight="600" letter-spacing="1.2" fill="#8A6A3C">ENGINE 01 · DIRECT FISCAL EFFICIENCY (DETERMINISTIC, HARD VALUE)</text>
+
+  <!-- Card 1A: Flexible Benefits TSU -->
+  <rect x="28" y="98" width="280" height="128" fill="#FBFAF7" stroke="#DCD7CE" stroke-width="1"/>
+  <text x="46" y="121" font-family="Instrument Sans, ui-sans-serif, system-ui, sans-serif" font-size="10.5" font-weight="600" letter-spacing="0.9" fill="#56534C">FLEXIBLE BENEFITS ALLOCATION</text>
+  <text x="46" y="154" font-family="Newsreader, Georgia, serif" font-size="27" fill="#8A6A3C">€118,750 / yr</text>
+  <text x="46" y="177" font-family="Instrument Sans, ui-sans-serif, system-ui, sans-serif" font-size="12" fill="#56534C">€1,000/yr per person shifted to exempt</text>
+  <text x="46" y="194" font-family="Instrument Sans, ui-sans-serif, system-ui, sans-serif" font-size="12" fill="#56534C">benefits avoids 23.75% employer TSU</text>
+  <text x="46" y="213" font-family="Instrument Sans, ui-sans-serif, system-ui, sans-serif" font-size="11" fill="#746E63">(500 × €237.50 saved · higher net pay)</text>
+
+  <!-- Card 1B: Meal Allowance -->
+  <rect x="332" y="98" width="280" height="128" fill="#FBFAF7" stroke="#DCD7CE" stroke-width="1"/>
+  <text x="350" y="121" font-family="Instrument Sans, ui-sans-serif, system-ui, sans-serif" font-size="10.5" font-weight="600" letter-spacing="0.9" fill="#56534C">MEAL ALLOWANCE OPTIMISATION</text>
+  <text x="350" y="154" font-family="Newsreader, Georgia, serif" font-size="27" fill="#191814">+€92.40 / mo</text>
+  <text x="350" y="177" font-family="Instrument Sans, ui-sans-serif, system-ui, sans-serif" font-size="12" fill="#56534C">Tax-exempt ceiling rises from €6.00</text>
+  <text x="350" y="194" font-family="Instrument Sans, ui-sans-serif, system-ui, sans-serif" font-size="12" fill="#56534C">in cash to €10.20/day on a meal card</text>
+  <text x="350" y="213" font-family="Instrument Sans, ui-sans-serif, system-ui, sans-serif" font-size="11" fill="#746E63">(22 working days · visible every month)</text>
+
+  <!-- Engine 02 label -->
+  <text x="28" y="252" font-family="Instrument Sans, ui-sans-serif, system-ui, sans-serif" font-size="10.5" font-weight="600" letter-spacing="1.2" fill="#8A6A3C">ENGINE 02 · UTILISATION-DRIVEN TALENT RETENTION (STRATEGIC LEVERAGE)</text>
+
+  <!-- Engine 02 Box -->
+  <rect x="28" y="264" width="584" height="114" fill="#F5F2EB" stroke="#DCD7CE" stroke-width="1"/>
+  <rect x="28" y="264" width="4" height="114" fill="#8A6A3C"/>
+
+  <!-- Left narrative -->
+  <text x="48" y="292" font-family="Newsreader, Georgia, serif" font-size="16.5" fill="#191814">Benefits retain talent only when used.</text>
+  <text x="48" y="317" font-family="Instrument Sans, ui-sans-serif, system-ui, sans-serif" font-size="12.2" fill="#56534C">Replacing a skilled employee typically costs 6–12 months</text>
+  <text x="48" y="335" font-family="Instrument Sans, ui-sans-serif, system-ui, sans-serif" font-size="12.2" fill="#56534C">of salary in hiring, onboarding, and lost team output.</text>
+  <text x="48" y="359" font-family="Instrument Sans, ui-sans-serif, system-ui, sans-serif" font-size="11.8" font-weight="600" fill="#191814">Avoiding 2% voluntary attrition (10 departures/yr × €25k):</text>
+
+  <!-- Vertical separator -->
+  <line x1="430" y1="280" x2="430" y2="362" stroke="#D9D3C7" stroke-width="1"/>
+
+  <!-- Right figure -->
+  <text x="521" y="318" text-anchor="middle" font-family="Newsreader, Georgia, serif" font-size="27" fill="#8A6A3C">~€250,000</text>
+  <text x="521" y="338" text-anchor="middle" font-family="Instrument Sans, ui-sans-serif, system-ui, sans-serif" font-size="11.5" font-weight="600" fill="#191814">per year protected</text>
+  <text x="521" y="356" text-anchor="middle" font-family="Instrument Sans, ui-sans-serif, system-ui, sans-serif" font-size="11" fill="#746E63">in turnover &amp; ramp-up cost</text>
+
+  <!-- Visual Payback Bar -->
+  <text x="28" y="403" font-family="Instrument Sans, ui-sans-serif, system-ui, sans-serif" font-size="10.5" font-weight="600" letter-spacing="1.1" fill="#56534C">ILLUSTRATIVE ANNUAL VALUE VS. SOFTWARE COST</text>
+
+  <!-- Bar track -->
+  <rect x="28" y="413" width="584" height="22" fill="#ECE8DF"/>
+  <!-- Platform cost slice -->
+  <rect x="28" y="413" width="44" height="22" fill="#191814"/>
+  <!-- Fiscal savings slice -->
+  <rect x="74" y="413" width="176" height="22" fill="#8A6A3C"/>
+  <!-- Retention upside slice -->
+  <rect x="252" y="413" width="360" height="22" fill="#C9B28B"/>
+
+  <!-- Legend -->
+  <rect x="28" y="446" width="9" height="9" fill="#191814"/>
+  <text x="42" y="454.5" font-family="Instrument Sans, ui-sans-serif, system-ui, sans-serif" font-size="11" fill="#56534C">Platform investment</text>
+
+  <rect x="174" y="446" width="9" height="9" fill="#8A6A3C"/>
+  <text x="188" y="454.5" font-family="Instrument Sans, ui-sans-serif, system-ui, sans-serif" font-size="11" fill="#56534C">Hard fiscal savings (TSU)</text>
+
+  <rect x="352" y="446" width="9" height="9" fill="#C9B28B"/>
+  <text x="366" y="454.5" font-family="Instrument Sans, ui-sans-serif, system-ui, sans-serif" font-size="11" fill="#56534C">Retention &amp; utilisation upside</text>
+</svg>

@@ -40,6 +40,7 @@
 
 ### Writing and Speaking on Sales
 - **Work hub**: https://diogobronzesilva.com/work/#writing-and-speaking
+- **Enterprise Decision Architecture**: https://diogobronzesilva.com/notes/giving-the-client-the-tools-to-decide/ ("Giving the client the tools to decide" — Business Case + Execution Blueprint methodology for large accounts)
 - **Methodological Essay**: https://diogobronzesilva.com/notes/the-end-of-the-information-broker/ ("The end of the information broker" — Deal Intelligence & B2B Account Executive architecture)
 - **Adjacent Reflections**: https://diogobronzesilva.com/notes/the-work-that-holds-the-rest/ ("The work that holds the rest") and https://diogobronzesilva.com/notes/the-ability-to-leave-work/ ("The ability to leave work")
 - **Portuguese Essay on Trust & Leadership (`pt-PT`)**: https://diogobronzesilva.com/notes/saber-ler-a-sala/ ("Saber ler a sala")
@@ -107,6 +108,10 @@
 ## 5. Published Notes and Essays
 
 All essays are published in static HTML on https://diogobronzesilva.com/notes/.
+
+### "Giving the client the tools to decide" (23 Nov 2026, en)
+- **URL**: https://diogobronzesilva.com/notes/giving-the-client-the-tools-to-decide/
+- **Summary**: A field-tested enterprise sales essay on defeating status-quo indecision ("no decision") when working with large accounts. Explains why organisations fail to see invisible talent attrition costs and why winning requires two co-authored deliverables before signature: a CFO-grade Business Case demonstrating dual-engine ROI from actual benefit utilisation (combining deterministic Portuguese fiscal savings such as 23.75% employer TSU exemptions and €10.20/day meal card optimisation with conservative retention leverage) and a four-phase Execution Blueprint de-risking transition for HR, Payroll, Operations and IT through named owners, parallel payroll dry runs, rollout communication and a 90-day utilisation audit. Illustrated with three editorial SVG diagrams.
 
 ### "Even a castle in the sky needs roots" (14 Nov 2026, en)
 - **URL**: https://diogobronzesilva.com/notes/even-a-castle-in-the-sky-needs-roots/
