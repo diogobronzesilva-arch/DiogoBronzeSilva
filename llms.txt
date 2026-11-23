@@ -41,6 +41,7 @@ Full context document: [llms-full.txt](https://diogobronzesilva.com/llms-full.tx
 
 ## Notes
 
+- [Giving the client the tools to decide](https://diogobronzesilva.com/notes/giving-the-client-the-tools-to-decide/): On overcoming no-decision in enterprise sales by pairing a CFO-grade Business Case (deterministic fiscal efficiency and utilisation-driven retention ROI) with an operational Execution Blueprint for HR, Payroll and IT. Includes three editorial diagrams. Published 23 November 2026.
 - [Even a castle in the sky needs roots](https://diogobronzesilva.com/notes/even-a-castle-in-the-sky-needs-roots/): A child’s question about Laputa leads to an essay on Miyazaki, technological power, family, nature and the ordinary life useful tools ought to serve. Published 14 November 2026.
 - [What remains when the world turns](https://diogobronzesilva.com/notes/what-remains-when-the-world-turns/): A literary personal essay in English on family, identity and the changes of a life, with an autumnal cadence. Distinguishes personal continuity and moral growth from Eucharistic transubstantiation. Published 11 November 2026.
 - [The end of the information broker](https://diogobronzesilva.com/notes/the-end-of-the-information-broker/): An essay on AI-assisted preparation for B2B sales, verifiable calculations and the value of meeting buyers in person. Published 9 November 2026.
