@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Uma <url> por pagina publicada, sempre com a URL limpa e barra no fim. -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://diogobronzesilva.com/</loc><lastmod>2026-11-23</lastmod></url>
-  <url><loc>https://diogobronzesilva.com/pt/</loc><lastmod>2026-11-23</lastmod></url>
+  <url><loc>https://diogobronzesilva.com/</loc><lastmod>2026-11-27</lastmod></url>
+  <url><loc>https://diogobronzesilva.com/pt/</loc><lastmod>2026-11-27</lastmod></url>
   <url><loc>https://diogobronzesilva.com/work/</loc><lastmod>2026-11-20</lastmod></url>
   <url><loc>https://diogobronzesilva.com/work/pt/</loc><lastmod>2026-11-20</lastmod></url>
   <url><loc>https://diogobronzesilva.com/projects/</loc><lastmod>2026-11-20</lastmod></url>
@@ -20,8 +20,8 @@
   <url><loc>https://diogobronzesilva.com/vitachart/apoio/en/</loc><lastmod>2026-11-20</lastmod></url>
   <url><loc>https://diogobronzesilva.com/vitachart/apoio/es/</loc><lastmod>2026-11-20</lastmod></url>
   <url><loc>https://diogobronzesilva.com/vitachart/apoio/fr/</loc><lastmod>2026-11-20</lastmod></url>
-  <url><loc>https://diogobronzesilva.com/notes/</loc><lastmod>2026-11-23</lastmod></url>
-  <url><loc>https://diogobronzesilva.com/notes/pt/</loc><lastmod>2026-11-23</lastmod></url>
+  <url><loc>https://diogobronzesilva.com/notes/</loc><lastmod>2026-11-27</lastmod></url>
+  <url><loc>https://diogobronzesilva.com/notes/pt/</loc><lastmod>2026-11-27</lastmod></url>
   <url><loc>https://diogobronzesilva.com/notes/saber-ler-a-sala/</loc><lastmod>2026-11-11</lastmod></url>
   <url><loc>https://diogobronzesilva.com/notes/the-life-i-would-not-trade/</loc><lastmod>2026-11-11</lastmod></url>
   <url><loc>https://diogobronzesilva.com/notes/the-work-that-holds-the-rest/</loc><lastmod>2026-11-11</lastmod></url>
@@ -50,4 +50,6 @@
   <url><loc>https://diogobronzesilva.com/notes/what-remains-when-the-world-turns/</loc><lastmod>2026-11-14</lastmod></url>
   <url><loc>https://diogobronzesilva.com/notes/even-a-castle-in-the-sky-needs-roots/</loc><lastmod>2026-11-14</lastmod></url>
   <url><loc>https://diogobronzesilva.com/notes/giving-the-client-the-tools-to-decide/</loc><lastmod>2026-11-23</lastmod></url>
+  <url><loc>https://diogobronzesilva.com/notes/from-company-towns-to-flexible-benefits/</loc><lastmod>2026-11-27</lastmod></url>
+  <url><loc>https://diogobronzesilva.com/notes/from-company-towns-to-flexible-benefits/pt/</loc><lastmod>2026-11-27</lastmod></url>
 </urlset>

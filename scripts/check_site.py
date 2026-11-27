@@ -259,6 +259,10 @@ def is_note_article(rel: Path) -> bool:
     return rel.parts[0] == "notes" and rel.name == "index.html" and rel not in NOTES_INDEXES
 
 
+def is_note_translation(rel: Path) -> bool:
+    return len(rel.parts) == 4 and rel.parts[0] == "notes" and rel.parts[2] == "pt" and rel.name == "index.html"
+
+
 def published_html_files() -> list[Path]:
     files: list[Path] = []
     for path in ROOT.rglob("*.html"):
@@ -361,7 +365,7 @@ def check_page_shell(report: Report, rel: Path, parser: PageParser) -> None:
         expected = "/assets/js/vitachart-demo.js"
     elif rel in {Path("notes/index.html"), Path("notes/pt/index.html")}:
         expected = "/assets/js/notes-filter.js"
-    elif rel == TEMPLATE or (len(rel.parts) == 3 and rel.parts[0] == "notes" and rel.name == "index.html"):
+    elif rel == TEMPLATE or is_note_article(rel):
         expected = "/assets/js/note-share.js"
 
     scripts = parser.executable_scripts
@@ -592,7 +596,7 @@ def check_feed(report: Report, parsed: dict[Path, PageParser]) -> None:
     note_articles = {
         expected_url(relative(path))
         for path in published_html_files()
-        if is_note_article(relative(path))
+        if is_note_article(relative(path)) and not is_note_translation(relative(path))
     }
     actual_links = set(links)
     for url in sorted(note_articles - actual_links):
@@ -600,46 +604,67 @@ def check_feed(report: Report, parsed: dict[Path, PageParser]) -> None:
     for url in sorted(actual_links - note_articles):
         report.error(f"RSS contains a non-note or unpublished URL: {url}", Path("feed.xml"))
 
+    def note_nav_href(slug: str, prefer_pt: bool) -> str:
+        if prefer_pt and (ROOT / "notes" / slug / "pt" / "index.html").is_file():
+            return f"/notes/{slug}/pt/"
+        return f"/notes/{slug}/"
+
     for i, link in enumerate(links):
         target = local_target(Path("feed.xml"), link)
         if target is None or not (ROOT / target).exists():
             continue
-        try:
-            page_html = (ROOT / target).read_text(encoding="utf-8")
-        except OSError as exc:
-            report.error(f"Could not read note HTML: {exc}", target)
-            continue
+        variants = [(target, False)]
+        pt_variant = target.parent / "pt" / "index.html"
+        if (ROOT / pt_variant).is_file():
+            variants.append((pt_variant, True))
 
-        footer_match = re.search(r'<footer class="article__foot[^"]*">(.*?)</footer>', page_html, re.DOTALL)
-        if not footer_match:
-            report.error("Note article is missing an article__foot navigation footer.", target)
-            continue
-        footer_content = footer_match.group(1)
+        for variant_path, prefer_pt in variants:
+            try:
+                page_html = (ROOT / variant_path).read_text(encoding="utf-8")
+            except OSError as exc:
+                report.error(f"Could not read note HTML: {exc}", variant_path)
+                continue
 
-        if i > 0:
-            newer_slug = links[i - 1].rstrip("/").split("/")[-1]
-            if f"/notes/{newer_slug}/" not in footer_content:
-                report.error(
-                    f"Note navigation footer missing link to newer article: /notes/{newer_slug}/",
-                    target,
-                )
-        elif "&larr;" in footer_content or "Mais recente" in footer_content or "Newer" in footer_content:
-            report.error("Most recent note should not have a link to a newer note.", target)
+            footer_match = re.search(r'<footer class="article__foot[^"]*">(.*?)</footer>', page_html, re.DOTALL)
+            if not footer_match:
+                report.error("Note article is missing an article__foot navigation footer.", variant_path)
+                continue
+            footer_content = footer_match.group(1)
 
-        if i < len(links) - 1:
-            older_slug = links[i + 1].rstrip("/").split("/")[-1]
-            if f"/notes/{older_slug}/" not in footer_content:
-                report.error(
-                    f"Note navigation footer missing link to older article: /notes/{older_slug}/",
-                    target,
-                )
-        elif "&rarr;" in footer_content or "Mais antigo" in footer_content or "Older" in footer_content:
-            report.error("Oldest note should not have a link to an older note.", target)
+            if i > 0:
+                newer_slug = links[i - 1].rstrip("/").split("/")[-1]
+                newer_href = note_nav_href(newer_slug, prefer_pt)
+                if newer_href not in footer_content:
+                    report.error(
+                        f"Note navigation footer missing link to newer article: {newer_href}",
+                        variant_path,
+                    )
+            elif "&larr;" in footer_content or "Mais recente" in footer_content or "Newer" in footer_content:
+                report.error("Most recent note should not have a link to a newer note.", variant_path)
+
+            if i < len(links) - 1:
+                older_slug = links[i + 1].rstrip("/").split("/")[-1]
+                older_href = note_nav_href(older_slug, prefer_pt)
+                if older_href not in footer_content:
+                    report.error(
+                        f"Note navigation footer missing link to older article: {older_href}",
+                        variant_path,
+                    )
+            elif "&rarr;" in footer_content or "Mais antigo" in footer_content or "Older" in footer_content:
+                report.error("Oldest note should not have a link to an older note.", variant_path)
 
     expected_paths = [urlsplit(link).path for link in links]
+    pt_expected_paths = [
+        note_nav_href(path_str.strip("/").split("/")[-1], True)
+        for path_str in expected_paths
+    ]
 
-    indexes = [(Path("index.html"), expected_paths[:4]), (Path("pt/index.html"), expected_paths[:4])]
-    indexes.extend((path, expected_paths) for path in NOTES_INDEXES)
+    indexes = [
+        (Path("index.html"), expected_paths[:4]),
+        (Path("pt/index.html"), pt_expected_paths[:4]),
+        (Path("notes/index.html"), expected_paths),
+        (Path("notes/pt/index.html"), pt_expected_paths),
+    ]
     for path, expected in indexes:
         if path not in parsed or not expected:
             continue
