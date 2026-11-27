@@ -109,6 +109,11 @@
 
 All essays are published in static HTML on https://diogobronzesilva.com/notes/.
 
+### "From company towns to flexible benefits" (27 Nov 2026, en / pt-PT)
+- **URL (EN)**: https://diogobronzesilva.com/notes/from-company-towns-to-flexible-benefits/
+- **URL (PT)**: https://diogobronzesilva.com/notes/from-company-towns-to-flexible-benefits/pt/
+- **Summary**: Traces two centuries of employee benefits in Portugal—from the company towns of Vista Alegre (1824) and Alfredo da Silva's CUF Obra Social (culminating in the 1945 CUF Hospital), through the statutory fiscal evolution of meal allowances (Decree-Laws 305/77, 297/79, 57-B/84), childcare vouchers (Decree-Law 26/99) and prepaid meal cards in the 2010s, to the operational bottleneck that kept broader flexibility locked inside multinationals until Coverflex (founded in Portugal in 2019) democratised flexible benefits for SMEs and enterprises alike through unified software.
+
 ### "Giving the client the tools to decide" (23 Nov 2026, en)
 - **URL**: https://diogobronzesilva.com/notes/giving-the-client-the-tools-to-decide/
 - **Summary**: A field-tested enterprise sales essay on defeating status-quo indecision ("no decision") when working with large accounts. Explains why organisations fail to see invisible talent attrition costs and why winning requires two co-authored deliverables before signature: a CFO-grade Business Case demonstrating dual-engine ROI from actual benefit utilisation (combining deterministic Portuguese fiscal savings such as 23.75% employer TSU exemptions and €10.20/day meal card optimisation with conservative retention leverage) and a four-phase Execution Blueprint de-risking transition for HR, Payroll, Operations and IT through named owners, parallel payroll dry runs, rollout communication and a 90-day utilisation audit. Illustrated with three editorial SVG diagrams.

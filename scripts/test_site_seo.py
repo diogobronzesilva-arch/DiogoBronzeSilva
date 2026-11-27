@@ -368,8 +368,26 @@ class WebsiteLanguageTests(unittest.TestCase):
                     self.assertEqual([current], [link.get('href') for link in parser.anchors if link.get('aria-current') == 'page'])
 
     def test_essays_indicate_language_and_link_to_the_other_catalogue(self):
+        origin = 'https://diogobronzesilva.com'
         for path in (self.root / 'notes').glob('*/index.html'):
             if path.parent.name == 'pt':
+                continue
+            pt_path = path.parent / 'pt' / 'index.html'
+            if pt_path.is_file():
+                en_route = f'/notes/{path.parent.name}/'
+                pt_route = f'/notes/{path.parent.name}/pt/'
+                for current_path, current_route, language in ((path, en_route, 'en'), (pt_path, pt_route, 'pt-PT')):
+                    with self.subTest(essay=path.parent.name, language=language):
+                        html = current_path.read_text(encoding='utf-8')
+                        self.assertRegex(html, f'<html lang="{language}(?:-GB)?">')
+                        self.assertIn(f'<link rel="canonical" href="{origin}{current_route}">', html)
+                        for label, target in (('en', en_route), ('pt-PT', pt_route), ('x-default', en_route)):
+                            self.assertIn(f'<link rel="alternate" hreflang="{label}" href="{origin}{target}">', html)
+                        nav = re.search(r'<nav class="site-languages"[^>]*>(.*?)</nav>', html, re.S).group(1)
+                        parser = PageParser()
+                        parser.feed(nav)
+                        self.assertEqual([en_route, pt_route], [link.get('href') for link in parser.anchors])
+                        self.assertEqual([current_route], [link.get('href') for link in parser.anchors if link.get('aria-current') == 'page'])
                 continue
             with self.subTest(essay=path.parent.name):
                 html = path.read_text(encoding='utf-8')
